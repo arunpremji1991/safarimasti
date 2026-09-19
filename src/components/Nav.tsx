@@ -31,7 +31,15 @@ export function Nav() {
     };
   }, [menuOpen]);
 
-  const solid = scrolled || menuOpen;
+  // Only pages that render a full-bleed dark hero image immediately below the
+  // nav can safely use the transparent/light-logo state at the top of the
+  // page — everywhere else (tour pages, the journey builder, plain pages)
+  // starts on a light background, so the nav must stay solid from the start.
+  const transparentCapableRoutes = ["/", "/about", "/experiences", "/destinations", "/collections", "/contact", "/blog"];
+  const hasHeroBackground =
+    transparentCapableRoutes.includes(pathname) || pathname.startsWith("/collections/");
+
+  const solid = scrolled || menuOpen || !hasHeroBackground;
 
   return (
     <>
