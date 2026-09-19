@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Safari Masti — Website
+
+Premium Pan-India travel website for Safari Masti (Cochin, Kerala), built with
+Next.js (App Router), TypeScript, Tailwind CSS v4 and Framer Motion.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Email setup (contact form + Build Your Journey)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form (`/contact`) and the journey builder (`/build-your-journey`)
+both send email via `src/lib/mailer.ts` using SMTP credentials from
+environment variables. Copy `.env.example` to `.env.local` and fill in real
+credentials — see that file for the easiest option (a Gmail App Password on
+`safarimasti@gmail.com`). Until these are set, both forms fail gracefully with
+a message pointing the visitor to call or WhatsApp instead.
 
-## Learn More
+## Content & data
 
-To learn more about Next.js, take a look at the following resources:
+All copy is sourced from Safari Masti's Company Profile & Signature
+Collections PDF and Package Options PDF — see `src/data/*.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `site.ts` — brand copy, contact details, services, "why us"
+- `collections.ts` — the 7 Signature Collections
+- `tours.ts` — individual journeys within each collection
+- `destinations.ts`, `experienceTypes.ts`, `journeyBuilderOptions.ts`, `blog.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Tour pages intentionally omit fabricated itineraries, inclusions, prices and
+reviews — see the comment at the top of `tours.ts`. Add real day-by-day detail
+to a tour's `itinerary`/`inclusions`/`goodToKnow` fields as it becomes
+available; the product page renders it automatically once present.
 
-## Deploy on Vercel
+## Images
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All photography is sourced from Unsplash under the Unsplash License — see
+[`IMAGE-CREDITS.md`](./IMAGE-CREDITS.md) for the full source list and a
+replacement checklist for swapping in Safari Masti's own photography.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+- `src/app/*` — routes (home, about, experiences, destinations, collections
+  + `[slug]`, tours/`[slug]`, build-your-journey, contact, blog + `[slug]`)
+- `src/components/sections/*` — homepage sections
+- `src/components/tour/*`, `src/components/journey/*` — product page and
+  journey-builder specific components
+- `src/app/api/contact`, `src/app/api/journey-request` — form submission routes

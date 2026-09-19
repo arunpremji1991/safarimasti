@@ -34,6 +34,7 @@ export function Nav() {
   const solid = scrolled || menuOpen;
 
   return (
+    <>
     <header
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
@@ -95,6 +96,7 @@ export function Nav() {
           />
         </button>
       </nav>
+    </header>
 
       <AnimatePresence>
         {menuOpen && (
@@ -103,9 +105,9 @@ export function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-maroon-950 px-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-center overflow-y-auto bg-maroon-950 px-8 py-24 md:hidden"
           >
-            <ul className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-4">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.href}
@@ -115,7 +117,7 @@ export function Nav() {
                 >
                   <Link
                     href={link.href}
-                    className="font-display text-4xl text-cream-50 hover:text-amber-400"
+                    className="font-display text-3xl text-cream-50 hover:text-amber-400"
                   >
                     {link.label}
                   </Link>
@@ -138,6 +140,6 @@ export function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
