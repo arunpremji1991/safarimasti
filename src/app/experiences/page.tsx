@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
-import { Services } from "@/components/sections/Services";
 import { ExperienceSelector } from "@/components/sections/ExperienceSelector";
 import { SignatureCollections } from "@/components/sections/SignatureCollections";
 import { BuildJourneyCTA } from "@/components/sections/BuildJourneyCTA";
@@ -21,7 +20,6 @@ export default function ExperiencesPage() {
         image="/images/collections/adventure-trekking-hero.webp"
         crumbs={[{ label: "Home", href: "/" }, { label: "Experiences" }]}
       />
-      <Services />
       <ExperienceSelector />
       <SignatureCollections />
       <BuildJourneyCTA />

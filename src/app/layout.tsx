@@ -3,6 +3,7 @@ import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { FloatingContact } from "@/components/FloatingContact";
 import { site } from "@/data/site";
 
 const fraunces = Fraunces({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main-content">{children}</main>
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { WhyUs } from "@/components/sections/WhyUs";
-import { Services } from "@/components/sections/Services";
+import { ServicesCompact } from "@/components/sections/ServicesCompact";
 import { BuildJourneyCTA } from "@/components/sections/BuildJourneyCTA";
 import { site } from "@/data/site";
 
@@ -61,7 +61,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Services />
+      <ServicesCompact />
       <WhyUs />
       <BuildJourneyCTA />
     </>
