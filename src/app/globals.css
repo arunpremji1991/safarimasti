@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-maroon-950: #390a10;
+  --color-maroon-900: #4a0d14;
+  --color-maroon-800: #641119;
+  --color-maroon-700: #7c1620;
+  --color-maroon-600: #97202b;
+
+  --color-amber-600: #d99433;
+  --color-amber-500: #eeaa4c;
+  --color-amber-400: #f3bd6d;
+  --color-amber-300: #f7d097;
+  --color-amber-100: #fbe7c4;
+
+  --color-cream-50: #fdf9f1;
+  --color-cream-100: #f8f0e0;
+  --color-cream-200: #f0e3c8;
+
+  --color-olive-800: #34331f;
+  --color-olive-600: #4b4a2c;
+
+  --color-charcoal-950: #100d0c;
+  --color-charcoal-900: #1a1512;
+  --color-charcoal-800: #241d19;
+
+  --background: var(--color-cream-50);
+  --foreground: var(--color-charcoal-950);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-maroon-950: var(--color-maroon-950);
+  --color-maroon-900: var(--color-maroon-900);
+  --color-maroon-800: var(--color-maroon-800);
+  --color-maroon-700: var(--color-maroon-700);
+  --color-maroon-600: var(--color-maroon-600);
+
+  --color-amber-600: var(--color-amber-600);
+  --color-amber-500: var(--color-amber-500);
+  --color-amber-400: var(--color-amber-400);
+  --color-amber-300: var(--color-amber-300);
+  --color-amber-100: var(--color-amber-100);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+
+  --color-olive-800: var(--color-olive-800);
+  --color-olive-600: var(--color-olive-600);
+
+  --color-charcoal-950: var(--color-charcoal-950);
+  --color-charcoal-900: var(--color-charcoal-900);
+  --color-charcoal-800: var(--color-charcoal-800);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-color: var(--color-maroon-700) var(--color-cream-100);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
