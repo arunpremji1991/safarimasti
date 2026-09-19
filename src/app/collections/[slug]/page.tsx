@@ -39,7 +39,11 @@ export default async function CollectionDetailPage({
   return (
     <>
       <PageHero
-        eyebrow={`Signature Collection · ${String(collection.index).padStart(2, "0")} / 07`}
+        eyebrow={
+          collection.hideFromSignatureCollections
+            ? "Featured Product"
+            : `Signature Collection · ${String(collection.index).padStart(2, "0")} / 07`
+        }
         title={collection.title}
         description={collection.description}
         image={collection.heroImage}
@@ -52,6 +56,17 @@ export default async function CollectionDetailPage({
 
       <section className="bg-cream-50 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
+          {collection.advantages && (
+            <div className="mb-16 grid gap-px overflow-hidden rounded-2xl bg-charcoal-950/10 sm:grid-cols-3">
+              {collection.advantages.map((a) => (
+                <div key={a.title} className="bg-cream-100 p-6">
+                  <h3 className="font-display text-xl text-charcoal-950">{a.title}</h3>
+                  <p className="mt-2 text-sm text-charcoal-800/75">{a.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-maroon-700">
             Featured In This Collection
           </p>

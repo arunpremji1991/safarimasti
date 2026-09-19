@@ -31,6 +31,10 @@ be re-verified or swapped for licensed/original Safari Masti photography later.
 | charminar | Hyderabad | https://images.unsplash.com/photo-1657981630164-769503f3a9a8 |
 | goa-aerial | West India, Goa Beach Escapes, corporate-weekend service | https://images.unsplash.com/photo-1652820330085-82a0c2b88d78 |
 | arunachal-dawnpeaks | Arunachal Pradesh & Assam | https://images.unsplash.com/photo-1668437824006-1be44600774b |
+| ayurveda-backwater-walk | Kerala Ayurveda Rejuvenation collection hero | https://images.unsplash.com/photo-1723155781081-a9a6f34e3fe0 |
+| ayurveda-resort-exterior | Kerala Ayurveda collection card, Total Body Detox & Reset | https://images.unsplash.com/photo-1677559401235-fe6d5ba9a4df |
+| ayurveda-massage-therapy | Essential Body Refresh | https://images.unsplash.com/photo-1617952986600-802f965dcdbc |
+| ayurveda-shirodhara | Deep Stress Relief | https://images.unsplash.com/photo-1775133263714-848c8fe09e73 |
 
 ## Replacement list
 

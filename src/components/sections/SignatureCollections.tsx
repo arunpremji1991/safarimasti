@@ -4,8 +4,9 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
-import { collections } from "@/data/collections";
+import { getSignatureCollections } from "@/data/collections";
 
+const collections = getSignatureCollections();
 const COUNT = collections.length;
 
 export function SignatureCollections() {

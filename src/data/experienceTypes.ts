@@ -43,6 +43,12 @@ export const experienceTypes: ExperienceType[] = [
     href: "/collections/divine-trails",
   },
   {
+    label: "Wellness",
+    image: "/images/collections/kerala-ayurveda-hero.webp",
+    description: "Authentic Kerala Ayurveda rejuvenation packages.",
+    href: "/collections/kerala-ayurveda",
+  },
+  {
     label: "Family",
     image: "/images/collections/jewels-of-the-south-hero.webp",
     description: "Budget-friendly journeys across South India for every generation.",

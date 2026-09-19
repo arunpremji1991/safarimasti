@@ -140,8 +140,51 @@ export const collections: Collection[] = [
     seoDescription:
       "Divine trails across Varanasi, Rishikesh, Kedarnath, Meenakshi Amman, Padmanabhaswamy and more — spiritual journeys curated by Safari Masti.",
   },
+  {
+    slug: "kerala-ayurveda",
+    index: 8,
+    title: "Kerala Ayurveda Rejuvenation",
+    subtitle: "Revitalize Your Mind & Body",
+    description:
+      "Experience the profound healing of Ayurveda in its purest, most authentic form. Nestled in the tropical cradle of Kerala, India, our rejuvenation therapies are designed to detoxify the body, restore cellular vitality, and bring deep peace to the mind.",
+    heroImage: "/images/collections/kerala-ayurveda-hero.webp",
+    cardImage: "/images/collections/kerala-ayurveda-card.webp",
+    regions: ["South"],
+    destinations: [
+      { name: "Essential Body Refresh", description: "3 to 5 Days" },
+      { name: "Deep Stress Relief", description: "7 Days" },
+      { name: "Total Body Detox & Reset", description: "14+ Days" },
+    ],
+    advantages: [
+      {
+        title: "100% Authentic",
+        description:
+          "Treatments are prescribed by certified traditional doctors and performed by experienced therapists.",
+      },
+      {
+        title: "Natural Healing",
+        description:
+          "We use pure, locally sourced herbal oils tailored to your unique body type.",
+      },
+      {
+        title: "Complete Care",
+        description:
+          "Every stay combines healing therapies, a nutritious organic diet, and gentle daily yoga.",
+      },
+    ],
+    hideFromSignatureCollections: true,
+    seoTitle: "Kerala Ayurveda Rejuvenation Packages | Safari Masti",
+    seoDescription:
+      "Authentic Kerala Ayurveda rejuvenation packages — Essential Body Refresh, Deep Stress Relief, and Total Body Detox & Reset — curated by Safari Masti.",
+  },
 ];
 
 export function getCollectionBySlug(slug: string) {
   return collections.find((c) => c.slug === slug);
+}
+
+/** The 7 Signature Collections from the Company Profile — excludes standalone
+ * featured products like Kerala Ayurveda, which get their own spotlight instead. */
+export function getSignatureCollections() {
+  return collections.filter((c) => !c.hideFromSignatureCollections);
 }

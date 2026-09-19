@@ -15,6 +15,11 @@ export interface CollectionDestinationItem {
   description?: string;
 }
 
+export interface CollectionAdvantage {
+  title: string;
+  description: string;
+}
+
 export interface Collection {
   slug: string;
   index: number;
@@ -27,6 +32,11 @@ export interface Collection {
   regions: Region[];
   seoTitle: string;
   seoDescription: string;
+  /** Optional "why this product" points, rendered on the collection page when present. */
+  advantages?: CollectionAdvantage[];
+  /** Excluded from the homepage Signature Collections carousel and the main
+   * /collections "Bucket-List India" grid — still gets its own /collections/[slug] page. */
+  hideFromSignatureCollections?: boolean;
 }
 
 export interface ItineraryStop {

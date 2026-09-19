@@ -93,5 +93,6 @@ export const navLinks = [
   { label: "Experiences", href: "/experiences" },
   { label: "Destinations", href: "/destinations" },
   { label: "Collections", href: "/collections" },
+  { label: "Ayurveda", href: "/collections/kerala-ayurveda" },
   { label: "Contact", href: "/contact" },
 ] as const;

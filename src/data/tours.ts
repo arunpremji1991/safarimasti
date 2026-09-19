@@ -706,6 +706,103 @@ export const tours: Tour[] = [
       "A Tamil Nadu & Kerala temple pilgrimage trail across Meenakshi Amman, Brihadeeswarar, Ramanathaswamy, Padmanabhaswamy, Guruvayur and Chottanikara, curated by Safari Masti.",
     relatedTourSlugs: ["ganges-himalayan-foothills", "kerala"],
   },
+
+  // ---------------- Kerala Ayurveda Rejuvenation ----------------
+  {
+    slug: "essential-body-refresh",
+    collectionSlug: "kerala-ayurveda",
+    title: "Essential Body Refresh",
+    destination: "Kerala",
+    region: ["South"],
+    category: ["Wellness", "Ayurveda"],
+    duration: "3–5 Days",
+    travelStyle: ["Premium"],
+    bestFor: ["Busy Individuals", "Short Wellness Breaks"],
+    shortDescription:
+      "A quick wellness getaway designed to dissolve superficial stress, relieve muscle tension, and recharge your energy levels.",
+    overview:
+      "Essential Body Refresh is a quick wellness getaway designed to dissolve superficial stress, relieve muscle tension, and recharge your energy levels — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
+    heroImages: ["/images/tours/essential-body-refresh-1.webp"],
+    highlights: ["Full-body oil massage (Abhyangam)", "Soothing warm herbal steam baths"],
+    itinerary: [],
+    inclusions: [
+      "Daily personalized consultations with our Ayurvedic doctors",
+      "Three tailored vegetarian meals daily, designed for your body type",
+      "Morning yoga sessions and evening guided meditation",
+    ],
+    exclusions: [],
+    goodToKnow: [],
+    seoTitle: "Essential Body Refresh — Kerala Ayurveda | Safari Masti",
+    seoDescription:
+      "A 3 to 5 day Kerala Ayurveda wellness getaway with full-body oil massage (Abhyangam) and herbal steam baths, curated by Safari Masti.",
+    relatedTourSlugs: ["deep-stress-relief", "total-body-detox-reset"],
+  },
+  {
+    slug: "deep-stress-relief",
+    collectionSlug: "kerala-ayurveda",
+    title: "Deep Stress Relief",
+    destination: "Kerala",
+    region: ["South"],
+    category: ["Wellness", "Ayurveda"],
+    duration: "7 Days",
+    travelStyle: ["Premium"],
+    bestFor: ["Chronic Stress", "Mental Exhaustion", "Insomnia"],
+    shortDescription:
+      "A week-long immersion to calm an overactive mind, improve sleep quality, and flush out daily environmental toxins.",
+    overview:
+      "Deep Stress Relief is a week-long immersion to calm an overactive mind, improve sleep quality, and flush out daily environmental toxins — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
+    heroImages: ["/images/tours/deep-stress-relief-1.webp"],
+    highlights: [
+      "Continuous oil pouring over the forehead (Shirodhara)",
+      "Herbal pouch massages",
+      "Custom meditation",
+    ],
+    itinerary: [],
+    inclusions: [
+      "Daily personalized consultations with our Ayurvedic doctors",
+      "Three tailored vegetarian meals daily, designed for your body type",
+      "Morning yoga sessions and evening guided meditation",
+    ],
+    exclusions: [],
+    goodToKnow: [],
+    seoTitle: "Deep Stress Relief — Kerala Ayurveda | Safari Masti",
+    seoDescription:
+      "A 7 day Kerala Ayurveda program with Shirodhara, herbal pouch massages and custom meditation, curated by Safari Masti.",
+    relatedTourSlugs: ["essential-body-refresh", "total-body-detox-reset"],
+  },
+  {
+    slug: "total-body-detox-reset",
+    collectionSlug: "kerala-ayurveda",
+    title: "Total Body Detox & Reset",
+    destination: "Kerala",
+    region: ["South"],
+    category: ["Wellness", "Ayurveda"],
+    duration: "14+ Days",
+    travelStyle: ["Premium"],
+    bestFor: ["Long-Term Wellness", "Deep Detoxification", "Metabolic Health"],
+    shortDescription:
+      "A comprehensive internal and external cleansing program that resets your metabolism and strengthens your immune system.",
+    overview:
+      "Total Body Detox & Reset is a comprehensive internal and external cleansing program that resets your metabolism and strengthens your immune system — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
+    heroImages: ["/images/tours/total-body-detox-reset-1.webp"],
+    highlights: [
+      "Full Panchakarma elimination therapies",
+      "Tissue-strengthening massages",
+      "Strict personalized diet",
+    ],
+    itinerary: [],
+    inclusions: [
+      "Daily personalized consultations with our Ayurvedic doctors",
+      "Three tailored vegetarian meals daily, designed for your body type",
+      "Morning yoga sessions and evening guided meditation",
+    ],
+    exclusions: [],
+    goodToKnow: [],
+    seoTitle: "Total Body Detox & Reset — Kerala Ayurveda | Safari Masti",
+    seoDescription:
+      "A 14+ day Panchakarma-based Kerala Ayurveda detox and reset program, curated by Safari Masti.",
+    relatedTourSlugs: ["essential-body-refresh", "deep-stress-relief"],
+  },
 ];
 
 export function getTourBySlug(slug: string) {

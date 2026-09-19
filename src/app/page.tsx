@@ -4,6 +4,7 @@ import { BrandStatement } from "@/components/sections/BrandStatement";
 import { Services } from "@/components/sections/Services";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { SignatureCollections } from "@/components/sections/SignatureCollections";
+import { AyurvedaSpotlight } from "@/components/sections/AyurvedaSpotlight";
 import { DestinationExplorer } from "@/components/sections/DestinationExplorer";
 import { ExperienceSelector } from "@/components/sections/ExperienceSelector";
 import { BuildJourneyCTA } from "@/components/sections/BuildJourneyCTA";
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <WhyUs />
       <SignatureCollections />
+      <AyurvedaSpotlight />
       <DestinationExplorer />
       <ExperienceSelector />
       <BuildJourneyCTA />
