@@ -15,10 +15,16 @@ export default function ExperiencesPage() {
     <>
       <PageHero
         eyebrow="What We Offer"
+        eyebrowAr="ما نقدمه"
         title="Experiences Built Around You"
+        titleAr="تجارب مصمَّمة خصيصًا من أجلكم"
         description="Every Safari Masti experience starts with how you want to travel — not a fixed package."
+        descriptionAr="كل تجربة مع سفاري ماستي تبدأ من الطريقة التي تريدون السفر بها، لا من باقة جاهزة مسبقًا."
         image="/images/collections/adventure-trekking-hero.webp"
-        crumbs={[{ label: "Home", href: "/" }, { label: "Experiences" }]}
+        crumbs={[
+          { label: "Home", labelAr: "الرئيسية", href: "/" },
+          { label: "Experiences", labelAr: "التجارب" },
+        ]}
       />
       <ExperienceSelector />
       <SignatureCollections />

@@ -8,15 +8,15 @@ export interface BlogPost {
 }
 
 export const blogCategories = [
-  "India Travel Guides",
-  "Kerala Travel",
-  "Adventure & Trekking",
-  "Luxury Travel",
-  "Honeymoon Travel",
-  "Wildlife",
-  "Spiritual Journeys",
-  "Northeast India",
-  "Senior Citizen Travel",
+  { en: "India Travel Guides", ar: "أدلة السفر إلى الهند" },
+  { en: "Kerala Travel", ar: "السفر إلى كيرالا" },
+  { en: "Adventure & Trekking", ar: "المغامرة والتسلق" },
+  { en: "Luxury Travel", ar: "السفر الفاخر" },
+  { en: "Honeymoon Travel", ar: "رحلات شهر العسل" },
+  { en: "Wildlife", ar: "الحياة البرية" },
+  { en: "Spiritual Journeys", ar: "الرحلات الروحانية" },
+  { en: "Northeast India", ar: "شمال شرق الهند" },
+  { en: "Senior Citizen Travel", ar: "سفر كبار السن" },
 ] as const;
 
 // No articles have been published yet. Add entries here as real content is written —

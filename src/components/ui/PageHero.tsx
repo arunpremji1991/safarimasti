@@ -1,21 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Crumb {
   label: string;
+  labelAr?: string;
   href?: string;
 }
 
 interface PageHeroProps {
   eyebrow?: string;
+  eyebrowAr?: string;
   title: string;
+  titleAr?: string;
   description?: string;
+  descriptionAr?: string;
   image?: string;
   crumbs?: Crumb[];
   compact?: boolean;
 }
 
-export function PageHero({ eyebrow, title, description, image, crumbs, compact }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  eyebrowAr,
+  title,
+  titleAr,
+  description,
+  descriptionAr,
+  image,
+  crumbs,
+  compact,
+}: PageHeroProps) {
+  const { pick } = useLanguage();
+
   return (
     <section
       className={`relative flex ${compact ? "h-[50vh] min-h-[380px]" : "h-[65vh] min-h-[480px]"} w-full items-end overflow-hidden bg-charcoal-950`}
@@ -34,10 +53,10 @@ export function PageHero({ eyebrow, title, description, image, crumbs, compact }
               <span key={c.label} className="flex items-center gap-2">
                 {c.href ? (
                   <Link href={c.href} className="hover:text-amber-300">
-                    {c.label}
+                    {pick(c.label, c.labelAr)}
                   </Link>
                 ) : (
-                  <span className="text-amber-300">{c.label}</span>
+                  <span className="text-amber-300">{pick(c.label, c.labelAr)}</span>
                 )}
                 {i < crumbs.length - 1 && <span>/</span>}
               </span>
@@ -45,13 +64,15 @@ export function PageHero({ eyebrow, title, description, image, crumbs, compact }
           </nav>
         )}
         {eyebrow && (
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">{eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
+            {pick(eyebrow, eyebrowAr)}
+          </p>
         )}
         <h1 className="font-display text-balance mt-4 max-w-3xl text-4xl leading-tight text-cream-50 sm:text-5xl md:text-6xl">
-          {title}
+          {pick(title, titleAr)}
         </h1>
         {description && (
-          <p className="mt-5 max-w-2xl text-lg text-cream-100/85">{description}</p>
+          <p className="mt-5 max-w-2xl text-lg text-cream-100/85">{pick(description, descriptionAr)}</p>
         )}
       </div>
     </section>

@@ -10,8 +10,8 @@ import { Counter } from "./Counter";
 import { experienceTypes } from "@/data/experienceTypes";
 import { regionExplorers } from "@/data/destinations";
 import { getTourBySlug } from "@/data/tours";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
-  journeyTypeOptions,
   regionOptions,
   durationOptions,
   travelStyleOptions,
@@ -76,6 +76,7 @@ export function JourneyBuilder() {
   const searchParams = useSearchParams();
   const tourSlug = searchParams.get("tour") ?? undefined;
   const tour = tourSlug ? getTourBySlug(tourSlug) : undefined;
+  const { t, pick, locale } = useLanguage();
 
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialState);
@@ -124,19 +125,17 @@ export function JourneyBuilder() {
     return (
       <div className="mx-auto max-w-xl py-24 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">
-          Request Received
+          {t("journey.requestReceivedEyebrow")}
         </p>
         <h1 className="font-display mt-4 text-4xl text-charcoal-950">
-          Your Journey Request Has Been Received.
+          {t("journey.requestReceivedTitle")}
         </h1>
-        <p className="mt-4 text-lg text-charcoal-800/75">
-          Our travel team will review your preferences and get back to you.
-        </p>
+        <p className="mt-4 text-lg text-charcoal-800/75">{t("journey.requestReceivedBody")}</p>
         <a
           href="/"
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
         >
-          Back to Safari Masti
+          {t("journey.backToHome")}
         </a>
       </div>
     );
@@ -146,12 +145,13 @@ export function JourneyBuilder() {
     <div className="mx-auto max-w-3xl px-5 py-28 md:px-8 md:py-32">
       {tour && (
         <div className="mb-8 rounded-xl bg-cream-100 px-5 py-3 text-sm text-charcoal-800/80">
-          Selected Journey: <span className="font-semibold text-charcoal-950">{tour.title}</span>
+          {t("journey.selectedJourney")}{" "}
+          <span className="font-semibold text-charcoal-950">{pick(tour.title, tour.titleAr)}</span>
         </div>
       )}
 
       {!isReview && (
-        <div className="mb-10 h-1 w-full rounded-full bg-charcoal-950/10">
+        <div className="mb-10 flex h-1 w-full rounded-full bg-charcoal-950/10">
           <div
             className="h-1 rounded-full bg-amber-500 transition-all duration-500"
             style={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
@@ -165,30 +165,32 @@ export function JourneyBuilder() {
             key={1}
             step={1}
             total={TOTAL_STEPS}
-            title="What kind of journey are you looking for?"
-            subtitle="Select as many as you like."
+            title={t("journey.step1.title")}
+            subtitle={t("journey.step1.subtitle")}
           >
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {[...experienceTypes.map((e) => e.label), "Other"].map((label) => {
-                const img = experienceTypes.find((e) => e.label === label)?.image;
-                const selected = form.journeyTypes.includes(label);
+              {[
+                ...experienceTypes.map((e) => ({ value: e.label, label: pick(e.label, e.labelAr), image: e.image })),
+                { value: "Other", label: t("journey.other"), image: undefined },
+              ].map((opt) => {
+                const selected = form.journeyTypes.includes(opt.value);
                 return (
                   <button
-                    key={label}
+                    key={opt.value}
                     type="button"
-                    onClick={() => update("journeyTypes", toggle(form.journeyTypes, label))}
+                    onClick={() => update("journeyTypes", toggle(form.journeyTypes, opt.value))}
                     className={`group relative aspect-[4/3] overflow-hidden rounded-xl border-2 ${
                       selected ? "border-amber-500" : "border-transparent"
                     }`}
                   >
-                    {img && (
-                      <Image src={img} alt="" fill sizes="200px" className="object-cover" />
+                    {opt.image && (
+                      <Image src={opt.image} alt="" fill sizes="200px" className="object-cover" />
                     )}
                     <div
                       className={`absolute inset-0 ${selected ? "bg-maroon-950/50" : "bg-charcoal-950/40 group-hover:bg-charcoal-950/25"}`}
                     />
-                    <span className="absolute inset-x-0 bottom-0 p-3 text-left text-sm font-semibold text-cream-50">
-                      {label}
+                    <span className="absolute inset-x-0 bottom-0 p-3 text-start text-sm font-semibold text-cream-50">
+                      {opt.label}
                     </span>
                   </button>
                 );
@@ -202,18 +204,18 @@ export function JourneyBuilder() {
             key={2}
             step={2}
             total={TOTAL_STEPS}
-            title="Where would you like to go?"
-            subtitle="Select one or more regions, or tell us if you already have a destination in mind."
+            title={t("journey.step2.title")}
+            subtitle={t("journey.step2.subtitle")}
           >
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {regionOptions.map((label) => {
-                const img = regionExplorers.find((r) => r.title === label)?.image;
-                const selected = form.regions.includes(label);
+              {regionOptions.map((opt) => {
+                const img = regionExplorers.find((r) => r.title === opt.value)?.image;
+                const selected = form.regions.includes(opt.value);
                 return (
                   <button
-                    key={label}
+                    key={opt.value}
                     type="button"
-                    onClick={() => update("regions", toggle(form.regions, label))}
+                    onClick={() => update("regions", toggle(form.regions, opt.value))}
                     className={`group relative aspect-[4/3] overflow-hidden rounded-xl border-2 ${
                       selected ? "border-amber-500" : "border-transparent"
                     }`}
@@ -226,8 +228,8 @@ export function JourneyBuilder() {
                     <div
                       className={`absolute inset-0 ${selected ? "bg-maroon-950/50" : "bg-charcoal-950/40 group-hover:bg-charcoal-950/25"}`}
                     />
-                    <span className="absolute inset-x-0 bottom-0 p-3 text-left text-sm font-semibold text-cream-50">
-                      {label}
+                    <span className="absolute inset-x-0 bottom-0 p-3 text-start text-sm font-semibold text-cream-50">
+                      {pick(opt.en, opt.ar)}
                     </span>
                   </button>
                 );
@@ -236,14 +238,14 @@ export function JourneyBuilder() {
 
             <div className="mt-6">
               <label htmlFor="customDestination" className="block text-sm font-semibold text-charcoal-900">
-                I have a destination in mind
+                {t("journey.step2.customDestinationLabel")}
               </label>
               <input
                 id="customDestination"
                 type="text"
                 value={form.customDestination}
                 onChange={(e) => update("customDestination", e.target.value)}
-                placeholder="e.g. Munnar, Ladakh, Varanasi…"
+                placeholder={t("journey.step2.customDestinationPlaceholder")}
                 className="mt-1.5 w-full rounded-lg border border-charcoal-950/15 bg-cream-50 px-4 py-2.5 focus:border-maroon-700 focus:outline-none"
               />
             </div>
@@ -251,11 +253,11 @@ export function JourneyBuilder() {
         )}
 
         {step === 3 && (
-          <StepShell key={3} step={3} total={TOTAL_STEPS} title="When would you like to travel?">
+          <StepShell key={3} step={3} total={TOTAL_STEPS} title={t("journey.step3.title")}>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label htmlFor="startDate" className="block text-sm font-semibold text-charcoal-900">
-                  Preferred Start Date
+                  {t("journey.step3.startDate")}
                 </label>
                 <input
                   id="startDate"
@@ -267,7 +269,7 @@ export function JourneyBuilder() {
               </div>
               <div>
                 <label htmlFor="endDate" className="block text-sm font-semibold text-charcoal-900">
-                  Preferred End Date
+                  {t("journey.step3.endDate")}
                 </label>
                 <input
                   id="endDate"
@@ -286,17 +288,19 @@ export function JourneyBuilder() {
                 onChange={(e) => update("flexibleDates", e.target.checked)}
                 className="h-4 w-4 rounded border-charcoal-950/30"
               />
-              My dates are flexible
+              {t("journey.step3.flexibleDates")}
             </label>
 
-            <p className="mt-6 text-sm font-semibold text-charcoal-900">Approximate duration</p>
+            <p className="mt-6 text-sm font-semibold text-charcoal-900">
+              {t("journey.step3.approximateDuration")}
+            </p>
             <div className="mt-2 flex flex-wrap gap-3">
-              {durationOptions.map((d) => (
+              {durationOptions.map((opt) => (
                 <SelectPill
-                  key={d}
-                  label={d}
-                  selected={form.duration === d}
-                  onClick={() => update("duration", d)}
+                  key={opt.value}
+                  label={pick(opt.en, opt.ar)}
+                  selected={form.duration === opt.value}
+                  onClick={() => update("duration", opt.value)}
                 />
               ))}
             </div>
@@ -304,27 +308,36 @@ export function JourneyBuilder() {
         )}
 
         {step === 4 && (
-          <StepShell key={4} step={4} total={TOTAL_STEPS} title="Who's traveling?">
+          <StepShell key={4} step={4} total={TOTAL_STEPS} title={t("journey.step4.title")}>
             <div className="space-y-3">
-              <Counter label="Adults" value={form.adults} onChange={(v) => update("adults", v)} min={1} />
               <Counter
-                label="Children"
+                label={t("journey.step4.adults")}
+                value={form.adults}
+                onChange={(v) => update("adults", v)}
+                min={1}
+              />
+              <Counter
+                label={t("journey.step4.children")}
                 value={form.children}
                 onChange={(v) => update("children", v)}
               />
-              <Counter label="Infants" value={form.infants} onChange={(v) => update("infants", v)} />
+              <Counter
+                label={t("journey.step4.infants")}
+                value={form.infants}
+                onChange={(v) => update("infants", v)}
+              />
             </div>
             {form.children > 0 && (
               <div className="mt-5">
                 <label htmlFor="childAges" className="block text-sm font-semibold text-charcoal-900">
-                  Child ages
+                  {t("journey.step4.childAges")}
                 </label>
                 <input
                   id="childAges"
                   type="text"
                   value={form.childAges}
                   onChange={(e) => update("childAges", e.target.value)}
-                  placeholder="e.g. 4, 9"
+                  placeholder={t("journey.step4.childAgesPlaceholder")}
                   className="mt-1.5 w-full rounded-lg border border-charcoal-950/15 bg-cream-50 px-4 py-2.5 focus:border-maroon-700 focus:outline-none"
                 />
               </div>
@@ -333,26 +346,28 @@ export function JourneyBuilder() {
         )}
 
         {step === 5 && (
-          <StepShell key={5} step={5} total={TOTAL_STEPS} title="What's your travel style?">
+          <StepShell key={5} step={5} total={TOTAL_STEPS} title={t("journey.step5.title")}>
             <div className="flex flex-wrap gap-3">
-              {travelStyleOptions.map((s) => (
+              {travelStyleOptions.map((opt) => (
                 <SelectPill
-                  key={s}
-                  label={s}
-                  selected={form.travelStyle === s}
-                  onClick={() => update("travelStyle", s)}
+                  key={opt.value}
+                  label={pick(opt.en, opt.ar)}
+                  selected={form.travelStyle === opt.value}
+                  onClick={() => update("travelStyle", opt.value)}
                 />
               ))}
             </div>
 
-            <p className="mt-8 text-sm font-semibold text-charcoal-900">Private journey or group?</p>
+            <p className="mt-8 text-sm font-semibold text-charcoal-900">
+              {t("journey.step5.groupQuestion")}
+            </p>
             <div className="mt-2 flex flex-wrap gap-3">
-              {groupPreferenceOptions.map((g) => (
+              {groupPreferenceOptions.map((opt) => (
                 <SelectPill
-                  key={g}
-                  label={g}
-                  selected={form.groupPreference === g}
-                  onClick={() => update("groupPreference", g)}
+                  key={opt.value}
+                  label={pick(opt.en, opt.ar)}
+                  selected={form.groupPreference === opt.value}
+                  onClick={() => update("groupPreference", opt.value)}
                 />
               ))}
             </div>
@@ -364,16 +379,16 @@ export function JourneyBuilder() {
             key={6}
             step={6}
             total={TOTAL_STEPS}
-            title="What are you most interested in?"
-            subtitle="Select as many as you like."
+            title={t("journey.step6.title")}
+            subtitle={t("journey.step6.subtitle")}
           >
             <div className="flex flex-wrap gap-3">
-              {interestOptions.map((i) => (
+              {interestOptions.map((opt) => (
                 <SelectPill
-                  key={i}
-                  label={i}
-                  selected={form.interests.includes(i)}
-                  onClick={() => update("interests", toggle(form.interests, i))}
+                  key={opt.value}
+                  label={pick(opt.en, opt.ar)}
+                  selected={form.interests.includes(opt.value)}
+                  onClick={() => update("interests", toggle(form.interests, opt.value))}
                 />
               ))}
             </div>
@@ -381,23 +396,23 @@ export function JourneyBuilder() {
         )}
 
         {step === 7 && (
-          <StepShell key={7} step={7} total={TOTAL_STEPS} title="Tell us about your ideal journey">
+          <StepShell key={7} step={7} total={TOTAL_STEPS} title={t("journey.step7.title")}>
             <textarea
               rows={6}
               value={form.specialRequirements}
               onChange={(e) => update("specialRequirements", e.target.value)}
-              placeholder="Places you'd like to see, experiences you want, preferred pace, special occasions, accommodation preferences, or anything else."
+              placeholder={t("journey.step7.placeholder")}
               className="w-full rounded-lg border border-charcoal-950/15 bg-cream-50 px-4 py-3 focus:border-maroon-700 focus:outline-none"
             />
           </StepShell>
         )}
 
         {step === 8 && (
-          <StepShell key={8} step={8} total={TOTAL_STEPS} title="How can we reach you?">
+          <StepShell key={8} step={8} total={TOTAL_STEPS} title={t("journey.step8.title")}>
             <div className="space-y-4">
               <div>
                 <label htmlFor="fullName" className="block text-sm font-semibold text-charcoal-900">
-                  Full Name
+                  {t("journey.step8.fullName")}
                 </label>
                 <input
                   id="fullName"
@@ -410,7 +425,7 @@ export function JourneyBuilder() {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-charcoal-900">
-                  Email
+                  {t("journey.step8.email")}
                 </label>
                 <input
                   id="email"
@@ -424,7 +439,7 @@ export function JourneyBuilder() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="phone" className="block text-sm font-semibold text-charcoal-900">
-                    Phone / WhatsApp
+                    {t("journey.step8.phone")}
                   </label>
                   <input
                     id="phone"
@@ -436,7 +451,7 @@ export function JourneyBuilder() {
                 </div>
                 <div>
                   <label htmlFor="country" className="block text-sm font-semibold text-charcoal-900">
-                    Country (optional)
+                    {t("journey.step8.country")}
                   </label>
                   <input
                     id="country"
@@ -448,14 +463,16 @@ export function JourneyBuilder() {
                 </div>
               </div>
 
-              <p className="text-sm font-semibold text-charcoal-900">Preferred contact method</p>
+              <p className="text-sm font-semibold text-charcoal-900">
+                {t("journey.step8.preferredContact")}
+              </p>
               <div className="flex flex-wrap gap-3">
-                {preferredContactOptions.map((c) => (
+                {preferredContactOptions.map((opt) => (
                   <SelectPill
-                    key={c}
-                    label={c}
-                    selected={form.preferredContact === c}
-                    onClick={() => update("preferredContact", c)}
+                    key={opt.value}
+                    label={pick(opt.en, opt.ar)}
+                    selected={form.preferredContact === opt.value}
+                    onClick={() => update("preferredContact", opt.value)}
                   />
                 ))}
               </div>
@@ -464,37 +481,83 @@ export function JourneyBuilder() {
         )}
 
         {isReview && (
-          <StepShell key={9} step={9} total={9} title="Your Journey">
+          <StepShell key={9} step={9} total={9} title={t("journey.review.title")}>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <ReviewRow label="Experience" value={form.journeyTypes.join(", ")} onEdit={() => setStep(1)} />
               <ReviewRow
-                label="Destination"
-                value={[...form.regions, form.customDestination].filter(Boolean).join(", ")}
+                label={t("journey.review.experience")}
+                value={form.journeyTypes
+                  .map((v) => {
+                    const et = experienceTypes.find((e) => e.label === v);
+                    return et ? pick(et.label, et.labelAr) : v === "Other" ? t("journey.other") : v;
+                  })
+                  .join(locale === "ar" ? "، " : ", ")}
+                onEdit={() => setStep(1)}
+              />
+              <ReviewRow
+                label={t("journey.review.destination")}
+                value={[
+                  ...form.regions.map((v) => {
+                    const opt = regionOptions.find((r) => r.value === v);
+                    return opt ? pick(opt.en, opt.ar) : v;
+                  }),
+                  form.customDestination,
+                ]
+                  .filter(Boolean)
+                  .join(locale === "ar" ? "، " : ", ")}
                 onEdit={() => setStep(2)}
               />
               <ReviewRow
-                label="Dates"
-                value={`${form.startDate || "—"} to ${form.endDate || "—"}${form.flexibleDates ? " (flexible)" : ""}${form.duration ? ` · ${form.duration}` : ""}`}
+                label={t("journey.review.dates")}
+                value={`${form.startDate || "—"} ${t("journey.review.to")} ${form.endDate || "—"}${
+                  form.flexibleDates ? ` ${t("journey.review.flexible")}` : ""
+                }${
+                  form.duration
+                    ? ` · ${pick(
+                        durationOptions.find((d) => d.value === form.duration)?.en ?? form.duration,
+                        durationOptions.find((d) => d.value === form.duration)?.ar
+                      )}`
+                    : ""
+                }`}
                 onEdit={() => setStep(3)}
               />
               <ReviewRow
-                label="Travellers"
-                value={`${form.adults} adults, ${form.children} children, ${form.infants} infants`}
+                label={t("journey.review.travellers")}
+                value={`${form.adults} ${t("journey.review.adultsLabel")}, ${form.children} ${t("journey.review.childrenLabel")}, ${form.infants} ${t("journey.review.infantsLabel")}`}
                 onEdit={() => setStep(4)}
               />
               <ReviewRow
-                label="Travel Style"
-                value={[form.travelStyle, form.groupPreference].filter(Boolean).join(" · ")}
+                label={t("journey.review.travelStyle")}
+                value={[
+                  pick(
+                    travelStyleOptions.find((s) => s.value === form.travelStyle)?.en ?? "",
+                    travelStyleOptions.find((s) => s.value === form.travelStyle)?.ar
+                  ),
+                  pick(
+                    groupPreferenceOptions.find((g) => g.value === form.groupPreference)?.en ?? "",
+                    groupPreferenceOptions.find((g) => g.value === form.groupPreference)?.ar
+                  ),
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
                 onEdit={() => setStep(5)}
               />
-              <ReviewRow label="Interests" value={form.interests.join(", ")} onEdit={() => setStep(6)} />
               <ReviewRow
-                label="Special Requirements"
+                label={t("journey.review.interests")}
+                value={form.interests
+                  .map((v) => {
+                    const opt = interestOptions.find((i) => i.value === v);
+                    return opt ? pick(opt.en, opt.ar) : v;
+                  })
+                  .join(locale === "ar" ? "، " : ", ")}
+                onEdit={() => setStep(6)}
+              />
+              <ReviewRow
+                label={t("journey.review.specialRequirements")}
                 value={form.specialRequirements || "—"}
                 onEdit={() => setStep(7)}
               />
               <ReviewRow
-                label="Contact"
+                label={t("journey.review.contact")}
                 value={`${form.fullName} · ${form.email}${form.phone ? ` · ${form.phone}` : ""}`}
                 onEdit={() => setStep(8)}
               />
@@ -507,14 +570,14 @@ export function JourneyBuilder() {
                   onClick={() => setStep(8)}
                   className="rounded-full border border-charcoal-950/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-charcoal-900"
                 >
-                  Edit
+                  {t("journey.edit")}
                 </button>
                 <button
                   type="submit"
                   disabled={status === "submitting" || !form.fullName || !form.email}
                   className="flex-1 rounded-full bg-amber-500 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400 disabled:opacity-60"
                 >
-                  {status === "submitting" ? "Sending…" : "Send My Journey Request →"}
+                  {status === "submitting" ? t("journey.sending") : t("journey.sendRequest")}
                 </button>
               </div>
             </form>
@@ -530,14 +593,14 @@ export function JourneyBuilder() {
             disabled={step === 1}
             className="rounded-full border border-charcoal-950/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-charcoal-900 disabled:opacity-30"
           >
-            Back
+            {t("journey.back")}
           </button>
           <button
             type="button"
             onClick={() => setStep((s) => Math.min(TOTAL_STEPS + 1, s + 1))}
             className="rounded-full bg-maroon-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream-50 hover:bg-maroon-800"
           >
-            {step === TOTAL_STEPS ? "Review" : "Next"}
+            {step === TOTAL_STEPS ? t("journey.review") : t("journey.next")}
           </button>
         </div>
       )}
@@ -546,6 +609,7 @@ export function JourneyBuilder() {
 }
 
 function ReviewRow({ label, value, onEdit }: { label: string; value: string; onEdit: () => void }) {
+  const { t } = useLanguage();
   return (
     <div className="flex items-start justify-between gap-4 border-b border-charcoal-950/10 pb-4">
       <div>
@@ -557,7 +621,7 @@ function ReviewRow({ label, value, onEdit }: { label: string; value: string; onE
         onClick={onEdit}
         className="shrink-0 text-sm font-semibold text-maroon-700 underline"
       >
-        Edit
+        {t("journey.edit")}
       </button>
     </div>
   );

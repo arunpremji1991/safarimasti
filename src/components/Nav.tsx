@@ -7,11 +7,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { Logo } from "./ui/Logo";
 import { navLinks } from "@/data/site";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { t, pick } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -50,7 +52,7 @@ export function Nav() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
-        <Link href="/" aria-label="Safari Masti home" className="shrink-0">
+        <Link href="/" aria-label={t("nav.homeAriaLabel")} className="shrink-0">
           <Logo variant={solid ? "dark" : "light"} />
         </Link>
 
@@ -64,7 +66,7 @@ export function Nav() {
                   solid ? "text-charcoal-900 hover:text-maroon-700" : "text-cream-50 hover:text-amber-300"
                 )}
               >
-                {link.label}
+                {pick(link.label, link.labelAr)}
               </Link>
             </li>
           ))}
@@ -75,7 +77,7 @@ export function Nav() {
             href="/build-your-journey"
             className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-maroon-950 transition-colors hover:bg-amber-400"
           >
-            Build Your Journey <span aria-hidden>→</span>
+            {t("nav.buildYourJourney")} <span aria-hidden className="inline-block rtl:rotate-180">→</span>
           </Link>
         </div>
 
@@ -83,7 +85,7 @@ export function Nav() {
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           className={clsx(
             "z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full md:hidden",
             solid ? "text-charcoal-900" : "text-cream-50"
@@ -127,7 +129,7 @@ export function Nav() {
                     href={link.href}
                     className="font-display text-3xl text-cream-50 hover:text-amber-400"
                   >
-                    {link.label}
+                    {pick(link.label, link.labelAr)}
                   </Link>
                 </motion.li>
               ))}
@@ -142,7 +144,7 @@ export function Nav() {
                 href="/build-your-journey"
                 className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950"
               >
-                Build Your Journey <span aria-hidden>→</span>
+                {t("nav.buildYourJourney")} <span aria-hidden className="inline-block rtl:rotate-180">→</span>
               </Link>
             </motion.div>
           </motion.div>

@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { getCollectionBySlug } from "@/data/collections";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function AyurvedaSpotlight() {
   const collection = getCollectionBySlug("kerala-ayurveda");
+  const { t, pick } = useLanguage();
   if (!collection) return null;
 
   return (
@@ -14,7 +18,7 @@ export function AyurvedaSpotlight() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
             <Image
               src={collection.heroImage}
-              alt={collection.title}
+              alt={pick(collection.title, collection.titleAr)}
               fill
               sizes="(min-width: 768px) 45vw, 100vw"
               className="object-cover"
@@ -24,13 +28,13 @@ export function AyurvedaSpotlight() {
 
         <Reveal delay={0.1}>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-maroon-700">
-            Featured Product
+            {t("ayurveda.eyebrow")}
           </p>
           <h2 className="font-display mt-4 text-4xl leading-tight text-charcoal-950 sm:text-5xl">
-            {collection.subtitle ?? collection.title}
+            {pick(collection.subtitle ?? collection.title, collection.subtitleAr ?? collection.titleAr)}
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal-800/80">
-            {collection.description}
+            {pick(collection.description, collection.descriptionAr)}
           </p>
 
           {collection.advantages && (
@@ -41,8 +45,8 @@ export function AyurvedaSpotlight() {
                     ✦
                   </span>
                   <div>
-                    <p className="font-semibold text-charcoal-950">{a.title}</p>
-                    <p className="text-sm text-charcoal-800/70">{a.description}</p>
+                    <p className="font-semibold text-charcoal-950">{pick(a.title, a.titleAr)}</p>
+                    <p className="text-sm text-charcoal-800/70">{pick(a.description, a.descriptionAr)}</p>
                   </div>
                 </li>
               ))}
@@ -51,7 +55,7 @@ export function AyurvedaSpotlight() {
 
           <div className="mt-10">
             <Button href={`/collections/${collection.slug}`} variant="secondary" arrow>
-              Explore Ayurveda Retreats
+              {t("ayurveda.explore")}
             </Button>
           </div>
         </Reveal>

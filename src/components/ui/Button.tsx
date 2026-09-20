@@ -39,7 +39,10 @@ export function Button({
     <>
       <span>{children}</span>
       {arrow && (
-        <span aria-hidden className="transition-transform group-hover:translate-x-1">
+        <span
+          aria-hidden
+          className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1"
+        >
           →
         </span>
       )}

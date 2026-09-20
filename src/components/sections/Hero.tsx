@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-charcoal-950">
       <Image
@@ -25,7 +28,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300"
         >
-          Cochin, Kerala · Pan-India
+          {t("hero.locationLine")}
         </motion.p>
 
         <motion.h1
@@ -34,7 +37,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-display mt-4 max-w-3xl text-balance text-5xl leading-[1.02] text-cream-50 sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          Crafting Unforgettable Indian Journeys
+          {t("hero.headline")}
         </motion.h1>
 
         <motion.p
@@ -43,7 +46,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mt-6 max-w-lg text-lg text-cream-100/85"
         >
-          Curated journeys across India, designed around your travel style, comfort and budget.
+          {t("hero.subtext")}
         </motion.p>
 
         <motion.div
@@ -53,10 +56,10 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Button href="/experiences" variant="primary" arrow>
-            Explore India
+            {t("hero.exploreIndia")}
           </Button>
           <Button href="/build-your-journey" variant="outline" className="text-cream-50" arrow>
-            Build Your Journey
+            {t("nav.buildYourJourney")}
           </Button>
         </motion.div>
       </div>
@@ -66,9 +69,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 right-8 z-10 hidden flex-col items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cream-100/80 md:flex"
+        className="absolute bottom-8 end-8 z-10 hidden flex-col items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cream-100/80 md:flex"
       >
-        Explore
+        {t("hero.explore")}
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}

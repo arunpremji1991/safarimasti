@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function TourGallery({ images, title }: { images: string[]; title: string }) {
   const [active, setActive] = useState(0);
+  const { locale } = useLanguage();
 
   return (
     <div>
@@ -30,7 +32,7 @@ export function TourGallery({ images, title }: { images: string[]; title: string
             <button
               key={img}
               onClick={() => setActive(i)}
-              aria-label={`Show photo ${i + 1}`}
+              aria-label={locale === "ar" ? `عرض الصورة ${i + 1}` : `Show photo ${i + 1}`}
               className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-lg border-2 transition-colors ${
                 i === active ? "border-amber-500" : "border-transparent"
               }`}

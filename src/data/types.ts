@@ -12,20 +12,27 @@ export interface Destination {
 
 export interface CollectionDestinationItem {
   name: string;
+  nameAr?: string;
   description?: string;
+  descriptionAr?: string;
 }
 
 export interface CollectionAdvantage {
   title: string;
+  titleAr?: string;
   description: string;
+  descriptionAr?: string;
 }
 
 export interface Collection {
   slug: string;
   index: number;
   title: string;
+  titleAr?: string;
   subtitle?: string;
+  subtitleAr?: string;
   description: string;
+  descriptionAr?: string;
   heroImage: string;
   cardImage: string;
   destinations: CollectionDestinationItem[];
@@ -52,19 +59,28 @@ export interface Tour {
   slug: string;
   collectionSlug: string;
   title: string;
+  titleAr?: string;
   destination: string;
+  destinationAr?: string;
   region: Region[];
   category: string[];
   duration: string;
+  durationAr?: string;
   travelStyle: TravelStyle[];
   bestFor: string[];
+  bestForAr?: string[];
   shortDescription: string;
+  shortDescriptionAr?: string;
   overview: string;
+  overviewAr?: string;
   heroImages: string[];
   highlights: string[];
+  highlightsAr?: string[];
   itinerary: ItineraryStop[];
   inclusions: string[];
+  inclusionsAr?: string[];
   exclusions: string[];
+  exclusionsAr?: string[];
   goodToKnow: { label: string; content: string }[];
   seoTitle: string;
   seoDescription: string;
@@ -74,7 +90,9 @@ export interface Tour {
 export interface Service {
   index: string;
   title: string;
+  titleAr?: string;
   description: string;
+  descriptionAr?: string;
   image: string;
   href: string;
 }
@@ -82,5 +100,7 @@ export interface Service {
 export interface WhyUsPoint {
   index: string;
   title: string;
+  titleAr?: string;
   description: string;
+  descriptionAr?: string;
 }

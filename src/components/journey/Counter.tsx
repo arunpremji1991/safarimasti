@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/i18n/LanguageContext";
+
 export function Counter({
   label,
   value,
@@ -9,6 +13,8 @@ export function Counter({
   onChange: (v: number) => void;
   min?: number;
 }) {
+  const { t } = useLanguage();
+
   return (
     <div className="flex items-center justify-between rounded-xl border border-charcoal-950/15 px-5 py-4">
       <span className="font-semibold text-charcoal-900">{label}</span>
@@ -17,7 +23,7 @@ export function Counter({
           type="button"
           onClick={() => onChange(Math.max(min, value - 1))}
           className="flex h-8 w-8 items-center justify-center rounded-full border border-charcoal-950/20 text-lg hover:bg-cream-100"
-          aria-label={`Decrease ${label}`}
+          aria-label={`${t("journey.step4.decreaseAria")} ${label}`}
         >
           −
         </button>
@@ -26,7 +32,7 @@ export function Counter({
           type="button"
           onClick={() => onChange(value + 1)}
           className="flex h-8 w-8 items-center justify-center rounded-full border border-charcoal-950/20 text-lg hover:bg-cream-100"
-          aria-label={`Increase ${label}`}
+          aria-label={`${t("journey.step4.increaseAria")} ${label}`}
         >
           +
         </button>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fraunces, Manrope, Cairo } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import { site } from "@/data/site";
 
 const fraunces = Fraunces({
@@ -16,6 +17,12 @@ const fraunces = Fraunces({
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  variable: "--font-cairo",
   weight: ["400", "500", "600", "700", "800"],
 });
 
@@ -38,8 +45,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${fraunces.variable} ${manrope.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try {
+              var l = localStorage.getItem('safarimasti-locale');
+              if (l === 'ar') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+              }
+            } catch (e) {}`,
+          }}
+        />
+      </head>
+      <body
+        className={`${fraunces.variable} ${manrope.variable} ${cairo.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -62,16 +85,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-amber-500 focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-maroon-950"
-        >
-          Skip to content
-        </a>
-        <Nav />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <FloatingContact />
+        <LanguageProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-amber-500 focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-maroon-950"
+          >
+            Skip to content
+          </a>
+          <Nav />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <FloatingContact />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ export function GoodToKnow({ items }: { items: { label: string; content: string 
         <div key={item.label}>
           <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            className="flex w-full items-center justify-between px-6 py-4 text-left font-semibold text-charcoal-950"
+            className="flex w-full items-center justify-between px-6 py-4 text-start font-semibold text-charcoal-950"
             aria-expanded={openIndex === i}
           >
             {item.label}

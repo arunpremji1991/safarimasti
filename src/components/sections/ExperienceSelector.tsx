@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { experienceTypes } from "@/data/experienceTypes";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ExperienceSelector() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = experienceTypes[activeIndex];
+  const { t, pick } = useLanguage();
 
   return (
     <section className="relative overflow-hidden bg-charcoal-950 py-24 text-cream-50 md:py-32">
@@ -22,7 +24,13 @@ export function ExperienceSelector() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <Image src={active.image} alt={active.label} fill sizes="100vw" className="object-cover" />
+            <Image
+              src={active.image}
+              alt={pick(active.label, active.labelAr)}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-charcoal-950/75" />
@@ -30,10 +38,10 @@ export function ExperienceSelector() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
-          Tell Us Your Style
+          {t("experienceSelector.eyebrow")}
         </p>
         <h2 className="font-display mt-4 max-w-2xl text-4xl leading-tight sm:text-5xl">
-          What kind of journey are you looking for?
+          {t("experienceSelector.title")}
         </h2>
 
         <div className="mt-10 flex flex-wrap gap-3">
@@ -47,7 +55,7 @@ export function ExperienceSelector() {
                   : "border-cream-100/30 text-cream-100/80 hover:border-cream-100/60"
               }`}
             >
-              {exp.label}
+              {pick(exp.label, exp.labelAr)}
             </button>
           ))}
         </div>
@@ -61,13 +69,13 @@ export function ExperienceSelector() {
             transition={{ duration: 0.4 }}
             className="mt-10 max-w-xl"
           >
-            <p className="text-lg text-cream-100/85">{active.description}</p>
+            <p className="text-lg text-cream-100/85">{pick(active.description, active.descriptionAr)}</p>
             <Link
               href={active.href}
               className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-amber-400"
             >
-              Build This Journey
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+              {t("experienceSelector.buildThis")}
+              <span className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1">→</span>
             </Link>
           </motion.div>
         </AnimatePresence>

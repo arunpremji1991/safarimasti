@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { getSignatureCollections } from "@/data/collections";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const collections = getSignatureCollections();
 const COUNT = collections.length;
@@ -12,6 +13,7 @@ const COUNT = collections.length;
 export function SignatureCollections() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const { t, pick, locale } = useLanguage();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -29,43 +31,48 @@ export function SignatureCollections() {
     <section className="bg-charcoal-950 text-cream-50">
       <div className="px-5 pt-24 md:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
-          Bucket-List India
+          {t("signatureCollections.eyebrow")}
         </p>
         <h2 className="font-display mt-4 max-w-2xl text-4xl leading-tight sm:text-5xl">
-          Safari Masti&apos;s Signature Collections
+          {t("signatureCollections.title")}
         </h2>
       </div>
 
       {/* Desktop: scroll-driven horizontal storytelling */}
       <div ref={sectionRef} className="relative hidden md:block" style={{ height: `${COUNT * 100}vh` }}>
         <div className="sticky top-0 h-screen overflow-hidden">
-          <motion.div className="flex h-full" style={{ width: `${COUNT * 100}%`, x }}>
+          <motion.div dir="ltr" className="flex h-full" style={{ width: `${COUNT * 100}%`, x }}>
             {collections.map((collection) => (
               <div key={collection.slug} className="relative h-full" style={{ width: `${100 / COUNT}%` }}>
                 <Image
                   src={collection.heroImage}
-                  alt={collection.title}
+                  alt={pick(collection.title, collection.titleAr)}
                   fill
                   sizes="100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/50 to-charcoal-950/10" />
 
-                <div className="relative z-10 flex h-full max-w-3xl flex-col justify-end px-5 pb-24 pt-32 md:px-16">
+                <div
+                  dir={locale === "ar" ? "rtl" : "ltr"}
+                  className="relative z-10 flex h-full max-w-3xl flex-col justify-end px-5 pb-24 pt-32 md:px-16"
+                >
                   <span className="font-display text-lg text-amber-400">
                     {String(collection.index).padStart(2, "0")} / {String(COUNT).padStart(2, "0")}
                   </span>
                   <h3 className="font-display mt-3 text-4xl leading-tight lg:text-6xl">
-                    {collection.title}
+                    {pick(collection.title, collection.titleAr)}
                   </h3>
-                  <p className="mt-4 max-w-xl text-cream-100/80">{collection.description}</p>
+                  <p className="mt-4 max-w-xl text-cream-100/80">
+                    {pick(collection.description, collection.descriptionAr)}
+                  </p>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {collection.destinations.slice(0, 5).map((d) => (
                       <li
                         key={d.name}
                         className="rounded-full border border-cream-100/25 px-4 py-1.5 text-sm"
                       >
-                        {d.name}
+                        {pick(d.name, d.nameAr)}
                       </li>
                     ))}
                   </ul>
@@ -73,15 +80,15 @@ export function SignatureCollections() {
                     href={`/collections/${collection.slug}`}
                     className="group mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-widest text-amber-400"
                   >
-                    Explore Collection
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                    {t("signatureCollections.explore")}
+                    <span className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
               </div>
             ))}
           </motion.div>
 
-          <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          <div dir="ltr" className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2">
             {collections.map((c, i) => (
               <span
                 key={c.slug}
@@ -103,7 +110,7 @@ export function SignatureCollections() {
           >
             <Image
               src={collection.cardImage}
-              alt={collection.title}
+              alt={pick(collection.title, collection.titleAr)}
               fill
               sizes="85vw"
               className="object-cover"
@@ -113,13 +120,18 @@ export function SignatureCollections() {
               <span className="font-display text-sm text-amber-400">
                 {String(collection.index).padStart(2, "0")} / {String(COUNT).padStart(2, "0")}
               </span>
-              <h3 className="font-display mt-2 text-2xl leading-tight">{collection.title}</h3>
-              <p className="mt-2 line-clamp-2 text-sm text-cream-100/80">{collection.description}</p>
+              <h3 className="font-display mt-2 text-2xl leading-tight">
+                {pick(collection.title, collection.titleAr)}
+              </h3>
+              <p className="mt-2 line-clamp-2 text-sm text-cream-100/80">
+                {pick(collection.description, collection.descriptionAr)}
+              </p>
               <Link
                 href={`/collections/${collection.slug}`}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-amber-400"
               >
-                Explore Collection →
+                {t("signatureCollections.explore")}{" "}
+                <span className="inline-block rtl:rotate-180">→</span>
               </Link>
             </div>
           </div>

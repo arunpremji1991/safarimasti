@@ -1,12 +1,17 @@
+"use client";
+
 import { site } from "@/data/site";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function FloatingContact() {
+  const { t } = useLanguage();
+
   return (
-    <div className="fixed bottom-24 right-5 z-40 flex flex-col items-end gap-3 lg:bottom-6 lg:right-6">
+    <div className="fixed bottom-24 end-5 z-40 flex flex-col items-end gap-3 lg:bottom-6 lg:end-6">
       <a
         href={site.phoneHref}
-        aria-label={`Call Safari Masti at ${site.phone}`}
-        title={`Call ${site.phone}`}
+        aria-label={`${t("floatingContact.callAria")} ${site.phone}`}
+        title={`${t("tour.callPrefix")} ${site.phone}`}
         className="flex h-11 w-11 items-center justify-center rounded-full bg-maroon-900 text-cream-50 shadow-lg transition-transform hover:scale-105 hover:bg-maroon-800"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -21,7 +26,7 @@ export function FloatingContact() {
         href={site.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Message Safari Masti on WhatsApp at ${site.phone}`}
+        aria-label={`${t("floatingContact.whatsappAria")} ${site.phone}`}
         title={`WhatsApp ${site.phone}`}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform hover:scale-105"
       >
