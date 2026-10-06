@@ -12,14 +12,25 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Email setup (contact form + Build Your Journey)
+## Build & deploy (static site + PHP forms)
 
-The contact form (`/contact`) and the journey builder (`/build-your-journey`)
-both send email via `src/lib/mailer.ts` using SMTP credentials from
-environment variables. Copy `.env.example` to `.env.local` and fill in real
-credentials — see that file for the easiest option (a Gmail App Password on
-`safarimasti@gmail.com`). Until these are set, both forms fail gracefully with
-a message pointing the visitor to call or WhatsApp instead.
+The site is a static export, hosted on any PHP/HTML host (e.g. Hostinger "PHP/HTML website").
+
+```bash
+npm run package   # builds ./out and zips it to safarimasti-static.zip
+```
+
+1. In hPanel, open File Manager -> `public_html`, delete the default files, upload
+   `safarimasti-static.zip` and extract it there (make sure `.htaccess` is present).
+2. In `public_html/api/`, copy `config.sample.php` to `config.php` and fill in the
+   recipient and SMTP details (a mailbox on your own domain, e.g. `info@safarimasti.com`).
+   `config.php` is never committed and is blocked from web access.
+3. Enable the free SSL certificate for the domain.
+
+The contact form (`/contact`) and journey builder (`/build-your-journey`) post to
+`/api/contact.php` and `/api/journey-request.php` (source in `public/api/`). Until
+`config.php` exists they fall back to PHP `mail()`; if sending fails, visitors are
+asked to call or WhatsApp instead.
 
 ## Content & data
 

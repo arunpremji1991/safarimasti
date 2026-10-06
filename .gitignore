@@ -40,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# static-export output and deploy package
+/out
+/safarimasti-static.zip
+
+# server-side form config (secrets)
+public/api/config.php

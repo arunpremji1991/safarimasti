@@ -1,0 +1,4 @@
+# Never serve config or helper files directly.
+<FilesMatch "^(config\.php|config\.sample\.php|_lib\.php)$">
+  Require all denied
+</FilesMatch>

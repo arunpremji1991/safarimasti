@@ -99,7 +99,7 @@ export function JourneyBuilder() {
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/journey-request", {
+      const res = await fetch("/api/journey-request.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

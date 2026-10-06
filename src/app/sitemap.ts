@@ -4,6 +4,8 @@ import { tours } from "@/data/tours";
 
 const BASE_URL = "https://safarimasti.com";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
