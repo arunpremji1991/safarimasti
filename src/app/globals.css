@@ -108,3 +108,22 @@ html[dir="rtl"] .font-display {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Navigation: slow light sweep across the Ayurveda pill. */
+@keyframes nav-sheen {
+  0% {
+    transform: translateX(-130%) skewX(-20deg);
+  }
+  55%,
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+.nav-sheen {
+  animation: nav-sheen 4.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-sheen {
+    animation: none;
+  }
+}
