@@ -9,8 +9,6 @@ export const site = {
   baseAr: "كوتشي، كيرالا",
   scope: "Pan-India",
   scopeAr: "جميع أنحاء الهند",
-  regionsLine: "North · South · East · Northeast",
-  regionsLineAr: "الشمال · الجنوب · الشرق · الشمال الشرقي",
   address: {
     line1: "Building No 4, Kudilinkal,",
     line2: "Thathappilly P.O., North Paravur,",
@@ -18,7 +16,8 @@ export const site = {
   },
   phone: "+91 85890 96860",
   phoneHref: "tel:+918589096860",
-  whatsappHref: "https://wa.me/918589096860",
+  whatsapp: "+91 91880 32932",
+  whatsappHref: "https://wa.me/919188032932",
   email: "safarimasti@gmail.com",
   emailHref: "mailto:safarimasti@gmail.com",
 } as const;

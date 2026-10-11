@@ -46,12 +46,20 @@ export function About() {
             </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold uppercase tracking-widest text-charcoal-900">
-            <span>
-              {pick(site.base, site.baseAr)} · {pick(site.scope, site.scopeAr)}
-            </span>
-            <span className="text-amber-600">{pick(site.regionsLine, site.regionsLineAr)}</span>
-          </div>
+          <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-charcoal-950/10 sm:grid-cols-[1fr_1.6fr]">
+            <div className="bg-cream-100 p-5">
+              <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">
+                {t("about.basedLabel")}
+              </dt>
+              <dd className="font-display mt-2 text-xl text-charcoal-950">{pick(site.base, site.baseAr)}</dd>
+            </div>
+            <div className="bg-cream-100 p-5">
+              <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">
+                {t("about.coverageLabel")}
+              </dt>
+              <dd className="font-display mt-2 text-xl text-charcoal-950">{t("about.coverageValue")}</dd>
+            </div>
+          </dl>
         </Reveal>
       </div>
     </section>

@@ -26,8 +26,8 @@ export function FloatingContact() {
         href={site.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${t("floatingContact.whatsappAria")} ${site.phone}`}
-        title={`WhatsApp ${site.phone}`}
+        aria-label={`${t("floatingContact.whatsappAria")} ${site.whatsapp}`}
+        title={`WhatsApp ${site.whatsapp}`}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform hover:scale-105"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">

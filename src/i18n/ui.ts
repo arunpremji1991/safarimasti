@@ -59,6 +59,12 @@ export const ui = {
     ar: "من رحلات المغامرة المفعمة بالحيوية إلى الإقامات الهادئة والآمنة المخصّصة لكبار السن، نلتزم بتقديم رحلات آمنة، غنية بالتفاصيل، ولا تُنسى.",
   },
   "about.promiseLabel": { en: "Our Promise", ar: "وعدنا لكم" },
+  "about.basedLabel": { en: "Based in", ar: "مقرّنا" },
+  "about.coverageLabel": { en: "We plan journeys across", ar: "نصمّم رحلات في" },
+  "about.coverageValue": {
+    en: "All of India — North, South, East, Northeast, Central & West",
+    ar: "أنحاء الهند كافة — الشمال والجنوب والشرق والشمال الشرقي والوسط والغرب",
+  },
   "about.storyEyebrow": { en: "Our Story", ar: "قصتنا" },
 
   // Brand statement
