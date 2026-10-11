@@ -22,7 +22,15 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      # next/font downloads Google Fonts at build time; retry if the network hiccups.
+      - name: Build
+        run: |
+          for attempt in 1 2 3; do
+            npm run build && exit 0
+            echo "Build attempt $attempt failed; retrying..."
+            sleep 20
+          done
+          exit 1
 
       - name: Publish ./out to the deploy branch
         run: |
