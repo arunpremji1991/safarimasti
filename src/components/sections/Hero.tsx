@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-charcoal-950">
       <Image
         src="/images/hero/home-hero.webp"
-        alt="Snow-capped Himalayan peaks reflected in a still valley lake in Ladakh"
+        alt="Travellers beside a still Himalayan lake reflecting snow-capped peaks at golden hour, with prayer flags in the foreground"
         fill
         priority
         sizes="100vw"

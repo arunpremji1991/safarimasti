@@ -96,6 +96,15 @@ export const ui = {
   "signatureCollections.explore": { en: "Explore Collection", ar: "استكشف المجموعة" },
 
   // Ayurveda spotlight
+  "band.label": { en: "Thar Desert · Rajasthan", ar: "صحراء ثار · راجستان" },
+  "band.tagline": {
+    en: "Every road in India leads somewhere unforgettable.",
+    ar: "كل طريق في الهند يقود إلى مكان لا يُنسى.",
+  },
+  "band.alt": {
+    en: "A camel caravan crossing golden dunes toward Jaisalmer Fort at sunset",
+    ar: "قافلة جمال تعبر كثبانًا ذهبية باتجاه قلعة جايسالمير عند الغروب",
+  },
   "ayurveda.eyebrow": { en: "Featured Product", ar: "منتج مميز" },
   "ayurveda.explore": { en: "Explore Ayurveda Retreats", ar: "استكشف برامج الأيورفيدا" },
   "ayurveda.alsoFrom": { en: "Also From Safari Masti", ar: "أيضًا من سفاري ماستي" },

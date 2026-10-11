@@ -1010,10 +1010,10 @@ export const tours: Tour[] = [
     overviewAr:
       "الانتعاش الأساسي للجسم إجازة عافية سريعة مصممة لتبديد التوتر السطحي وتخفيف شد العضلات واستعادة طاقتكم — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/tours/essential-body-refresh-1.webp",
       "/images/ayurveda/head-massage-woman.webp",
       "/images/ayurveda/steam-bath.webp",
       "/images/ayurveda/head-massage-man.webp",
+      "/images/ayurveda/couple-herbal-tea.webp",
     ],
     highlights: ["Full-body oil massage (Abhyangam)", "Soothing warm herbal steam baths"],
     highlightsAr: ["تدليك زيتي كامل للجسم (أبهيانغام)", "حمامات بخار عشبية دافئة ومهدئة"],
@@ -1054,7 +1054,6 @@ export const tours: Tour[] = [
     overviewAr:
       "التخلص العميق من التوتر غمر لمدة أسبوع كامل لتهدئة الذهن المفرط النشاط وتحسين جودة النوم وطرد سموم البيئة اليومية — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/tours/deep-stress-relief-1.webp",
       "/images/ayurveda/shirodhara-man.webp",
       "/images/ayurveda/shirodhara-woman.webp",
       "/images/ayurveda/herbal-pouch.webp",
@@ -1103,9 +1102,8 @@ export const tours: Tour[] = [
     overviewAr:
       "التطهير الشامل للجسم وإعادة الضبط برنامج تطهير داخلي وخارجي شامل يعيد ضبط عملية الأيض ويقوّي جهاز المناعة — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/tours/total-body-detox-reset-1.webp",
-      "/images/ayurveda/consultation.webp",
       "/images/ayurveda/herbs-oils.webp",
+      "/images/ayurveda/consultation.webp",
       "/images/ayurveda/ayurvedic-meal.webp",
       "/images/ayurveda/yoga-group.webp",
     ],

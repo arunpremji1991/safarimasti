@@ -26,7 +26,7 @@ export function Services() {
             <Reveal key={service.index} delay={i * 0.05}>
               <Link
                 href={service.href}
-                className="group grid items-center gap-6 border-t border-charcoal-950/10 py-8 last:border-b md:grid-cols-[80px_1fr_240px] md:gap-10"
+                className="group grid items-center gap-6 border-t border-charcoal-950/10 py-8 last:border-b md:grid-cols-[80px_1fr_340px] md:gap-10"
               >
                 <span className="font-display text-3xl text-amber-600">{service.index}</span>
 
@@ -39,12 +39,12 @@ export function Services() {
                   </p>
                 </div>
 
-                <div className="relative hidden h-32 w-full overflow-hidden rounded-xl md:block">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl md:aspect-auto md:h-52">
                   <Image
                     src={service.image}
                     alt={pick(service.title, service.titleAr)}
                     fill
-                    sizes="240px"
+                    sizes="(min-width: 768px) 340px, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>

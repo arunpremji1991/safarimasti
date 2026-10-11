@@ -6,6 +6,7 @@ import { WhyUs } from "@/components/sections/WhyUs";
 import { SignatureCollections } from "@/components/sections/SignatureCollections";
 import { AyurvedaSpotlight } from "@/components/sections/AyurvedaSpotlight";
 import { DestinationExplorer } from "@/components/sections/DestinationExplorer";
+import { ImageBand } from "@/components/sections/ImageBand";
 import { ExperienceSelector } from "@/components/sections/ExperienceSelector";
 import { BuildJourneyCTA } from "@/components/sections/BuildJourneyCTA";
 import { ContactCta } from "@/components/sections/ContactCta";
@@ -21,6 +22,7 @@ export default function Home() {
       <SignatureCollections />
       <AyurvedaSpotlight />
       <DestinationExplorer />
+      <ImageBand />
       <ExperienceSelector />
       <BuildJourneyCTA />
       <ContactCta />

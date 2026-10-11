@@ -15,7 +15,7 @@ export function About() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:aspect-auto md:h-full">
             <Image
               src="/images/about/about-kerala.webp"
-              alt="A silhouetted boatman on Kerala's backwaters at dusk"
+              alt="Chinese fishing nets silhouetted against a golden sunset at Fort Kochi, Kerala"
               fill
               sizes="(min-width: 768px) 45vw, 100vw"
               className="object-cover"
