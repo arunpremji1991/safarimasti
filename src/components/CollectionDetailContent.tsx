@@ -2,6 +2,7 @@
 
 import { PageHero } from "@/components/ui/PageHero";
 import { TourCard } from "@/components/ui/TourCard";
+import { AyurvedaSections } from "@/components/AyurvedaSections";
 import { Collection, Tour } from "@/data/types";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -78,6 +79,8 @@ export function CollectionDetailContent({
           )}
         </div>
       </section>
+
+      {collection.slug === "kerala-ayurveda" && <AyurvedaSections tours={tours} />}
     </>
   );
 }

@@ -36,6 +36,25 @@ be re-verified or swapped for licensed/original Safari Masti photography later.
 | ayurveda-massage-therapy | Essential Body Refresh | https://images.unsplash.com/photo-1617952986600-802f965dcdbc |
 | ayurveda-shirodhara | Deep Stress Relief | https://images.unsplash.com/photo-1775133263714-848c8fe09e73 |
 
+## AI-generated imagery (Higgsfield, model GPT Image 2.5)
+
+These images in `public/images/ayurveda/` were generated for the Kerala Ayurveda page at the
+client's request. They are illustrative scenes, not photographs of a real property, and the page
+says so. Prompts asked for no text or logos in frame.
+
+| File | Used for |
+|---|---|
+| pavilion | Kerala Ayurveda collection hero, gallery |
+| head-massage-woman, head-massage-man | Abhyangam / massage, Essential Body Refresh gallery, page gallery |
+| steam-bath | Herbal steam bath, Essential Body Refresh gallery |
+| shirodhara-man, shirodhara-woman | Shirodhara, Deep Stress Relief gallery, page gallery |
+| herbal-pouch | Herbal pouch massage, Deep Stress Relief gallery |
+| herbs-oils | Panchakarma, Total Body Detox & Reset gallery |
+| consultation | Doctor consultations, Total Body Detox & Reset gallery |
+| ayurvedic-meal | Included meals, Total Body Detox & Reset gallery |
+| yoga-group, yoga-woman, meditation-man | Yoga and meditation sections, programme galleries |
+| couple-herbal-tea | Page gallery |
+
 ## Replacement list
 
 Safari Masti's own photography should replace these placeholders as it becomes

@@ -1009,7 +1009,12 @@ export const tours: Tour[] = [
       "Essential Body Refresh is a quick wellness getaway designed to dissolve superficial stress, relieve muscle tension, and recharge your energy levels — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
     overviewAr:
       "الانتعاش الأساسي للجسم إجازة عافية سريعة مصممة لتبديد التوتر السطحي وتخفيف شد العضلات واستعادة طاقتكم — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
-    heroImages: ["/images/tours/essential-body-refresh-1.webp"],
+    heroImages: [
+      "/images/tours/essential-body-refresh-1.webp",
+      "/images/ayurveda/head-massage-woman.webp",
+      "/images/ayurveda/steam-bath.webp",
+      "/images/ayurveda/head-massage-man.webp",
+    ],
     highlights: ["Full-body oil massage (Abhyangam)", "Soothing warm herbal steam baths"],
     highlightsAr: ["تدليك زيتي كامل للجسم (أبهيانغام)", "حمامات بخار عشبية دافئة ومهدئة"],
     itinerary: [],
@@ -1048,7 +1053,13 @@ export const tours: Tour[] = [
       "Deep Stress Relief is a week-long immersion to calm an overactive mind, improve sleep quality, and flush out daily environmental toxins — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
     overviewAr:
       "التخلص العميق من التوتر غمر لمدة أسبوع كامل لتهدئة الذهن المفرط النشاط وتحسين جودة النوم وطرد سموم البيئة اليومية — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
-    heroImages: ["/images/tours/deep-stress-relief-1.webp"],
+    heroImages: [
+      "/images/tours/deep-stress-relief-1.webp",
+      "/images/ayurveda/shirodhara-man.webp",
+      "/images/ayurveda/shirodhara-woman.webp",
+      "/images/ayurveda/herbal-pouch.webp",
+      "/images/ayurveda/meditation-man.webp",
+    ],
     highlights: [
       "Continuous oil pouring over the forehead (Shirodhara)",
       "Herbal pouch massages",
@@ -1091,7 +1102,13 @@ export const tours: Tour[] = [
       "Total Body Detox & Reset is a comprehensive internal and external cleansing program that resets your metabolism and strengthens your immune system — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
     overviewAr:
       "التطهير الشامل للجسم وإعادة الضبط برنامج تطهير داخلي وخارجي شامل يعيد ضبط عملية الأيض ويقوّي جهاز المناعة — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
-    heroImages: ["/images/tours/total-body-detox-reset-1.webp"],
+    heroImages: [
+      "/images/tours/total-body-detox-reset-1.webp",
+      "/images/ayurveda/consultation.webp",
+      "/images/ayurveda/herbs-oils.webp",
+      "/images/ayurveda/ayurvedic-meal.webp",
+      "/images/ayurveda/yoga-group.webp",
+    ],
     highlights: [
       "Full Panchakarma elimination therapies",
       "Tissue-strengthening massages",

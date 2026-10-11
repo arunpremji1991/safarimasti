@@ -188,7 +188,7 @@ export const collections: Collection[] = [
       "Experience the profound healing of Ayurveda in its purest, most authentic form. Nestled in the tropical cradle of Kerala, India, our rejuvenation therapies are designed to detoxify the body, restore cellular vitality, and bring deep peace to the mind.",
     descriptionAr:
       "عيشوا تجربة الشفاء العميق لطب الأيورفيدا بأنقى صوره الأصيلة. في حضن كيرالا الاستوائي بالهند، صُمِّمت علاجات تجديد الحيوية لدينا لتطهير الجسم، واستعادة حيوية الخلايا، ومنح العقل سكينة عميقة.",
-    heroImage: "/images/collections/kerala-ayurveda-hero.webp",
+    heroImage: "/images/ayurveda/pavilion.webp",
     cardImage: "/images/collections/kerala-ayurveda-card.webp",
     regions: ["South"],
     destinations: [
