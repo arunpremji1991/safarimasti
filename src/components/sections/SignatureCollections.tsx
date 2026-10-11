@@ -144,10 +144,7 @@ export function SignatureCollections() {
   return (
     <section className="bg-charcoal-950 text-cream-50">
       <div className="px-5 pb-12 pt-24 md:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
-          {t("signatureCollections.eyebrow")}
-        </p>
-        <h2 className="font-display mt-4 max-w-2xl text-4xl leading-tight sm:text-5xl">
+        <h2 className="font-display max-w-2xl text-4xl leading-tight sm:text-5xl">
           {t("signatureCollections.title")}
         </h2>
       </div>

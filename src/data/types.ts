@@ -42,7 +42,7 @@ export interface Collection {
   /** Optional "why this product" points, rendered on the collection page when present. */
   advantages?: CollectionAdvantage[];
   /** Excluded from the homepage Signature Collections carousel and the main
-   * /collections "Bucket-List India" grid — still gets its own /collections/[slug] page. */
+   * /collections signature grid — still gets its own /collections/[slug] page. */
   hideFromSignatureCollections?: boolean;
 }
 

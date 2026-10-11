@@ -13,8 +13,8 @@ export default function CollectionsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Bucket-List India"
-        eyebrowAr="وجهات لا بد من زيارتها في الهند"
+        eyebrow="Our Collections"
+        eyebrowAr="مجموعاتنا"
         title="Signature Collections"
         titleAr="المجموعات المميزة"
         description="Seven curated collections spanning the length and breadth of India — each one built to be tailored around you."

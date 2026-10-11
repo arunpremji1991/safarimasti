@@ -98,7 +98,6 @@ export const ui = {
   "whyUs.title": { en: "Why choose Safari Masti?", ar: "لماذا تختار سفاري ماستي؟" },
 
   // Signature collections
-  "signatureCollections.eyebrow": { en: "Bucket-List India", ar: "وجهات لا بد من زيارتها في الهند" },
   "signatureCollections.title": {
     en: "Safari Masti's Signature Collections",
     ar: "مجموعات سفاري ماستي المميزة",
@@ -151,7 +150,6 @@ export const ui = {
   "contactCta.emailUs": { en: "Email Us", ar: "راسلنا عبر البريد الإلكتروني" },
 
   // Collections listing page
-  "collectionsPage.eyebrow": { en: "Bucket-List India", ar: "وجهات لا بد من زيارتها في الهند" },
   "collectionsPage.title": { en: "Signature Collections", ar: "المجموعات المميزة" },
   "collectionsPage.description": {
     en: "Seven curated collections spanning the length and breadth of India — each one built to be tailored around you.",
