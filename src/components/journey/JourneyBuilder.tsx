@@ -79,9 +79,15 @@ export function JourneyBuilder() {
   const { t, pick, locale } = useLanguage();
 
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState<FormState>(initialState);
+  // Arriving from the homepage experience selector pre-selects that travel type in step 1.
+  const [form, setForm] = useState<FormState>(() => {
+    const type = searchParams.get("type");
+    const known = type && experienceTypes.some((e) => e.label === type);
+    return known ? { ...initialState, journeyTypes: [type] } : initialState;
+  });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [contactError, setContactError] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -111,13 +117,13 @@ export function JourneyBuilder() {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Something went wrong.");
+        throw new Error(body.error || t("journey.genericError"));
       }
 
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
+      setErrorMessage(err instanceof Error ? err.message : t("journey.genericError"));
     }
   }
 
@@ -585,6 +591,12 @@ export function JourneyBuilder() {
         )}
       </AnimatePresence>
 
+      {!isReview && step === TOTAL_STEPS && contactError && (
+        <p role="alert" className="mt-6 text-sm font-semibold text-red-700">
+          {t("journey.step8.required")}
+        </p>
+      )}
+
       {!isReview && (
         <div className="mt-10 flex justify-between">
           <button
@@ -597,7 +609,17 @@ export function JourneyBuilder() {
           </button>
           <button
             type="button"
-            onClick={() => setStep((s) => Math.min(TOTAL_STEPS + 1, s + 1))}
+            onClick={() => {
+              if (step === TOTAL_STEPS) {
+                const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+                if (!form.fullName.trim() || !emailOk) {
+                  setContactError(true);
+                  return;
+                }
+              }
+              setContactError(false);
+              setStep((s) => Math.min(TOTAL_STEPS + 1, s + 1));
+            }}
             className="rounded-full bg-maroon-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream-50 hover:bg-maroon-800"
           >
             {step === TOTAL_STEPS ? t("journey.review") : t("journey.next")}

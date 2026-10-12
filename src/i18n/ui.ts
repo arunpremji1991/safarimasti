@@ -298,7 +298,7 @@ export const ui = {
   "tour.plan": { en: "Plan This Journey", ar: "خطط لهذه الرحلة" },
 
   // Collection card / Tour card
-  "tourCard.planThisJourney": { en: "Plan This Journey", ar: "خطط لهذه الرحلة" },
+  "tourCard.planThisJourney": { en: "View Journey", ar: "عرض الرحلة" },
 
   // Journey builder — general
   "journey.selectedJourney": { en: "Selected Journey:", ar: "الرحلة المختارة:" },
@@ -386,6 +386,14 @@ export const ui = {
 
   // Journey builder — step 8
   "journey.step8.title": { en: "How can we reach you?", ar: "كيف يمكننا التواصل معك؟" },
+  "journey.genericError": {
+    en: "We couldn't send your request right now. Please call or WhatsApp us instead.",
+    ar: "تعذّر إرسال طلبكم الآن. يُرجى الاتصال بنا أو مراسلتنا عبر واتساب.",
+  },
+  "journey.step8.required": {
+    en: "Please enter your name and a valid email address so we can reach you.",
+    ar: "يُرجى إدخال اسمكم وعنوان بريد إلكتروني صحيح حتى نتمكن من التواصل معكم.",
+  },
   "journey.step8.fullName": { en: "Full Name", ar: "الاسم الكامل" },
   "journey.step8.email": { en: "Email", ar: "البريد الإلكتروني" },
   "journey.step8.phone": { en: "Phone / WhatsApp", ar: "الهاتف / واتساب" },

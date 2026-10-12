@@ -70,13 +70,25 @@ export function ExperienceSelector() {
             className="mt-10 max-w-xl"
           >
             <p className="text-lg text-cream-100/85">{pick(active.description, active.descriptionAr)}</p>
-            <Link
-              href={active.href}
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-amber-400"
-            >
-              {t("experienceSelector.buildThis")}
-              <span className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1">→</span>
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href={`/build-your-journey?type=${encodeURIComponent(active.label)}`}
+                className="group inline-flex items-center gap-3 rounded-full bg-amber-500 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-maroon-950 shadow-[0_10px_30px_-10px_rgba(238,170,76,0.9)] transition-all hover:-translate-y-0.5 hover:bg-amber-400"
+              >
+                {t("experienceSelector.buildThis")}
+                <span aria-hidden className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+              {active.href !== "/build-your-journey" && (
+                <Link
+                  href={active.href}
+                  className="inline-flex items-center rounded-full border border-cream-100/40 px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-cream-50 transition-colors hover:bg-white/10"
+                >
+                  {t("signatureCollections.explore")}
+                </Link>
+              )}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
