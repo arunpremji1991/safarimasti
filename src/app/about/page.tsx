@@ -21,7 +21,7 @@ export default function AboutPage() {
         titleAr="عن سفاري ماستي"
         description="Cochin-based, Pan-India in reach — a team of local experts designing journeys around every traveler."
         descriptionAr="مقرّنا في كوتشي، ونصل إلى جميع أنحاء الهند — فريق من الخبراء المحليين يصمم كل رحلة حول المسافر نفسه."
-        image="/images/collections/jewels-of-the-south-hero.webp"
+        image="/images/collections/jewels-of-the-south-hero.cde936f4.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "About", labelAr: "من نحن" },

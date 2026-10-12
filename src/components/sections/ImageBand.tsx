@@ -14,7 +14,7 @@ export function ImageBand() {
       className="relative flex min-h-[80svh] items-end overflow-hidden bg-charcoal-950"
     >
       <ParallaxImage
-        src="/images/sections/thar-caravan.webp"
+        src="/images/sections/thar-caravan.197fe4a1.webp"
         alt={t("band.alt")}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/10 to-transparent" />

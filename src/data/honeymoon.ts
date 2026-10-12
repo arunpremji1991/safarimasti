@@ -27,7 +27,7 @@ export const honeymoonChapters: HoneymoonChapter[] = [
       en: "Drift through quiet green canals, sharing slow mornings and golden evenings on the water.",
       ar: "انسابوا عبر قنوات خضراء هادئة، وتقاسموا صباحات بطيئة ومساءات ذهبية على صفحة الماء.",
     },
-    image: "/images/honeymoon/kerala-canoe.webp",
+    image: "/images/honeymoon/kerala-canoe.70d2a9fe.webp",
     alt: {
       en: "A honeymoon couple in a traditional canoe on a Kerala backwater canal at sunrise",
       ar: "زوجان في شهر العسل داخل قارب تقليدي على قناة مائية في كيرالا عند الشروق",
@@ -40,7 +40,7 @@ export const honeymoonChapters: HoneymoonChapter[] = [
       en: "Misty tea hills, cool mornings and long walks with nowhere else to be.",
       ar: "تلال شاي يلفّها الضباب، وصباحات باردة، ونزهات طويلة بلا أي التزام سواكما.",
     },
-    image: "/images/honeymoon/munnar-picnic.webp",
+    image: "/images/honeymoon/munnar-picnic.da47a80d.webp",
     alt: {
       en: "A couple sharing a morning picnic among the tea plantations of Munnar",
       ar: "زوجان يتشاركان نزهة صباحية بين مزارع الشاي في مونار",
@@ -53,7 +53,7 @@ export const honeymoonChapters: HoneymoonChapter[] = [
       en: "Warm sand, easy sunsets and unhurried evenings by the sea.",
       ar: "رمال دافئة، وغروب هادئ، وأمسيات بلا استعجال على ضفاف البحر.",
     },
-    image: "/images/honeymoon/goa-walk.webp",
+    image: "/images/honeymoon/goa-walk.6e4fab09.webp",
     alt: {
       en: "A couple walking hand in hand along a Goa beach at sunset",
       ar: "زوجان يسيران يدًا بيد على شاطئ في غوا عند الغروب",
@@ -66,7 +66,7 @@ export const honeymoonChapters: HoneymoonChapter[] = [
       en: "Royal Rajasthan, made for two — palace stays and golden evenings under open skies.",
       ar: "راجستان الملكية، بمقياس اثنين — إقامات في القصور وأمسيات ذهبية تحت سماء مفتوحة.",
     },
-    image: "/images/honeymoon/rajasthan-dunes.webp",
+    image: "/images/honeymoon/rajasthan-dunes.d18c3aa7.webp",
     alt: {
       en: "A couple walking across golden desert dunes in Rajasthan at sunset",
       ar: "زوجان يسيران عبر كثبان صحراوية ذهبية في راجستان عند الغروب",
@@ -76,19 +76,19 @@ export const honeymoonChapters: HoneymoonChapter[] = [
 
 export const honeymoonGallery: { src: string; alt: Bi }[] = [
   {
-    src: "/images/honeymoon/kerala-deck.webp",
+    src: "/images/honeymoon/kerala-deck.b4fedd39.webp",
     alt: { en: "A couple sharing tea on a houseboat deck at sunset", ar: "زوجان يتشاركان الشاي على سطح قارب سكني عند الغروب" },
   },
   {
-    src: "/images/honeymoon/munnar-view.webp",
+    src: "/images/honeymoon/munnar-view.0f7a5696.webp",
     alt: { en: "A couple wrapped in a shawl above the misty hills of Munnar", ar: "زوجان متدثران بشال فوق تلال مونار الضبابية" },
   },
   {
-    src: "/images/honeymoon/goa-dinner.webp",
+    src: "/images/honeymoon/goa-dinner.0d8e8df9.webp",
     alt: { en: "A candle-lit dinner for two on a Goa beach at sunset", ar: "عشاء على ضوء الشموع لشخصين على شاطئ في غوا عند الغروب" },
   },
   {
-    src: "/images/honeymoon/rajasthan-dinner.webp",
+    src: "/images/honeymoon/rajasthan-dinner.f71ce101.webp",
     alt: { en: "A candle-lit dinner for two on the dunes at dusk", ar: "عشاء على ضوء الشموع لشخصين فوق الكثبان عند الغسق" },
   },
 ];

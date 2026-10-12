@@ -27,6 +27,7 @@ Kerala Ayurveda page says so. Prompts requested no text, logos or watermarks.
 
 Safari Masti's own photography should replace these as it becomes available,
 especially for destinations and properties where accuracy matters most. To swap an
-image, replace the file in `public/images/**` with the same filename (any size,
-ideally 3:2 for cards/tours and 16:9 for heroes), or update the path in
-`src/data/*.ts`.
+image, drop the new file into the same `public/images/**` folder (ideally 3:2 for
+cards/tours and 16:9 for heroes), then run `npm run images:hash` and rebuild. Image
+files carry a short content hash in their name (e.g. `about-friends.fb9c1b58.webp`), so
+visitors' browsers always fetch the new picture instead of an old cached one.

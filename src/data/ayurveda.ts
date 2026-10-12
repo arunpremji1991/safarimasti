@@ -31,7 +31,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "A rhythmic massage with warm herbal oils, traditionally given by two therapists working together. In the Ayurvedic tradition it is used to ease muscle tension, settle the nerves and prepare the body for the therapies that follow.",
       ar: "تدليك إيقاعي بزيوت عشبية دافئة، يقوم به عادةً معالجان يعملان معًا. وفي تقاليد الأيورفيدا يُستخدم لتخفيف شد العضلات وتهدئة الأعصاب وتهيئة الجسم للعلاجات التي تليه.",
     },
-    image: "/images/ayurveda/head-massage-woman.webp",
+    image: "/images/ayurveda/head-massage-woman.80fc83a9.webp",
     alt: {
       en: "A therapist gives a woman a calming head and shoulder massage in an open Kerala pavilion",
       ar: "معالجة تقدّم لسيدة تدليكًا مهدئًا للرأس والكتفين في جناح مفتوح في كيرالا",
@@ -45,7 +45,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "Warm herbal steam taken in a traditional wooden chamber with the head kept outside. It is customarily paired with oil massage to leave the body feeling light, warm and deeply relaxed.",
       ar: "بخار عشبي دافئ يُؤخذ داخل غرفة خشبية تقليدية مع بقاء الرأس خارجها. ويُقرَن عادةً بتدليك الزيوت ليترك الجسم خفيفًا ودافئًا ومسترخيًا بعمق.",
     },
-    image: "/images/ayurveda/steam-bath.webp",
+    image: "/images/ayurveda/steam-bath.313fa1fc.webp",
     alt: {
       en: "A woman relaxing in a traditional wooden herbal steam cabinet",
       ar: "سيدة تسترخي داخل حمّام بخار عشبي خشبي تقليدي",
@@ -59,7 +59,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "A thin, steady stream of warm herbal oil poured slowly over the forehead while you lie at rest. It is one of Ayurveda's most recognised therapies for calming an overactive mind.",
       ar: "خيط رفيع ثابت من الزيت العشبي الدافئ يُصبّ ببطء على الجبين وأنتم مستلقون في راحة تامة. وهو من أشهر علاجات الأيورفيدا لتهدئة الذهن المفرط النشاط.",
     },
-    image: "/images/ayurveda/shirodhara-man.webp",
+    image: "/images/ayurveda/shirodhara-man.b7e878d8.webp",
     alt: {
       en: "A man receiving Shirodhara, a stream of warm oil flowing onto his forehead",
       ar: "رجل يتلقى علاج شيرودارا بينما ينساب الزيت الدافئ على جبينه",
@@ -73,7 +73,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "Warm cloth pouches filled with herbs and medicinal powders, heated over steam and pressed gently over the body in a steady rhythm to release tension.",
       ar: "أكياس قماشية دافئة محشوّة بالأعشاب والمساحيق الطبية، تُسخَّن على البخار ثم تُضغط برفق على الجسم بإيقاع ثابت لتخفيف الشد.",
     },
-    image: "/images/ayurveda/herbal-pouch.webp",
+    image: "/images/ayurveda/herbal-pouch.f5b90656.webp",
     alt: {
       en: "A therapist presses warm herbal pouches on a woman's shoulders",
       ar: "معالجة تضغط بأكياس الأعشاب الدافئة على كتفي سيدة",
@@ -87,7 +87,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "Panchakarma, meaning “five actions”, is Ayurveda's classical system of internal and external cleansing. In your programme it is followed under the guidance of our Ayurvedic doctors, together with tissue-strengthening massages and a personalised diet.",
       ar: "بانتشاكارما، وتعني «الأفعال الخمسة»، هي منظومة الأيورفيدا الكلاسيكية للتطهير الداخلي والخارجي. وفي برنامجكم تُتَّبع بإشراف أطبائنا المتخصصين في الأيورفيدا، إلى جانب تدليك يقوّي الأنسجة ونظام غذائي مخصص لكم.",
     },
-    image: "/images/ayurveda/herbs-oils.webp",
+    image: "/images/ayurveda/herbs-oils.2d622258.webp",
     alt: {
       en: "Brass bowls of Ayurvedic herbs, powders and golden herbal oils on a wooden table",
       ar: "أوعية نحاسية من الأعشاب والمساحيق الأيورفيدية والزيوت العشبية الذهبية على طاولة خشبية",
@@ -101,7 +101,7 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       en: "Gentle morning yoga to wake the body, and an evening guided meditation to close the day — an everyday rhythm that carries the calm of the therapies into the rest of your time.",
       ar: "يوغا صباحية هادئة توقظ الجسم، وتأمل موجَّه مسائي يختم اليوم — إيقاع يومي ينقل سكينة العلاجات إلى بقية وقتكم.",
     },
-    image: "/images/ayurveda/yoga-group.webp",
+    image: "/images/ayurveda/yoga-group.ed9d4bda.webp",
     alt: {
       en: "Men and women practising morning yoga on an open-air pavilion among coconut palms",
       ar: "رجال ونساء يمارسون يوغا الصباح في جناح مفتوح بين أشجار جوز الهند",
@@ -147,7 +147,7 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
       en: "Personalised consultations with our Ayurvedic doctors every day.",
       ar: "استشارات شخصية يوميًا مع أطبائنا المتخصصين في الأيورفيدا.",
     },
-    image: "/images/ayurveda/consultation.webp",
+    image: "/images/ayurveda/consultation.5044c25f.webp",
     alt: {
       en: "An Ayurvedic doctor checking a guest's pulse during a consultation",
       ar: "طبيبة أيورفيدا تفحص نبض أحد الضيوف خلال الاستشارة",
@@ -159,7 +159,7 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
       en: "Three vegetarian meals daily, designed for your body type.",
       ar: "ثلاث وجبات نباتية يوميًا، مصمَّمة بما يناسب طبيعة جسمكم.",
     },
-    image: "/images/ayurveda/ayurvedic-meal.webp",
+    image: "/images/ayurveda/ayurvedic-meal.1dc5e044.webp",
     alt: {
       en: "A Kerala-style vegetarian meal served on a banana leaf",
       ar: "وجبة نباتية على الطريقة الكيرالية مقدَّمة على ورقة موز",
@@ -171,7 +171,7 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
       en: "Gentle morning yoga sessions to begin each day.",
       ar: "جلسات يوغا صباحية هادئة لبدء كل يوم.",
     },
-    image: "/images/ayurveda/yoga-woman.webp",
+    image: "/images/ayurveda/yoga-woman.46691773.webp",
     alt: {
       en: "A woman in a seated yoga pose beside the Kerala backwaters at sunrise",
       ar: "سيدة في وضعية يوغا جلوس بجوار مياه كيرالا الراكدة عند شروق الشمس",
@@ -183,7 +183,7 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
       en: "A guided meditation each evening to settle the mind before rest.",
       ar: "تأمل موجَّه كل مساء لتهدئة الذهن قبل الراحة.",
     },
-    image: "/images/ayurveda/meditation-man.webp",
+    image: "/images/ayurveda/meditation-man.eedfcb26.webp",
     alt: {
       en: "A man meditating on a quiet wooden veranda surrounded by greenery",
       ar: "رجل يتأمل على شرفة خشبية هادئة تحيط بها الخضرة",
@@ -193,19 +193,19 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
 
 export const ayurvedaGallery: { src: string; alt: Bi }[] = [
   {
-    src: "/images/ayurveda/pavilion.webp",
+    src: "/images/ayurveda/pavilion.1fc4c569.webp",
     alt: { en: "An open-air treatment pavilion beside the Kerala backwaters", ar: "جناح علاج مفتوح بجوار مياه كيرالا الراكدة" },
   },
   {
-    src: "/images/ayurveda/shirodhara-woman.webp",
+    src: "/images/ayurveda/shirodhara-woman.36f13e04.webp",
     alt: { en: "A woman receiving Shirodhara in a calm treatment room", ar: "سيدة تتلقى علاج شيرودارا في غرفة علاج هادئة" },
   },
   {
-    src: "/images/ayurveda/head-massage-man.webp",
+    src: "/images/ayurveda/head-massage-man.88c86736.webp",
     alt: { en: "A man receiving a calming head and shoulder massage", ar: "رجل يتلقى تدليكًا مهدئًا للرأس والكتفين" },
   },
   {
-    src: "/images/ayurveda/couple-herbal-tea.webp",
+    src: "/images/ayurveda/couple-herbal-tea.bd0c854a.webp",
     alt: { en: "A couple enjoying herbal tea on a wooden veranda", ar: "زوجان يستمتعان بشاي الأعشاب على شرفة خشبية" },
   },
 ];

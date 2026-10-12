@@ -12,8 +12,8 @@ export const collections: Collection[] = [
       "Guided walking tours, trekking, hiking and managed camping experiences for outdoor enthusiasts, from Himalayan summits to alpine lakes.",
     descriptionAr:
       "جولات مشي ورحلات تسلق ومخيمات منظّمة برفقة مرشدين، مخصصة لعشاق الأنشطة الخارجية، من قمم جبال الهيمالايا إلى البحيرات الجبلية.",
-    heroImage: "/images/collections/adventure-trekking-hero.webp",
-    cardImage: "/images/collections/adventure-trekking-card.webp",
+    heroImage: "/images/collections/adventure-trekking-hero.b4a9ab3d.webp",
+    cardImage: "/images/collections/adventure-trekking-card.f30e23a5.webp",
     regions: ["North"],
     destinations: [
       { name: "Kedarkantha Peak", nameAr: "قمة كيدارْكانتا" },
@@ -36,8 +36,8 @@ export const collections: Collection[] = [
       "A luxury tour through Delhi, Agra, and Jaipur — India's most iconic circuit of Mughal grandeur, royal forts, and vibrant bazaars.",
     descriptionAr:
       "جولة فاخرة عبر دلهي وأغرا وجايبور — أشهر مسار سياحي في الهند، يجمع بين عظمة العمارة المغولية والقلاع الملكية والأسواق النابضة بالحياة.",
-    heroImage: "/images/collections/golden-triangle-hero.webp",
-    cardImage: "/images/collections/golden-triangle-card.webp",
+    heroImage: "/images/collections/golden-triangle-hero.4734d6a7.webp",
+    cardImage: "/images/collections/golden-triangle-card.777dba1e.webp",
     regions: ["North"],
     destinations: [
       { name: "Delhi", nameAr: "دلهي" },
@@ -57,9 +57,9 @@ export const collections: Collection[] = [
       "Premium, high-end experiences and romantic getaways with curated stays and exclusive amenities.",
     descriptionAr:
       "تجارب راقية وإجازات رومانسية، مع إقامات مُنتقاة بعناية ومرافق حصرية.",
-    heroImage: "/images/collections/luxury-honeymoon-hero.webp",
+    heroImage: "/images/collections/luxury-honeymoon-hero.b5d83428.webp",
     heroPosition: "72% 50%",
-    cardImage: "/images/collections/luxury-honeymoon-card.webp",
+    cardImage: "/images/collections/luxury-honeymoon-card.2d242e0a.webp",
     regions: ["South", "West"],
     destinations: [
       { name: "Kerala Backwater Retreats", nameAr: "إقامات على المسطحات المائية في كيرالا" },
@@ -80,8 +80,8 @@ export const collections: Collection[] = [
       "Two ways into India's most untouched corner — the Scotland of the East, and the Land of the Dawn-Lit Peaks.",
     descriptionAr:
       "طريقان للوصول إلى أكثر أركان الهند بكارةً — «اسكتلندا الشرق» و«أرض القمم المضيئة عند الفجر».",
-    heroImage: "/images/collections/northeast-hero.webp",
-    cardImage: "/images/collections/northeast-card.webp",
+    heroImage: "/images/collections/northeast-hero.e7d55a4a.webp",
+    cardImage: "/images/collections/northeast-card.29fca0bc.webp",
     regions: ["Northeast"],
     destinations: [
       {
@@ -110,8 +110,8 @@ export const collections: Collection[] = [
       "Guided safaris through India's most celebrated national parks and tiger reserves.",
     descriptionAr:
       "رحلات سفاري برفقة مرشدين عبر أشهر المحميات الوطنية ومحميات النمور في الهند.",
-    heroImage: "/images/collections/wildlife-safaris-hero.webp",
-    cardImage: "/images/collections/wildlife-safaris-card.webp",
+    heroImage: "/images/collections/wildlife-safaris-hero.e57ab0df.webp",
+    cardImage: "/images/collections/wildlife-safaris-card.54e4cdef.webp",
     regions: ["Central", "East", "North"],
     destinations: [
       { name: "Kanha & Bandhavgarh", nameAr: "كانها وبانداغفار" },
@@ -132,8 +132,8 @@ export const collections: Collection[] = [
       "Customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage.",
     descriptionAr:
       "جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي.",
-    heroImage: "/images/collections/jewels-of-the-south-hero.webp",
-    cardImage: "/images/collections/jewels-of-the-south-card.webp",
+    heroImage: "/images/collections/jewels-of-the-south-hero.cde936f4.webp",
+    cardImage: "/images/collections/jewels-of-the-south-card.800828fe.webp",
     regions: ["South"],
     destinations: [
       { name: "Kerala", nameAr: "كيرالا" },
@@ -155,8 +155,8 @@ export const collections: Collection[] = [
       "Pilgrimage journeys along the Ganges and Himalayan foothills in the north, and the great temple trails of Tamil Nadu and Kerala in the south.",
     descriptionAr:
       "رحلات حج على ضفاف نهر الغانج وسفوح جبال الهيمالايا في الشمال، ومسارات المعابد الكبرى في تاميل نادو وكيرالا في الجنوب.",
-    heroImage: "/images/collections/divine-trails-hero.webp",
-    cardImage: "/images/collections/divine-trails-card.webp",
+    heroImage: "/images/collections/divine-trails-hero.7e7ce1cd.webp",
+    cardImage: "/images/collections/divine-trails-card.be1dbe5b.webp",
     regions: ["North", "South"],
     destinations: [
       {
@@ -189,8 +189,8 @@ export const collections: Collection[] = [
       "Experience the profound healing of Ayurveda in its purest, most authentic form. Nestled in the tropical cradle of Kerala, India, our rejuvenation therapies are designed to detoxify the body, restore cellular vitality, and bring deep peace to the mind.",
     descriptionAr:
       "عيشوا تجربة الشفاء العميق لطب الأيورفيدا بأنقى صوره الأصيلة. في حضن كيرالا الاستوائي بالهند، صُمِّمت علاجات تجديد الحيوية لدينا لتطهير الجسم، واستعادة حيوية الخلايا، ومنح العقل سكينة عميقة.",
-    heroImage: "/images/ayurveda/pavilion.webp",
-    cardImage: "/images/collections/kerala-ayurveda-card.webp",
+    heroImage: "/images/ayurveda/pavilion.1fc4c569.webp",
+    cardImage: "/images/collections/kerala-ayurveda-card.357a7415.webp",
     regions: ["South"],
     destinations: [
       { name: "Essential Body Refresh", nameAr: "الانتعاش الأساسي للجسم", description: "3 to 5 Days", descriptionAr: "من ٣ إلى ٥ أيام" },

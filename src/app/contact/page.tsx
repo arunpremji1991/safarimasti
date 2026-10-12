@@ -16,7 +16,7 @@ export default function ContactPage() {
         eyebrowAr="لنخطط معًا لرحلتكم القادمة"
         title="Contact Safari Masti"
         titleAr="تواصل مع سفاري ماستي"
-        image="/images/collections/divine-trails-hero.webp"
+        image="/images/collections/divine-trails-hero.7e7ce1cd.webp"
         compact
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },

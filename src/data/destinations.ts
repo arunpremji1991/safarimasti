@@ -20,7 +20,7 @@ export const regionExplorers: RegionExplorer[] = [
       "The Golden Triangle, Himalayan treks and the Ganges pilgrimage trail — Delhi, Agra, Jaipur, Uttarakhand, Ladakh and Rishikesh.",
     descriptionAr:
       "المثلث الذهبي، ورحلات تسلق جبال الهيمالايا، ومسار الحج على نهر الغانج — دلهي وأغرا وجايبور وأوتاراخاند ولداخ وريشيكيش.",
-    image: "/images/destinations/north-india.webp",
+    image: "/images/destinations/north-india.efb7de37.webp",
   },
   {
     region: "South",
@@ -31,7 +31,7 @@ export const regionExplorers: RegionExplorer[] = [
       "Kerala's backwaters, Tamil Nadu and Karnataka's temple heritage, and Hyderabad — the Jewels of the South.",
     descriptionAr:
       "المسطحات المائية الهادئة في كيرالا، والتراث المعماري لمعابد تاميل نادو وكارناتاكا، وحيدر آباد — جواهر الجنوب.",
-    image: "/images/destinations/south-india.webp",
+    image: "/images/destinations/south-india.c20f6756.webp",
   },
   {
     region: "East",
@@ -40,7 +40,7 @@ export const regionExplorers: RegionExplorer[] = [
     titleAr: "شرق الهند",
     description: "Ridge-line treks to Sandakphu & Phalut in the Eastern Himalayas.",
     descriptionAr: "رحلات تسلق على خط التلال نحو سانداكفو وفالوت في شرق جبال الهيمالايا.",
-    image: "/images/destinations/east-india.webp",
+    image: "/images/destinations/east-india.88404e24.webp",
   },
   {
     region: "Northeast",
@@ -51,7 +51,7 @@ export const regionExplorers: RegionExplorer[] = [
       "Meghalaya, Assam and Arunachal Pradesh — the Scotland of the East and the Land of the Dawn-Lit Peaks.",
     descriptionAr:
       "ميغالايا وآسام وأروناتشال براديش — المعروفة بـ«اسكتلندا الشرق» و«أرض القمم المضيئة عند الفجر».",
-    image: "/images/destinations/northeast-india.webp",
+    image: "/images/destinations/northeast-india.06ab45e5.webp",
   },
   {
     region: "Central",
@@ -60,7 +60,7 @@ export const regionExplorers: RegionExplorer[] = [
     titleAr: "وسط الهند",
     description: "Tiger country — guided safaris through Kanha and Bandhavgarh in Madhya Pradesh.",
     descriptionAr: "أرض النمور — رحلات سفاري بمرافقة مرشدين في كانها وبانداغفار بولاية ماديا براديش.",
-    image: "/images/destinations/central-india.webp",
+    image: "/images/destinations/central-india.fb1ef376.webp",
   },
   {
     region: "West",
@@ -69,6 +69,6 @@ export const regionExplorers: RegionExplorer[] = [
     titleAr: "غرب الهند",
     description: "Goa's beaches and Rajasthan's palace stays and desert heritage.",
     descriptionAr: "شواطئ غوا، وإقامات القصور في راجستان، وتراث الصحراء.",
-    image: "/images/destinations/west-india.webp",
+    image: "/images/destinations/west-india.60f5b034.webp",
   },
 ];

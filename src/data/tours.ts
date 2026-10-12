@@ -52,7 +52,7 @@ export const tours: Tour[] = [
       "Kedarkantha Peak is one of the guided trekking expeditions in Safari Masti's Premier Adventure & Trekking Expeditions collection. As with every Safari Masti adventure journey, the route, pace, camping logistics and on-ground support are planned around your group's experience level, fitness and travel dates.",
     overviewAr:
       "قمة كيدارْكانتا واحدة من رحلات التسلق المصحوبة بمرشدين ضمن مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. وكما هو الحال في كل رحلة مغامرة مع سفاري ماستي، يُخطَّط المسار والوتيرة ولوجستيات التخييم والدعم الميداني بحسب مستوى خبرة مجموعتكم ولياقتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/kedarkantha-peak-1.webp"],
+    heroImages: ["/images/tours/kedarkantha-peak-1.bd359c7e.webp"],
     highlights: [
       "Guided by trek leaders with deep regional knowledge",
       "Camping and on-ground logistics fully managed end-to-end",
@@ -90,7 +90,7 @@ export const tours: Tour[] = [
       "Hampta Pass & Chandratal Lake is part of Safari Masti's Premier Adventure & Trekking Expeditions collection. Every trek is designed and supported end-to-end around your group's pace, experience and travel dates.",
     overviewAr:
       "ممر هامبتا وبحيرة تشاندراتال جزء من مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. تُصمَّم كل رحلة تسلق وتُدار بالكامل بحسب وتيرة مجموعتكم وخبرتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/hampta-pass-chandratal-lake-1.webp"],
+    heroImages: ["/images/tours/hampta-pass-chandratal-lake-1.addd3ef7.webp"],
     highlights: [
       "Guided by trek leaders with deep regional knowledge",
       "Camping and on-ground logistics fully managed end-to-end",
@@ -128,7 +128,7 @@ export const tours: Tour[] = [
       "Valley of Flowers & Hemkund Sahib is part of Safari Masti's Premier Adventure & Trekking Expeditions collection. Every trek is designed and supported end-to-end around your group's pace, experience and travel dates.",
     overviewAr:
       "وادي الزهور ومعبد هيمكوند صاحب جزء من مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. تُصمَّم كل رحلة تسلق وتُدار بالكامل بحسب وتيرة مجموعتكم وخبرتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/valley-of-flowers-hemkund-sahib-1.webp"],
+    heroImages: ["/images/tours/valley-of-flowers-hemkund-sahib-1.bdb853ed.webp"],
     highlights: [
       "Guided by trek leaders with deep regional knowledge",
       "Camping and on-ground logistics fully managed end-to-end",
@@ -166,7 +166,7 @@ export const tours: Tour[] = [
       "Markha Valley is part of Safari Masti's Premier Adventure & Trekking Expeditions collection. Every trek is designed and supported end-to-end around your group's pace, experience and travel dates.",
     overviewAr:
       "وادي ماركا جزء من مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. تُصمَّم كل رحلة تسلق وتُدار بالكامل بحسب وتيرة مجموعتكم وخبرتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/markha-valley-1.webp"],
+    heroImages: ["/images/tours/markha-valley-1.bb6421b2.webp"],
     highlights: [
       "Guided by trek leaders with deep regional knowledge",
       "Camping and on-ground logistics fully managed end-to-end",
@@ -204,7 +204,7 @@ export const tours: Tour[] = [
       "Sandakphu & Phalut is part of Safari Masti's Premier Adventure & Trekking Expeditions collection. Every trek is designed and supported end-to-end around your group's pace, experience and travel dates.",
     overviewAr:
       "سانداكفو وفالوت جزء من مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. تُصمَّم كل رحلة تسلق وتُدار بالكامل بحسب وتيرة مجموعتكم وخبرتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/sandakphu-phalut-1.webp"],
+    heroImages: ["/images/tours/sandakphu-phalut-1.14042a3a.webp"],
     highlights: [
       "Guided by trek leaders with deep regional knowledge",
       "Camping and on-ground logistics fully managed end-to-end",
@@ -242,7 +242,7 @@ export const tours: Tour[] = [
       "Incredible Ladakh is part of Safari Masti's Premier Adventure & Trekking Expeditions collection. Every journey is designed and supported end-to-end around your group's pace, interests and travel dates.",
     overviewAr:
       "لداخ المذهلة جزء من مجموعة سفاري ماستي الفاخرة للمغامرة والتسلق. تُصمَّم كل رحلة وتُدار بالكامل بحسب وتيرة مجموعتكم واهتماماتها ومواعيد سفركم.",
-    heroImages: ["/images/tours/incredible-ladakh-1.webp"],
+    heroImages: ["/images/tours/incredible-ladakh-1.48d57452.webp"],
     highlights: [
       "Guided by local experts with deep regional knowledge",
       "On-ground logistics fully managed end-to-end",
@@ -286,7 +286,7 @@ export const tours: Tour[] = [
       "A luxury tour through Delhi, Agra, and Jaipur — India's most iconic circuit of Mughal grandeur, royal forts, and vibrant bazaars. Safari Masti designs the pace, stays and experiences across all three cities around your travel style and dates.",
     overviewAr:
       "جولة فاخرة عبر دلهي وأغرا وجايبور — أشهر مسار سياحي في الهند يجمع عظمة العمارة المغولية والقلاع الملكية والأسواق النابضة بالحياة. تصمم سفاري ماستي الوتيرة والإقامات والتجارب في المدن الثلاث بحسب أسلوبكم في السفر ومواعيدكم.",
-    heroImages: ["/images/tours/golden-triangle-1.webp", "/images/tours/golden-triangle-2.webp"],
+    heroImages: ["/images/tours/golden-triangle-1.cd3a5e72.webp", "/images/tours/golden-triangle-2.584aaab5.webp"],
     highlights: [
       "Mughal grandeur across Delhi, Agra and Jaipur",
       "Royal forts and palaces on India's most iconic heritage circuit",
@@ -330,7 +330,7 @@ export const tours: Tour[] = [
       "Kerala Backwater Retreats is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إقامات المسطحات المائية في كيرالا جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/honeymoon/kerala-canoe.webp", "/images/honeymoon/kerala-deck.webp"],
+    heroImages: ["/images/honeymoon/kerala-canoe.70d2a9fe.webp", "/images/honeymoon/kerala-deck.b4fedd39.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -368,7 +368,7 @@ export const tours: Tour[] = [
       "Munnar Hill Romance is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "رومانسية تلال مونار جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/honeymoon/munnar-picnic.webp", "/images/honeymoon/munnar-view.webp"],
+    heroImages: ["/images/honeymoon/munnar-picnic.da47a80d.webp", "/images/honeymoon/munnar-view.0f7a5696.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -404,7 +404,7 @@ export const tours: Tour[] = [
       "Goa Beach Escapes is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إجازات شواطئ غوا جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/honeymoon/goa-walk.webp", "/images/honeymoon/goa-dinner.webp"],
+    heroImages: ["/images/honeymoon/goa-walk.6e4fab09.webp", "/images/honeymoon/goa-dinner.0d8e8df9.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -442,7 +442,7 @@ export const tours: Tour[] = [
       "Rajasthan Palace Stays is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إقامات قصور راجستان جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/honeymoon/rajasthan-dunes.webp", "/images/honeymoon/rajasthan-dinner.webp"],
+    heroImages: ["/images/honeymoon/rajasthan-dunes.d18c3aa7.webp", "/images/honeymoon/rajasthan-dinner.f71ce101.webp"],
     highlights: [
       "Curated palace stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -486,7 +486,7 @@ export const tours: Tour[] = [
       "Meghalaya & Assam — the Scotland of the East — is part of Safari Masti's Hidden Jewels of the Northeast collection. Every journey through this untouched corner of India is planned around your pace and interests.",
     overviewAr:
       "ميغالايا وآسام — «اسكتلندا الشرق» — جزء من مجموعة سفاري ماستي «جواهر الشمال الشرقي الخفية». تُخطط كل رحلة إلى هذا الركن البكر من الهند بحسب وتيرتكم واهتماماتكم.",
-    heroImages: ["/images/tours/meghalaya-assam-1.webp"],
+    heroImages: ["/images/tours/meghalaya-assam-1.89cdf39d.webp"],
     highlights: [
       "Explore the Scotland of the East at your own pace",
       "Local expertise across Meghalaya and Assam",
@@ -528,7 +528,7 @@ export const tours: Tour[] = [
       "Arunachal Pradesh & Assam — the Land of the Dawn-Lit Peaks — is part of Safari Masti's Hidden Jewels of the Northeast collection. Every journey through this untouched corner of India is planned around your pace and interests.",
     overviewAr:
       "أروناتشال براديش وآسام — «أرض القمم المضيئة عند الفجر» — جزء من مجموعة سفاري ماستي «جواهر الشمال الشرقي الخفية». تُخطط كل رحلة إلى هذا الركن البكر من الهند بحسب وتيرتكم واهتماماتكم.",
-    heroImages: ["/images/tours/arunachal-pradesh-assam-1.webp"],
+    heroImages: ["/images/tours/arunachal-pradesh-assam-1.6ea72711.webp"],
     highlights: [
       "Explore the Land of the Dawn-Lit Peaks at your own pace",
       "Local expertise across Arunachal Pradesh and Assam",
@@ -570,7 +570,7 @@ export const tours: Tour[] = [
       "Kanha & Bandhavgarh is part of Safari Masti's Premier National Park Safaris collection. Safaris, stays and logistics are planned end-to-end around your travel dates.",
     overviewAr:
       "كانها وبانداغفار جزء من مجموعة سفاري ماستي الفاخرة لرحلات السفاري في المحميات الوطنية. تُخطط رحلات السفاري والإقامات واللوجستيات بالكامل بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/kanha-bandhavgarh-1.webp"],
+    heroImages: ["/images/tours/kanha-bandhavgarh-1.580afc4a.webp"],
     highlights: [
       "Guided safaris across two celebrated tiger reserves",
       "End-to-end logistics and on-ground support",
@@ -606,7 +606,7 @@ export const tours: Tour[] = [
       "Kaziranga National Park is part of Safari Masti's Premier National Park Safaris collection. Safaris, stays and logistics are planned end-to-end around your travel dates.",
     overviewAr:
       "محمية كازيرانغا الوطنية جزء من مجموعة سفاري ماستي الفاخرة لرحلات السفاري في المحميات الوطنية. تُخطط رحلات السفاري والإقامات واللوجستيات بالكامل بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/kaziranga-national-park-1.webp"],
+    heroImages: ["/images/tours/kaziranga-national-park-1.ba9f26ed.webp"],
     highlights: [
       "Guided safaris through one of India's premier national parks",
       "End-to-end logistics and on-ground support",
@@ -642,7 +642,7 @@ export const tours: Tour[] = [
       "Ranthambore National Park is part of Safari Masti's Premier National Park Safaris collection. Safaris, stays and logistics are planned end-to-end around your travel dates.",
     overviewAr:
       "محمية رانثامبور الوطنية جزء من مجموعة سفاري ماستي الفاخرة لرحلات السفاري في المحميات الوطنية. تُخطط رحلات السفاري والإقامات واللوجستيات بالكامل بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/ranthambore-national-park-1.webp"],
+    heroImages: ["/images/tours/ranthambore-national-park-1.0b6d9e8b.webp"],
     highlights: [
       "Guided tiger safaris in one of India's best-known reserves",
       "End-to-end logistics and on-ground support",
@@ -678,7 +678,7 @@ export const tours: Tour[] = [
       "Jim Corbett National Park is part of Safari Masti's Premier National Park Safaris collection. Safaris, stays and logistics are planned end-to-end around your travel dates.",
     overviewAr:
       "محمية جيم كوربيت الوطنية جزء من مجموعة سفاري ماستي الفاخرة لرحلات السفاري في المحميات الوطنية. تُخطط رحلات السفاري والإقامات واللوجستيات بالكامل بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/jim-corbett-national-park-1.webp"],
+    heroImages: ["/images/tours/jim-corbett-national-park-1.82b32930.webp"],
     highlights: [
       "Guided safaris through India's oldest national park",
       "End-to-end logistics and on-ground support",
@@ -718,7 +718,7 @@ export const tours: Tour[] = [
       "Kerala is part of Safari Masti's Jewels of the South collection — customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage, planned around your travel dates and style.",
     overviewAr:
       "كيرالا جزء من مجموعة سفاري ماستي «جواهر الجنوب» — جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي، تُخطط بحسب مواعيد سفركم وأسلوبكم.",
-    heroImages: ["/images/tours/kerala-1.webp"],
+    heroImages: ["/images/tours/kerala-1.10453c2e.webp"],
     highlights: [
       "Local expertise from Safari Masti's home base in Kerala",
       "Budget-flexible planning without compromising quality",
@@ -759,7 +759,7 @@ export const tours: Tour[] = [
       "Tamil Nadu is part of Safari Masti's Jewels of the South collection — customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage, planned around your travel dates and style.",
     overviewAr:
       "تاميل نادو جزء من مجموعة سفاري ماستي «جواهر الجنوب» — جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي، تُخطط بحسب مواعيد سفركم وأسلوبكم.",
-    heroImages: ["/images/tours/tamil-nadu-1.webp"],
+    heroImages: ["/images/tours/tamil-nadu-1.8fe7fc3c.webp"],
     highlights: [
       "Royal and temple heritage across Tamil Nadu",
       "Budget-flexible planning without compromising quality",
@@ -800,7 +800,7 @@ export const tours: Tour[] = [
       "Karnataka is part of Safari Masti's Jewels of the South collection — customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage, planned around your travel dates and style.",
     overviewAr:
       "كارناتاكا جزء من مجموعة سفاري ماستي «جواهر الجنوب» — جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي، تُخطط بحسب مواعيد سفركم وأسلوبكم.",
-    heroImages: ["/images/tours/karnataka-1.webp"],
+    heroImages: ["/images/tours/karnataka-1.f5e469c8.webp"],
     highlights: [
       "Local expertise across South India",
       "Budget-flexible planning without compromising quality",
@@ -841,7 +841,7 @@ export const tours: Tour[] = [
       "Hyderabad is part of Safari Masti's Jewels of the South collection — customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage, planned around your travel dates and style.",
     overviewAr:
       "حيدر آباد جزء من مجموعة سفاري ماستي «جواهر الجنوب» — جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي، تُخطط بحسب مواعيد سفركم وأسلوبكم.",
-    heroImages: ["/images/tours/hyderabad-1.webp"],
+    heroImages: ["/images/tours/hyderabad-1.f4411102.webp"],
     highlights: [
       "Local expertise across South India",
       "Budget-flexible planning without compromising quality",
@@ -880,7 +880,7 @@ export const tours: Tour[] = [
       "Goa is part of Safari Masti's Jewels of the South collection — customized, budget-friendly tours from misty hills and backwaters to sunny beaches and royal heritage, planned around your travel dates and style.",
     overviewAr:
       "غوا جزء من مجموعة سفاري ماستي «جواهر الجنوب» — جولات مخصصة ومناسبة للميزانية، من التلال الضبابية والمسطحات المائية الهادئة إلى الشواطئ المشمسة والتراث الملكي، تُخطط بحسب مواعيد سفركم وأسلوبكم.",
-    heroImages: ["/images/tours/goa-1.webp"],
+    heroImages: ["/images/tours/goa-1.cdf12508.webp"],
     highlights: [
       "Sunny beaches paired with local culture",
       "Budget-flexible planning without compromising quality",
@@ -923,7 +923,7 @@ export const tours: Tour[] = [
       "The Ganges & Himalayan Foothills trail is part of Safari Masti's Divine Trails — Sacred Temple Tours collection, covering Varanasi, Ayodhya, Prayagraj, Haridwar, Rishikesh, Badrinath and Kedarnath. The route and pace are planned around your travel dates.",
     overviewAr:
       "مسار نهر الغانج وسفوح جبال الهيمالايا جزء من مجموعة سفاري ماستي «المسارات المقدسة — جولات المعابد الدينية»، ويشمل فاراناسي وأيوديا وبراياغراج وهاريدوار وريشيكيش وبادريناث وكيدارناث. يُخطط المسار والوتيرة بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/ganges-himalayan-foothills-1.webp"],
+    heroImages: ["/images/tours/ganges-himalayan-foothills-1.0f1139b8.webp"],
     highlights: [
       "Sacred stops include Varanasi, Ayodhya and Prayagraj",
       "Himalayan foothill shrines at Haridwar, Rishikesh, Badrinath and Kedarnath",
@@ -965,7 +965,7 @@ export const tours: Tour[] = [
       "The Tamil Nadu & Kerala Trails is part of Safari Masti's Divine Trails — Sacred Temple Tours collection, covering the Meenakshi Amman, Brihadeeswarar and Ramanathaswamy temples in Tamil Nadu, and the Padmanabhaswamy, Guruvayur and Chottanikara temples in Kerala. The route and pace are planned around your travel dates.",
     overviewAr:
       "مسارات تاميل نادو وكيرالا جزء من مجموعة سفاري ماستي «المسارات المقدسة — جولات المعابد الدينية»، وتشمل معابد مينا كشي أمّان وبريهاديسوارار ورامَاناثاسوامي في تاميل نادو، ومعابد بادمانابهاسوامي وغوروفايور وتشوتانيكارا في كيرالا. يُخطط المسار والوتيرة بحسب مواعيد سفركم.",
-    heroImages: ["/images/tours/tamil-nadu-kerala-trails-1.webp"],
+    heroImages: ["/images/tours/tamil-nadu-kerala-trails-1.e69a991e.webp"],
     highlights: [
       "Meenakshi Amman, Brihadeeswarar and Ramanathaswamy temples",
       "Padmanabhaswamy, Guruvayur and Chottanikara temples",
@@ -1010,10 +1010,10 @@ export const tours: Tour[] = [
     overviewAr:
       "الانتعاش الأساسي للجسم إجازة عافية سريعة مصممة لتبديد التوتر السطحي وتخفيف شد العضلات واستعادة طاقتكم — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/ayurveda/head-massage-woman.webp",
-      "/images/ayurveda/steam-bath.webp",
-      "/images/ayurveda/head-massage-man.webp",
-      "/images/ayurveda/couple-herbal-tea.webp",
+      "/images/ayurveda/head-massage-woman.80fc83a9.webp",
+      "/images/ayurveda/steam-bath.313fa1fc.webp",
+      "/images/ayurveda/head-massage-man.88c86736.webp",
+      "/images/ayurveda/couple-herbal-tea.bd0c854a.webp",
     ],
     highlights: ["Full-body oil massage (Abhyangam)", "Soothing warm herbal steam baths"],
     highlightsAr: ["تدليك زيتي كامل للجسم (أبهيانغام)", "حمامات بخار عشبية دافئة ومهدئة"],
@@ -1054,10 +1054,10 @@ export const tours: Tour[] = [
     overviewAr:
       "التخلص العميق من التوتر غمر لمدة أسبوع كامل لتهدئة الذهن المفرط النشاط وتحسين جودة النوم وطرد سموم البيئة اليومية — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/ayurveda/shirodhara-man.webp",
-      "/images/ayurveda/shirodhara-woman.webp",
-      "/images/ayurveda/herbal-pouch.webp",
-      "/images/ayurveda/meditation-man.webp",
+      "/images/ayurveda/shirodhara-man.b7e878d8.webp",
+      "/images/ayurveda/shirodhara-woman.36f13e04.webp",
+      "/images/ayurveda/herbal-pouch.f5b90656.webp",
+      "/images/ayurveda/meditation-man.eedfcb26.webp",
     ],
     highlights: [
       "Continuous oil pouring over the forehead (Shirodhara)",
@@ -1102,10 +1102,10 @@ export const tours: Tour[] = [
     overviewAr:
       "التطهير الشامل للجسم وإعادة الضبط برنامج تطهير داخلي وخارجي شامل يعيد ضبط عملية الأيض ويقوّي جهاز المناعة — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
     heroImages: [
-      "/images/ayurveda/herbs-oils.webp",
-      "/images/ayurveda/consultation.webp",
-      "/images/ayurveda/ayurvedic-meal.webp",
-      "/images/ayurveda/yoga-group.webp",
+      "/images/ayurveda/herbs-oils.2d622258.webp",
+      "/images/ayurveda/consultation.5044c25f.webp",
+      "/images/ayurveda/ayurvedic-meal.1dc5e044.webp",
+      "/images/ayurveda/yoga-group.ed9d4bda.webp",
     ],
     highlights: [
       "Full Panchakarma elimination therapies",

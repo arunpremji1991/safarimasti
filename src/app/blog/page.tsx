@@ -18,7 +18,7 @@ export default function BlogPage() {
         titleAr="مدونة سفاري ماستي"
         description="Travel guides, itineraries and stories from across India."
         descriptionAr="أدلة سفر وبرامج رحلات وقصص من مختلف أنحاء الهند."
-        image="/images/collections/divine-trails-hero.webp"
+        image="/images/collections/divine-trails-hero.7e7ce1cd.webp"
         compact
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },

@@ -9,7 +9,7 @@ export function BrandStatement() {
 
   return (
     <section className="relative flex min-h-[85svh] items-center overflow-hidden bg-maroon-950 py-28 md:py-40">
-      <ParallaxImage src="/images/sections/brand-backwaters.webp" />
+      <ParallaxImage src="/images/sections/brand-backwaters.84af54c3.webp" />
       <div className="absolute inset-0 bg-maroon-950/50" />
       <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/50 via-transparent to-maroon-950/60" />
 

@@ -34,8 +34,8 @@ export function AboutStory() {
         </div>
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
           <Image
-            src="/images/about/about-kerala.webp"
-            alt="Chinese fishing nets silhouetted against a golden sunset at Fort Kochi, Kerala"
+            src="/images/about/about-kochi.9a02c3fd.webp"
+            alt="A traveller watching the Chinese fishing nets of Fort Kochi at a golden sunset"
             fill
             sizes="(min-width: 768px) 45vw, 100vw"
             className="object-cover"

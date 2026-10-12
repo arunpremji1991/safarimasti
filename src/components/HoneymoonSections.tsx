@@ -98,7 +98,7 @@ export function HoneymoonSections({ tours }: { tours: Tour[] }) {
       {/* Full-bleed band */}
       <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-charcoal-950">
         <ParallaxImage
-          src="/images/honeymoon/jetty-wide.webp"
+          src="/images/honeymoon/jetty-wide.9d85d4dd.webp"
           alt={pick(
             "A honeymoon couple on a wooden jetty over the Kerala backwaters at sunrise",
             "زوجان في شهر العسل على رصيف خشبي فوق مياه كيرالا الراكدة عند الشروق"

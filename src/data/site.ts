@@ -31,7 +31,7 @@ export const services = [
       "Tailor-made itineraries across India, meticulously designed to match your choice and budget.",
     descriptionAr:
       "برامج رحلات مصمَّمة خصيصًا في مختلف أنحاء الهند، بعناية فائقة لتناسب اختياراتكم وميزانيتكم.",
-    image: "/images/services/customized-pan-india.webp",
+    image: "/images/services/customized-pan-india.8e4a65ca.webp",
     href: "/build-your-journey",
   },
   {
@@ -42,7 +42,7 @@ export const services = [
       "Premium, high-end travel experiences and romantic getaways with curated stays and exclusive amenities.",
     descriptionAr:
       "تجارب سفر راقية وإجازات رومانسية، مع إقامات مُنتقاة بعناية ومرافق حصرية.",
-    image: "/images/services/luxury-honeymoon.webp",
+    image: "/images/services/luxury-honeymoon.e4d81c1f.webp",
     href: "/collections/luxury-honeymoon",
   },
   {
@@ -53,7 +53,7 @@ export const services = [
       "Guided walking tours, trekking, hiking, and managed camping experiences for outdoor enthusiasts.",
     descriptionAr:
       "جولات مشي ورحلات تسلق ومخيمات منظّمة برفقة مرشدين، مخصصة لعشاق الأنشطة الخارجية.",
-    image: "/images/services/adventure-experiential.webp",
+    image: "/images/services/adventure-experiential.975d6e69.webp",
     href: "/collections/adventure-trekking",
   },
   {
@@ -64,7 +64,7 @@ export const services = [
       "Quick, refreshing travel packages structured for working professionals seeking a work-life balance.",
     descriptionAr:
       "باقات سفر سريعة ومنعشة، مصمَّمة للمهنيين الباحثين عن توازن بين العمل والحياة.",
-    image: "/images/services/corporate-weekend.webp",
+    image: "/images/services/corporate-weekend.26f1caa7.webp",
     href: "/build-your-journey",
   },
   {
@@ -75,7 +75,7 @@ export const services = [
       "Specialized, slow-paced packages focused on comfort, accessibility, and maximum safety for older adults.",
     descriptionAr:
       "باقات متخصصة بوتيرة هادئة، تركز على الراحة وسهولة التنقل وأعلى معايير السلامة لكبار السن.",
-    image: "/images/services/senior-citizen.webp",
+    image: "/images/services/senior-citizen.c3aa4ccb.webp",
     href: "/build-your-journey",
   },
 ] as const;

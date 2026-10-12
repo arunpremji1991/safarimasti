@@ -10,7 +10,7 @@ export function BuildJourneyCTA() {
 
   return (
     <section className="relative flex min-h-[75svh] items-center overflow-hidden bg-charcoal-950 py-24 md:py-32">
-      <ParallaxImage src="/images/sections/journey-road.webp" />
+      <ParallaxImage src="/images/sections/journey-road.c06e07b9.webp" />
       <div className="absolute inset-0 bg-charcoal-950/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-charcoal-950/30" />
 

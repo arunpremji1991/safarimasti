@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "package": "next build && rm -f safarimasti-static.zip && (cd out && zip -qr ../safarimasti-static.zip . -x '.DS_Store')",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:hash": "node scripts/hash-images.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

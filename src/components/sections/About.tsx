@@ -14,8 +14,8 @@ export function About() {
         <Reveal>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:aspect-auto md:h-full">
             <Image
-              src="/images/about/about-kerala.webp"
-              alt="Chinese fishing nets silhouetted against a golden sunset at Fort Kochi, Kerala"
+              src="/images/about/about-friends.fb9c1b58.webp"
+              alt="A group of friends laughing and pointing at the view from a Kerala houseboat at sunrise"
               fill
               sizes="(min-width: 768px) 45vw, 100vw"
               className="object-cover"

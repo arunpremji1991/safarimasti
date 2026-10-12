@@ -239,7 +239,7 @@ export function Nav() {
                 className="group relative block aspect-[16/8] w-full overflow-hidden rounded-2xl ring-1 ring-amber-300/40"
               >
                 <Image
-                  src="/images/ayurveda/pavilion.webp"
+                  src="/images/ayurveda/pavilion.1fc4c569.webp"
                   alt=""
                   fill
                   sizes="(min-width: 640px) 560px, 100vw"

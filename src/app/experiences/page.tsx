@@ -20,7 +20,7 @@ export default function ExperiencesPage() {
         titleAr="تجارب مصمَّمة خصيصًا من أجلكم"
         description="Every Safari Masti experience starts with how you want to travel — not a fixed package."
         descriptionAr="كل تجربة مع سفاري ماستي تبدأ من الطريقة التي تريدون السفر بها، لا من باقة جاهزة مسبقًا."
-        image="/images/collections/adventure-trekking-hero.webp"
+        image="/images/collections/adventure-trekking-hero.b4a9ab3d.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "Experiences", labelAr: "التجارب" },

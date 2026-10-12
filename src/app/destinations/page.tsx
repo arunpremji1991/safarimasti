@@ -19,7 +19,7 @@ export default function DestinationsPage() {
         titleAr="ست مناطق، وهند واحدة مذهلة"
         description="From Himalayan passes to southern backwaters — every region, curated by local experts."
         descriptionAr="من ممرات جبال الهيمالايا إلى المسطحات المائية الجنوبية الهادئة — كل منطقة مُصمَّمة بخبرة محلية."
-        image="/images/destinations/north-india.webp"
+        image="/images/destinations/north-india.efb7de37.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "Destinations", labelAr: "الوجهات" },

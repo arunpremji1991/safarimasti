@@ -19,7 +19,7 @@ export default function CollectionsPage() {
         titleAr="المجموعات المميزة"
         description="Seven curated collections spanning the length and breadth of India — each one built to be tailored around you."
         descriptionAr="سبع مجموعات مُنتقاة بعناية تمتد عبر طول الهند وعرضها — كل واحدة منها قابلة للتصميم خصيصًا لكم."
-        image="/images/collections/wildlife-safaris-hero.webp"
+        image="/images/collections/wildlife-safaris-hero.e57ab0df.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "Collections", labelAr: "المجموعات" },
