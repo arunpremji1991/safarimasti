@@ -330,7 +330,7 @@ export const tours: Tour[] = [
       "Kerala Backwater Retreats is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إقامات المسطحات المائية في كيرالا جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/tours/kerala-backwater-retreats-1.webp"],
+    heroImages: ["/images/honeymoon/kerala-canoe.webp", "/images/honeymoon/kerala-deck.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -368,7 +368,7 @@ export const tours: Tour[] = [
       "Munnar Hill Romance is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "رومانسية تلال مونار جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/tours/munnar-hill-romance-1.webp"],
+    heroImages: ["/images/honeymoon/munnar-picnic.webp", "/images/honeymoon/munnar-view.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -404,7 +404,7 @@ export const tours: Tour[] = [
       "Goa Beach Escapes is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إجازات شواطئ غوا جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/tours/goa-beach-escapes-1.webp"],
+    heroImages: ["/images/honeymoon/goa-walk.webp", "/images/honeymoon/goa-dinner.webp"],
     highlights: [
       "Curated stays with exclusive amenities",
       "Romantic pacing designed for couples",
@@ -442,7 +442,7 @@ export const tours: Tour[] = [
       "Rajasthan Palace Stays is part of Safari Masti's Luxury & Honeymoon Escapes collection — premium, high-end experiences and romantic getaways with curated stays and exclusive amenities, planned around your dates and preferences.",
     overviewAr:
       "إقامات قصور راجستان جزء من مجموعة سفاري ماستي للفخامة وشهر العسل — تجارب راقية وإجازات رومانسية مع إقامات مُنتقاة بعناية ومرافق حصرية، تُخطط بحسب مواعيدكم وتفضيلاتكم.",
-    heroImages: ["/images/tours/rajasthan-palace-stays-1.webp"],
+    heroImages: ["/images/honeymoon/rajasthan-dunes.webp", "/images/honeymoon/rajasthan-dinner.webp"],
     highlights: [
       "Curated palace stays with exclusive amenities",
       "Romantic pacing designed for couples",

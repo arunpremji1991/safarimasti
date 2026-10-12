@@ -3,6 +3,7 @@
 import { PageHero } from "@/components/ui/PageHero";
 import { TourCard } from "@/components/ui/TourCard";
 import { AyurvedaSections } from "@/components/AyurvedaSections";
+import { HoneymoonSections } from "@/components/HoneymoonSections";
 import { Collection, Tour } from "@/data/types";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -40,6 +41,7 @@ export function CollectionDetailContent({
         ]}
       />
 
+      {collection.slug !== "luxury-honeymoon" && (
       <section className="bg-cream-50 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           {collection.advantages && (
@@ -79,7 +81,9 @@ export function CollectionDetailContent({
           )}
         </div>
       </section>
+      )}
 
+      {collection.slug === "luxury-honeymoon" && <HoneymoonSections tours={tours} />}
       {collection.slug === "kerala-ayurveda" && <AyurvedaSections tours={tours} />}
     </>
   );

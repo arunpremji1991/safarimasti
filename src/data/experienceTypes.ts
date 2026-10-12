@@ -27,7 +27,7 @@ export const experienceTypes: ExperienceType[] = [
   {
     label: "Honeymoon",
     labelAr: "شهر العسل",
-    image: "/images/tours/kerala-backwater-retreats-1.webp",
+    image: "/images/honeymoon/kerala-canoe.webp",
     description: "Romantic escapes through Kerala, Munnar, Goa and Rajasthan.",
     descriptionAr: "إجازات رومانسية عبر كيرالا ومونار وغوا وراجستان.",
     href: "/collections/luxury-honeymoon",

@@ -17,8 +17,9 @@ Kerala Ayurveda page says so. Prompts requested no text, logos or watermarks.
 | `sections/` | Full-bleed homepage sections: Kerala backwaters (brand statement), Himalayan road (Build Your Journey), Thar Desert caravan (image band) |
 | `collections/` | One 16:9 hero and one card image for each of the 8 collections |
 | `destinations/` | One image for each of the 6 regions |
-| `services/` | One image for each of the 5 services |
+| `services/` | One image for each of the 5 services (the honeymoon service shows a couple) |
 | `tours/` | One image per tour/programme (named `<tour-slug>-1.webp`; Golden Triangle also has `-2`) |
+| `honeymoon/` | Couples-only imagery for the Luxury & Honeymoon page and its four escapes (Kerala, Munnar, Goa, Rajasthan), plus a full-bleed backwaters band |
 | `ayurveda/` | Treatments, yoga, meditation, consultation and meals for the Kerala Ayurveda page and programmes |
 
 ## Replacing with real photography
