@@ -18,6 +18,7 @@ interface PageHeroProps {
   description?: string;
   descriptionAr?: string;
   image?: string;
+  imagePosition?: string;
   crumbs?: Crumb[];
   compact?: boolean;
 }
@@ -30,6 +31,7 @@ export function PageHero({
   description,
   descriptionAr,
   image,
+  imagePosition,
   crumbs,
   compact,
 }: PageHeroProps) {
@@ -41,7 +43,15 @@ export function PageHero({
     >
       {image && (
         <>
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/50 to-charcoal-950/20" />
         </>
       )}

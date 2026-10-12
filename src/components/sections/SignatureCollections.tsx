@@ -75,6 +75,7 @@ function StackCard({
             fill
             sizes="(min-width: 1280px) 1280px, 100vw"
             className="object-cover"
+            style={collection.heroPosition ? { objectPosition: collection.heroPosition } : undefined}
           />
         </motion.div>
 

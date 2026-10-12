@@ -58,6 +58,7 @@ export const collections: Collection[] = [
     descriptionAr:
       "تجارب راقية وإجازات رومانسية، مع إقامات مُنتقاة بعناية ومرافق حصرية.",
     heroImage: "/images/collections/luxury-honeymoon-hero.webp",
+    heroPosition: "72% 50%",
     cardImage: "/images/collections/luxury-honeymoon-card.webp",
     regions: ["South", "West"],
     destinations: [

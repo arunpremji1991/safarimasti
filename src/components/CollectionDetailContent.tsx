@@ -34,6 +34,7 @@ export function CollectionDetailContent({
         description={collection.description}
         descriptionAr={collection.descriptionAr}
         image={collection.heroImage}
+        imagePosition={collection.heroPosition}
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "Collections", labelAr: "المجموعات", href: "/collections" },

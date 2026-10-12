@@ -34,6 +34,8 @@ export interface Collection {
   description: string;
   descriptionAr?: string;
   heroImage: string;
+  /** CSS object-position for the hero/cover crop, e.g. "72% 50%", so the subject stays in frame on narrow screens. */
+  heroPosition?: string;
   cardImage: string;
   destinations: CollectionDestinationItem[];
   regions: Region[];
