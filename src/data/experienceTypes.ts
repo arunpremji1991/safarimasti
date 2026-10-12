@@ -75,7 +75,7 @@ export const experienceTypes: ExperienceType[] = [
   {
     label: "Senior Citizen",
     labelAr: "كبار السن",
-    image: "/images/services/senior-citizen.webp",
+    image: "/images/services/senior-citizen-tea.webp",
     description: "Slow-paced programs focused on comfort, accessibility and safety.",
     descriptionAr: "برامج بوتيرة هادئة تركز على الراحة وسهولة التنقل والسلامة.",
     href: "/build-your-journey",
