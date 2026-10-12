@@ -2,6 +2,8 @@ export interface ExperienceType {
   label: string;
   labelAr: string;
   image: string;
+  /** Additional images the selector cycles through for this type. */
+  extraImages?: string[];
   description: string;
   descriptionAr: string;
   href: string;
@@ -43,9 +45,14 @@ export const experienceTypes: ExperienceType[] = [
   {
     label: "Culture",
     labelAr: "الثقافة",
-    image: "/images/collections/golden-triangle-hero.webp",
-    description: "Mughal grandeur, royal forts and heritage circuits.",
-    descriptionAr: "عظمة العمارة المغولية، والقلاع الملكية، ومسارات التراث.",
+    image: "/images/culture/ellora.webp",
+    extraImages: [
+      "/images/culture/ajanta.webp",
+      "/images/culture/hampi.webp",
+      "/images/collections/golden-triangle-hero.webp",
+    ],
+    description: "India's living heritage — Mughal grandeur, ancient cave temples, ruined empires and royal forts.",
+    descriptionAr: "تراث الهند الحيّ — عظمة العمارة المغولية، ومعابد الكهوف القديمة، وأطلال الإمبراطوريات، والقلاع الملكية.",
     href: "/collections/golden-triangle",
   },
   {

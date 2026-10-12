@@ -1,23 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { experienceTypes } from "@/data/experienceTypes";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ExperienceSelector() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slide, setSlide] = useState(0);
   const active = experienceTypes[activeIndex];
   const { t, pick } = useLanguage();
+  const reduceMotion = useReducedMotion();
+
+  // Types with several images (e.g. Culture) slowly cycle through them.
+  const images = [active.image, ...(active.extraImages ?? [])];
+  const currentImage = images[slide % images.length];
+
+  useEffect(() => {
+    setSlide(0);
+  }, [activeIndex]);
+
+  useEffect(() => {
+    if (images.length < 2 || reduceMotion) return;
+    const id = setInterval(() => setSlide((s) => (s + 1) % images.length), 5000);
+    return () => clearInterval(id);
+  }, [activeIndex, images.length, reduceMotion]);
 
   return (
     <section className="relative overflow-hidden bg-charcoal-950 py-24 text-cream-50 md:py-32">
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
           <motion.div
-            key={active.image}
+            key={currentImage}
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -25,7 +41,7 @@ export function ExperienceSelector() {
             className="absolute inset-0"
           >
             <Image
-              src={active.image}
+              src={currentImage}
               alt={pick(active.label, active.labelAr)}
               fill
               sizes="100vw"
