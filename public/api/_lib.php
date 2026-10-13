@@ -82,9 +82,27 @@ function clean_int($value, int $max): int
     return max(0, min($max, (int) $value));
 }
 
+/** Location for lead backups / error logs: the folder above public_html when writable (never served), else api/. */
+function log_path(string $name): string
+{
+    $outside = dirname(__DIR__, 2);
+    if (is_dir($outside) && is_writable($outside)) {
+        return $outside . '/' . $name;
+    }
+    return __DIR__ . '/' . $name; // blocked from the web by api/.htaccess
+}
+
+function append_log(string $name, string $text): void
+{
+    @file_put_contents(log_path($name), $text . "\n", FILE_APPEND | LOCK_EX);
+}
+
 function send_enquiry(string $subject, string $body, string $replyTo): bool
 {
     global $config;
+
+    // Safety net: keep a copy of every enquiry so no lead is ever lost, even if email delivery fails.
+    append_log('safarimasti-leads.log', '==== ' . gmdate('c') . " ====\n" . $subject . "\n" . $body . "\n");
 
     $to = $config['to'] ?? 'safarimasti@gmail.com';
     $from = $config['from'] ?? ('no-reply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'safarimasti.com'));
@@ -99,96 +117,117 @@ function send_enquiry(string $subject, string $body, string $replyTo): bool
     ];
 
     if (!empty($config['smtp_host']) && !empty($config['smtp_user']) && !empty($config['smtp_pass'])) {
-        return smtp_send($config, $from, $to, $encodedSubject, $headers, $body);
+        $ok = smtp_send($config, $from, $to, $encodedSubject, $headers, $body);
+        if (!$ok) {
+            append_log('safarimasti-mail-errors.log', gmdate('c') . ' SMTP send failed: ' . smtp_error());
+        }
+        return $ok;
     }
 
-    return mail($to, $encodedSubject, $body, implode("\r\n", $headers), '-f' . $from);
+    // No SMTP settings: fall back to PHP mail(). Many hosts accept it but inboxes (Gmail) often drop it.
+    $ok = mail($to, $encodedSubject, $body, implode("\r\n", $headers), '-f' . $from);
+    append_log(
+        'safarimasti-mail-errors.log',
+        gmdate('c') . ' No SMTP config found (api/config.php); used mail() which returned ' . ($ok ? 'true' : 'false')
+    );
+    return $ok;
 }
 
-/** Minimal SMTP client (implicit TLS on 465 or STARTTLS on 587) with AUTH LOGIN. */
-function smtp_send(array $config, string $from, string $to, string $subject, array $headers, string $body): bool
+/** Last SMTP problem, for logs and check.php. */
+function smtp_error(?string $set = null): string
 {
-    $host = $config['smtp_host'];
+    static $last = '';
+    if ($set !== null) {
+        $last = $set;
+    }
+    return $last;
+}
+
+function smtp_read($socket): string
+{
+    $response = '';
+    while (($line = fgets($socket, 515)) !== false) {
+        $response .= $line;
+        if (strlen($line) < 4 || $line[3] === ' ') {
+            break;
+        }
+    }
+    return trim($response);
+}
+
+/** Sends one SMTP command and checks the reply code. $label names the step in error messages (never the secret). */
+function smtp_cmd($socket, string $command, string $expect, string $label): bool
+{
+    fwrite($socket, $command . "\r\n");
+    $reply = smtp_read($socket);
+    if (strncmp($reply, $expect, strlen($expect)) !== 0) {
+        smtp_error($label . ' failed -> ' . $reply);
+        return false;
+    }
+    return true;
+}
+
+/** Connects, upgrades to TLS and logs in. Returns the socket, or null (see smtp_error()). */
+function smtp_open(array $config)
+{
+    $host = (string) ($config['smtp_host'] ?? '');
     $port = (int) ($config['smtp_port'] ?? 465);
     $implicitTls = $port === 465;
 
-    $socket = @stream_socket_client(
-        ($implicitTls ? 'ssl://' : 'tcp://') . $host . ':' . $port,
-        $errno,
-        $errstr,
-        15
-    );
+    $socket = @stream_socket_client(($implicitTls ? 'ssl://' : 'tcp://') . $host . ':' . $port, $errno, $errstr, 15);
     if (!$socket) {
-        return false;
+        smtp_error("Could not connect to $host:$port ($errno $errstr)");
+        return null;
     }
     stream_set_timeout($socket, 15);
 
-    $read = function () use ($socket): string {
-        $response = '';
-        while (($line = fgets($socket, 515)) !== false) {
-            $response .= $line;
-            if (strlen($line) < 4 || $line[3] === ' ') {
-                break;
-            }
-        }
-        return $response;
-    };
-    $expect = function (string $response, string $code): bool {
-        return strncmp($response, $code, strlen($code)) === 0;
-    };
-    $send = function (string $command) use ($socket): void {
-        fwrite($socket, $command . "\r\n");
-    };
+    $greeting = smtp_read($socket);
+    if (strncmp($greeting, '220', 3) !== 0) {
+        smtp_error('Unexpected greeting from server: ' . $greeting);
+        fclose($socket);
+        return null;
+    }
 
-    try {
-        if (!$expect($read(), '220')) {
-            return false;
+    $name = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $ok = smtp_cmd($socket, 'EHLO ' . $name, '250', 'EHLO');
+    if ($ok && !$implicitTls) {
+        $ok = smtp_cmd($socket, 'STARTTLS', '220', 'STARTTLS');
+        if ($ok && !stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            smtp_error('TLS handshake failed');
+            $ok = false;
         }
-        $send('EHLO ' . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
-        if (!$expect($read(), '250')) {
-            return false;
-        }
+        $ok = $ok && smtp_cmd($socket, 'EHLO ' . $name, '250', 'EHLO after STARTTLS');
+    }
 
-        if (!$implicitTls) {
-            $send('STARTTLS');
-            if (!$expect($read(), '220')) {
-                return false;
-            }
-            if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
-                return false;
-            }
-            $send('EHLO ' . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
-            if (!$expect($read(), '250')) {
-                return false;
-            }
-        }
+    // Google shows App Passwords in groups of four separated by spaces; the spaces are not part of the password.
+    $user = (string) ($config['smtp_user'] ?? '');
+    $pass = str_replace(' ', '', (string) ($config['smtp_pass'] ?? ''));
 
-        $send('AUTH LOGIN');
-        if (!$expect($read(), '334')) {
-            return false;
-        }
-        $send(base64_encode($config['smtp_user']));
-        if (!$expect($read(), '334')) {
-            return false;
-        }
-        $send(base64_encode($config['smtp_pass']));
-        if (!$expect($read(), '235')) {
-            return false;
-        }
+    $ok = $ok
+        && smtp_cmd($socket, 'AUTH LOGIN', '334', 'AUTH LOGIN')
+        && smtp_cmd($socket, base64_encode($user), '334', 'Username')
+        && smtp_cmd($socket, base64_encode($pass), '235', 'Login (check the Gmail address and App Password)');
 
-        $send('MAIL FROM:<' . $from . '>');
-        if (!$expect($read(), '250')) {
-            return false;
-        }
-        $send('RCPT TO:<' . $to . '>');
-        if (!$expect($read(), '250')) {
-            return false;
-        }
-        $send('DATA');
-        if (!$expect($read(), '354')) {
-            return false;
-        }
+    if (!$ok) {
+        fclose($socket);
+        return null;
+    }
+    return $socket;
+}
 
+function smtp_send(array $config, string $from, string $to, string $subject, array $headers, string $body): bool
+{
+    $socket = smtp_open($config);
+    if (!$socket) {
+        return false;
+    }
+
+    $ok = false;
+    if (
+        smtp_cmd($socket, 'MAIL FROM:<' . $from . '>', '250', 'MAIL FROM')
+        && smtp_cmd($socket, 'RCPT TO:<' . $to . '>', '250', 'RCPT TO')
+        && smtp_cmd($socket, 'DATA', '354', 'DATA')
+    ) {
         $message = implode("\r\n", array_merge(
             $headers,
             ['To: ' . $to, 'Subject: ' . $subject, 'Date: ' . date('r')]
@@ -196,11 +235,14 @@ function smtp_send(array $config, string $from, string $to, string $subject, arr
         // Dot-stuffing so a line that is just "." can't end the message early.
         $message = preg_replace('/^\./m', '..', $message);
         fwrite($socket, $message . "\r\n.\r\n");
-        $ok = $expect($read(), '250');
-
-        $send('QUIT');
-        return $ok;
-    } finally {
-        fclose($socket);
+        $reply = smtp_read($socket);
+        $ok = strncmp($reply, '250', 3) === 0;
+        if (!$ok) {
+            smtp_error('Message rejected -> ' . $reply);
+        }
     }
+
+    fwrite($socket, "QUIT\r\n");
+    fclose($socket);
+    return $ok;
 }
