@@ -46,7 +46,7 @@ export function TourPageContent({
           <span className="text-maroon-700">{pick(tour.title, tour.titleAr)}</span>
         </nav>
 
-        <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
           <div>
             <TourGallery images={tour.heroImages} title={pick(tour.title, tour.titleAr)} />
 
@@ -143,10 +143,12 @@ export function TourPageContent({
                   {tour.itinerary.map((stop) => (
                     <li key={stop.label}>
                       <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
-                        {stop.label}
+                        {pick(stop.label, stop.labelAr)}
                       </p>
-                      <h3 className="font-display mt-1 text-xl text-charcoal-950">{stop.title}</h3>
-                      <p className="mt-1 text-charcoal-800/75">{stop.description}</p>
+                      <h3 className="font-display mt-1 text-xl text-charcoal-950">
+                        {pick(stop.title, stop.titleAr)}
+                      </h3>
+                      <p className="mt-1 text-charcoal-800/75">{pick(stop.description, stop.descriptionAr)}</p>
                     </li>
                   ))}
                 </ol>

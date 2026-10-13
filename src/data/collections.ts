@@ -193,9 +193,18 @@ export const collections: Collection[] = [
     cardImage: "/images/collections/kerala-ayurveda-card.357a7415.webp",
     regions: ["South"],
     destinations: [
-      { name: "Essential Body Refresh", nameAr: "الانتعاش الأساسي للجسم", description: "3 to 5 Days", descriptionAr: "من ٣ إلى ٥ أيام" },
-      { name: "Deep Stress Relief", nameAr: "التخلص العميق من التوتر", description: "7 Days", descriptionAr: "٧ أيام" },
-      { name: "Total Body Detox & Reset", nameAr: "التطهير الشامل للجسم وإعادة الضبط", description: "14+ Days", descriptionAr: "أكثر من ١٤ يومًا" },
+      {
+        name: "Rejuvenation & Detox + 6-Day Kerala Tour",
+        nameAr: "برنامج التجديد والتطهير + جولة كيرالا لمدة ٦ أيام",
+        description: "13 Days",
+        descriptionAr: "١٣ يومًا",
+      },
+      {
+        name: "Rejuvenation & Detox + 8-Day Kerala Tour",
+        nameAr: "برنامج التجديد والتطهير + جولة كيرالا لمدة ٨ أيام",
+        description: "15 Days",
+        descriptionAr: "١٥ يومًا",
+      },
     ],
     advantages: [
       {
@@ -224,9 +233,9 @@ export const collections: Collection[] = [
       },
     ],
     hideFromSignatureCollections: true,
-    seoTitle: "Kerala Ayurveda Rejuvenation Packages | Safari Masti",
+    seoTitle: "Kerala Ayurveda Healing Program + Kerala Tour Packages | Safari Masti",
     seoDescription:
-      "Authentic Kerala Ayurveda rejuvenation packages — Essential Body Refresh, Deep Stress Relief, and Total Body Detox & Reset — curated by Safari Masti.",
+      "Kerala Ayurveda packages: a 7-day Rejuvenation & Detoxification Healing Program followed by a 6-day or 8-day Kerala tour — curated by Safari Masti.",
   },
 ];
 

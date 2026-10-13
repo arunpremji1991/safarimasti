@@ -1,9 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-export function GoodToKnow({ items }: { items: { label: string; content: string }[] }) {
+export function GoodToKnow({
+  items,
+}: {
+  items: { label: string; content: string; labelAr?: string; contentAr?: string }[];
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { pick } = useLanguage();
 
   if (items.length === 0) return null;
 
@@ -16,11 +22,11 @@ export function GoodToKnow({ items }: { items: { label: string; content: string 
             className="flex w-full items-center justify-between px-6 py-4 text-start font-semibold text-charcoal-950"
             aria-expanded={openIndex === i}
           >
-            {item.label}
+            {pick(item.label, item.labelAr)}
             <span aria-hidden>{openIndex === i ? "−" : "+"}</span>
           </button>
           {openIndex === i && (
-            <p className="px-6 pb-5 text-charcoal-800/75">{item.content}</p>
+            <p className="px-6 pb-5 text-charcoal-800/75">{pick(item.content, item.contentAr)}</p>
           )}
         </div>
       ))}

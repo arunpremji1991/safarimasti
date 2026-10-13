@@ -50,10 +50,13 @@ export interface Collection {
 
 export interface ItineraryStop {
   label: string; // "Day 01" or "Step 01"
+  labelAr?: string;
   title: string;
+  titleAr?: string;
   location?: string;
   time?: string;
   description: string;
+  descriptionAr?: string;
   image?: string;
 }
 
@@ -83,7 +86,7 @@ export interface Tour {
   inclusionsAr?: string[];
   exclusions: string[];
   exclusionsAr?: string[];
-  goodToKnow: { label: string; content: string }[];
+  goodToKnow: { label: string; content: string; labelAr?: string; contentAr?: string }[];
   seoTitle: string;
   seoDescription: string;
   relatedTourSlugs?: string[];

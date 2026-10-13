@@ -1,10 +1,15 @@
-import { Tour } from "./types";
+import { ItineraryStop, Tour } from "./types";
 
 /**
  * Every field here traces back to Safari Masti's Company Profile & Signature
  * Collections PDF. No itinerary day-plans, inclusions, exclusions, prices or
  * reviews are invented — those sections render a "designed around you" CTA
  * on the tour page until real package detail is supplied.
+ *
+ * The two Kerala Ayurveda packages are the exception: their itineraries, inclusions,
+ * exclusions and terms come from the supplied "Kerala PKG" document, and the treatment
+ * programme from the supplied Rejuvenation & Detoxification programme page (rewritten in
+ * our own words). Prices are not published — the page asks for a quote.
  */
 const CUSTOMIZED_AR = "حسب تواريخكم الخاصة";
 const TREK_HIGHLIGHTS_AR = [
@@ -22,10 +27,189 @@ const HONEYMOON_HIGHLIGHTS_AR = (third: string) => [
   "وتيرة رومانسية مصممة للأزواج",
   third,
 ];
-const AYURVEDA_INCLUSIONS_AR = [
-  "استشارات يومية شخصية مع أطبائنا المتخصصين في الأيورفيدا",
-  "ثلاث وجبات نباتية يومية مصممة خصيصًا بما يناسب طبيعة جسمكم",
-  "جلسات يوغا صباحية وتأمل موجّه مسائي",
+
+// ---- Kerala Ayurveda packages: shared pieces ----------------------------------------------------
+const PROGRAMME_STOP: ItineraryStop = {
+  label: "Days 01–07",
+  labelAr: "الأيام ١–٧",
+  title: "Rejuvenation & Detoxification Healing Program",
+  titleAr: "برنامج التجديد والتطهير العلاجي",
+  description:
+    "Seven days of Ayurvedic rejuvenation and detoxification under the guidance of Ayurvedic doctors. After your first consultation, your doctor plans therapies, diet and routine around your constitution and goals. Every day includes two Ayurvedic therapies — such as Abhyangam (herbal oil massage), Shirodhara (medicated oil on the forehead) and Udvarthana (herbal powder massage), as prescribed — together with a personalised diet, group yoga, guided meditation and a doctor's consultation. Therapies and timings follow your doctor's plan.",
+  descriptionAr:
+    "سبعة أيام من التجديد والتطهير بطب الأيورفيدا بإرشاد أطباء الأيورفيدا. بعد الاستشارة الأولى، يضع الطبيب العلاجات والنظام الغذائي والروتين اليومي بما يناسب طبيعة جسمكم وأهدافكم. يشمل كل يوم علاجين أيورفيديين — مثل أبهيانغام (تدليك بالزيوت العشبية) وشيرودارا (صبّ الزيت الطبي على الجبين) وأودفارتانا (تدليك بمسحوق الأعشاب) وفق ما يصفه الطبيب — إلى جانب نظام غذائي مخصص ويوغا جماعية وتأمل موجَّه واستشارة مع الطبيب. تتبع العلاجات ومواعيدها خطة طبيبكم.",
+};
+
+const KERALA_TOUR_COMMON: ItineraryStop[] = [
+  {
+    label: "Day 08",
+    labelAr: "اليوم ٠٨",
+    title: "Cochin — arrival and sightseeing",
+    titleAr: "كوتشي — الوصول والجولة السياحية",
+    description:
+      "Your Kerala tour begins. Pick-up from Cochin Airport / Railway Station and drive to the hotel; check in and relax. Then Cochin sightseeing: Fort Cochin, the Jewish Synagogue, the Dutch Palace, Marine Drive and the Chinese fishing nets. Overnight at the hotel.",
+    descriptionAr:
+      "تبدأ جولتكم في كيرالا. الاستقبال من مطار كوتشي / محطة القطار والتوجه إلى الفندق وتسجيل الوصول والاسترخاء. ثم جولة في كوتشي: حصن كوتشي، والمعبد اليهودي (السيناغوغ)، وقصر الهولنديين، وكورنيش مارين درايف، وشباك الصيد الصينية. المبيت في الفندق.",
+  },
+  {
+    label: "Day 09",
+    labelAr: "اليوم ٠٩",
+    title: "Cochin to Munnar",
+    titleAr: "من كوتشي إلى مونار",
+    description:
+      "After breakfast, check out and drive to Munnar. On the way, enjoy the Cheeyappara and Valara waterfalls and a spice plantation visit. Check in and relax. In the evening you can enjoy a Kathakali and Kalaripayattu show (direct payment), an elephant ride (direct payment) and the Munnar market. Overnight in Munnar.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة وتتجهون إلى مونار. وفي الطريق تستمتعون بشلالات تشيّابارا وفالارا وبزيارة مزرعة توابل. تسجيل الوصول والاسترخاء. وفي المساء يمكنكم حضور عرض الكاثاكالي والكالاريبّاياتّو (بدفع مباشر)، وركوب الفيل (بدفع مباشر)، وزيارة سوق مونار. المبيت في مونار.",
+  },
+  {
+    label: "Day 10",
+    labelAr: "اليوم ١٠",
+    title: "Munnar sightseeing",
+    titleAr: "جولة في مونار",
+    description:
+      "After breakfast, Munnar sightseeing: the flower garden, photo point, Mattupetty Dam, Echo Point, Kundala Dam, Rajamalai (Eravikulam National Park) and Hydel Park. Overnight at the hotel.",
+    descriptionAr:
+      "بعد الإفطار جولة في مونار: حديقة الزهور، ونقطة التصوير، وسد ماتوبيتي، ونقطة الصدى، وسد كوندالا، وراجاماليه (منتزه إيرافيكولام الوطني)، وحديقة هايدل. المبيت في الفندق.",
+  },
+  {
+    label: "Day 11",
+    labelAr: "اليوم ١١",
+    title: "Munnar to Thekkady",
+    titleAr: "من مونار إلى ثيكادي",
+    description:
+      "After breakfast, check out and drive to Thekkady; check in. You can enjoy Periyar boating (own payment) and an optional massage and jeep safari (direct payment). Overnight at the hotel.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة وتتجهون إلى ثيكادي وتسجّلون الوصول. يمكنكم الاستمتاع بجولة قوارب في بحيرة بيريار (على نفقتكم الخاصة)، وبتدليك وسفاري بالجيب اختياريين (بدفع مباشر). المبيت في الفندق.",
+  },
+  {
+    label: "Day 12",
+    labelAr: "اليوم ١٢",
+    title: "Thekkady to Alleppey — houseboat stay",
+    titleAr: "من ثيكادي إلى ألابوزا — المبيت على قارب سكني",
+    description:
+      "After breakfast, check out and drive to Alleppey; check into the houseboat. Enjoy Alleppey beach and local sightseeing. Full-board meals are provided on the houseboat. Overnight on the houseboat.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة وتتجهون إلى ألابوزا وتصعدون إلى القارب السكني. استمتعوا بشاطئ ألابوزا وبجولة محلية. تُقدَّم الوجبات كاملة (إقامة كاملة) على متن القارب. المبيت على القارب السكني.",
+  },
+];
+
+const KERALA_TOUR_END_6: ItineraryStop[] = [
+  {
+    label: "Day 13",
+    labelAr: "اليوم ١٣",
+    title: "Alleppey to Cochin — drop-off",
+    titleAr: "من ألابوزا إلى كوتشي — التوصيل",
+    description: "After breakfast, check out from the houseboat and drop-off at Cochin Airport / Railway Station.",
+    descriptionAr: "بعد الإفطار تسجّلون المغادرة من القارب السكني ثم التوصيل إلى مطار كوتشي / محطة القطار.",
+  },
+];
+
+const KERALA_TOUR_END_8: ItineraryStop[] = [
+  {
+    label: "Day 13",
+    labelAr: "اليوم ١٣",
+    title: "Alleppey to Kovalam",
+    titleAr: "من ألابوزا إلى كوفالام",
+    description:
+      "After breakfast, check out from the houseboat and drive to Kovalam. You can visit the Trivandrum Museum and Zoo. Check in and relax; in the evening enjoy Kovalam beach. Overnight at the hotel.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة من القارب السكني وتتجهون إلى كوفالام. يمكنكم زيارة متحف ترفاندروم وحديقة الحيوان. تسجيل الوصول والاسترخاء، وفي المساء الاستمتاع بشاطئ كوفالام. المبيت في الفندق.",
+  },
+  {
+    label: "Day 14",
+    labelAr: "اليوم ١٤",
+    title: "Kovalam sightseeing",
+    titleAr: "جولة في كوفالام",
+    description:
+      "After breakfast, sightseeing: you can visit the Padmanabhaswamy Temple, the Azhimala Shiva Temple, Kuthiramalika and Lulu Mall. Enjoy Kovalam beach in the evening. Overnight in Kovalam.",
+    descriptionAr:
+      "بعد الإفطار جولة سياحية: يمكنكم زيارة معبد بادمانابهاسوامي، ومعبد أزيمالا شيفا، وكوتيراماليكا، ومركز لولو التجاري. في المساء الاستمتاع بشاطئ كوفالام. المبيت في كوفالام.",
+  },
+  {
+    label: "Day 15",
+    labelAr: "اليوم ١٥",
+    title: "Trivandrum — drop-off",
+    titleAr: "ترفاندروم — التوصيل",
+    description: "After breakfast, check out and drop-off at Trivandrum Airport / Railway Station.",
+    descriptionAr: "بعد الإفطار تسجّلون المغادرة ثم التوصيل إلى مطار ترفاندروم / محطة القطار.",
+  },
+];
+
+const AYURVEDA_PKG_INCLUSIONS = [
+  "Seven-day Rejuvenation & Detoxification Healing Program: two Ayurvedic therapies daily, daily doctor consultation, personalised diet, daily group yoga and meditation",
+  "Pick-up and drop-off for the Kerala tour",
+  "3-star accommodation as per the tour itinerary",
+  "Houseboat stay at Alleppey, with special breakfast, lunch and dinner on board",
+  "English or Hindi speaking driver",
+  "AC private transportation, including parking, toll, driver bata, permits, fuel, transfers, sightseeing and night-halt charges",
+];
+const AYURVEDA_PKG_INCLUSIONS_AR = [
+  "برنامج التجديد والتطهير العلاجي لمدة سبعة أيام: علاجان أيورفيديان يوميًا، واستشارة يومية مع الطبيب، ونظام غذائي مخصص، ويوغا جماعية وتأمل يوميًا",
+  "الاستقبال والتوصيل لجولة كيرالا",
+  "إقامة بفنادق ثلاث نجوم وفق برنامج الجولة",
+  "المبيت على قارب سكني في ألابوزا، مع إفطار وغداء وعشاء خاصة على متنه",
+  "سائق يتحدث الإنجليزية أو الهندية",
+  "تنقل خاص مكيَّف يشمل رسوم المواقف والعبور، وبدل السائق، والتصاريح، والوقود، والتنقلات، والجولات السياحية، ورسوم المبيت",
+];
+const AYURVEDA_PKG_EXCLUSIONS = [
+  "Entry tickets and all sightseeing entry fees not included in the package",
+  "Extra activities (jeep safari, boating and other entertainment or sports activities)",
+  "Personal expenses such as tips, telephone, laundry, medical bills, drinks and alcoholic beverages, and porterage",
+  "Extra stay before or after the tour",
+  "Airfare, visa fees, airport tax and any kind of insurance cover",
+  "GST",
+  "Anything not specifically mentioned in the inclusions",
+];
+const AYURVEDA_PKG_EXCLUSIONS_AR = [
+  "تذاكر الدخول ورسوم الدخول لجميع المعالم غير المشمولة في الباقة",
+  "الأنشطة الإضافية (سفاري بالجيب، والجولات بالقوارب، وسائر أنشطة الترفيه والرياضة)",
+  "المصاريف الشخصية كالإكراميات والهاتف والغسيل والفواتير الطبية والمشروبات والمشروبات الكحولية وأجور الحمالين",
+  "الإقامة الإضافية قبل الجولة أو بعدها",
+  "تذاكر الطيران ورسوم التأشيرة وضرائب المطار وأي نوع من أنواع التأمين",
+  "ضريبة السلع والخدمات (GST)",
+  "أي بند لم يُذكر صراحةً ضمن البنود المشمولة",
+];
+const AYURVEDA_PKG_GOOD_TO_KNOW = [
+  {
+    label: "Wellness programme, not medical care",
+    labelAr: "برنامج للعافية وليس رعاية طبية",
+    content:
+      "The healing programme is a wellness programme guided by Ayurvedic doctors. It does not replace medical care. Please tell the doctors about any health condition or medication so your plan can be prepared safely.",
+    contentAr:
+      "برنامج التجديد والتطهير برنامج للعافية بإرشاد أطباء الأيورفيدا، ولا يغني عن الرعاية الطبية. يُرجى إبلاغ الأطباء بأي حالة صحية أو أدوية تتناولونها ليُعدّوا خطتكم بأمان.",
+  },
+  {
+    label: "Optional activities are paid directly",
+    labelAr: "الأنشطة الاختيارية تُدفع مباشرة",
+    content:
+      "Kathakali and Kalaripayattu shows, elephant rides, Periyar boating, massages and jeep safaris on the tour are optional and paid for directly.",
+    contentAr:
+      "عروض الكاثاكالي والكالاريبّاياتّو، وركوب الفيل، والجولات بالقوارب في بيريار، والتدليك، والسفاري بالجيب خلال الجولة كلها أنشطة اختيارية تُدفع مباشرة.",
+  },
+  {
+    label: "Rates and quotation",
+    labelAr: "الأسعار وعرض السعر",
+    content:
+      "Package rates are net. Quotations are based on the mentioned category of rooms at all hotels. Rates are valid only for the mentioned dates, and all reservations are subject to availability at the time of confirmation — rates may change without prior notice.",
+    contentAr:
+      "أسعار الباقة صافية. وتستند عروض الأسعار إلى فئة الغرف المذكورة في جميع الفنادق. والأسعار سارية للتواريخ المذكورة فقط، وجميع الحجوزات خاضعة للتوافر وقت التأكيد — وقد تتغير الأسعار دون إشعار مسبق.",
+  },
+  {
+    label: "Early arrival and late check-out",
+    labelAr: "الوصول المبكر والمغادرة المتأخرة",
+    content:
+      "Early arrival is subject to availability. For a guaranteed early check-in, the reservation needs to start from the previous night. Late check-outs are available on request, subject to availability.",
+    contentAr:
+      "الوصول المبكر خاضع للتوافر. ولضمان تسجيل الوصول المبكر يجب أن يبدأ الحجز من الليلة السابقة. وتتوفر المغادرة المتأخرة عند الطلب ورهنًا بالتوافر.",
+  },
+  {
+    label: "Changes and refunds",
+    labelAr: "التغييرات والاسترداد",
+    content:
+      "Any change in the property, room category or transfers after confirmation will be payable extra. Services that are not used after confirmation are not refundable.",
+    contentAr:
+      "أي تغيير في الفندق أو فئة الغرفة أو التنقلات بعد التأكيد يُدفع مقابله مبلغ إضافي. والخدمات غير المستخدمة بعد التأكيد غير قابلة للاسترداد.",
+  },
 ];
 
 export const tours: Tour[] = [
@@ -986,146 +1170,111 @@ export const tours: Tour[] = [
     relatedTourSlugs: ["ganges-himalayan-foothills", "kerala"],
   },
 
-  // ---------------- Kerala Ayurveda Rejuvenation ----------------
+  // ---------------- Kerala Ayurveda: healing programme + Kerala tour ----------------
   {
-    slug: "essential-body-refresh",
+    slug: "rejuvenation-detox-kerala-6-day-tour",
     collectionSlug: "kerala-ayurveda",
-    title: "Essential Body Refresh",
-    titleAr: "الانتعاش الأساسي للجسم",
+    title: "Rejuvenation & Detox + 6-Day Kerala Tour",
+    titleAr: "برنامج التجديد والتطهير + جولة كيرالا لمدة ٦ أيام",
     destination: "Kerala",
     destinationAr: "كيرالا",
     region: ["South"],
     category: ["Wellness", "Ayurveda"],
-    duration: "3–5 Days",
-    durationAr: "من ٣ إلى ٥ أيام",
-    travelStyle: ["Premium"],
-    bestFor: ["Busy Individuals", "Short Wellness Breaks"],
-    bestForAr: ["الأشخاص المشغولون", "إجازات العافية القصيرة"],
+    duration: "13 Days · 7-day programme + 6-day tour",
+    durationAr: "١٣ يومًا · برنامج ٧ أيام + جولة ٦ أيام",
+    travelStyle: ["Comfort"],
+    bestFor: ["Rejuvenation & detox seekers", "Wellness and sightseeing in one trip"],
+    bestForAr: ["الباحثون عن التجديد والتطهير", "العافية والسياحة في رحلة واحدة"],
     shortDescription:
-      "A quick wellness getaway designed to dissolve superficial stress, relieve muscle tension, and recharge your energy levels.",
+      "Seven days of Ayurvedic rejuvenation and detoxification, followed by a 6-day Kerala tour through Cochin, Munnar, Thekkady and an Alleppey houseboat.",
     shortDescriptionAr:
-      "إجازة عافية سريعة مصممة لتبديد التوتر السطحي، وتخفيف شد العضلات، واستعادة طاقتكم.",
+      "سبعة أيام من التجديد والتطهير بطب الأيورفيدا، تعقبها جولة في كيرالا لمدة ٦ أيام عبر كوتشي ومونار وثيكادي ومبيت على قارب سكني في ألابوزا.",
     overview:
-      "Essential Body Refresh is a quick wellness getaway designed to dissolve superficial stress, relieve muscle tension, and recharge your energy levels — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
+      "This package pairs Safari Masti's Rejuvenation & Detoxification Healing Program — seven days of Ayurvedic treatment guided by Ayurvedic doctors — with a 6-day Kerala tour. After the programme you travel on to Cochin, Munnar, Thekkady and a houseboat night in Alleppey, ending with a drop-off at Cochin. Prefer a longer tour? See the 8-day option.",
     overviewAr:
-      "الانتعاش الأساسي للجسم إجازة عافية سريعة مصممة لتبديد التوتر السطحي وتخفيف شد العضلات واستعادة طاقتكم — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
+      "تجمع هذه الباقة بين برنامج سفاري ماستي للتجديد والتطهير العلاجي — سبعة أيام من العلاج بالأيورفيدا بإرشاد أطباء الأيورفيدا — وجولة في كيرالا لمدة ٦ أيام. وبعد البرنامج تنتقلون إلى كوتشي ومونار وثيكادي مع ليلة على قارب سكني في ألابوزا، وتنتهي الرحلة بالتوصيل في كوتشي. تفضّلون جولة أطول؟ اطّلعوا على خيار ٨ أيام.",
     heroImages: [
       "/images/ayurveda/head-massage-woman.80fc83a9.webp",
-      "/images/ayurveda/steam-bath.313fa1fc.webp",
-      "/images/ayurveda/head-massage-man.88c86736.webp",
-      "/images/ayurveda/couple-herbal-tea.bd0c854a.webp",
-    ],
-    highlights: ["Full-body oil massage (Abhyangam)", "Soothing warm herbal steam baths"],
-    highlightsAr: ["تدليك زيتي كامل للجسم (أبهيانغام)", "حمامات بخار عشبية دافئة ومهدئة"],
-    itinerary: [],
-    inclusions: [
-      "Daily personalized consultations with our Ayurvedic doctors",
-      "Three tailored vegetarian meals daily, designed for your body type",
-      "Morning yoga sessions and evening guided meditation",
-    ],
-    inclusionsAr: AYURVEDA_INCLUSIONS_AR,
-    exclusions: [],
-    goodToKnow: [],
-    seoTitle: "Essential Body Refresh — Kerala Ayurveda | Safari Masti",
-    seoDescription:
-      "A 3 to 5 day Kerala Ayurveda wellness getaway with full-body oil massage (Abhyangam) and herbal steam baths, curated by Safari Masti.",
-    relatedTourSlugs: ["deep-stress-relief", "total-body-detox-reset"],
-  },
-  {
-    slug: "deep-stress-relief",
-    collectionSlug: "kerala-ayurveda",
-    title: "Deep Stress Relief",
-    titleAr: "التخلص العميق من التوتر",
-    destination: "Kerala",
-    destinationAr: "كيرالا",
-    region: ["South"],
-    category: ["Wellness", "Ayurveda"],
-    duration: "7 Days",
-    durationAr: "٧ أيام",
-    travelStyle: ["Premium"],
-    bestFor: ["Chronic Stress", "Mental Exhaustion", "Insomnia"],
-    bestForAr: ["التوتر المزمن", "الإرهاق الذهني", "الأرق"],
-    shortDescription:
-      "A week-long immersion to calm an overactive mind, improve sleep quality, and flush out daily environmental toxins.",
-    shortDescriptionAr:
-      "غمر لمدة أسبوع كامل لتهدئة الذهن المفرط النشاط، وتحسين جودة النوم، وطرد سموم البيئة اليومية.",
-    overview:
-      "Deep Stress Relief is a week-long immersion to calm an overactive mind, improve sleep quality, and flush out daily environmental toxins — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
-    overviewAr:
-      "التخلص العميق من التوتر غمر لمدة أسبوع كامل لتهدئة الذهن المفرط النشاط وتحسين جودة النوم وطرد سموم البيئة اليومية — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
-    heroImages: [
       "/images/ayurveda/shirodhara-man.b7e878d8.webp",
-      "/images/ayurveda/shirodhara-woman.36f13e04.webp",
-      "/images/ayurveda/herbal-pouch.f5b90656.webp",
-      "/images/ayurveda/meditation-man.eedfcb26.webp",
+      "/images/ayurveda/munnar-tea.eceeb9ea.webp",
+      "/images/ayurveda/thekkady-periyar.2e7c1e2f.webp",
+      "/images/collections/jewels-of-the-south-hero.cde936f4.webp",
     ],
     highlights: [
-      "Continuous oil pouring over the forehead (Shirodhara)",
-      "Herbal pouch massages",
-      "Custom meditation",
+      "7-day Rejuvenation & Detoxification Healing Program",
+      "Two Ayurvedic therapies every day, with a daily doctor consultation",
+      "Personalised diet, daily group yoga and meditation",
+      "Then a Kerala tour: Cochin, Munnar, Thekkady and a night on an Alleppey houseboat",
     ],
-    highlightsAr: ["صبّ زيتي مستمر على الجبين (شيرودارا)", "تدليك بأكياس الأعشاب", "تأمل مخصص"],
-    itinerary: [],
-    inclusions: [
-      "Daily personalized consultations with our Ayurvedic doctors",
-      "Three tailored vegetarian meals daily, designed for your body type",
-      "Morning yoga sessions and evening guided meditation",
+    highlightsAr: [
+      "برنامج التجديد والتطهير العلاجي لمدة ٧ أيام",
+      "علاجان أيورفيديان يوميًا مع استشارة يومية مع الطبيب",
+      "نظام غذائي مخصص ويوغا جماعية وتأمل يوميًا",
+      "ثم جولة في كيرالا: كوتشي ومونار وثيكادي وليلة على قارب سكني في ألابوزا",
     ],
-    inclusionsAr: AYURVEDA_INCLUSIONS_AR,
-    exclusions: [],
-    goodToKnow: [],
-    seoTitle: "Deep Stress Relief — Kerala Ayurveda | Safari Masti",
+    itinerary: [PROGRAMME_STOP, ...KERALA_TOUR_COMMON, ...KERALA_TOUR_END_6],
+    inclusions: AYURVEDA_PKG_INCLUSIONS,
+    inclusionsAr: AYURVEDA_PKG_INCLUSIONS_AR,
+    exclusions: AYURVEDA_PKG_EXCLUSIONS,
+    exclusionsAr: AYURVEDA_PKG_EXCLUSIONS_AR,
+    goodToKnow: AYURVEDA_PKG_GOOD_TO_KNOW,
+    seoTitle: "Ayurveda Rejuvenation + 6-Day Kerala Tour (13 Days) | Safari Masti",
     seoDescription:
-      "A 7 day Kerala Ayurveda program with Shirodhara, herbal pouch massages and custom meditation, curated by Safari Masti.",
-    relatedTourSlugs: ["essential-body-refresh", "total-body-detox-reset"],
+      "A 7-day Ayurvedic Rejuvenation & Detoxification Healing Program followed by a 6-day Kerala tour through Cochin, Munnar, Thekkady and an Alleppey houseboat — curated by Safari Masti.",
+    relatedTourSlugs: ["rejuvenation-detox-kerala-8-day-tour"],
   },
   {
-    slug: "total-body-detox-reset",
+    slug: "rejuvenation-detox-kerala-8-day-tour",
     collectionSlug: "kerala-ayurveda",
-    title: "Total Body Detox & Reset",
-    titleAr: "التطهير الشامل للجسم وإعادة الضبط",
+    title: "Rejuvenation & Detox + 8-Day Kerala Tour",
+    titleAr: "برنامج التجديد والتطهير + جولة كيرالا لمدة ٨ أيام",
     destination: "Kerala",
     destinationAr: "كيرالا",
     region: ["South"],
     category: ["Wellness", "Ayurveda"],
-    duration: "14+ Days",
-    durationAr: "أكثر من ١٤ يومًا",
-    travelStyle: ["Premium"],
-    bestFor: ["Long-Term Wellness", "Deep Detoxification", "Metabolic Health"],
-    bestForAr: ["العافية طويلة الأمد", "التطهير العميق", "الصحة الأيضية"],
+    duration: "15 Days · 7-day programme + 8-day tour",
+    durationAr: "١٥ يومًا · برنامج ٧ أيام + جولة ٨ أيام",
+    travelStyle: ["Comfort"],
+    bestFor: ["Rejuvenation & detox seekers", "A longer Kerala tour with beach time"],
+    bestForAr: ["الباحثون عن التجديد والتطهير", "جولة أطول في كيرالا مع وقت على الشاطئ"],
     shortDescription:
-      "A comprehensive internal and external cleansing program that resets your metabolism and strengthens your immune system.",
+      "Seven days of Ayurvedic rejuvenation and detoxification, followed by an 8-day Kerala tour that adds Kovalam beach and Trivandrum.",
     shortDescriptionAr:
-      "برنامج تطهير داخلي وخارجي شامل يعيد ضبط عملية الأيض ويقوّي جهاز المناعة.",
+      "سبعة أيام من التجديد والتطهير بطب الأيورفيدا، تعقبها جولة في كيرالا لمدة ٨ أيام تضيف شاطئ كوفالام ومدينة ترفاندروم.",
     overview:
-      "Total Body Detox & Reset is a comprehensive internal and external cleansing program that resets your metabolism and strengthens your immune system — part of Safari Masti's Kerala Ayurveda Rejuvenation packages, prescribed by certified traditional doctors and performed by experienced therapists.",
+      "This package pairs Safari Masti's Rejuvenation & Detoxification Healing Program — seven days of Ayurvedic treatment guided by Ayurvedic doctors — with an 8-day Kerala tour. The tour covers Cochin, Munnar, Thekkady and an Alleppey houseboat, then continues to Kovalam for beach evenings and Trivandrum sightseeing, ending with a drop-off at Trivandrum. Prefer a shorter tour? See the 6-day option.",
     overviewAr:
-      "التطهير الشامل للجسم وإعادة الضبط برنامج تطهير داخلي وخارجي شامل يعيد ضبط عملية الأيض ويقوّي جهاز المناعة — ضمن باقات سفاري ماستي لتجديد الحيوية بطب الأيورفيدا في كيرالا، والتي يصفها أطباء تقليديون معتمدون وينفذها معالجون ذوو خبرة.",
+      "تجمع هذه الباقة بين برنامج سفاري ماستي للتجديد والتطهير العلاجي — سبعة أيام من العلاج بالأيورفيدا بإرشاد أطباء الأيورفيدا — وجولة في كيرالا لمدة ٨ أيام. تشمل الجولة كوتشي ومونار وثيكادي وقاربًا سكنيًا في ألابوزا، ثم تتابع إلى كوفالام لأمسيات الشاطئ وجولات ترفاندروم، وتنتهي بالتوصيل في ترفاندروم. تفضّلون جولة أقصر؟ اطّلعوا على خيار ٦ أيام.",
     heroImages: [
-      "/images/ayurveda/herbs-oils.2d622258.webp",
-      "/images/ayurveda/consultation.5044c25f.webp",
-      "/images/ayurveda/ayurvedic-meal.1dc5e044.webp",
-      "/images/ayurveda/yoga-group.ed9d4bda.webp",
+      "/images/ayurveda/shirodhara-woman.36f13e04.webp",
+      "/images/ayurveda/head-massage-man.88c86736.webp",
+      "/images/ayurveda/munnar-tea.eceeb9ea.webp",
+      "/images/ayurveda/thekkady-periyar.2e7c1e2f.webp",
+      "/images/collections/jewels-of-the-south-hero.cde936f4.webp",
+      "/images/ayurveda/kovalam-beach.cb954b81.webp",
     ],
     highlights: [
-      "Full Panchakarma elimination therapies",
-      "Tissue-strengthening massages",
-      "Strict personalized diet",
+      "7-day Rejuvenation & Detoxification Healing Program",
+      "Two Ayurvedic therapies every day, with a daily doctor consultation",
+      "Personalised diet, daily group yoga and meditation",
+      "Then a Kerala tour: Cochin, Munnar, Thekkady, an Alleppey houseboat and Kovalam beach",
     ],
-    highlightsAr: ["علاجات بانتشاكارما الكاملة للتطهير", "تدليك لتقوية الأنسجة", "نظام غذائي شخصي صارم"],
-    itinerary: [],
-    inclusions: [
-      "Daily personalized consultations with our Ayurvedic doctors",
-      "Three tailored vegetarian meals daily, designed for your body type",
-      "Morning yoga sessions and evening guided meditation",
+    highlightsAr: [
+      "برنامج التجديد والتطهير العلاجي لمدة ٧ أيام",
+      "علاجان أيورفيديان يوميًا مع استشارة يومية مع الطبيب",
+      "نظام غذائي مخصص ويوغا جماعية وتأمل يوميًا",
+      "ثم جولة في كيرالا: كوتشي ومونار وثيكادي وقارب سكني في ألابوزا وشاطئ كوفالام",
     ],
-    inclusionsAr: AYURVEDA_INCLUSIONS_AR,
-    exclusions: [],
-    goodToKnow: [],
-    seoTitle: "Total Body Detox & Reset — Kerala Ayurveda | Safari Masti",
+    itinerary: [PROGRAMME_STOP, ...KERALA_TOUR_COMMON, ...KERALA_TOUR_END_8],
+    inclusions: AYURVEDA_PKG_INCLUSIONS,
+    inclusionsAr: AYURVEDA_PKG_INCLUSIONS_AR,
+    exclusions: AYURVEDA_PKG_EXCLUSIONS,
+    exclusionsAr: AYURVEDA_PKG_EXCLUSIONS_AR,
+    goodToKnow: AYURVEDA_PKG_GOOD_TO_KNOW,
+    seoTitle: "Ayurveda Rejuvenation + 8-Day Kerala Tour (15 Days) | Safari Masti",
     seoDescription:
-      "A 14+ day Panchakarma-based Kerala Ayurveda detox and reset program, curated by Safari Masti.",
-    relatedTourSlugs: ["essential-body-refresh", "deep-stress-relief"],
+      "A 7-day Ayurvedic Rejuvenation & Detoxification Healing Program followed by an 8-day Kerala tour through Cochin, Munnar, Thekkady, Alleppey and Kovalam — curated by Safari Masti.",
+    relatedTourSlugs: ["rejuvenation-detox-kerala-6-day-tour"],
   },
 ];
 

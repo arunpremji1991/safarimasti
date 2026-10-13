@@ -9,7 +9,7 @@ export function TourGallery({ images, title }: { images: string[]; title: string
   const { locale } = useLanguage();
 
   return (
-    <div>
+    <div className="min-w-0">
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-charcoal-900 sm:aspect-[16/9]">
         <Image
           src={images[active]}

@@ -10,10 +10,14 @@ import {
   ayurvedaFaqs,
   ayurvedaGallery,
   ayurvedaIncluded,
+  ayurvedaPackageRoutes,
   ayurvedaSteps,
   ayurvedaTherapies,
+  ayurvedaTypicalDay,
 } from "@/data/ayurveda";
 import { useLanguage } from "@/i18n/LanguageContext";
+
+const toArabicDigits = (n: string) => n.replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[Number(d)]);
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
@@ -29,8 +33,102 @@ export function AyurvedaSections({ tours }: { tours: Tour[] }) {
 
   return (
     <>
-      {/* Therapies */}
+      {/* Your journey in two parts */}
       <section className="bg-cream-100 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal>
+            <Eyebrow>{pick(copy.planEyebrow.en, copy.planEyebrow.ar)}</Eyebrow>
+            <h2 className="font-display mt-3 max-w-2xl text-3xl leading-tight text-charcoal-950 sm:text-4xl md:text-5xl">
+              {pick(copy.planTitle.en, copy.planTitle.ar)}
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.7fr]">
+            <Reveal>
+              <div className="flex h-full flex-col rounded-3xl bg-maroon-950 p-8 text-cream-50">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">
+                  {pick(copy.planPart1Label.en, copy.planPart1Label.ar)}
+                </p>
+                <p className="font-display mt-6 text-6xl leading-none text-amber-400">
+                  {locale === "ar" ? "٧" : "7"}
+                  <span className="ms-2 text-xl text-cream-100/80">{pick(copy.planDays.en, copy.planDays.ar)}</span>
+                </p>
+                <h3 className="font-display mt-5 text-2xl leading-snug">
+                  {pick(copy.planPart1Title.en, copy.planPart1Title.ar)}
+                </h3>
+                <p className="mt-3 text-cream-100/80">{pick(copy.planPart1Body.en, copy.planPart1Body.ar)}</p>
+              </div>
+            </Reveal>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-maroon-700">
+                {pick(copy.planPart2Label.en, copy.planPart2Label.ar)}
+              </p>
+              <div className="mt-3 grid gap-5 sm:grid-cols-2">
+                {ayurvedaPackageRoutes.map((pkg) => {
+                  const tour = tours.find((t) => t.slug === pkg.slug);
+                  if (!tour) return null;
+                  const total = 7 + pkg.tourDays;
+                  const fmt = (n: number) => (locale === "ar" ? toArabicDigits(String(n)) : String(n));
+                  return (
+                    <Reveal key={pkg.slug}>
+                      <article className="flex h-full flex-col rounded-3xl bg-cream-50 p-7 ring-1 ring-charcoal-950/10">
+                        <p className="font-display text-5xl leading-none text-amber-600">
+                          {fmt(pkg.tourDays)}
+                          <span className="ms-2 text-lg text-charcoal-800/70">
+                            {pick(copy.planDays.en, copy.planDays.ar)} {pick(copy.planTourWord.en, copy.planTourWord.ar)}
+                          </span>
+                        </p>
+                        <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-maroon-700">
+                          7 + {fmt(pkg.tourDays)} = {fmt(total)} {pick(copy.planTotal.en, copy.planTotal.ar)}
+                        </p>
+                        <h3 className="font-display mt-4 text-xl leading-snug text-charcoal-950">
+                          {pick(tour.title, tour.titleAr)}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-charcoal-800/75">
+                          {pick(tour.shortDescription, tour.shortDescriptionAr)}
+                        </p>
+
+                        <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-charcoal-950/70">
+                          {pick(copy.colRoute.en, copy.colRoute.ar)}
+                        </p>
+                        <ol className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-charcoal-900">
+                          {pkg.route.map((stop, i) => (
+                            <li key={stop.en} className="flex items-center gap-2">
+                              <span className="rounded-full bg-cream-200 px-3 py-1">{pick(stop.en, stop.ar)}</span>
+                              {i < pkg.route.length - 1 && (
+                                <span aria-hidden className="text-amber-600 rtl:rotate-180">
+                                  →
+                                </span>
+                              )}
+                            </li>
+                          ))}
+                        </ol>
+
+                        <Link
+                          href={`/tours/${tour.slug}`}
+                          className="group mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold uppercase tracking-widest text-maroon-800 hover:text-maroon-600"
+                        >
+                          {pick(copy.viewProgramme.en, copy.viewProgramme.ar)}
+                          <span
+                            aria-hidden
+                            className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1"
+                          >
+                            →
+                          </span>
+                        </Link>
+                      </article>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Therapies */}
+      <section className="bg-cream-50 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <Eyebrow>{pick(copy.therapiesEyebrow.en, copy.therapiesEyebrow.ar)}</Eyebrow>
@@ -106,6 +204,30 @@ export function AyurvedaSections({ tours }: { tours: Tour[] }) {
         </div>
       </section>
 
+      {/* A typical day */}
+      <section className="bg-cream-100 py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
+          <Reveal>
+            <Eyebrow>{pick(copy.dayEyebrow.en, copy.dayEyebrow.ar)}</Eyebrow>
+            <h2 className="font-display mt-3 max-w-2xl text-3xl leading-tight text-charcoal-950 sm:text-4xl md:text-5xl">
+              {pick(copy.dayTitle.en, copy.dayTitle.ar)}
+            </h2>
+          </Reveal>
+          <ol className="mt-10 divide-y divide-charcoal-950/10 border-y border-charcoal-950/10">
+            {ayurvedaTypicalDay.map((item) => (
+              <li key={item.time} className="grid gap-1 py-5 sm:grid-cols-[110px_220px_1fr] sm:items-baseline sm:gap-6">
+                <span dir="ltr" className="font-display text-2xl text-amber-600 rtl:text-end">
+                  {item.time}
+                </span>
+                <span className="font-display text-lg text-charcoal-950">{pick(item.title.en, item.title.ar)}</span>
+                <span className="text-charcoal-800/75">{pick(item.text.en, item.text.ar)}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 text-sm text-charcoal-800/60">{pick(copy.dayNote.en, copy.dayNote.ar)}</p>
+        </div>
+      </section>
+
       {/* Included in every stay */}
       <section className="bg-cream-50 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -136,69 +258,6 @@ export function AyurvedaSections({ tours }: { tours: Tour[] }) {
                       {pick(item.description.en, item.description.ar)}
                     </p>
                   </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Compare programmes */}
-      <section className="bg-cream-100 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal>
-            <Eyebrow>{pick(copy.compareEyebrow.en, copy.compareEyebrow.ar)}</Eyebrow>
-            <h2 className="font-display mt-3 max-w-2xl text-3xl leading-tight text-charcoal-950 sm:text-4xl md:text-5xl">
-              {pick(copy.compareTitle.en, copy.compareTitle.ar)}
-            </h2>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {tours.map((tour) => (
-              <Reveal key={tour.slug}>
-                <article className="flex h-full flex-col rounded-2xl bg-cream-50 p-7">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
-                    {pick(tour.duration, tour.durationAr)}
-                  </p>
-                  <h3 className="font-display mt-2 text-2xl text-charcoal-950">
-                    {pick(tour.title, tour.titleAr)}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal-800/75">
-                    {pick(tour.shortDescription, tour.shortDescriptionAr)}
-                  </p>
-
-                  <dl className="mt-5 space-y-4 border-t border-charcoal-950/10 pt-5 text-sm">
-                    <div>
-                      <dt className="font-semibold text-charcoal-950">
-                        {pick(copy.colBestFor.en, copy.colBestFor.ar)}
-                      </dt>
-                      <dd className="mt-1 text-charcoal-800/75">
-                        {(locale === "ar" && tour.bestForAr ? tour.bestForAr : tour.bestFor).join(
-                          locale === "ar" ? "، " : ", "
-                        )}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="font-semibold text-charcoal-950">
-                        {pick(copy.colTherapies.en, copy.colTherapies.ar)}
-                      </dt>
-                      <dd className="mt-1 text-charcoal-800/75">
-                        {(locale === "ar" && tour.highlightsAr ? tour.highlightsAr : tour.highlights).join(
-                          locale === "ar" ? "، " : ", "
-                        )}
-                      </dd>
-                    </div>
-                  </dl>
-
-                  <Link
-                    href={`/tours/${tour.slug}`}
-                    className="group mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold uppercase tracking-widest text-maroon-800 hover:text-maroon-600"
-                  >
-                    {pick(copy.viewProgramme.en, copy.viewProgramme.ar)}
-                    <span aria-hidden className="inline-block transition-transform rtl:rotate-180 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
                 </article>
               </Reveal>
             ))}

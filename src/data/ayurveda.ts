@@ -1,11 +1,11 @@
 /**
- * Extra content for the Kerala Ayurveda Rejuvenation page.
+ * Content for the Kerala Ayurveda page: a 7-day Rejuvenation & Detoxification Healing Program
+ * followed by a Kerala tour of the guest's choice (6 or 8 days).
  *
- * Programme names, durations, "best for", key therapies and the "included in every stay" list all come
- * from the supplied Kerala Ayurveda document. The therapy explanations are general, widely known
- * descriptions of what each named treatment is — they make no medical claims and promise no specific
- * outcome, price, schedule or property. Anything not in the source (price, exact daily timetable,
- * resort name) is deliberately left out.
+ * Sources: the supplied "Kerala PKG" document (tour itineraries, inclusions, exclusions, terms) and the
+ * supplied Rejuvenation & Detoxification programme page (treatment details), rewritten in our own words.
+ * The therapy explanations are general descriptions of what each named treatment is — they make no
+ * medical claims and promise no specific outcome, price or property.
  */
 
 interface Bi {
@@ -25,11 +25,11 @@ export interface AyurvedaTherapy {
 export const ayurvedaTherapies: AyurvedaTherapy[] = [
   {
     id: "abhyangam",
-    name: { en: "Abhyangam — Full-Body Oil Massage", ar: "أبهيانغام — تدليك الجسم الكامل بالزيوت" },
-    tag: { en: "Essential Body Refresh", ar: "الانتعاش الأساسي للجسم" },
+    name: { en: "Abhyangam — Herbal Oil Massage", ar: "أبهيانغام — التدليك بالزيوت العشبية" },
+    tag: { en: "Part of the daily therapies", ar: "من العلاجات اليومية" },
     description: {
-      en: "A rhythmic massage with warm herbal oils, traditionally given by two therapists working together. In the Ayurvedic tradition it is used to ease muscle tension, settle the nerves and prepare the body for the therapies that follow.",
-      ar: "تدليك إيقاعي بزيوت عشبية دافئة، يقوم به عادةً معالجان يعملان معًا. وفي تقاليد الأيورفيدا يُستخدم لتخفيف شد العضلات وتهدئة الأعصاب وتهيئة الجسم للعلاجات التي تليه.",
+      en: "A rhythmic massage with warm herbal oils, given by trained therapists. In the Ayurvedic tradition it is used to ease muscle tension, settle the nerves and prepare the body for the therapies that follow.",
+      ar: "تدليك إيقاعي بزيوت عشبية دافئة، يقوم به معالجون مدرَّبون. وفي تقاليد الأيورفيدا يُستخدم لتخفيف شد العضلات وتهدئة الأعصاب وتهيئة الجسم للعلاجات التي تليه.",
     },
     image: "/images/ayurveda/head-massage-woman.80fc83a9.webp",
     alt: {
@@ -38,26 +38,12 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
     },
   },
   {
-    id: "herbal-steam",
-    name: { en: "Herbal Steam Bath", ar: "حمّام البخار العشبي" },
-    tag: { en: "Essential Body Refresh", ar: "الانتعاش الأساسي للجسم" },
-    description: {
-      en: "Warm herbal steam taken in a traditional wooden chamber with the head kept outside. It is customarily paired with oil massage to leave the body feeling light, warm and deeply relaxed.",
-      ar: "بخار عشبي دافئ يُؤخذ داخل غرفة خشبية تقليدية مع بقاء الرأس خارجها. ويُقرَن عادةً بتدليك الزيوت ليترك الجسم خفيفًا ودافئًا ومسترخيًا بعمق.",
-    },
-    image: "/images/ayurveda/steam-bath.313fa1fc.webp",
-    alt: {
-      en: "A woman relaxing in a traditional wooden herbal steam cabinet",
-      ar: "سيدة تسترخي داخل حمّام بخار عشبي خشبي تقليدي",
-    },
-  },
-  {
     id: "shirodhara",
-    name: { en: "Shirodhara — Warm Oil Pouring on the Forehead", ar: "شيرودارا — انسكاب الزيت الدافئ على الجبين" },
-    tag: { en: "Deep Stress Relief", ar: "التخلص العميق من التوتر" },
+    name: { en: "Shirodhara — Warm Oil on the Forehead", ar: "شيرودارا — الزيت الدافئ على الجبين" },
+    tag: { en: "Part of the daily therapies", ar: "من العلاجات اليومية" },
     description: {
-      en: "A thin, steady stream of warm herbal oil poured slowly over the forehead while you lie at rest. It is one of Ayurveda's most recognised therapies for calming an overactive mind.",
-      ar: "خيط رفيع ثابت من الزيت العشبي الدافئ يُصبّ ببطء على الجبين وأنتم مستلقون في راحة تامة. وهو من أشهر علاجات الأيورفيدا لتهدئة الذهن المفرط النشاط.",
+      en: "A thin, steady stream of warm medicated oil poured slowly over the forehead while you lie at rest. It is one of Ayurveda's most recognised therapies for calming an overactive mind.",
+      ar: "خيط رفيع ثابت من الزيت الطبي الدافئ يُصبّ ببطء على الجبين وأنتم مستلقون في راحة تامة. وهو من أشهر علاجات الأيورفيدا لتهدئة الذهن المفرط النشاط.",
     },
     image: "/images/ayurveda/shirodhara-man.b7e878d8.webp",
     alt: {
@@ -66,26 +52,12 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
     },
   },
   {
-    id: "herbal-pouch",
-    name: { en: "Herbal Pouch Massage", ar: "التدليك بأكياس الأعشاب" },
-    tag: { en: "Deep Stress Relief", ar: "التخلص العميق من التوتر" },
+    id: "udvarthana",
+    name: { en: "Udvarthana — Herbal Powder Massage", ar: "أودفارتانا — التدليك بمسحوق الأعشاب" },
+    tag: { en: "Part of the daily therapies", ar: "من العلاجات اليومية" },
     description: {
-      en: "Warm cloth pouches filled with herbs and medicinal powders, heated over steam and pressed gently over the body in a steady rhythm to release tension.",
-      ar: "أكياس قماشية دافئة محشوّة بالأعشاب والمساحيق الطبية، تُسخَّن على البخار ثم تُضغط برفق على الجسم بإيقاع ثابت لتخفيف الشد.",
-    },
-    image: "/images/ayurveda/herbal-pouch.f5b90656.webp",
-    alt: {
-      en: "A therapist presses warm herbal pouches on a woman's shoulders",
-      ar: "معالجة تضغط بأكياس الأعشاب الدافئة على كتفي سيدة",
-    },
-  },
-  {
-    id: "panchakarma",
-    name: { en: "Panchakarma — Classical Cleansing Therapies", ar: "بانتشاكارما — علاجات التطهير الكلاسيكية" },
-    tag: { en: "Total Body Detox & Reset", ar: "التطهير الشامل للجسم وإعادة الضبط" },
-    description: {
-      en: "Panchakarma, meaning “five actions”, is Ayurveda's classical system of internal and external cleansing. In your programme it is followed under the guidance of our Ayurvedic doctors, together with tissue-strengthening massages and a personalised diet.",
-      ar: "بانتشاكارما، وتعني «الأفعال الخمسة»، هي منظومة الأيورفيدا الكلاسيكية للتطهير الداخلي والخارجي. وفي برنامجكم تُتَّبع بإشراف أطبائنا المتخصصين في الأيورفيدا، إلى جانب تدليك يقوّي الأنسجة ونظام غذائي مخصص لكم.",
+      en: "A massage with dry herbal powders, applied in firm, upward strokes. Traditionally it is used to stimulate circulation and leave the body feeling light and refreshed.",
+      ar: "تدليك بمساحيق الأعشاب الجافة بحركات قوية صاعدة. ويُستخدم تقليديًا لتنشيط الدورة الدموية وإشعار الجسم بالخفة والانتعاش.",
     },
     image: "/images/ayurveda/herbs-oils.2d622258.webp",
     alt: {
@@ -95,11 +67,11 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
   },
   {
     id: "yoga-meditation",
-    name: { en: "Yoga & Guided Meditation", ar: "اليوغا والتأمل الموجَّه" },
-    tag: { en: "Part of every stay", ar: "ضمن كل إقامة" },
+    name: { en: "Group Yoga & Guided Meditation", ar: "اليوغا الجماعية والتأمل الموجَّه" },
+    tag: { en: "Every day", ar: "كل يوم" },
     description: {
-      en: "Gentle morning yoga to wake the body, and an evening guided meditation to close the day — an everyday rhythm that carries the calm of the therapies into the rest of your time.",
-      ar: "يوغا صباحية هادئة توقظ الجسم، وتأمل موجَّه مسائي يختم اليوم — إيقاع يومي ينقل سكينة العلاجات إلى بقية وقتكم.",
+      en: "Yoga and breathing practice in the morning, following your doctor's advice, and a guided meditation in the evening to settle the mind before rest.",
+      ar: "يوغا وتمارين تنفس في الصباح وفق إرشادات طبيبكم، وتأمل موجَّه في المساء لتهدئة الذهن قبل الراحة.",
     },
     image: "/images/ayurveda/yoga-group.ed9d4bda.webp",
     alt: {
@@ -107,45 +79,59 @@ export const ayurvedaTherapies: AyurvedaTherapy[] = [
       ar: "رجال ونساء يمارسون يوغا الصباح في جناح مفتوح بين أشجار جوز الهند",
     },
   },
+  {
+    id: "diet",
+    name: { en: "A Personalised Diet", ar: "نظام غذائي مخصص" },
+    tag: { en: "Every day", ar: "كل يوم" },
+    description: {
+      en: "Three meals a day planned by your doctor around your constitution and digestion — light, nourishing food, freshly prepared and easy to digest.",
+      ar: "ثلاث وجبات يوميًا يخطّطها طبيبكم بما يناسب طبيعة جسمكم وجهازكم الهضمي — طعام خفيف مغذٍّ يُحضَّر طازجًا وسهل الهضم.",
+    },
+    image: "/images/ayurveda/ayurvedic-meal.1dc5e044.webp",
+    alt: {
+      en: "A Kerala-style vegetarian meal served on a banana leaf",
+      ar: "وجبة نباتية على الطريقة الكيرالية مقدَّمة على ورقة موز",
+    },
+  },
 ];
 
 export const ayurvedaSteps: { title: Bi; description: Bi }[] = [
   {
-    title: { en: "Consult", ar: "الاستشارة" },
+    title: { en: "Assess", ar: "التقييم" },
     description: {
-      en: "You meet our Ayurvedic doctors, who understand your body type, your routine and what you hope to feel at the end of your stay.",
-      ar: "تلتقون أطباءنا المتخصصين في الأيورفيدا، ليفهموا طبيعة جسمكم ونمط حياتكم وما تأملون أن تشعروا به في نهاية إقامتكم.",
+      en: "An Ayurvedic doctor reviews your health history, habits and goals, and maps your body's constitution and imbalances.",
+      ar: "يراجع طبيب أيورفيدا تاريخكم الصحي وعاداتكم وأهدافكم، ويحدد طبيعة جسمكم وما يعتريه من اختلال.",
     },
   },
   {
-    title: { en: "Prescribe", ar: "وصف العلاج" },
+    title: { en: "Personalise", ar: "التخصيص" },
     description: {
-      en: "Treatments and oils are prescribed for you by certified traditional doctors — not picked from a fixed menu.",
-      ar: "يصف لكم أطباء تقليديون معتمدون العلاجات والزيوت المناسبة لكم، بدلًا من اختيارها من قائمة ثابتة.",
+      en: "Your therapies, diet and daily routine are planned for you — not picked from a fixed menu.",
+      ar: "تُخطَّط علاجاتكم ونظامكم الغذائي وروتينكم اليومي خصيصًا لكم، لا تُختار من قائمة ثابتة.",
     },
   },
   {
     title: { en: "Restore", ar: "التجديد" },
     description: {
-      en: "Experienced therapists carry out your therapies, supported by tailored vegetarian meals, morning yoga and evening meditation.",
-      ar: "يقوم معالجون ذوو خبرة بتنفيذ علاجاتكم، بدعم من وجبات نباتية مخصصة ويوغا صباحية وتأمل مسائي.",
+      en: "Two Ayurvedic therapies every day, supported by yoga, meditation and meals that follow your plan.",
+      ar: "علاجان أيورفيديان كل يوم، بدعم من اليوغا والتأمل ووجبات تتبع خطتكم.",
     },
   },
   {
     title: { en: "Review", ar: "المتابعة" },
     description: {
-      en: "Daily consultations with the doctors keep your programme in step with how your body responds.",
-      ar: "تبقي الاستشارات اليومية مع الأطباء برنامجكم متوافقًا مع استجابة جسمكم.",
+      en: "Daily check-ins with the doctor keep your plan in step with how your body responds.",
+      ar: "تبقي الاستشارات اليومية مع الطبيب خطتكم متوافقة مع استجابة جسمكم.",
     },
   },
 ];
 
 export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt: Bi }[] = [
   {
-    title: { en: "Daily Doctor Consultations", ar: "استشارات طبية يومية" },
+    title: { en: "Daily Doctor Consultation", ar: "استشارة طبية يومية" },
     description: {
-      en: "Personalised consultations with our Ayurvedic doctors every day.",
-      ar: "استشارات شخصية يوميًا مع أطبائنا المتخصصين في الأيورفيدا.",
+      en: "A personal consultation with your Ayurvedic doctor every day.",
+      ar: "استشارة شخصية مع طبيب الأيورفيدا الخاص بكم كل يوم.",
     },
     image: "/images/ayurveda/consultation.5044c25f.webp",
     alt: {
@@ -154,10 +140,22 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
     },
   },
   {
-    title: { en: "Three Tailored Vegetarian Meals", ar: "ثلاث وجبات نباتية مخصصة" },
+    title: { en: "Two Therapies Every Day", ar: "علاجان كل يوم" },
     description: {
-      en: "Three vegetarian meals daily, designed for your body type.",
-      ar: "ثلاث وجبات نباتية يوميًا، مصمَّمة بما يناسب طبيعة جسمكم.",
+      en: "Two Ayurvedic therapies daily, chosen and adapted by your doctor.",
+      ar: "علاجان أيورفيديان يوميًا، يختارهما طبيبكم ويكيّفهما معكم.",
+    },
+    image: "/images/ayurveda/head-massage-man.88c86736.webp",
+    alt: {
+      en: "A man receiving a calming head and shoulder massage",
+      ar: "رجل يتلقى تدليكًا مهدئًا للرأس والكتفين",
+    },
+  },
+  {
+    title: { en: "Personalised Diet", ar: "نظام غذائي مخصص" },
+    description: {
+      en: "Meals designed for your body type, three times a day.",
+      ar: "وجبات مصمَّمة بما يناسب طبيعة جسمكم، ثلاث مرات يوميًا.",
     },
     image: "/images/ayurveda/ayurvedic-meal.1dc5e044.webp",
     alt: {
@@ -166,10 +164,10 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
     },
   },
   {
-    title: { en: "Morning Yoga", ar: "يوغا صباحية" },
+    title: { en: "Group Yoga & Meditation", ar: "يوغا جماعية وتأمل" },
     description: {
-      en: "Gentle morning yoga sessions to begin each day.",
-      ar: "جلسات يوغا صباحية هادئة لبدء كل يوم.",
+      en: "Yoga sessions and a guided meditation every day.",
+      ar: "جلسات يوغا وتأمل موجَّه كل يوم.",
     },
     image: "/images/ayurveda/yoga-woman.46691773.webp",
     alt: {
@@ -177,17 +175,82 @@ export const ayurvedaIncluded: { title: Bi; description: Bi; image: string; alt:
       ar: "سيدة في وضعية يوغا جلوس بجوار مياه كيرالا الراكدة عند شروق الشمس",
     },
   },
+];
+
+/** A general outline of a programme day. Times and therapies follow each guest's doctor's plan. */
+export const ayurvedaTypicalDay: { time: string; title: Bi; text: Bi }[] = [
   {
-    title: { en: "Evening Guided Meditation", ar: "تأمل موجَّه مسائي" },
-    description: {
-      en: "A guided meditation each evening to settle the mind before rest.",
-      ar: "تأمل موجَّه كل مساء لتهدئة الذهن قبل الراحة.",
+    time: "06:30",
+    title: { en: "Yoga & breathing", ar: "اليوغا والتنفس" },
+    text: { en: "Morning yoga and pranayama, as advised by your doctor.", ar: "يوغا صباحية وتمارين تنفس وفق إرشادات طبيبكم." },
+  },
+  {
+    time: "08:00",
+    title: { en: "Breakfast", ar: "الإفطار" },
+    text: { en: "A light, nourishing breakfast.", ar: "إفطار خفيف ومغذٍّ." },
+  },
+  {
+    time: "09:30",
+    title: { en: "Morning therapy", ar: "علاج الصباح" },
+    text: {
+      en: "The first Ayurvedic therapy of the day, followed by rest and a doctor's review when scheduled.",
+      ar: "أول علاج أيورفيدي في اليوم، يعقبه استراحة ومراجعة مع الطبيب عند الحاجة.",
     },
-    image: "/images/ayurveda/meditation-man.eedfcb26.webp",
-    alt: {
-      en: "A man meditating on a quiet wooden veranda surrounded by greenery",
-      ar: "رجل يتأمل على شرفة خشبية هادئة تحيط بها الخضرة",
+  },
+  {
+    time: "13:00",
+    title: { en: "Lunch", ar: "الغداء" },
+    text: { en: "A balanced meal planned for your constitution.", ar: "وجبة متوازنة مخططة بما يناسب طبيعة جسمكم." },
+  },
+  {
+    time: "14:00",
+    title: { en: "Learning & rest", ar: "التعلّم والراحة" },
+    text: {
+      en: "A rotating session — such as a cooking demonstration, garden visit or talk — when it suits you.",
+      ar: "جلسة متنوعة — كعرض للطبخ أو زيارة للحديقة أو محاضرة — عندما تناسبكم.",
     },
+  },
+  {
+    time: "15:30",
+    title: { en: "Afternoon therapy", ar: "علاج بعد الظهر" },
+    text: { en: "The second Ayurvedic therapy of the day, followed by rest.", ar: "العلاج الأيورفيدي الثاني في اليوم، يعقبه استراحة." },
+  },
+  {
+    time: "18:30",
+    title: { en: "Guided meditation", ar: "التأمل الموجَّه" },
+    text: { en: "A guided meditation to calm the mind.", ar: "تأمل موجَّه لتهدئة الذهن." },
+  },
+  {
+    time: "19:30",
+    title: { en: "Dinner", ar: "العشاء" },
+    text: { en: "A light, easily digestible dinner before an early night.", ar: "عشاء خفيف سهل الهضم قبل نوم مبكر." },
+  },
+];
+
+/** The two packages: the same 7-day programme, then one of two Kerala tours. */
+export const ayurvedaPackageRoutes: { slug: string; tourDays: number; route: Bi[] }[] = [
+  {
+    slug: "rejuvenation-detox-kerala-6-day-tour",
+    tourDays: 6,
+    route: [
+      { en: "Cochin", ar: "كوتشي" },
+      { en: "Munnar", ar: "مونار" },
+      { en: "Thekkady", ar: "ثيكادي" },
+      { en: "Alleppey houseboat", ar: "قارب سكني في ألابوزا" },
+      { en: "Cochin drop-off", ar: "التوصيل في كوتشي" },
+    ],
+  },
+  {
+    slug: "rejuvenation-detox-kerala-8-day-tour",
+    tourDays: 8,
+    route: [
+      { en: "Cochin", ar: "كوتشي" },
+      { en: "Munnar", ar: "مونار" },
+      { en: "Thekkady", ar: "ثيكادي" },
+      { en: "Alleppey houseboat", ar: "قارب سكني في ألابوزا" },
+      { en: "Kovalam", ar: "كوفالام" },
+      { en: "Trivandrum drop-off", ar: "التوصيل في ترفاندروم" },
+    ],
   },
 ];
 
@@ -201,85 +264,103 @@ export const ayurvedaGallery: { src: string; alt: Bi }[] = [
     alt: { en: "A woman receiving Shirodhara in a calm treatment room", ar: "سيدة تتلقى علاج شيرودارا في غرفة علاج هادئة" },
   },
   {
-    src: "/images/ayurveda/head-massage-man.88c86736.webp",
-    alt: { en: "A man receiving a calming head and shoulder massage", ar: "رجل يتلقى تدليكًا مهدئًا للرأس والكتفين" },
+    src: "/images/ayurveda/munnar-tea.eceeb9ea.webp",
+    alt: { en: "Tea plantations on the misty hills of Munnar", ar: "مزارع الشاي على تلال مونار الضبابية" },
   },
   {
-    src: "/images/ayurveda/couple-herbal-tea.bd0c854a.webp",
-    alt: { en: "A couple enjoying herbal tea on a wooden veranda", ar: "زوجان يستمتعان بشاي الأعشاب على شرفة خشبية" },
+    src: "/images/ayurveda/thekkady-periyar.2e7c1e2f.webp",
+    alt: { en: "A boat on Periyar Lake in Thekkady with elephants at the shore", ar: "قارب على بحيرة بيريار في ثيكادي مع أفيال عند الشاطئ" },
   },
 ];
 
 export const ayurvedaFaqs: { q: Bi; a: Bi }[] = [
   {
-    q: { en: "How long should I stay?", ar: "كم ينبغي أن تكون مدة الإقامة؟" },
+    q: { en: "How long is the package?", ar: "ما مدة الباقة؟" },
     a: {
-      en: "It depends on what you want from the stay. Essential Body Refresh is 3 to 5 days for a short, effective break; Deep Stress Relief is 7 days; Total Body Detox & Reset is 14 days or more for deeper, longer-term goals.",
-      ar: "يعتمد ذلك على ما تريدونه من الإقامة. فبرنامج الانتعاش الأساسي للجسم من ٣ إلى ٥ أيام لاستراحة قصيرة وفعّالة، والتخلص العميق من التوتر ٧ أيام، والتطهير الشامل للجسم وإعادة الضبط ١٤ يومًا فأكثر لأهداف أعمق وأطول أمدًا.",
+      en: "Every package starts with a 7-day Rejuvenation & Detoxification Healing Program. After it you continue on a Kerala tour of your choice: 6 days (13 days in total) or 8 days (15 days in total).",
+      ar: "تبدأ كل باقة ببرنامج التجديد والتطهير العلاجي لمدة ٧ أيام. وبعده تتابعون في جولة بكيرالا من اختياركم: ٦ أيام (١٣ يومًا في المجموع) أو ٨ أيام (١٥ يومًا في المجموع).",
     },
   },
   {
-    q: { en: "Who prescribes and performs the treatments?", ar: "من يصف العلاجات ومن ينفّذها؟" },
+    q: { en: "What does the healing programme include?", ar: "ماذا يشمل البرنامج العلاجي؟" },
     a: {
-      en: "Treatments are prescribed by certified traditional Ayurvedic doctors and performed by experienced therapists, with daily consultations throughout your stay.",
-      ar: "يصف العلاجات أطباء أيورفيدا تقليديون معتمدون، وينفّذها معالجون ذوو خبرة، مع استشارات يومية طوال فترة إقامتكم.",
+      en: "A daily consultation with your Ayurvedic doctor, two Ayurvedic therapies every day, a personalised diet, group yoga and guided meditation. Therapies and timings follow your doctor's plan.",
+      ar: "استشارة يومية مع طبيب الأيورفيدا الخاص بكم، وعلاجان أيورفيديان كل يوم، ونظام غذائي مخصص، ويوغا جماعية وتأمل موجَّه. وتتبع العلاجات ومواعيدها خطة طبيبكم.",
     },
   },
   {
-    q: { en: "What about food?", ar: "وماذا عن الطعام؟" },
+    q: { en: "Who plans and performs the treatments?", ar: "من يخطّط العلاجات ومن ينفّذها؟" },
     a: {
-      en: "Three tailored vegetarian meals a day are part of every stay, designed for your body type. Detox programmes follow a stricter personalised diet.",
-      ar: "ثلاث وجبات نباتية مخصصة يوميًا جزء من كل إقامة، ومصمَّمة بما يناسب طبيعة جسمكم. وتعتمد برامج التطهير نظامًا غذائيًا شخصيًا أكثر صرامة.",
+      en: "Ayurvedic doctors plan your programme around your constitution and goals and review it with you daily; trained therapists carry out the therapies.",
+      ar: "يخطّط أطباء الأيورفيدا برنامجكم بما يناسب طبيعة جسمكم وأهدافكم ويراجعونه معكم يوميًا، بينما ينفّذ العلاجات معالجون مدرَّبون.",
     },
   },
   {
-    q: { en: "Do I need yoga experience?", ar: "هل أحتاج إلى خبرة في اليوغا؟" },
+    q: { en: "Can I choose my tour?", ar: "هل يمكنني اختيار الجولة؟" },
     a: {
-      en: "The daily yoga is gentle, and the evening meditation is guided, so both are suited to those new to them.",
-      ar: "اليوغا اليومية هادئة والتأمل المسائي موجَّه، لذا فهما مناسبان لمن لم يمارسهما من قبل.",
+      en: "Yes. After the 7 days of treatment you choose either the 6-day Kerala tour, or the 8-day tour that adds Kovalam beach and Trivandrum.",
+      ar: "نعم. بعد ٧ أيام من العلاج تختارون إما جولة كيرالا لمدة ٦ أيام، أو جولة ٨ أيام التي تضيف شاطئ كوفالام ومدينة ترفاندروم.",
     },
   },
   {
-    q: { en: "Can I combine it with sightseeing in Kerala or India?", ar: "هل يمكن الجمع بينها وبين زيارة معالم كيرالا أو الهند؟" },
+    q: { en: "What is included in the tour?", ar: "ماذا تشمل الجولة؟" },
     a: {
-      en: "Yes. Safari Masti designs custom journeys across India, so we can plan Kerala sightseeing or another destination before or after your Ayurveda stay.",
-      ar: "نعم. تصمّم سفاري ماستي رحلات مخصصة في أنحاء الهند، لذا يمكننا تخطيط زيارة معالم كيرالا أو وجهة أخرى قبل إقامتكم الأيورفيدية أو بعدها.",
+      en: "Pick-up and drop-off, 3-star accommodation as per the itinerary, a houseboat stay at Alleppey with meals on board, an English or Hindi speaking driver and AC private transportation. Entry tickets, optional activities, airfare and GST are not included — each package page lists everything.",
+      ar: "الاستقبال والتوصيل، وإقامة بفنادق ثلاث نجوم وفق البرنامج، ومبيت على قارب سكني في ألابوزا مع الوجبات على متنه، وسائق يتحدث الإنجليزية أو الهندية، وتنقل خاص مكيَّف. ولا تشمل تذاكر الدخول والأنشطة الاختيارية وتذاكر الطيران وضريبة GST — وتسرد صفحة كل باقة جميع التفاصيل.",
     },
   },
   {
     q: { en: "How do I get prices and dates?", ar: "كيف أحصل على الأسعار والمواعيد؟" },
     a: {
-      en: "Every programme is shaped around your dates and goals, so we prepare a personal proposal rather than a fixed price list. Message us on WhatsApp or use Build Your Journey and we will get back to you.",
+      en: "Every package is shaped around your dates and goals, so we prepare a personal proposal rather than a fixed price list. Message us on WhatsApp or use Build Your Journey and we will get back to you.",
       ar: "يُصمَّم كل برنامج حسب تواريخكم وأهدافكم، لذلك نعدّ لكم عرضًا شخصيًا بدلًا من قائمة أسعار ثابتة. راسلونا عبر واتساب أو استخدموا «صمّم رحلتك» وسنعاود التواصل معكم.",
     },
   },
   {
     q: { en: "Is Ayurveda a substitute for medical care?", ar: "هل تغني الأيورفيدا عن الرعاية الطبية؟" },
     a: {
-      en: "No. These are wellness programmes. Please tell our doctors about any health condition or medication so your programme can be planned safely, and keep following your own doctor's advice.",
-      ar: "لا. هذه برامج للعافية. يُرجى إبلاغ أطبائنا بأي حالة صحية أو أدوية تتناولونها ليُخطَّط برنامجكم بأمان، ومواصلة اتباع نصائح طبيبكم الخاص.",
+      en: "No. This is a wellness programme. Please tell our doctors about any health condition or medication so your programme can be planned safely, and keep following your own doctor's advice.",
+      ar: "لا. هذا برنامج للعافية. يُرجى إبلاغ أطبائنا بأي حالة صحية أو أدوية تتناولونها ليُخطَّط برنامجكم بأمان، ومواصلة اتباع نصائح طبيبكم الخاص.",
     },
   },
 ];
 
 export const ayurvedaCopy = {
-  therapiesEyebrow: { en: "The Therapies", ar: "العلاجات" },
-  therapiesTitle: { en: "What your stay is made of", ar: "ما تتكوّن منه إقامتكم" },
+  planEyebrow: { en: "Your Journey in Two Parts", ar: "رحلتكم على مرحلتين" },
+  planTitle: { en: "Heal first, then explore Kerala", ar: "ابدؤوا بالتعافي ثم استكشفوا كيرالا" },
+  planPart1Label: { en: "Part 1", ar: "المرحلة ١" },
+  planPart1Title: { en: "7-day Rejuvenation & Detoxification Healing Program", ar: "برنامج التجديد والتطهير العلاجي لمدة ٧ أيام" },
+  planPart1Body: {
+    en: "Two Ayurvedic therapies a day, a daily doctor consultation, a personalised diet, group yoga and meditation.",
+    ar: "علاجان أيورفيديان يوميًا، واستشارة يومية مع الطبيب، ونظام غذائي مخصص، ويوغا جماعية وتأمل.",
+  },
+  planPart2Label: { en: "Part 2 — choose one", ar: "المرحلة ٢ — اختاروا واحدة" },
+  planDays: { en: "days", ar: "أيام" },
+  planTourWord: { en: "Kerala tour", ar: "جولة كيرالا" },
+  planTotal: { en: "days in total", ar: "يومًا في المجموع" },
+  therapiesEyebrow: { en: "The Programme", ar: "البرنامج" },
+  therapiesTitle: { en: "What your healing programme is made of", ar: "ما يتكوّن منه برنامجكم العلاجي" },
   therapiesIntro: {
-    en: "Each programme draws on classical Ayurvedic therapies. Here is what the treatments named in our programmes actually are.",
-    ar: "يستند كل برنامج إلى علاجات أيورفيدية كلاسيكية. وهذا شرح لما تعنيه العلاجات المذكورة في برامجنا.",
+    en: "The seven days draw on classical Ayurvedic therapies and a daily rhythm of yoga, meditation and carefully planned meals. Here is what the treatments are.",
+    ar: "تستند الأيام السبعة إلى علاجات أيورفيدية كلاسيكية وإيقاع يومي من اليوغا والتأمل ووجبات مخططة بعناية. وهذا شرح لما تعنيه هذه العلاجات.",
   },
   stepsEyebrow: { en: "How It Works", ar: "كيف يسير البرنامج" },
-  stepsTitle: { en: "A stay shaped around your body", ar: "إقامة مصمَّمة على مقاس جسمكم" },
-  includedEyebrow: { en: "Included in Every Stay", ar: "ضمن كل إقامة" },
+  stepsTitle: { en: "A programme shaped around your body", ar: "برنامج مصمَّم على مقاس جسمكم" },
+  includedEyebrow: { en: "Every Day of the Programme", ar: "كل يوم من البرنامج" },
   includedTitle: { en: "The daily rhythm of your retreat", ar: "الإيقاع اليومي لخلوتكم" },
-  compareEyebrow: { en: "Compare Programmes", ar: "قارنوا بين البرامج" },
-  compareTitle: { en: "Which programme is right for you?", ar: "أي البرامج يناسبكم؟" },
+  dayEyebrow: { en: "A Day at the Programme", ar: "يوم في البرنامج" },
+  dayTitle: { en: "What a typical day looks like", ar: "كيف يبدو يوم نموذجي" },
+  dayNote: {
+    en: "This is a general outline. Therapies, durations and timings follow your own doctor's plan.",
+    ar: "هذا مخطط عام. وتتبع العلاجات ومدتها ومواعيدها خطة طبيبكم الخاص.",
+  },
+  compareEyebrow: { en: "Choose Your Package", ar: "اختاروا باقتكم" },
+  compareTitle: { en: "Treatment first, then the Kerala tour you prefer", ar: "العلاج أولًا، ثم جولة كيرالا التي تفضّلونها" },
   colProgramme: { en: "Programme", ar: "البرنامج" },
+  colRoute: { en: "Tour route", ar: "مسار الجولة" },
   colDuration: { en: "Duration", ar: "المدة" },
-  colBestFor: { en: "Best for", ar: "الأنسب لـ" },
-  colTherapies: { en: "Key therapies", ar: "أبرز العلاجات" },
-  viewProgramme: { en: "View programme", ar: "عرض البرنامج" },
+  programmeDays: { en: "7-day healing programme", ar: "برنامج علاجي لمدة ٧ أيام" },
+  viewProgramme: { en: "View full itinerary", ar: "عرض البرنامج الكامل" },
   galleryEyebrow: { en: "Glimpses", ar: "لمحات" },
   galleryTitle: { en: "Calm, set in Kerala", ar: "سكينة في قلب كيرالا" },
   galleryNote: {
@@ -290,13 +371,13 @@ export const ayurvedaCopy = {
   faqTitle: { en: "Questions, answered", ar: "أسئلة وأجوبتها" },
   ctaTitle: { en: "Tell us when you'd like to restore", ar: "أخبرونا متى تودّون استعادة حيويتكم" },
   ctaBody: {
-    en: "Share your dates and what you hope to feel, and we'll design your Ayurveda stay — on its own, or as part of a wider journey through Kerala and India.",
-    ar: "شاركونا تواريخكم وما تأملون أن تشعروا به، وسنصمّم لكم إقامتكم الأيورفيدية — بمفردها أو ضمن رحلة أوسع في كيرالا والهند.",
+    en: "Share your dates and which tour you prefer, and we'll prepare your personal proposal.",
+    ar: "شاركونا تواريخكم والجولة التي تفضّلونها، وسنعدّ لكم عرضًا شخصيًا.",
   },
   ctaPrimary: { en: "Plan my Ayurveda stay", ar: "خطّطوا لإقامتي الأيورفيدية" },
   ctaWhatsapp: { en: "Chat on WhatsApp", ar: "تحدثوا معنا عبر واتساب" },
   ctaWhatsappMessage: {
-    en: "Hello Safari Masti, I'd like to know more about your Kerala Ayurveda programmes.",
-    ar: "مرحبًا سفاري ماستي، أودّ معرفة المزيد عن برامج الأيورفيدا في كيرالا.",
+    en: "Hello Safari Masti, I'd like to know more about your Ayurveda healing program with the Kerala tour.",
+    ar: "مرحبًا سفاري ماستي، أودّ معرفة المزيد عن برنامج الأيورفيدا العلاجي مع جولة كيرالا.",
   },
 };

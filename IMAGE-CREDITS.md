@@ -21,7 +21,7 @@ Kerala Ayurveda page says so. Prompts requested no text, logos or watermarks.
 | `tours/` | One image per tour/programme (named `<tour-slug>-1.webp`; Golden Triangle also has `-2`) |
 | `honeymoon/` | Couples-only imagery for the Luxury & Honeymoon page and its four escapes (Kerala, Munnar, Goa, Rajasthan), plus a full-bleed backwaters band |
 | `culture/` | Ellora Kailasa Temple, Ajanta Caves and Hampi — the Culture tile cycles these with the Taj Mahal |
-| `ayurveda/` | Treatments, yoga, meditation, consultation and meals for the Kerala Ayurveda page and programmes |
+| `ayurveda/` | Treatments, yoga, meditation, consultation and meals for the Kerala Ayurveda page and its two packages, plus Munnar, Thekkady and Kovalam scenes for the tour part |
 
 ## Replacing with real photography
 

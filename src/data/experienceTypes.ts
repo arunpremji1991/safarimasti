@@ -67,8 +67,8 @@ export const experienceTypes: ExperienceType[] = [
     label: "Wellness",
     labelAr: "العافية",
     image: "/images/collections/kerala-ayurveda-hero.1fc4c569.webp",
-    description: "Authentic Kerala Ayurveda rejuvenation packages.",
-    descriptionAr: "برامج تجديد الحيوية الأصيلة بطب الأيورفيدا في كيرالا.",
+    description: "A 7-day Ayurveda healing program, followed by a Kerala tour.",
+    descriptionAr: "برنامج علاجي بالأيورفيدا لمدة ٧ أيام، تعقبه جولة في كيرالا.",
     href: "/collections/kerala-ayurveda",
   },
   {
