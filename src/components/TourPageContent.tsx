@@ -9,12 +9,25 @@ import { BookingModal } from "@/components/tour/BookingModal";
 import { ThankYouModal } from "@/components/ui/ThankYouModal";
 import { DesignedAroundYou } from "@/components/tour/DesignedAroundYou";
 import { GoodToKnow } from "@/components/tour/GoodToKnow";
+import { SectionNav, NavSection } from "@/components/tour/SectionNav";
+import { ReadMore } from "@/components/tour/ReadMore";
+import { ItineraryAccordion } from "@/components/tour/ItineraryAccordion";
+import { ChecklistWithMore } from "@/components/tour/ChecklistWithMore";
 import { TourCard } from "@/components/ui/TourCard";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { formatInr } from "@/lib/format";
 import { Collection, Tour } from "@/data/types";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translateCategory, translateTravelStyle } from "@/i18n/labels";
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-6 flex items-center gap-3">
+      <span aria-hidden className="h-7 w-1 rounded-full bg-amber-500" />
+      <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">{children}</h2>
+    </div>
+  );
+}
 
 export function TourPageContent({
   tour,
@@ -39,6 +52,16 @@ export function TourPageContent({
     lowest === undefined
       ? t("tour.requestQuote")
       : `${amounts.length > 1 ? `${t("package.from")} ` : ""}${formatInr(lowest, locale)}`;
+
+  const sections: NavSection[] = [
+    { id: "overview", label: t("tour.nav.overview") },
+    ...(tour.highlights.length > 0 ? [{ id: "highlights", label: t("tour.nav.highlights") }] : []),
+    { id: "itinerary", label: t("tour.nav.itinerary") },
+    ...(tour.pricing ? [{ id: "price", label: t("tour.nav.price") }] : []),
+    ...(tour.hotels && tour.hotels.length > 0 ? [{ id: "hotels", label: t("tour.nav.hotels") }] : []),
+    ...(hasInclusions ? [{ id: "included", label: t("tour.nav.included") }] : []),
+    ...(tour.goodToKnow.length > 0 ? [{ id: "good-to-know", label: t("tour.nav.goodToKnow") }] : []),
+  ];
 
   return (
     <>
@@ -124,29 +147,25 @@ export function TourPageContent({
               </div>
             </div>
 
+            <SectionNav sections={sections} />
+
             {/* Overview */}
-            <section className="mt-14">
-              <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
-                {t("tour.aboutJourney")}
-              </h2>
-              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-charcoal-800/80">
-                {pick(tour.overview, tour.overviewAr)}
-              </p>
+            <section id="overview" className="mt-10 scroll-mt-40">
+              <SectionTitle>{t("tour.aboutJourney")}</SectionTitle>
+              <ReadMore text={pick(tour.overview, tour.overviewAr)} className="max-w-3xl text-lg leading-relaxed text-charcoal-800/80" />
             </section>
 
             {/* Highlights */}
             {tour.highlights.length > 0 && (
-              <section className="mt-14">
-                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
-                  {t("tour.whatMakesSpecial")}
-                </h2>
-                <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+              <section id="highlights" className="mt-14 scroll-mt-40">
+                <SectionTitle>{t("tour.whatMakesSpecial")}</SectionTitle>
+                <ul className="grid gap-3 sm:grid-cols-2">
                   {(pick(tour.highlights, tour.highlightsAr) ?? tour.highlights).map((h, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 rounded-xl bg-cream-100 p-4 text-charcoal-800/85"
+                      className="flex items-start gap-3 rounded-xl border border-charcoal-950/8 bg-white p-4 text-[15px] leading-snug text-charcoal-800/90 shadow-[0_1px_0_rgba(0,0,0,0.03)]"
                     >
-                      <span className="mt-0.5 text-amber-600" aria-hidden>
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs text-amber-600" aria-hidden>
                         ✦
                       </span>
                       {h}
@@ -156,20 +175,22 @@ export function TourPageContent({
               </section>
             )}
 
+            {/* Itinerary or designed-around-you CTA */}
+            <section id="itinerary" className="mt-14 scroll-mt-40">
+              <SectionTitle>{t("tour.yourJourney")}</SectionTitle>
+              {hasItinerary ? <ItineraryAccordion stops={tour.itinerary} /> : <DesignedAroundYou tourSlug={tour.slug} />}
+            </section>
+
             {/* Package cost */}
             {tour.pricing && (
-              <section className="mt-14">
-                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">{t("package.costTitle")}</h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <section id="price" className="mt-14 scroll-mt-40">
+                <SectionTitle>{t("package.costTitle")}</SectionTitle>
+                <div className="grid gap-4 sm:grid-cols-2">
                   {tour.pricing.options.map((o) => (
-                    <div key={o.label} className="rounded-2xl border border-charcoal-950/10 bg-cream-100 p-6">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
-                        {pick(o.label, o.labelAr)}
-                      </p>
+                    <div key={o.label} className="flex flex-col rounded-2xl border border-charcoal-950/10 bg-cream-100 p-6">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">{pick(o.label, o.labelAr)}</p>
                       <p className="font-display mt-2 text-3xl text-charcoal-950">{formatInr(o.amountInr, locale)}</p>
-                      {o.detail && (
-                        <p className="mt-2 text-sm text-charcoal-800/75">{pick(o.detail, o.detailAr)}</p>
-                      )}
+                      {o.detail && <p className="mt-2 text-sm text-charcoal-800/75">{pick(o.detail, o.detailAr)}</p>}
                     </div>
                   ))}
                 </div>
@@ -180,45 +201,14 @@ export function TourPageContent({
               </section>
             )}
 
-            {/* Itinerary or designed-around-you CTA */}
-            <section className="mt-14">
-              <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
-                {t("tour.yourJourney")}
-              </h2>
-              {hasItinerary ? (
-                <ol className="mt-6 space-y-6 border-s-2 border-amber-500 ps-6">
-                  {tour.itinerary.map((stop) => (
-                    <li key={stop.label}>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
-                        {pick(stop.label, stop.labelAr)}
-                      </p>
-                      <h3 className="font-display mt-1 text-xl text-charcoal-950">
-                        {pick(stop.title, stop.titleAr)}
-                      </h3>
-                      <p className="mt-1 text-charcoal-800/75">{pick(stop.description, stop.descriptionAr)}</p>
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                <div className="mt-6">
-                  <DesignedAroundYou tourSlug={tour.slug} />
-                </div>
-              )}
-            </section>
-
             {/* Hotels */}
             {tour.hotels && tour.hotels.length > 0 && (
-              <section className="mt-14">
-                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">{t("package.hotelsTitle")}</h2>
-                <ul className="mt-6 divide-y divide-charcoal-950/10 rounded-2xl border border-charcoal-950/10">
+              <section id="hotels" className="mt-14 scroll-mt-40">
+                <SectionTitle>{t("package.hotelsTitle")}</SectionTitle>
+                <ul className="divide-y divide-charcoal-950/10 overflow-hidden rounded-2xl border border-charcoal-950/10 bg-white">
                   {tour.hotels.map((h) => (
-                    <li
-                      key={h.place}
-                      className="grid gap-1 p-5 sm:grid-cols-[150px_1fr_auto] sm:items-baseline sm:gap-6"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
-                        {pick(h.place, h.placeAr)}
-                      </span>
+                    <li key={h.place} className="grid gap-1 p-5 sm:grid-cols-[150px_1fr_auto] sm:items-baseline sm:gap-6">
+                      <span className="text-xs font-semibold uppercase tracking-widest text-maroon-700">{pick(h.place, h.placeAr)}</span>
                       <span className="font-display text-lg text-charcoal-950" dir="ltr">
                         {h.name}
                       </span>
@@ -232,27 +222,17 @@ export function TourPageContent({
 
             {/* Inclusions / Exclusions */}
             {hasInclusions && (
-              <section className="mt-14 grid gap-8 sm:grid-cols-2">
+              <section id="included" className="mt-14 scroll-mt-40 grid gap-5 sm:grid-cols-2">
                 {tour.inclusions.length > 0 && (
-                  <div>
-                    <h3 className="font-display text-xl text-charcoal-950">{t("tour.whatsIncluded")}</h3>
-                    <ul className="mt-4 space-y-2 text-charcoal-800/80">
-                      {(pick(tour.inclusions, tour.inclusionsAr) ?? tour.inclusions).map((i, idx) => (
-                        <li key={idx}>+ {i}</li>
-                      ))}
-                    </ul>
+                  <div className="rounded-2xl border border-charcoal-950/10 bg-white p-6">
+                    <h3 className="font-display mb-4 text-xl text-charcoal-950">{t("tour.whatsIncluded")}</h3>
+                    <ChecklistWithMore tone="yes" items={pick(tour.inclusions, tour.inclusionsAr) ?? tour.inclusions} />
                   </div>
                 )}
                 {tour.exclusions.length > 0 && (
-                  <div>
-                    <h3 className="font-display text-xl text-charcoal-950">
-                      {t("tour.whatsNotIncluded")}
-                    </h3>
-                    <ul className="mt-4 space-y-2 text-charcoal-800/80">
-                      {(pick(tour.exclusions, tour.exclusionsAr) ?? tour.exclusions).map((e, idx) => (
-                        <li key={idx}>− {e}</li>
-                      ))}
-                    </ul>
+                  <div className="rounded-2xl border border-charcoal-950/10 bg-white p-6">
+                    <h3 className="font-display mb-4 text-xl text-charcoal-950">{t("tour.whatsNotIncluded")}</h3>
+                    <ChecklistWithMore tone="no" items={pick(tour.exclusions, tour.exclusionsAr) ?? tour.exclusions} />
                   </div>
                 )}
               </section>
@@ -260,13 +240,9 @@ export function TourPageContent({
 
             {/* Good to know */}
             {tour.goodToKnow.length > 0 && (
-              <section className="mt-14">
-                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
-                  {t("tour.goodToKnow")}
-                </h2>
-                <div className="mt-6">
-                  <GoodToKnow items={tour.goodToKnow} />
-                </div>
+              <section id="good-to-know" className="mt-14 scroll-mt-40">
+                <SectionTitle>{t("tour.goodToKnow")}</SectionTitle>
+                <GoodToKnow items={tour.goodToKnow} />
               </section>
             )}
           </div>
