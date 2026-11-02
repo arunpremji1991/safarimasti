@@ -37,7 +37,7 @@ export function TourGallery({ images, title }: { images: string[]; title: string
                 i === active ? "border-amber-500" : "border-transparent"
               }`}
             >
-              <Image src={img} alt="" fill sizes="112px" className="object-cover" />
+              <Image src={img} alt="" fill sizes="112px" loading="eager" className="object-cover" />
             </button>
           ))}
         </div>
