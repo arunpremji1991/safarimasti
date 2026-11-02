@@ -113,7 +113,7 @@ export function PhoneField({
       </div>
 
       {open && (
-        <div className="absolute start-0 top-full z-30 mt-2 w-full min-w-[16rem] overflow-hidden rounded-xl border border-charcoal-950/10 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]">
+        <div className="absolute start-0 top-full z-30 mt-2 w-full min-w-[16rem] max-w-[calc(100vw-2.5rem)] overflow-hidden rounded-xl border border-charcoal-950/10 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]">
           <div className="border-b border-charcoal-950/10 p-2">
             <input
               ref={searchRef}
