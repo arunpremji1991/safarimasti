@@ -6,19 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Tour } from "@/data/types";
 import { formatInr } from "@/lib/format";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { UiKey } from "@/i18n/ui";
 import { PhoneFields } from "@/components/ui/PhoneField";
-
-export type BookingMode = "book" | "customize";
-
-const CHANGE_OPTIONS: { value: string; key: UiKey }[] = [
-  { value: "Travel dates", key: "booking.change.dates" },
-  { value: "Hotels", key: "booking.change.hotels" },
-  { value: "Duration", key: "booking.change.duration" },
-  { value: "Destinations", key: "booking.change.destinations" },
-  { value: "Activities", key: "booking.change.activities" },
-  { value: "Budget", key: "booking.change.budget" },
-];
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-charcoal-950/15 bg-white px-4 py-2.5 text-charcoal-950 transition focus:border-maroon-700 focus:outline-none focus:ring-2 focus:ring-amber-400/40";
@@ -69,12 +57,10 @@ function Stepper({
 
 export function BookingModal({
   tour,
-  mode,
   onClose,
   onSent,
 }: {
   tour: Tour;
-  mode: BookingMode;
   onClose: () => void;
   onSent: (name: string) => void;
 }) {
@@ -86,10 +72,8 @@ export function BookingModal({
   const [error, setError] = useState("");
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
-  const [changes, setChanges] = useState<string[]>([]);
   const options = tour.pricing?.options ?? [];
   const [optionIdx, setOptionIdx] = useState(0);
-  const isCustomize = mode === "customize";
   const title = pick(tour.title, tour.titleAr);
   const today = new Date().toISOString().slice(0, 10);
 
@@ -120,7 +104,6 @@ export function BookingModal({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          mode,
           tourTitle: tour.title,
           pageUrl: window.location.href,
           packageOption: chosen ? `${chosen.label} — ${formatInr(chosen.amountInr, "en")}` : "",
@@ -132,7 +115,6 @@ export function BookingModal({
           adults,
           children,
           departureCity: data.departureCity,
-          changes,
           notes: data.notes,
           company: data.company,
         }),
@@ -184,10 +166,10 @@ export function BookingModal({
             </svg>
           </button>
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-amber-300">
-            {isCustomize ? t("booking.customizeEyebrow") : t("booking.bookEyebrow")}
+            {t("booking.bookEyebrow")}
           </p>
           <h2 id="booking-title" className="font-display mt-2 pe-10 text-2xl leading-tight sm:text-3xl">
-            {isCustomize ? t("booking.customizeTitle") : t("booking.bookTitle")}
+            {t("booking.bookTitle")}
           </h2>
           <p className="mt-2 text-sm text-cream-100/85">
             <span className="text-amber-300">{title}</span>
@@ -255,43 +237,8 @@ export function BookingModal({
             <Stepper label={t("booking.children")} value={children} min={0} max={20} onChange={setChildren} />
           </div>
 
-          {isCustomize && (
-            <fieldset>
-              <legend className="text-sm font-semibold text-charcoal-900">{t("booking.changeWhat")}</legend>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {CHANGE_OPTIONS.map((c) => {
-                  const on = changes.includes(c.value);
-                  return (
-                    <button
-                      key={c.value}
-                      type="button"
-                      aria-pressed={on}
-                      onClick={() =>
-                        setChanges((list) => (on ? list.filter((v) => v !== c.value) : [...list, c.value]))
-                      }
-                      className={`rounded-full border px-4 py-1.5 text-sm transition ${
-                        on
-                          ? "border-maroon-700 bg-maroon-800 text-cream-50"
-                          : "border-charcoal-950/20 bg-white text-charcoal-900 hover:border-maroon-700/60"
-                      }`}
-                    >
-                      {t(c.key)}
-                    </button>
-                  );
-                })}
-              </div>
-            </fieldset>
-          )}
-
-          <Field id="bk-notes" label={isCustomize ? t("booking.customizeNotes") : t("booking.notes")}>
-            <textarea
-              id="bk-notes"
-              name="notes"
-              rows={3}
-              required={isCustomize}
-              className={inputClass}
-              placeholder={isCustomize ? t("booking.customizePlaceholder") : undefined}
-            />
+          <Field id="bk-notes" label={t("booking.notes")}>
+            <textarea id="bk-notes" name="notes" rows={3} className={inputClass} placeholder={t("booking.notesPlaceholder")} />
           </Field>
 
           {status === "error" && <p className="text-sm text-red-700">{error}</p>}
@@ -302,11 +249,7 @@ export function BookingModal({
               disabled={status === "submitting"}
               className="w-full rounded-full bg-amber-500 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-maroon-950 shadow-[0_10px_30px_-10px_rgba(238,170,76,0.9)] transition hover:bg-amber-400 disabled:opacity-60"
             >
-              {status === "submitting"
-                ? t("contactForm.sending")
-                : isCustomize
-                  ? t("booking.sendCustomize")
-                  : t("booking.sendBook")}
+              {status === "submitting" ? t("contactForm.sending") : t("booking.sendBook")}
             </button>
             <p className="mt-3 text-center text-xs text-charcoal-800/65">{t("booking.noPayment")}</p>
           </div>

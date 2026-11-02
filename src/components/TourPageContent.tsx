@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import { TourGallery } from "@/components/tour/TourGallery";
 import { BookingPanel } from "@/components/tour/BookingPanel";
-import { BookingModal, BookingMode } from "@/components/tour/BookingModal";
+import { BookingModal } from "@/components/tour/BookingModal";
 import { ThankYouModal } from "@/components/ui/ThankYouModal";
 import { DesignedAroundYou } from "@/components/tour/DesignedAroundYou";
 import { GoodToKnow } from "@/components/tour/GoodToKnow";
@@ -28,7 +28,7 @@ export function TourPageContent({
   kind?: "tour" | "package";
 }) {
   const { t, pick, locale } = useLanguage();
-  const [bookingMode, setBookingMode] = useState<BookingMode | null>(null);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const [thanksName, setThanksName] = useState<string | null>(null);
   const hasItinerary = tour.itinerary.length > 0;
   const hasInclusions = tour.inclusions.length > 0 || tour.exclusions.length > 0;
@@ -272,7 +272,7 @@ export function TourPageContent({
           </div>
 
           <aside>
-            <BookingPanel tour={tour} onOpen={setBookingMode} />
+            <BookingPanel tour={tour} onOpen={() => setBookingOpen(true)} />
           </aside>
         </div>
 
@@ -296,7 +296,7 @@ export function TourPageContent({
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <button
               type="button"
-              onClick={() => setBookingMode("book")}
+              onClick={() => setBookingOpen(true)}
               className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
             >
               {t("tour.planThisJourney")}
@@ -315,14 +315,13 @@ export function TourPageContent({
       <div className="h-20 lg:hidden" />
 
       <AnimatePresence>
-        {bookingMode && (
+        {bookingOpen && (
           <BookingModal
             key="booking"
             tour={tour}
-            mode={bookingMode}
-            onClose={() => setBookingMode(null)}
+            onClose={() => setBookingOpen(false)}
             onSent={(name) => {
-              setBookingMode(null);
+              setBookingOpen(false);
               setThanksName(name);
             }}
           />

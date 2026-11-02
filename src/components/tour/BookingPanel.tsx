@@ -4,9 +4,8 @@ import { Tour } from "@/data/types";
 import { site } from "@/data/site";
 import { formatInr } from "@/lib/format";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { BookingMode } from "@/components/tour/BookingModal";
 
-export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: (mode: BookingMode) => void }) {
+export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: () => void }) {
   const { t, locale } = useLanguage();
   const amounts = tour.pricing?.options.map((o) => o.amountInr) ?? [];
   const lowest = amounts.length ? Math.min(...amounts) : undefined;
@@ -27,17 +26,10 @@ export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: (mode: Book
         <div className="mt-6 flex flex-col gap-3">
           <button
             type="button"
-            onClick={() => onOpen("book")}
+            onClick={onOpen}
             className="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
           >
             {t("tour.planThisJourney")}
-          </button>
-          <button
-            type="button"
-            onClick={() => onOpen("customize")}
-            className="inline-flex items-center justify-center rounded-full border border-maroon-800 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-800 hover:bg-maroon-50"
-          >
-            {t("tour.customizeThisJourney")}
           </button>
         </div>
 
@@ -55,17 +47,10 @@ export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: (mode: Book
       <div className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-charcoal-950/10 bg-cream-50 p-4 lg:hidden">
         <button
           type="button"
-          onClick={() => onOpen("customize")}
-          className="flex-1 rounded-full border border-maroon-800 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-800"
+          onClick={onOpen}
+          className="w-full rounded-full bg-amber-500 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-950"
         >
-          {t("tour.customize")}
-        </button>
-        <button
-          type="button"
-          onClick={() => onOpen("book")}
-          className="flex-1 rounded-full bg-amber-500 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-950"
-        >
-          {t("tour.planJourney")}
+          {t("tour.planThisJourney")}
         </button>
       </div>
     </>
