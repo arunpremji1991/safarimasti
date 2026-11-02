@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { Tour } from "@/data/types";
 import { site } from "@/data/site";
 import { formatInr } from "@/lib/format";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { BookingMode } from "@/components/tour/BookingModal";
 
-export function BookingPanel({ tour }: { tour: Tour }) {
+export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: (mode: BookingMode) => void }) {
   const { t, locale } = useLanguage();
   const amounts = tour.pricing?.options.map((o) => o.amountInr) ?? [];
   const lowest = amounts.length ? Math.min(...amounts) : undefined;
@@ -15,7 +15,6 @@ export function BookingPanel({ tour }: { tour: Tour }) {
       ? t("tour.requestQuote")
       : `${amounts.length > 1 ? `${t("package.from")} ` : ""}${formatInr(lowest, locale)}`;
   const priceNote = lowest === undefined ? t("tour.pricedAround") : t("package.inclTaxes");
-  const customizeHref = `/build-your-journey?tour=${tour.slug}`;
 
   return (
     <>
@@ -26,18 +25,20 @@ export function BookingPanel({ tour }: { tour: Tour }) {
         <p className="mt-1 text-sm text-charcoal-800/60">{priceNote}</p>
 
         <div className="mt-6 flex flex-col gap-3">
-          <Link
-            href={customizeHref}
+          <button
+            type="button"
+            onClick={() => onOpen("book")}
             className="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
           >
             {t("tour.planThisJourney")}
-          </Link>
-          <Link
-            href={customizeHref}
+          </button>
+          <button
+            type="button"
+            onClick={() => onOpen("customize")}
             className="inline-flex items-center justify-center rounded-full border border-maroon-800 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-800 hover:bg-maroon-50"
           >
             {t("tour.customizeThisJourney")}
-          </Link>
+          </button>
         </div>
 
         <div className="mt-6 space-y-2 border-t border-charcoal-950/10 pt-5 text-sm text-charcoal-800/70">
@@ -52,18 +53,20 @@ export function BookingPanel({ tour }: { tour: Tour }) {
 
       {/* Mobile sticky bottom bar */}
       <div className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-charcoal-950/10 bg-cream-50 p-4 lg:hidden">
-        <Link
-          href={customizeHref}
+        <button
+          type="button"
+          onClick={() => onOpen("customize")}
           className="flex-1 rounded-full border border-maroon-800 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-800"
         >
           {t("tour.customize")}
-        </Link>
-        <Link
-          href={customizeHref}
+        </button>
+        <button
+          type="button"
+          onClick={() => onOpen("book")}
           className="flex-1 rounded-full bg-amber-500 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-950"
         >
           {t("tour.planJourney")}
-        </Link>
+        </button>
       </div>
     </>
   );

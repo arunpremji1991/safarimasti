@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
 import { TourGallery } from "@/components/tour/TourGallery";
 import { BookingPanel } from "@/components/tour/BookingPanel";
+import { BookingModal, BookingMode } from "@/components/tour/BookingModal";
+import { ThankYouModal } from "@/components/ui/ThankYouModal";
 import { DesignedAroundYou } from "@/components/tour/DesignedAroundYou";
 import { GoodToKnow } from "@/components/tour/GoodToKnow";
 import { TourCard } from "@/components/ui/TourCard";
@@ -24,6 +28,8 @@ export function TourPageContent({
   kind?: "tour" | "package";
 }) {
   const { t, pick, locale } = useLanguage();
+  const [bookingMode, setBookingMode] = useState<BookingMode | null>(null);
+  const [thanksName, setThanksName] = useState<string | null>(null);
   const hasItinerary = tour.itinerary.length > 0;
   const hasInclusions = tour.inclusions.length > 0 || tour.exclusions.length > 0;
   const isPackage = kind === "package";
@@ -266,7 +272,7 @@ export function TourPageContent({
           </div>
 
           <aside>
-            <BookingPanel tour={tour} />
+            <BookingPanel tour={tour} onOpen={setBookingMode} />
           </aside>
         </div>
 
@@ -288,12 +294,13 @@ export function TourPageContent({
         <section className="mt-24 rounded-3xl bg-maroon-950 p-10 text-center text-cream-50 md:p-16">
           <h2 className="font-display text-3xl sm:text-4xl">{t("tour.finalCtaTitle")}</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href={`/build-your-journey?tour=${tour.slug}`}
+            <button
+              type="button"
+              onClick={() => setBookingMode("book")}
               className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
             >
               {t("tour.planThisJourney")}
-            </Link>
+            </button>
             <Link
               href="/build-your-journey"
               className="rounded-full border border-cream-100/40 px-6 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-cream-50/10"
@@ -306,6 +313,28 @@ export function TourPageContent({
 
       {/* spacer for mobile sticky bar */}
       <div className="h-20 lg:hidden" />
+
+      <AnimatePresence>
+        {bookingMode && (
+          <BookingModal
+            key="booking"
+            tour={tour}
+            mode={bookingMode}
+            onClose={() => setBookingMode(null)}
+            onSent={(name) => {
+              setBookingMode(null);
+              setThanksName(name);
+            }}
+          />
+        )}
+      </AnimatePresence>
+      <ThankYouModal
+        open={thanksName !== null}
+        onClose={() => setThanksName(null)}
+        name={thanksName ?? ""}
+        eyebrow={t("booking.bookEyebrow")}
+        body={t("booking.thanksBody")}
+      />
     </>
   );
 }
