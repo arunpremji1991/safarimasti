@@ -292,6 +292,186 @@ const LUX_NOTES = [
 ];
 
 // ======================================================================================================
+// Package 3 — Himachal: Shimla & Manali, 8 nights / 9 days from Delhi (per-person prices, three transport options)
+// Source: "Shimla Manali 8N 9D PKG" document supplied by Safari Masti.
+// ======================================================================================================
+const SM_ITINERARY: ItineraryStop[] = [
+  {
+    label: "Day 01",
+    labelAr: "اليوم ٠١",
+    title: "Arrival in Delhi",
+    titleAr: "الوصول إلى دلهي",
+    description:
+      "Arrive in Delhi, with direct door-to-door pick-up from Indira Gandhi International Airport (DEL) or New Delhi Railway Station (NDLS). Enjoy local sightseeing if time permits. Overnight at a Delhi hotel.",
+    descriptionAr:
+      "الوصول إلى دلهي مع استقبال مباشر من الباب إلى الباب من مطار إنديرا غاندي الدولي (DEL) أو محطة قطار نيودلهي (NDLS). جولة محلية إن سمح الوقت. المبيت في فندق بدلهي.",
+  },
+  {
+    label: "Day 02",
+    labelAr: "اليوم ٠٢",
+    title: "Delhi to Shimla",
+    titleAr: "من دلهي إلى شيملا",
+    description: "Travel from Delhi to Shimla by car (by Volvo coach on Option A). Overnight stay in Shimla.",
+    descriptionAr: "السفر من دلهي إلى شيملا بالسيارة (وبحافلة فولفو في الخيار أ). المبيت في شيملا.",
+  },
+  {
+    label: "Day 03",
+    labelAr: "اليوم ٠٣",
+    title: "Shimla sightseeing — Kufri and Jakhoo Temple",
+    titleAr: "جولة في شيملا — كوفري ومعبد جاخو",
+    description:
+      "A full day of local sightseeing in Shimla, including the full-day excursion to Kufri and Jakhoo Temple. Overnight stay in Shimla.",
+    descriptionAr:
+      "يوم كامل من الجولات المحلية في شيملا، يشمل الرحلة ليوم كامل إلى كوفري ومعبد جاخو. المبيت في شيملا.",
+  },
+  {
+    label: "Day 04",
+    labelAr: "اليوم ٠٤",
+    title: "Shimla to Manali via the Kullu Valley",
+    titleAr: "من شيملا إلى مانالي عبر وادي كولو",
+    description:
+      "Travel from Shimla to Manali through the breathtaking Kullu Valley. A welcome non-alcoholic drink is served on arrival at the mountain resort. Overnight stay in Manali.",
+    descriptionAr:
+      "السفر من شيملا إلى مانالي عبر وادي كولو الخلاب. يُقدَّم مشروب ترحيبي غير كحولي عند الوصول إلى المنتجع الجبلي. المبيت في مانالي.",
+  },
+  {
+    label: "Day 05",
+    labelAr: "اليوم ٠٥",
+    title: "Manali local sightseeing",
+    titleAr: "جولة محلية في مانالي",
+    description:
+      "A full day in Manali with a local heritage walk to Hadimba Temple, Vashisht Springs and a Tibetan Monastery. Overnight stay in Manali.",
+    descriptionAr:
+      "يوم كامل في مانالي مع جولة تراثية محلية إلى معبد هاديمبا وينابيع فاشيشت ودير تبتي. المبيت في مانالي.",
+  },
+  {
+    label: "Day 06",
+    labelAr: "اليوم ٠٦",
+    title: "Solang Valley and the Atal Tunnel",
+    titleAr: "وادي سولانغ ونفق أتال",
+    description:
+      "Head out from Manali to Solang Valley and drive through the Atal Tunnel — or, if you choose, to Rohtang Pass. The Rohtang Pass excursion needs an NGT permit and a local Manali Union 4x4 vehicle, which cost extra (see What's not included). Overnight stay in Manali.",
+    descriptionAr:
+      "الانطلاق من مانالي إلى وادي سولانغ والمرور عبر نفق أتال — أو إلى ممر روهتانغ إن رغبتم. وتتطلب رحلة ممر روهتانغ تصريح NGT ومركبة 4x4 محلية من نقابة مانالي بتكلفة إضافية (انظروا «ما لا يشمله البرنامج»). المبيت في مانالي.",
+  },
+  {
+    label: "Day 07",
+    labelAr: "اليوم ٠٧",
+    title: "Manali to Chandigarh",
+    titleAr: "من مانالي إلى تشانديغار",
+    description:
+      "Check out from the hotel in Manali and travel to Chandigarh (by Volvo coach on Option A). Overnight stay in Chandigarh.",
+    descriptionAr:
+      "تسجيل المغادرة من فندق مانالي والسفر إلى تشانديغار (وبحافلة فولفو في الخيار أ). المبيت في تشانديغار.",
+  },
+  {
+    label: "Day 08",
+    labelAr: "اليوم ٠٨",
+    title: "Chandigarh city tour and on to Delhi",
+    titleAr: "جولة في تشانديغار ثم إلى دلهي",
+    description:
+      "Chandigarh urban sightseeing — Nek Chand's Rock Garden and Sukhna Lake. In the afternoon, travel to Delhi. Overnight stay at a Delhi hotel.",
+    descriptionAr:
+      "جولة في مدينة تشانديغار — حديقة الصخور لنيك تشاند وبحيرة سوخنا. وبعد الظهر السفر إلى دلهي. المبيت في فندق بدلهي.",
+  },
+  {
+    label: "Day 09",
+    labelAr: "اليوم ٠٩",
+    title: "Delhi and departure",
+    titleAr: "دلهي والمغادرة",
+    description:
+      "Some shopping in Delhi if time permits, then drop-off at Delhi Airport or the railway station for your departure.",
+    descriptionAr:
+      "تسوّق في دلهي إن سمح الوقت، ثم التوصيل إلى مطار دلهي أو محطة القطار للمغادرة.",
+  },
+];
+
+const SM_INCLUSIONS = [
+  "Transport by the option you choose: a dedicated AC sedan (Dzire / Etios) or AC SUV (Innova / Crysta) for the whole Delhi–Shimla–Manali–Chandigarh–Delhi circuit, or semi-sleeper AC luxury Volvo tickets for Delhi–Shimla and Manali–Chandigarh with a dedicated small local cab (Alto / Swift) for sightseeing and transfers",
+  "Door-to-door pick-up from Indira Gandhi International Airport (DEL) or New Delhi Railway Station (NDLS) on Day 1, and the final drop-off on Day 9",
+  "All state border toll taxes, green taxes, fuel, parking fees and the driver's daily night-halt allowance",
+  "8 nights' hotel stay on a double / twin-sharing basis: 1 night Delhi, 2 nights Shimla, 3 nights Manali, 1 night Chandigarh and 1 night Delhi",
+  "Welcome non-alcoholic drinks on arrival at the mountain resorts",
+  "8 breakfasts and 8 dinners (MAP plan) at the hotel buffet — a mix of Himachali, North Indian and Continental dishes",
+  "Full-day excursion to Kufri and Jakhoo Temple in Shimla",
+  "Solang Valley excursion and a drive through the Atal Tunnel in Manali",
+  "Local heritage walk in Manali: Hadimba Temple, Vashisht Springs and a Tibetan Monastery",
+  "City tour of Chandigarh: Nek Chand's Rock Garden and Sukhna Lake",
+];
+
+const SM_INCLUSIONS_AR = [
+  "التنقل بحسب الخيار الذي تختارونه: سيارة سيدان مكيّفة مخصصة (ديزاير / إيتيوس) أو سيارة دفع رباعي مكيّفة (إنوفا / كريستا) طوال مسار دلهي – شيملا – مانالي – تشانديغار – دلهي، أو تذاكر حافلة فولفو فاخرة شبه مستلقية مكيّفة لمساري دلهي – شيملا ومانالي – تشانديغار مع سيارة محلية صغيرة مخصصة (ألتو / سويفت) للجولات والتنقلات",
+  "استقبال من الباب إلى الباب من مطار إنديرا غاندي الدولي (DEL) أو محطة قطار نيودلهي (NDLS) في اليوم الأول، والتوصيل النهائي في اليوم التاسع",
+  "جميع رسوم الطرق على حدود الولايات والضرائب الخضراء والوقود ورسوم المواقف وبدل مبيت السائق اليومي",
+  "الإقامة في الفنادق لمدة ٨ ليالٍ على أساس غرفة مزدوجة / بسريرين: ليلة في دلهي، وليلتان في شيملا، و٣ ليالٍ في مانالي، وليلة في تشانديغار، وليلة في دلهي",
+  "مشروبات ترحيبية غير كحولية عند الوصول إلى المنتجعات الجبلية",
+  "٨ وجبات إفطار و٨ وجبات عشاء (نظام MAP) في بوفيه الفندق — تشكيلة من الأطباق الهيماشالية والهندية الشمالية والقارية",
+  "رحلة ليوم كامل إلى كوفري ومعبد جاخو في شيملا",
+  "رحلة إلى وادي سولانغ والمرور عبر نفق أتال في مانالي",
+  "جولة تراثية محلية في مانالي: معبد هاديمبا وينابيع فاشيشت ودير تبتي",
+  "جولة في مدينة تشانديغار: حديقة الصخور لنيك تشاند وبحيرة سوخنا",
+];
+
+const SM_EXCLUSIONS = [
+  "GST: mandatory 5% Government Goods and Services Tax, charged over and above the final bill amount",
+  "Airfare or train tickets from your home town to Delhi and back",
+  "Lunches, mid-day meals, roadside snacks and mineral water bottles",
+  "Personal bills such as laundry, tips, telephone calls, alcoholic drinks and room-service orders",
+  "Rohtang Pass excursion: the NGT (National Green Tribunal) permit and the local Manali Union 4x4 vehicle, if you choose to visit — approximately ₹3,000 – ₹4,500 extra per vehicle",
+  "Extensive inner-city monument sightseeing within Delhi on Day 1 or Day 9, unless explicitly added",
+  "Entry tickets to monuments, museums and Pinjore Gardens, and camera passes",
+  "Adventure activities: tokens for white-water rafting in Kullu, paragliding, zorbing, skiing and horse riding in Kufri / Solang",
+  "Room heater (electric blower) charges at Budget and 3-Star properties in peak winter snow periods — usually ₹300 – ₹500 per night, paid directly at the reception",
+];
+
+const SM_EXCLUSIONS_AR = [
+  "ضريبة السلع والخدمات (GST): ٥٪ إلزامية تُضاف فوق قيمة الفاتورة النهائية",
+  "تذاكر الطيران أو القطار من مدينتكم إلى دلهي والعودة",
+  "وجبات الغداء ووجبات منتصف النهار والوجبات الخفيفة على الطريق وزجاجات المياه المعدنية",
+  "الفواتير الشخصية مثل الغسيل والإكراميات والمكالمات الهاتفية والمشروبات الكحولية وطلبات خدمة الغرف",
+  "رحلة ممر روهتانغ: تصريح NGT (المحكمة الخضراء الوطنية) والمركبة 4x4 المحلية من نقابة مانالي إن اخترتم الزيارة — نحو ٣٬٠٠٠ إلى ٤٬٥٠٠ روبية إضافية للمركبة",
+  "جولات واسعة لمعالم دلهي داخل المدينة في اليوم الأول أو التاسع ما لم تُضَف صراحةً",
+  "تذاكر دخول المعالم والمتاحف وحدائق بينجور ورسوم تصريح الكاميرا",
+  "الأنشطة المغامِرة: رموز التجديف في المياه البيضاء في كولو والتحليق الشراعي والتدحرج داخل الكرة (زوربينغ) والتزلج وركوب الخيل في كوفري / سولانغ",
+  "رسوم سخّان الغرفة (المدفأة الكهربائية) في الفنادق الاقتصادية وفئة ٣ نجوم في ذروة موسم الثلوج الشتوي — عادةً ٣٠٠ إلى ٥٠٠ روبية لليلة تُدفع مباشرةً في الاستقبال",
+];
+
+const SM_NOTES = [
+  {
+    label: "How the price is set",
+    labelAr: "كيف يُحدَّد السعر",
+    content:
+      "The starting price is based on budget 2★ hotels. The final package cost is dynamic and depends on your travel dates, seasonal demand peaks and any custom changes to the baseline itinerary. A final, binding quote is issued when your booking is confirmed.",
+    contentAr:
+      "يستند السعر الابتدائي إلى فنادق اقتصادية من فئة نجمتين. وتكلفة الباقة النهائية متغيرة بحسب تواريخ سفركم وذروات الطلب الموسمية وأي تعديلات خاصة على البرنامج الأساسي. ويصدر عرض سعر نهائي مُلزِم عند تأكيد الحجز.",
+  },
+  {
+    label: "Transport options",
+    labelAr: "خيارات التنقل",
+    content:
+      "Option A (INR 14,500 per person) uses semi-sleeper AC luxury Volvo coaches for Delhi–Shimla and Manali–Chandigarh, with a small local cab for sightseeing and transfers. Option B (INR 19,500 per person) is an exclusive AC sedan, and Option C (INR 26,000 per person) is an exclusive AC SUV, both for the entire circuit.",
+    contentAr:
+      "يعتمد الخيار أ (١٤٬٥٠٠ روبية هندية للشخص) على حافلات فولفو فاخرة مكيّفة شبه مستلقية لمساري دلهي – شيملا ومانالي – تشانديغار مع سيارة محلية صغيرة للجولات والتنقلات. والخيار ب (١٩٬٥٠٠ روبية للشخص) سيارة سيدان مكيّفة مخصصة، والخيار ج (٢٦٬٠٠٠ روبية للشخص) سيارة دفع رباعي مكيّفة مخصصة، كلاهما للمسار كاملاً.",
+  },
+  {
+    label: "Rohtang Pass",
+    labelAr: "ممر روهتانغ",
+    content:
+      "Day 6 covers Solang Valley and the Atal Tunnel. If you would like to visit Rohtang Pass instead, the NGT permit and a local Manali Union 4x4 vehicle are paid extra — approximately ₹3,000 – ₹4,500 per vehicle.",
+    contentAr:
+      "يغطي اليوم السادس وادي سولانغ ونفق أتال. وإن رغبتم بزيارة ممر روهتانغ بدلاً من ذلك، فإن تصريح NGT والمركبة 4x4 المحلية من نقابة مانالي تُدفع إضافةً — نحو ٣٬٠٠٠ إلى ٤٬٥٠٠ روبية للمركبة.",
+  },
+  {
+    label: "Winter room heaters",
+    labelAr: "سخّانات الغرف في الشتاء",
+    content:
+      "At Budget and 3-Star properties, electric blower / heater charges apply in peak winter snow periods — usually ₹300 – ₹500 per night, billed directly at the hotel reception.",
+    contentAr:
+      "في الفنادق الاقتصادية وفئة ٣ نجوم تُطبَّق رسوم المدفأة / السخّان الكهربائي في ذروة موسم الثلوج الشتوي — عادةً ٣٠٠ إلى ٥٠٠ روبية لليلة، وتُحاسَب مباشرةً في استقبال الفندق.",
+  },
+];
+
+// ======================================================================================================
 export const packages: Tour[] = [
   {
     slug: "kerala-munnar-thekkady-alleppey-5-days",
@@ -366,7 +546,7 @@ export const packages: Tour[] = [
     seoTitle: "Kerala Tour Package: Munnar, Thekkady & Alleppey — 5 Days | Safari Masti",
     seoDescription:
       "A 5-day Kerala package through Munnar, Thekkady and an Alleppey houseboat, with 3★ or 4★ options from INR 37,300 including government taxes — by Safari Masti, Cochin.",
-    relatedTourSlugs: ["luxury-kerala-8-days"],
+    relatedTourSlugs: ["luxury-kerala-8-days", "shimla-manali-8-nights-9-days"],
   },
   {
     slug: "luxury-kerala-8-days",
@@ -443,6 +623,98 @@ export const packages: Tour[] = [
     seoDescription:
       "An 8-day luxury Kerala package: Athirappilly Falls, Munnar, Thekkady, a private premium Alleppey houseboat and Cochin, INR 130,500 including government taxes — by Safari Masti.",
     relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days"],
+  },
+  {
+    slug: "shimla-manali-8-nights-9-days",
+    collectionSlug: "packages",
+    title: "Shimla & Manali — 8 Nights / 9 Days",
+    titleAr: "شيملا ومانالي — ٨ ليالٍ / ٩ أيام",
+    destination: "Himachal Pradesh",
+    destinationAr: "هيماشال براديش",
+    region: ["North"],
+    category: ["North India", "Hill Stations", "Family"],
+    duration: "9 Days · 8 Nights",
+    durationAr: "٩ أيام · ٨ ليالٍ",
+    travelStyle: ["Budget Friendly", "Comfort"],
+    bestFor: ["Families"],
+    bestForAr: ["العائلات"],
+    shortDescription:
+      "Delhi – Shimla – Manali – Chandigarh – Delhi in 9 days: Kufri and Jakhoo, the Kullu Valley, Hadimba Temple, Solang Valley and the Atal Tunnel — from INR 14,500 per person.",
+    shortDescriptionAr:
+      "دلهي – شيملا – مانالي – تشانديغار – دلهي في ٩ أيام: كوفري وجاخو ووادي كولو ومعبد هاديمبا ووادي سولانغ ونفق أتال — ابتداءً من ١٤٬٥٠٠ روبية هندية للشخص.",
+    overview:
+      "A family-friendly circuit through the Himachal hills, starting and ending in Delhi. Spend two nights in Shimla with an excursion to Kufri and Jakhoo Temple, travel through the Kullu Valley to Manali for three nights of sightseeing, Hadimba Temple, Solang Valley and the Atal Tunnel, then finish with Nek Chand's Rock Garden and Sukhna Lake in Chandigarh before returning to Delhi. Breakfast and dinner are included, and you choose how you travel — a luxury Volvo coach with local transfers, a private sedan or a private SUV.",
+    overviewAr:
+      "مسار عائلي عبر تلال هيماشال ينطلق من دلهي وينتهي فيها. ليلتان في شيملا مع رحلة إلى كوفري ومعبد جاخو، ثم عبور وادي كولو إلى مانالي لثلاث ليالٍ من الجولات ومعبد هاديمبا ووادي سولانغ ونفق أتال، وتختمون بحديقة الصخور لنيك تشاند وبحيرة سوخنا في تشانديغار قبل العودة إلى دلهي. الإفطار والعشاء مشمولان، وتختارون وسيلة تنقلكم — حافلة فولفو فاخرة مع تنقلات محلية، أو سيارة سيدان خاصة، أو سيارة دفع رباعي خاصة.",
+    heroImages: [
+      "/images/packages/shimla-hillside.3b774666.webp",
+      "/images/packages/shimla-christ-church.fd6c2a9f.webp",
+      "/images/packages/kufri-hills.be022e50.webp",
+      "/images/packages/kullu-beas-river.875eb548.webp",
+      "/images/packages/manali-snow-mountains.2cec8985.webp",
+      "/images/packages/hadimba-temple.5bf33d82.webp",
+      "/images/packages/solang-paragliding.2282ee98.webp",
+      "/images/packages/atal-tunnel-rohtang.55f7e2f7.webp",
+      "/images/packages/chandigarh-rock-garden.afc90aaf.webp",
+      "/images/packages/chandigarh-sukhna-lake.04c4cfba.webp",
+    ],
+    highlights: [
+      "Shimla sightseeing with a full-day excursion to Kufri and Jakhoo Temple",
+      "A scenic journey from Shimla to Manali through the Kullu Valley",
+      "Manali's Hadimba Temple, Vashisht Springs and a Tibetan Monastery",
+      "Solang Valley and a drive through the Atal Tunnel",
+      "Chandigarh's Nek Chand Rock Garden and Sukhna Lake",
+      "8 breakfasts and 8 dinners included — choose a Volvo coach, private sedan or private SUV",
+    ],
+    highlightsAr: [
+      "جولة في شيملا مع رحلة ليوم كامل إلى كوفري ومعبد جاخو",
+      "رحلة خلابة من شيملا إلى مانالي عبر وادي كولو",
+      "معبد هاديمبا وينابيع فاشيشت ودير تبتي في مانالي",
+      "وادي سولانغ والمرور عبر نفق أتال",
+      "حديقة الصخور لنيك تشاند وبحيرة سوخنا في تشانديغار",
+      "٨ وجبات إفطار و٨ وجبات عشاء مشمولة — واختاروا حافلة فولفو أو سيارة سيدان خاصة أو سيارة دفع رباعي خاصة",
+    ],
+    itinerary: SM_ITINERARY,
+    inclusions: SM_INCLUSIONS,
+    inclusionsAr: SM_INCLUSIONS_AR,
+    exclusions: SM_EXCLUSIONS,
+    exclusionsAr: SM_EXCLUSIONS_AR,
+    pricing: {
+      perPerson: true,
+      gstPercentExtra: 5,
+      options: [
+        {
+          label: "Option A — Luxury Volvo",
+          labelAr: "الخيار أ — حافلة فولفو فاخرة",
+          detail: "Luxury Volvo coach plus local transfers",
+          detailAr: "حافلة فولفو فاخرة مع تنقلات محلية",
+          amountInr: 14500,
+        },
+        {
+          label: "Option B — Private sedan",
+          labelAr: "الخيار ب — سيارة سيدان خاصة",
+          detail: "Exclusive AC sedan (Dzire / Etios) for the whole circuit",
+          detailAr: "سيارة سيدان مكيّفة مخصصة (ديزاير / إيتيوس) للمسار كاملاً",
+          amountInr: 19500,
+        },
+        {
+          label: "Option C — Private MUV",
+          labelAr: "الخيار ج — سيارة دفع رباعي خاصة",
+          detail: "Exclusive AC SUV (Innova / Crysta) for the whole circuit",
+          detailAr: "سيارة دفع رباعي مكيّفة مخصصة (إنوفا / كريستا) للمسار كاملاً",
+          amountInr: 26000,
+        },
+      ],
+      note:
+        "Prices are per person, starting from budget 2★ hotels, and 5% GST is charged extra. The final package cost depends on your travel dates, seasonal demand and any changes to the itinerary; a final quote is issued at booking confirmation.",
+      noteAr:
+        "الأسعار للشخص الواحد، وتبدأ من فنادق اقتصادية فئة نجمتين، وتُضاف ضريبة السلع والخدمات ٥٪. وتعتمد التكلفة النهائية على تواريخ السفر والطلب الموسمي وأي تعديلات على البرنامج؛ ويصدر عرض سعر نهائي عند تأكيد الحجز.",
+    },
+    goodToKnow: SM_NOTES,
+    seoTitle: "Shimla Manali Tour Package — 8 Nights 9 Days from Delhi | Safari Masti",
+    seoDescription:
+      "A 9-day Delhi–Shimla–Manali–Chandigarh–Delhi family package with Kufri, Hadimba Temple, Solang Valley and the Atal Tunnel, from INR 14,500 per person plus GST — by Safari Masti.",
+    relatedTourSlugs: ["luxury-kerala-8-days", "kerala-munnar-thekkady-alleppey-5-days"],
   },
 ];
 

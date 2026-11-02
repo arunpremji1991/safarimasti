@@ -106,7 +106,7 @@ export function BookingModal({
         body: JSON.stringify({
           tourTitle: tour.title,
           pageUrl: window.location.href,
-          packageOption: chosen ? `${chosen.label} — ${formatInr(chosen.amountInr, "en")}` : "",
+          packageOption: chosen ? `${chosen.label} — ${formatInr(chosen.amountInr, "en")}${tour.pricing?.perPerson ? " per person" : ""}` : "",
           name: data.name,
           email: data.email,
           phone: data.phone,
@@ -208,7 +208,7 @@ export function BookingModal({
                         <span className="mt-0.5 block text-xs text-charcoal-800/70">{pick(o.detail, o.detailAr)}</span>
                       )}
                     </span>
-                    <span className="font-display ms-auto shrink-0 text-base text-maroon-800">{formatInr(o.amountInr, locale)}</span>
+                    <span className="font-display ms-auto shrink-0 text-base text-maroon-800">{formatInr(o.amountInr, locale)}{tour.pricing?.perPerson ? ` / ${t("package.perPerson")}` : ""}</span>
                   </label>
                 ))}
               </div>

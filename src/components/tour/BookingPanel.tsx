@@ -3,6 +3,7 @@
 import { Tour } from "@/data/types";
 import { site } from "@/data/site";
 import { formatInr } from "@/lib/format";
+import { priceCaption } from "@/lib/pricing";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: () => void }) {
@@ -13,7 +14,7 @@ export function BookingPanel({ tour, onOpen }: { tour: Tour; onOpen: () => void 
     lowest === undefined
       ? t("tour.requestQuote")
       : `${amounts.length > 1 ? `${t("package.from")} ` : ""}${formatInr(lowest, locale)}`;
-  const priceNote = lowest === undefined ? t("tour.pricedAround") : t("package.inclTaxes");
+  const priceNote = lowest === undefined ? t("tour.pricedAround") : tour.pricing ? priceCaption(tour.pricing, t, locale) : "";
 
   return (
     <>

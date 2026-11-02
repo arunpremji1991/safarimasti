@@ -34,6 +34,9 @@ export const categoryAr: Record<string, string> = {
   Ayurveda: "أيورفيدا",
   Wildlife: "حياة برية",
   Safari: "رحلة سفاري",
+  "North India": "شمال الهند",
+  "Hill Stations": "المصايف الجبلية",
+  Family: "عائلي",
 };
 
 export function translateCategory(cat: string, locale: "en" | "ar") {

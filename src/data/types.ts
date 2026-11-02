@@ -108,7 +108,15 @@ export interface Tour {
   seoDescription: string;
   relatedTourSlugs?: string[];
   /** Published prices (packages only). Tours without it show "Request a Quote". */
-  pricing?: { options: TourPriceOption[]; note?: string; noteAr?: string };
+  pricing?: {
+    options: TourPriceOption[];
+    note?: string;
+    noteAr?: string;
+    /** Prices are per person rather than for the whole booking. */
+    perPerson?: boolean;
+    /** GST is charged on top of the listed prices (otherwise prices are shown as tax-inclusive). */
+    gstPercentExtra?: number;
+  };
   hotels?: TourHotel[];
 }
 

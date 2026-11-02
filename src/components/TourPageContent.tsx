@@ -16,6 +16,7 @@ import { ChecklistWithMore } from "@/components/tour/ChecklistWithMore";
 import { TourCard } from "@/components/ui/TourCard";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { formatInr } from "@/lib/format";
+import { priceCaption } from "@/lib/pricing";
 import { Collection, Tour } from "@/data/types";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translateCategory, translateTravelStyle } from "@/i18n/labels";
@@ -189,13 +190,18 @@ export function TourPageContent({
                   {tour.pricing.options.map((o) => (
                     <div key={o.label} className="flex flex-col rounded-2xl border border-charcoal-950/10 bg-cream-100 p-6">
                       <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">{pick(o.label, o.labelAr)}</p>
-                      <p className="font-display mt-2 text-3xl text-charcoal-950">{formatInr(o.amountInr, locale)}</p>
+                      <p className="font-display mt-2 text-3xl text-charcoal-950">
+                        {formatInr(o.amountInr, locale)}
+                        {tour.pricing?.perPerson && (
+                          <span className="ms-2 font-sans text-sm text-charcoal-800/60">/ {t("package.perPerson")}</span>
+                        )}
+                      </p>
                       {o.detail && <p className="mt-2 text-sm text-charcoal-800/75">{pick(o.detail, o.detailAr)}</p>}
                     </div>
                   ))}
                 </div>
                 <p className="mt-4 text-sm text-charcoal-800/70">
-                  {t("package.inclTaxes")}.{" "}
+                  {priceCaption(tour.pricing, t, locale)}.{" "}
                   {tour.pricing.note ? pick(tour.pricing.note, tour.pricing.noteAr) : t("package.bookingNote")}
                 </p>
               </section>

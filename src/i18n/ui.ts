@@ -28,6 +28,7 @@ export const ui = {
     en: "“Or similar” means we may offer a hotel of the same category if the named one is unavailable.",
     ar: "عبارة «أو مماثل» تعني أنه قد نوفّر فندقًا من الفئة نفسها إذا لم يتوفر الفندق المذكور.",
   },
+  "package.perPerson": { en: "per person", ar: "للشخص الواحد" },
   "package.readMore": { en: "Read more", ar: "اقرأ المزيد" },
   "package.viewPackage": { en: "View Package", ar: "عرض الباقة" },
   "package.bookingNote": {
@@ -37,8 +38,8 @@ export const ui = {
   "packages.eyebrow": { en: "New", ar: "جديد" },
   "packages.title": { en: "Packages", ar: "الباقات" },
   "packages.description": {
-    en: "Ready-made Kerala journeys with full day-by-day itineraries, hotels and published prices.",
-    ar: "رحلات جاهزة في كيرالا مع برامج يومية كاملة وفنادق وأسعار معلنة.",
+    en: "Ready-made journeys across Kerala and Himachal with full day-by-day itineraries and published prices.",
+    ar: "رحلات جاهزة في كيرالا وهيماشال مع برامج يومية كاملة وأسعار معلنة.",
   },
   "packages.ctaTitle": { en: "Want something different?", ar: "تبحثون عن شيء مختلف؟" },
   "packages.ctaBody": {

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tour } from "@/data/types";
 import { formatInr } from "@/lib/format";
+import { priceCaption } from "@/lib/pricing";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function PackageCard({ pkg }: { pkg: Tour }) {
@@ -71,7 +72,7 @@ export function PackageCard({ pkg }: { pkg: Tour }) {
                   {amounts.length > 1 ? t("package.from") : t("tour.price")}
                 </p>
                 <p className="font-display text-2xl text-maroon-800">{formatInr(low, locale)}</p>
-                <p className="text-xs text-charcoal-800/60">{t("package.inclTaxes")}</p>
+                <p className="text-xs text-charcoal-800/60">{pkg.pricing ? priceCaption(pkg.pricing, t, locale) : ""}</p>
               </>
             ) : (
               <p className="font-display text-xl text-maroon-800">{t("tour.requestQuote")}</p>
