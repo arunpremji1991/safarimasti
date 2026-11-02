@@ -6,6 +6,7 @@ $d = read_json_body();
 $name = clean_line($d['name'] ?? '', 200);
 $email = clean_line($d['email'] ?? '', 320);
 $phone = clean_line($d['phone'] ?? '', 50);
+$whatsapp = clean_line($d['whatsapp'] ?? '', 50);
 
 if ($name === '' || $phone === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(422, ['error' => 'Please check the form and try again.']);
@@ -40,7 +41,8 @@ $lines = array_filter([
     '--- Traveler ---',
     'Name: ' . $name,
     'Email: ' . $email,
-    'Phone/WhatsApp: ' . $phone,
+    'Contact number: ' . $phone,
+    $whatsapp !== '' ? 'WhatsApp number: ' . $whatsapp . ($whatsapp === $phone ? ' (same as contact)' : '') : null,
     '',
     '--- Notes ---',
     $notes !== '' ? $notes : $dash,

@@ -259,6 +259,15 @@ export const ui = {
   "thanks.whatsapp": { en: "Chat on WhatsApp", ar: "تحدثوا عبر واتساب" },
   "thanks.close": { en: "Close", ar: "إغلاق" },
   "contactForm.thanksEyebrow": { en: "Message Received", ar: "تم استلام رسالتكم" },
+  // Phone fields
+  "phone.contact": { en: "Contact number", ar: "رقم الاتصال" },
+  "phone.whatsapp": { en: "WhatsApp number", ar: "رقم واتساب" },
+  "phone.sameAsContact": { en: "My WhatsApp number is the same", ar: "رقم واتساب هو نفس رقم الاتصال" },
+  "phone.country": { en: "Country code", ar: "رمز الدولة" },
+  "phone.search": { en: "Search country or code", ar: "ابحث عن دولة أو رمز" },
+  "phone.noResults": { en: "No country found", ar: "لا توجد دولة مطابقة" },
+  "phone.placeholder": { en: "Phone number", ar: "رقم الهاتف" },
+  "phone.hint": { en: "Enter 6–15 digits, without the country code", ar: "أدخل من 6 إلى 15 رقمًا دون رمز الدولة" },
   // Booking / customize modal on tour & package pages
   "booking.bookEyebrow": { en: "Booking Request", ar: "طلب حجز" },
   "booking.bookTitle": { en: "Plan This Journey With Us", ar: "خططوا لهذه الرحلة معنا" },

@@ -6,6 +6,7 @@ $data = read_json_body();
 $name = clean_line($data['name'] ?? '', 200);
 $email = clean_line($data['email'] ?? '', 320);
 $phone = clean_line($data['phone'] ?? '', 50);
+$whatsapp = clean_line($data['whatsapp'] ?? '', 50);
 $message = clean_text($data['message'] ?? '', 4000);
 
 if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -19,7 +20,10 @@ $lines = [
     'Email: ' . $email,
 ];
 if ($phone !== '') {
-    $lines[] = 'Phone: ' . $phone;
+    $lines[] = 'Contact number: ' . $phone;
+}
+if ($whatsapp !== '') {
+    $lines[] = 'WhatsApp number: ' . $whatsapp . ($whatsapp === $phone ? ' (same as contact)' : '');
 }
 array_push($lines, '', 'Message:', $message, '', 'Submitted: ' . gmdate('c'));
 

@@ -7,6 +7,7 @@ import { Tour } from "@/data/types";
 import { formatInr } from "@/lib/format";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { UiKey } from "@/i18n/ui";
+import { PhoneFields } from "@/components/ui/PhoneField";
 
 export type BookingMode = "book" | "customize";
 
@@ -126,6 +127,7 @@ export function BookingModal({
           name: data.name,
           email: data.email,
           phone: data.phone,
+          whatsapp: data.whatsapp,
           travelDate: data.travelDate,
           adults,
           children,
@@ -231,17 +233,13 @@ export function BookingModal({
             </fieldset>
           )}
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field id="bk-name" label={t("contactForm.name")}>
-              <input ref={firstRef} id="bk-name" name="name" type="text" required autoComplete="name" className={inputClass} />
-            </Field>
-            <Field id="bk-phone" label={t("booking.phone")}>
-              <input id="bk-phone" name="phone" type="tel" required autoComplete="tel" className={inputClass} />
-            </Field>
-          </div>
+          <Field id="bk-name" label={t("contactForm.name")}>
+            <input ref={firstRef} id="bk-name" name="name" type="text" required autoComplete="name" className={inputClass} />
+          </Field>
           <Field id="bk-email" label={t("contactForm.email")}>
             <input id="bk-email" name="email" type="email" required autoComplete="email" className={inputClass} />
           </Field>
+          <PhoneFields idPrefix="bk" requirePhone />
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Field id="bk-date" label={t("booking.travelDate")}>

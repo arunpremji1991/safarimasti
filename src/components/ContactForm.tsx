@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ThankYouModal } from "@/components/ui/ThankYouModal";
+import { PhoneFields } from "@/components/ui/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -76,17 +77,7 @@ export function ContactForm() {
           className="mt-1.5 w-full rounded-lg border border-charcoal-950/15 bg-cream-50 px-4 py-2.5 focus:border-maroon-700 focus:outline-none"
         />
       </div>
-      <div>
-        <label htmlFor="phone" className="block text-sm font-semibold text-charcoal-900">
-          {t("contactForm.phone")}
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          className="mt-1.5 w-full rounded-lg border border-charcoal-950/15 bg-cream-50 px-4 py-2.5 focus:border-maroon-700 focus:outline-none"
-        />
-      </div>
+      <PhoneFields idPrefix="contact" />
       <div>
         <label htmlFor="message" className="block text-sm font-semibold text-charcoal-900">
           {t("contactForm.message")}
