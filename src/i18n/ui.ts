@@ -28,6 +28,7 @@ export const ui = {
     en: "“Or similar” means we may offer a hotel of the same category if the named one is unavailable.",
     ar: "عبارة «أو مماثل» تعني أنه قد نوفّر فندقًا من الفئة نفسها إذا لم يتوفر الفندق المذكور.",
   },
+  "package.readMore": { en: "Read more", ar: "اقرأ المزيد" },
   "package.viewPackage": { en: "View Package", ar: "عرض الباقة" },
   "package.bookingNote": {
     en: "Bookings are subject to availability at the time of confirmation.",

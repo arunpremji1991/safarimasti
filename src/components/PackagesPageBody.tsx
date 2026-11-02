@@ -14,7 +14,7 @@ export function PackagesPageBody({ packages }: { packages: Tour[] }) {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid gap-8 lg:grid-cols-2">
           {packages.map((pkg, i) => (
-            <Reveal key={pkg.slug} delay={i * 0.08}>
+            <Reveal key={pkg.slug} delay={i * 0.08} className="h-full">
               <PackageCard pkg={pkg} />
             </Reveal>
           ))}

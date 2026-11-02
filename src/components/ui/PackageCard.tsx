@@ -10,11 +10,14 @@ export function PackageCard({ pkg }: { pkg: Tour }) {
   const { t, pick, locale } = useLanguage();
   const amounts = pkg.pricing?.options.map((o) => o.amountInr) ?? [];
   const low = amounts.length ? Math.min(...amounts) : undefined;
+  const SHOWN = 3;
+  const highlights = pick(pkg.highlights, pkg.highlightsAr) ?? pkg.highlights;
+  const shown = highlights.slice(0, SHOWN);
 
   return (
     <Link
       href={`/packages/${pkg.slug}`}
-      className="group flex flex-col overflow-hidden rounded-3xl bg-cream-100 ring-1 ring-charcoal-950/5 transition-shadow hover:shadow-xl"
+      className="group flex h-full flex-col overflow-hidden rounded-3xl bg-cream-100 ring-1 ring-charcoal-950/5 transition-shadow hover:shadow-xl"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
@@ -37,20 +40,30 @@ export function PackageCard({ pkg }: { pkg: Tour }) {
         <h3 className="font-display mt-2 text-2xl leading-snug text-charcoal-950 md:text-3xl">
           {pick(pkg.title, pkg.titleAr)}
         </h3>
-        <p className="mt-3 text-charcoal-800/75">{pick(pkg.shortDescription, pkg.shortDescriptionAr)}</p>
+        <p className="mt-3 line-clamp-3 text-charcoal-800/75">{pick(pkg.shortDescription, pkg.shortDescriptionAr)}</p>
 
         <ul className="mt-5 space-y-2 text-sm text-charcoal-800/85">
-          {(pick(pkg.highlights, pkg.highlightsAr) ?? pkg.highlights).slice(0, 3).map((h) => (
+          {shown.map((h) => (
             <li key={h} className="flex gap-2">
               <span aria-hidden className="text-amber-600">
                 ✦
               </span>
-              {h}
+              <span className="line-clamp-2">{h}</span>
             </li>
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-charcoal-950/10 pt-5">
+        {highlights.length > SHOWN && (
+          <span className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-maroon-700 underline-offset-4 group-hover:underline">
+            {t("package.readMore")}
+            <span aria-hidden className="inline-block rtl:rotate-180">
+              →
+            </span>
+          </span>
+        )}
+
+        <div className="mt-auto pt-6">
+        <div className="flex flex-wrap items-end justify-between gap-4 border-t border-charcoal-950/10 pt-5">
           <div>
             {low !== undefined ? (
               <>
@@ -70,6 +83,7 @@ export function PackageCard({ pkg }: { pkg: Tour }) {
               →
             </span>
           </span>
+        </div>
         </div>
       </div>
     </Link>
