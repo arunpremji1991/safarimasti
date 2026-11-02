@@ -23,7 +23,7 @@ npm run package   # builds ./out and zips it to safarimasti-static.zip
 1. In hPanel, open File Manager -> `public_html`, delete the default files, upload
    `safarimasti-static.zip` and extract it there (make sure `.htaccess` is present).
 2. In `public_html/api/`, copy `config.sample.php` to `config.php` and fill in the
-   recipient and SMTP details (a mailbox on your own domain, e.g. `info@safarimasti.com`).
+   the mailbox password for `bookings@safarimasti.com` (Hostinger SMTP).
    `config.php` is never committed and is blocked from web access.
 3. Enable the free SSL certificate for the domain.
 

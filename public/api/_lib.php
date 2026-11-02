@@ -104,7 +104,7 @@ function send_enquiry(string $subject, string $body, string $replyTo): bool
     // Safety net: keep a copy of every enquiry so no lead is ever lost, even if email delivery fails.
     append_log('safarimasti-leads.log', '==== ' . gmdate('c') . " ====\n" . $subject . "\n" . $body . "\n");
 
-    $to = $config['to'] ?? 'safarimasti@gmail.com';
+    $to = $config['to'] ?? 'bookings@safarimasti.com';
     $from = $config['from'] ?? ('no-reply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'safarimasti.com'));
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 

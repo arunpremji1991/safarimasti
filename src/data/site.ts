@@ -18,8 +18,8 @@ export const site = {
   phoneHref: "tel:+918589096860",
   whatsapp: "+91 91880 32932",
   whatsappHref: "https://wa.me/919188032932",
-  email: "safarimasti@gmail.com",
-  emailHref: "mailto:safarimasti@gmail.com",
+  email: "bookings@safarimasti.com",
+  emailHref: "mailto:bookings@safarimasti.com",
 } as const;
 
 export const services = [

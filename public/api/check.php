@@ -11,7 +11,7 @@ $report = [
     'smtp_configured' => $smtpConfigured,
     'smtp_host' => $config['smtp_host'] ?? null,
     'smtp_port' => $config['smtp_port'] ?? null,
-    'delivers_to' => $config['to'] ?? 'safarimasti@gmail.com (default)',
+    'delivers_to' => $config['to'] ?? 'bookings@safarimasti.com (default)',
     'php_mail_function_available' => function_exists('mail'),
     'leads_backup_in_folder_above_public_html' => is_dir(dirname(__DIR__, 2)) && is_writable(dirname(__DIR__, 2)),
 ];
