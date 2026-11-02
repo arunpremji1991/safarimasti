@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ThankYouModal } from "@/components/ui/ThankYouModal";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -9,6 +10,7 @@ export function ContactForm() {
   const { t } = useLanguage();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [thanksName, setThanksName] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,6 +32,7 @@ export function ContactForm() {
         throw new Error(body.error || t("contactForm.genericError"));
       }
 
+      setThanksName(String(data.name ?? ""));
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -38,16 +41,8 @@ export function ContactForm() {
     }
   }
 
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl bg-cream-100 p-8 text-center">
-        <h3 className="font-display text-2xl text-charcoal-950">{t("contactForm.receivedTitle")}</h3>
-        <p className="mt-2 text-charcoal-800/75">{t("contactForm.receivedBody")}</p>
-      </div>
-    );
-  }
-
   return (
+    <>
     <form onSubmit={handleSubmit} className="space-y-4">
       <input
         type="text"
@@ -115,5 +110,13 @@ export function ContactForm() {
         {status === "submitting" ? t("contactForm.sending") : t("contactForm.send")}
       </button>
     </form>
+    <ThankYouModal
+      open={status === "success"}
+      onClose={() => setStatus("idle")}
+      name={thanksName}
+      eyebrow={t("contactForm.thanksEyebrow")}
+      body={t("contactForm.receivedBody")}
+    />
+    </>
   );
 }

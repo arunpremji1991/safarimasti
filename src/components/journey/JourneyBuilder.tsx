@@ -11,6 +11,7 @@ import { experienceTypes } from "@/data/experienceTypes";
 import { regionExplorers } from "@/data/destinations";
 import { getTourBySlug } from "@/data/tours";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ThankYouModal } from "@/components/ui/ThankYouModal";
 import {
   regionOptions,
   durationOptions,
@@ -88,6 +89,7 @@ export function JourneyBuilder() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [contactError, setContactError] = useState(false);
+  const [thanksOpen, setThanksOpen] = useState(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -120,6 +122,7 @@ export function JourneyBuilder() {
         throw new Error(body.error || t("journey.genericError"));
       }
 
+      setThanksOpen(true);
       setStatus("success");
     } catch (err) {
       setStatus("error");
@@ -130,6 +133,13 @@ export function JourneyBuilder() {
   if (status === "success") {
     return (
       <div className="mx-auto max-w-xl py-24 text-center">
+        <ThankYouModal
+          open={thanksOpen}
+          onClose={() => setThanksOpen(false)}
+          name={form.fullName}
+          eyebrow={t("journey.requestReceivedEyebrow")}
+          body={t("journey.requestReceivedBody")}
+        />
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">
           {t("journey.requestReceivedEyebrow")}
         </p>

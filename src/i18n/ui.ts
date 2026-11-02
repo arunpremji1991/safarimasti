@@ -252,6 +252,13 @@ export const ui = {
     en: "Our travel team will get back to you shortly.",
     ar: "سيتواصل معكم فريق السفر لدينا في أقرب وقت ممكن.",
   },
+  // Thank-you popup
+  "thanks.thankYou": { en: "Thank you", ar: "شكرًا لكم" },
+  "thanks.tagline": { en: "Your next adventure starts here.", ar: "مغامرتكم القادمة تبدأ من هنا." },
+  "thanks.explore": { en: "Explore Packages", ar: "استكشفوا الباقات" },
+  "thanks.whatsapp": { en: "Chat on WhatsApp", ar: "تحدثوا عبر واتساب" },
+  "thanks.close": { en: "Close", ar: "إغلاق" },
+  "contactForm.thanksEyebrow": { en: "Message Received", ar: "تم استلام رسالتكم" },
   "contactForm.genericError": { en: "Something went wrong.", ar: "حدث خطأ ما." },
 
   // Blog
