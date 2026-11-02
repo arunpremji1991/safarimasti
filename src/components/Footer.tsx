@@ -39,6 +39,11 @@ export function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/destinations" className="text-cream-100/80 hover:text-amber-300">
+                  {t("nav.destinations")}
+                </Link>
+              </li>
+              <li>
                 <Link href="/build-your-journey" className="text-cream-100/80 hover:text-amber-300">
                   {t("nav.buildYourJourney")}
                 </Link>

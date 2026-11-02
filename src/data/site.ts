@@ -123,7 +123,7 @@ export const navLinks = [
   { label: "Home", labelAr: "الرئيسية", href: "/" },
   { label: "About", labelAr: "من نحن", href: "/about" },
   { label: "Experiences", labelAr: "التجارب", href: "/experiences" },
-  { label: "Destinations", labelAr: "الوجهات", href: "/destinations" },
+  { label: "Packages", labelAr: "الباقات", href: "/packages" },
   { label: "Collections", labelAr: "المجموعات", href: "/collections" },
   { label: "Ayurveda", labelAr: "الأيورفيدا", href: "/collections/kerala-ayurveda" },
   { label: "Contact", labelAr: "تواصل معنا", href: "/contact" },

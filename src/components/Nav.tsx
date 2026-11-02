@@ -162,6 +162,11 @@ export function Nav() {
                         />
                       )}
                       {pick(link.label, link.labelAr)}
+                      {link.href === "/packages" && (
+                        <span className="ms-1.5 rounded-full bg-amber-500 px-1.5 py-0.5 align-middle text-[9px] font-bold leading-none tracking-wide text-maroon-950">
+                          {t("nav.new")}
+                        </span>
+                      )}
                     </Link>
                   </li>
                 );
@@ -289,6 +294,11 @@ export function Nav() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {pick(link.label, link.labelAr)}
+                      {link.href === "/packages" && (
+                        <span className="ms-1.5 rounded-full bg-amber-500 px-1.5 py-0.5 align-middle text-[10px] font-bold leading-none tracking-wide text-maroon-950">
+                          {t("nav.new")}
+                        </span>
+                      )}
                     </Link>
                   </motion.li>
                 );

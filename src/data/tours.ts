@@ -1,4 +1,5 @@
 import { ItineraryStop, Tour } from "./types";
+import { packages } from "./packages";
 
 /**
  * Every field here traces back to Safari Masti's Company Profile & Signature
@@ -1279,7 +1280,8 @@ export const tours: Tour[] = [
 ];
 
 export function getTourBySlug(slug: string) {
-  return tours.find((t) => t.slug === slug);
+  // Packages are resolved here too so the Build Your Journey form can name the selected package.
+  return tours.find((t) => t.slug === slug) ?? packages.find((p) => p.slug === slug);
 }
 
 export function getToursByCollection(collectionSlug: string) {

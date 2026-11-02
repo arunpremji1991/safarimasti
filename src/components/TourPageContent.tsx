@@ -6,6 +6,8 @@ import { BookingPanel } from "@/components/tour/BookingPanel";
 import { DesignedAroundYou } from "@/components/tour/DesignedAroundYou";
 import { GoodToKnow } from "@/components/tour/GoodToKnow";
 import { TourCard } from "@/components/ui/TourCard";
+import { PackageCard } from "@/components/ui/PackageCard";
+import { formatInr } from "@/lib/format";
 import { Collection, Tour } from "@/data/types";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translateCategory, translateTravelStyle } from "@/i18n/labels";
@@ -14,14 +16,23 @@ export function TourPageContent({
   tour,
   collection,
   related,
+  kind = "tour",
 }: {
   tour: Tour;
   collection: Collection | undefined;
   related: Tour[];
+  kind?: "tour" | "package";
 }) {
   const { t, pick, locale } = useLanguage();
   const hasItinerary = tour.itinerary.length > 0;
   const hasInclusions = tour.inclusions.length > 0 || tour.exclusions.length > 0;
+  const isPackage = kind === "package";
+  const amounts = tour.pricing?.options.map((o) => o.amountInr) ?? [];
+  const lowest = amounts.length ? Math.min(...amounts) : undefined;
+  const priceLabel =
+    lowest === undefined
+      ? t("tour.requestQuote")
+      : `${amounts.length > 1 ? `${t("package.from")} ` : ""}${formatInr(lowest, locale)}`;
 
   return (
     <>
@@ -31,9 +42,15 @@ export function TourPageContent({
             {t("tour.home")}
           </Link>
           <span>/</span>
-          <Link href="/collections" className="hover:text-maroon-700">
-            {t("tour.collections")}
-          </Link>
+          {isPackage ? (
+            <Link href="/packages" className="hover:text-maroon-700">
+              {t("nav.packages")}
+            </Link>
+          ) : (
+            <Link href="/collections" className="hover:text-maroon-700">
+              {t("tour.collections")}
+            </Link>
+          )}
           {collection && (
             <>
               <span>/</span>
@@ -97,7 +114,7 @@ export function TourPageContent({
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-charcoal-800/60">{t("tour.price")}</p>
-                <p className="mt-1 font-semibold text-charcoal-950">{t("tour.requestQuote")}</p>
+                <p className="mt-1 font-semibold text-charcoal-950">{priceLabel}</p>
               </div>
             </div>
 
@@ -133,6 +150,30 @@ export function TourPageContent({
               </section>
             )}
 
+            {/* Package cost */}
+            {tour.pricing && (
+              <section className="mt-14">
+                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">{t("package.costTitle")}</h2>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {tour.pricing.options.map((o) => (
+                    <div key={o.label} className="rounded-2xl border border-charcoal-950/10 bg-cream-100 p-6">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
+                        {pick(o.label, o.labelAr)}
+                      </p>
+                      <p className="font-display mt-2 text-3xl text-charcoal-950">{formatInr(o.amountInr, locale)}</p>
+                      {o.detail && (
+                        <p className="mt-2 text-sm text-charcoal-800/75">{pick(o.detail, o.detailAr)}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 text-sm text-charcoal-800/70">
+                  {t("package.inclTaxes")}.{" "}
+                  {tour.pricing.note ? pick(tour.pricing.note, tour.pricing.noteAr) : t("package.bookingNote")}
+                </p>
+              </section>
+            )}
+
             {/* Itinerary or designed-around-you CTA */}
             <section className="mt-14">
               <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
@@ -158,6 +199,30 @@ export function TourPageContent({
                 </div>
               )}
             </section>
+
+            {/* Hotels */}
+            {tour.hotels && tour.hotels.length > 0 && (
+              <section className="mt-14">
+                <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">{t("package.hotelsTitle")}</h2>
+                <ul className="mt-6 divide-y divide-charcoal-950/10 rounded-2xl border border-charcoal-950/10">
+                  {tour.hotels.map((h) => (
+                    <li
+                      key={h.place}
+                      className="grid gap-1 p-5 sm:grid-cols-[150px_1fr_auto] sm:items-baseline sm:gap-6"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-widest text-maroon-700">
+                        {pick(h.place, h.placeAr)}
+                      </span>
+                      <span className="font-display text-lg text-charcoal-950" dir="ltr">
+                        {h.name}
+                      </span>
+                      <span className="text-sm text-charcoal-800/70">{pick(h.nights, h.nightsAr)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm text-charcoal-800/60">{t("package.hotelsNote")}</p>
+              </section>
+            )}
 
             {/* Inclusions / Exclusions */}
             {hasInclusions && (
@@ -212,9 +277,9 @@ export function TourPageContent({
               {t("tour.youMayAlsoLike")}
             </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((t) => (
-                <TourCard key={t.slug} tour={t} />
-              ))}
+              {related.map((r) =>
+                isPackage ? <PackageCard key={r.slug} pkg={r} /> : <TourCard key={r.slug} tour={r} />
+              )}
             </div>
           </section>
         )}

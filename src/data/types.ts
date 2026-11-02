@@ -60,6 +60,23 @@ export interface ItineraryStop {
   image?: string;
 }
 
+export interface TourPriceOption {
+  label: string;
+  labelAr?: string;
+  /** What this option covers, e.g. "3★ hotels with a Deluxe A/c houseboat". */
+  detail?: string;
+  detailAr?: string;
+  amountInr: number;
+}
+
+export interface TourHotel {
+  place: string;
+  placeAr?: string;
+  name: string;
+  nights: string;
+  nightsAr?: string;
+}
+
 export interface Tour {
   slug: string;
   collectionSlug: string;
@@ -90,6 +107,9 @@ export interface Tour {
   seoTitle: string;
   seoDescription: string;
   relatedTourSlugs?: string[];
+  /** Published prices (packages only). Tours without it show "Request a Quote". */
+  pricing?: { options: TourPriceOption[]; note?: string; noteAr?: string };
+  hotels?: TourHotel[];
 }
 
 export interface Service {

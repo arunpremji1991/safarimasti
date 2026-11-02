@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { collections } from "@/data/collections";
 import { tours } from "@/data/tours";
+import { packages } from "@/data/packages";
 
 const BASE_URL = "https://safarimasti.com";
 
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/experiences",
     "/destinations",
     "/collections",
+    "/packages",
     "/build-your-journey",
     "/contact",
     "/blog",
@@ -31,5 +33,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...collectionRoutes, ...tourRoutes];
+  const packageRoutes = packages.map((p) => ({
+    url: `${BASE_URL}/packages/${p.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...collectionRoutes, ...tourRoutes, ...packageRoutes];
 }
