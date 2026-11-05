@@ -42,9 +42,9 @@ function AyurvedaPill({
       aria-current={active ? "page" : undefined}
       className={clsx(
         "group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full",
-        "bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-600 text-emerald-50",
-        "ring-1 ring-amber-300/50 shadow-[0_6px_22px_-6px_rgba(16,185,129,0.65)]",
-        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-6px_rgba(16,185,129,0.85)]",
+        "bg-gradient-to-br from-olive-800 via-[#5d5230] to-olive-600 text-amber-100",
+        "ring-1 ring-amber-300/50 shadow-[0_6px_22px_-6px_rgba(79,69,37,0.7)]",
+        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-6px_rgba(79,69,37,0.9)]",
         compact ? "px-3 py-2" : "px-4 py-2.5",
         active && "ring-2 ring-amber-300"
       )}
@@ -71,17 +71,9 @@ function AyurvedaPill({
 }
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { t, pick } = useLanguage();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -94,15 +86,9 @@ export function Nav() {
     };
   }, [menuOpen]);
 
-  // Only pages that render a full-bleed dark hero image immediately below the
-  // nav can safely use the transparent/light-logo state at the top of the
-  // page — everywhere else (tour pages, the journey builder, plain pages)
-  // starts on a light background, so the nav must stay solid from the start.
-  const transparentCapableRoutes = ["/", "/about", "/experiences", "/destinations", "/collections", "/contact", "/blog"];
-  const hasHeroBackground =
-    transparentCapableRoutes.includes(pathname) || pathname.startsWith("/collections/");
-
-  const solid = (scrolled || !hasHeroBackground) && !menuOpen;
+  // The bar is always solid white so the full-colour logo (which must sit on a light or maroon background)
+  // never lands on a photo; it only switches to the on-dark logo while the maroon mobile menu is open.
+  const solid = !menuOpen;
 
   const ayurvedaActive = pathname.startsWith(AYURVEDA_HREF);
   const isActive = (href: string) => {
@@ -121,14 +107,14 @@ export function Nav() {
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6">
         <nav
           className={clsx(
-            "pointer-events-auto mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full px-3 py-2 ps-5 transition-all duration-300 md:px-4 md:ps-6",
+            "pointer-events-auto mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full px-3 py-2 ps-4 transition-all duration-300 md:px-4 md:ps-6",
             solid
               ? "bg-cream-50/90 shadow-[0_10px_40px_-12px_rgba(57,10,16,0.25)] ring-1 ring-charcoal-950/5 backdrop-blur-xl"
               : "bg-charcoal-950/25 ring-1 ring-white/15 backdrop-blur-md"
           )}
         >
           <Link href="/" aria-label={t("nav.homeAriaLabel")} className="shrink-0">
-            <Logo variant={solid ? "dark" : "light"} />
+            <Logo variant={solid ? "dark" : "light"} className="h-[30px] md:h-9" />
           </Link>
 
           <LayoutGroup id="nav">
@@ -250,7 +236,7 @@ export function Nav() {
                   sizes="(min-width: 640px) 560px, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/90 via-maroon-950/40 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
                   <div>
                     <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-amber-300">

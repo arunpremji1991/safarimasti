@@ -49,7 +49,7 @@ export function ExperienceSelector() {
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-charcoal-950/75" />
+        <div className="absolute inset-0 bg-maroon-950/80" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8">

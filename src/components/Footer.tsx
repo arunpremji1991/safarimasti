@@ -9,11 +9,11 @@ export function Footer() {
   const { locale, toggleLocale, t, pick } = useLanguage();
 
   return (
-    <footer className="bg-charcoal-950 text-cream-100">
+    <footer className="bg-maroon-950 text-cream-100">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Logo variant="light" />
+            <Logo variant="light" layout="horizontal" className="h-20" />
             <p className="mt-4 max-w-xs font-display text-lg text-cream-200">
               {pick(site.tagline, site.taglineAr)}
             </p>

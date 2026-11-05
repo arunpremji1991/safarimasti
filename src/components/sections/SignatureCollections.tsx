@@ -63,7 +63,7 @@ function StackCard({
           top: `${i * 16}px`,
           transformOrigin: "top center",
         }}
-        className="relative h-[80svh] w-full max-w-7xl overflow-hidden rounded-[28px] bg-charcoal-900 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10 md:h-[82svh] md:rounded-[36px]"
+        className="relative h-[80svh] w-full max-w-7xl overflow-hidden rounded-[28px] bg-charcoal-900 shadow-[0_30px_80px_-20px_rgba(81,0,7,0.55)] ring-1 ring-maroon-950/10 md:h-[82svh] md:rounded-[36px]"
       >
         <motion.div
           className="absolute inset-0"
@@ -143,9 +143,9 @@ export function SignatureCollections() {
   });
 
   return (
-    <section className="bg-charcoal-950 text-cream-50">
+    <section className="bg-white text-charcoal-950">
       <div className="px-5 pb-12 pt-24 md:px-8">
-        <h2 className="font-display max-w-2xl text-4xl leading-tight sm:text-5xl">
+        <h2 className="font-display max-w-2xl text-4xl leading-tight text-maroon-950 sm:text-5xl">
           {t("signatureCollections.title")}
         </h2>
       </div>

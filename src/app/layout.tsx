@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, Cairo } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
@@ -25,6 +25,10 @@ const cairo = Cairo({
   variable: "--font-cairo",
   weight: ["400", "500", "600", "700", "800"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#510007",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://safarimasti.com"),
@@ -70,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "TravelAgency",
               name: site.name,
+              logo: "https://safarimasti.com/icon.png",
               description:
                 "Premier travel management company based in Cochin, Kerala, specializing in curated Pan-India travel experiences.",
               telephone: site.phone,

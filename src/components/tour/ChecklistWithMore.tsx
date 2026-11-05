@@ -25,7 +25,7 @@ export function ChecklistWithMore({
             <span
               aria-hidden
               className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                tone === "yes" ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-700"
+                tone === "yes" ? "bg-amber-100 text-olive-800" : "bg-red-100 text-red-700"
               }`}
             >
               {tone === "yes" ? "✓" : "✕"}

@@ -18,7 +18,7 @@ interface ThankYouModalProps {
   body: string;
 }
 
-const CONFETTI_COLORS = ["#eeaa4c", "#f7d097", "#fdf9f1", "#d99433", "#97202b", "#f3bd6d"];
+const CONFETTI_COLORS = ["#feb147", "#ffd596", "#ffffff", "#ffc267", "#a32836", "#bf6c00"];
 
 // Deterministic burst so the animation looks the same on every render.
 const CONFETTI = Array.from({ length: 34 }, (_, i) => {
@@ -96,7 +96,7 @@ export function ThankYouModal({ open, onClose, name, eyebrow, body }: ThankYouMo
               className="pointer-events-none absolute inset-0 opacity-[0.07]"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle at 1px 1px, #f7d097 1px, transparent 0)",
+                  "radial-gradient(circle at 1px 1px, #ffd596 1px, transparent 0)",
                 backgroundSize: "22px 22px",
               }}
             />
@@ -133,7 +133,7 @@ export function ThankYouModal({ open, onClose, name, eyebrow, body }: ThankYouMo
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 14, delay: 0.15 }}
               >
-                <svg viewBox="0 0 52 52" className="h-12 w-12" fill="none" stroke="#390a10" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+                <svg viewBox="0 0 52 52" className="h-12 w-12" fill="none" stroke="#510007" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
                   <motion.path
                     d="M14 27l8 8 16-18"
                     initial={reduce ? false : { pathLength: 0 }}
