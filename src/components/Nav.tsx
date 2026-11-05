@@ -45,7 +45,7 @@ function AyurvedaPill({
         "bg-gradient-to-br from-olive-800 via-[#5d5230] to-olive-600 text-amber-100",
         "ring-1 ring-amber-300/50 shadow-[0_6px_22px_-6px_rgba(79,69,37,0.7)]",
         "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-6px_rgba(79,69,37,0.9)]",
-        compact ? "px-3 py-2" : "px-4 py-2.5",
+        compact ? "px-3 py-2 max-[339px]:hidden" : "px-4 py-2.5",
         active && "ring-2 ring-amber-300"
       )}
     >
@@ -53,7 +53,7 @@ function AyurvedaPill({
         aria-hidden
         className="nav-sheen pointer-events-none absolute inset-y-0 start-0 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent"
       />
-      <LeafIcon className="relative h-[18px] w-[18px] text-amber-300 transition-transform duration-300 group-hover:rotate-12" />
+      <LeafIcon className={clsx("relative h-[18px] w-[18px] text-amber-300 transition-transform duration-300 group-hover:rotate-12", compact && "max-[399px]:hidden")} />
       <span
         className={clsx(
           "relative font-bold uppercase",
@@ -62,7 +62,7 @@ function AyurvedaPill({
       >
         {label}
       </span>
-      <span aria-hidden className="relative flex h-2 w-2">
+      <span aria-hidden className={clsx("relative flex h-2 w-2", compact && "max-[399px]:hidden")}>
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-300 opacity-70" />
         <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-300" />
       </span>
@@ -183,7 +183,7 @@ export function Nav() {
               aria-expanded={menuOpen}
               aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
               className={clsx(
-                "relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full transition-colors xl:hidden",
+                "relative z-50 flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full transition-colors xl:hidden",
                 menuOpen
                   ? "text-cream-50 hover:bg-white/10"
                   : solid
