@@ -41,6 +41,13 @@ description (for example Pariyaram/Athirappilly, Munnar, Mattupetty, Eravikulam,
 | atal-tunnel-rohtang | https://unsplash.com/photos/IeWEtwu2t6g |
 | chandigarh-rock-garden | https://unsplash.com/photos/IGS752aNyeo |
 | chandigarh-sukhna-lake | https://unsplash.com/photos/TF-5cYpNzFo |
+| kovalam-beach | https://unsplash.com/photos/an-aerial-view-of-a-beach-and-a-city-t0MLNrCLsL4 |
+| kovalam-lighthouse | https://unsplash.com/photos/a-light-house-sitting-on-top-of-a-small-island-M-kMtztF1BU |
+| padmanabhaswamy-temple | https://unsplash.com/photos/a-very-tall-building-sitting-next-to-a-street-B5DTrlAVw4E |
+| kanyakumari-rock-memorial | https://unsplash.com/photos/_iTZ8Hi5TWQ |
+| thiruvalluvar-statue | https://unsplash.com/photos/fS9LbYKRk5o |
+| kanyakumari-sunset | https://unsplash.com/photos/Zk8EAcaJp7c |
+| kanyakumari-sunset-crowd | https://unsplash.com/photos/People-watch-the-sunset-over-the-ocean-near-a-monument-LgNHQ |
 
 ## Where they are used
 
@@ -55,7 +62,7 @@ description (for example Pariyaram/Athirappilly, Munnar, Mattupetty, Eravikulam,
 | `tours/` | One image per tour/programme (named `<tour-slug>-1.webp`; Golden Triangle also has `-2`) |
 | `honeymoon/` | Couples-only imagery for the Luxury & Honeymoon page and its four escapes (Kerala, Munnar, Goa, Rajasthan), plus a full-bleed backwaters band |
 | `culture/` | Ellora Kailasa Temple, Ajanta Caves and Hampi — the Culture tile cycles these with the Taj Mahal |
-| `packages/` | Real Unsplash photographs for the Kerala and Shimla–Manali packages (see the table above) |
+| `packages/` | Real Unsplash photographs for the Kerala (including Kovalam, Trivandrum and Kanyakumari) and Shimla–Manali packages (see the table above) |
 | `ayurveda/` | Treatments, yoga, meditation, consultation and meals for the Kerala Ayurveda page and its two packages, plus Munnar, Thekkady and Kovalam scenes for the tour part |
 
 ## Replacing with real photography

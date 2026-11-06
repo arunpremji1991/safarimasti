@@ -551,6 +551,67 @@ const KH_INCLUSIONS_AR = [
 ];
 
 // ======================================================================================================
+// Packages 5 & 6 — Kerala with Kovalam (6 nights / 7 days) and Kerala, Kanyakumari & Kovalam (7 nights / 8 days)
+// Source: the "6 Nights /7 Days" and "7 Nights/8 Days" package details supplied by Safari Masti. Days 1–4 are the
+// same as package 4; inclusions, exclusions, general terms and houseboat notes are identical. No price was
+// supplied, so these pages show "Request a Quote".
+// ======================================================================================================
+const dayLabel = (n: number) => ({ label: `Day ${String(n).padStart(2, "0")}`, labelAr: `اليوم ${String(n).padStart(2, "0").replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[Number(d)])}` });
+
+const KANYAKUMARI_DAY = (n: number): ItineraryStop => ({
+  ...dayLabel(n),
+  title: "Alleppey to Kanyakumari",
+  titleAr: "من ألابوزا إلى كانيياكوماري",
+  description:
+    "After breakfast, check out from the houseboat and travel to Kanyakumari. After checking into your hotel, spend the afternoon exploring the iconic Vivekananda Rock Memorial, the towering Thiruvalluvar Statue and the historic Bhagavathy Amman Temple. End your day watching the spectacular sunset at Kanyakumari Beach, where three oceans meet (Triveni Sangam). Overnight in Kanyakumari.",
+  descriptionAr:
+    "بعد الإفطار تسجّلون المغادرة من القارب السكني وتتجهون إلى كانيياكوماري. وبعد تسجيل الوصول في الفندق تقضون فترة بعد الظهر في استكشاف نصب فيفيكاناندا التذكاري الأيقوني وتمثال ثيروفالوفار الشاهق ومعبد باغافاتي أمّان التاريخي. وتختمون يومكم بمشاهدة غروب الشمس الرائع على شاطئ كانيياكوماري حيث تلتقي ثلاثة محيطات (تريفيني سانغام). المبيت في كانيياكوماري.",
+});
+
+const KOVALAM_DAY = (n: number, from: "Alleppey" | "Kanyakumari"): ItineraryStop => ({
+  ...dayLabel(n),
+  title: `${from} to Kovalam`,
+  titleAr: from === "Alleppey" ? "من ألابوزا إلى كوفالام" : "من كانيياكوماري إلى كوفالام",
+  description: `After breakfast, check out from your ${from === "Alleppey" ? "houseboat" : "hotel"} and head towards Kovalam. On arrival, check into your beachside hotel or resort. Enjoy a completely free afternoon to unwind, stroll along the shore and take in the beautiful beach vibes. Spend the night resting comfortably in Kovalam.`,
+  descriptionAr: `بعد الإفطار تسجّلون المغادرة من ${from === "Alleppey" ? "القارب السكني" : "الفندق"} وتتجهون نحو كوفالام. عند الوصول تسجّلون الوصول في فندقكم أو منتجعكم المطل على الشاطئ. استمتعوا بفترة بعد ظهر حرة تمامًا للاسترخاء والتنزه على الشاطئ والاستمتاع بأجواء الشاطئ الجميلة. المبيت براحة في كوفالام.`,
+});
+
+const TRIVANDRUM_DAY = (n: number): ItineraryStop => ({
+  ...dayLabel(n),
+  title: "Trivandrum day tour",
+  titleAr: "جولة نهارية في ترفاندروم",
+  description:
+    "After breakfast, leave for a full day of sightseeing in Trivandrum. Begin with a visit to the magnificent Sree Padmanabhaswamy Temple to explore its grand heritage. Afterwards, head to the city's museum grounds to visit the Napier Museum, the Sree Chitra Art Gallery and the historic Thiruvananthapuram Zoo. Return to Kovalam in the evening for your overnight stay.",
+  descriptionAr:
+    "بعد الإفطار تنطلقون في جولة سياحية ليوم كامل في ترفاندروم. تبدؤون بزيارة معبد سري بادمانابهاسوامي المهيب لاستكشاف تراثه العريق. ثم تتجهون إلى حرم متاحف المدينة لزيارة متحف نابير ومعرض سري تشيترا للفنون وحديقة حيوان ثيروفانانتابورام التاريخية. العودة إلى كوفالام في المساء للمبيت.",
+});
+
+const KOVALAM_DEPARTURE = (n: number): ItineraryStop => ({
+  ...dayLabel(n),
+  title: "Departure from Trivandrum or Cochin",
+  titleAr: "المغادرة من ترفاندروم أو كوتشي",
+  description:
+    "After breakfast, check out of the hotel. We will drop you at the airport or railway station in either Trivandrum or Cochin for your trip home. Your tour ends with beautiful memories.",
+  descriptionAr:
+    "بعد الإفطار تسجّلون المغادرة من الفندق. وسنوصلكم إلى المطار أو محطة القطار في ترفاندروم أو كوتشي لرحلة العودة إلى الديار. وتنتهي رحلتكم بذكريات جميلة.",
+});
+
+const KOV7_ITINERARY: ItineraryStop[] = [
+  ...KH_ITINERARY.slice(0, 4),
+  KOVALAM_DAY(5, "Alleppey"),
+  TRIVANDRUM_DAY(6),
+  KOVALAM_DEPARTURE(7),
+];
+
+const KKK8_ITINERARY: ItineraryStop[] = [
+  ...KH_ITINERARY.slice(0, 4),
+  KANYAKUMARI_DAY(5),
+  KOVALAM_DAY(6, "Kanyakumari"),
+  TRIVANDRUM_DAY(7),
+  KOVALAM_DEPARTURE(8),
+];
+
+// ======================================================================================================
 export const packages: Tour[] = [
   {
     slug: "kerala-munnar-thekkady-alleppey-5-days",
@@ -850,7 +911,131 @@ export const packages: Tour[] = [
     seoTitle: "Kerala Tour Package: Munnar, Thekkady & Alleppey — 4 Nights 5 Days | Safari Masti",
     seoDescription:
       "A 5-day Kerala package through Munnar, Thekkady and an Alleppey houseboat, with an A/c Innova Crysta and an Arabic-speaking driver — request a quote from Safari Masti, Cochin.",
-    relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days", "luxury-kerala-8-days"],
+    relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days", "kerala-hills-backwaters-kovalam-6-nights-7-days", "kerala-kanyakumari-kovalam-7-nights-8-days"],
+  },
+  {
+    slug: "kerala-hills-backwaters-kovalam-6-nights-7-days",
+    collectionSlug: "packages",
+    title: "Kerala Hills, Backwaters & Kovalam — 6 Nights / 7 Days",
+    titleAr: "تلال كيرالا ومسطحاتها المائية وكوفالام — ٦ ليالٍ / ٧ أيام",
+    destination: "Kerala",
+    destinationAr: "كيرالا",
+    region: ["South"],
+    category: ["South India", "Nature"],
+    travelStyle: ["Comfort", "Premium"],
+    inclusions: KH_INCLUSIONS,
+    inclusionsAr: KH_INCLUSIONS_AR,
+    exclusions: LUX_EXCLUSIONS,
+    exclusionsAr: LUX_EXCLUSIONS_AR,
+    goodToKnow: LUX_NOTES,
+    duration: "7 Days · 6 Nights",
+    durationAr: "٧ أيام · ٦ ليالٍ",
+    bestFor: ["Hills, backwaters and a beach finish, with an Arabic-speaking driver"],
+    bestForAr: ["التلال والمسطحات المائية ونهاية على الشاطئ، مع سائق يتحدث العربية"],
+    shortDescription:
+      "Munnar, Thekkady, an Alleppey houseboat and the beach at Kovalam, plus a Trivandrum day tour — 7 days with an Arabic-speaking driver and an A/c Innova Crysta.",
+    shortDescriptionAr:
+      "مونار وثيكادي وقارب سكني في ألابوزا وشاطئ كوفالام، مع جولة نهارية في ترفاندروم — ٧ أيام مع سائق يتحدث العربية وسيارة إنوفا كريستا مكيَّفة.",
+    overview:
+      "Start in Cochin and drive up to Munnar for Eravikulam National Park, a boat ride at Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum. Continue to Thekkady for a spice plantation tour and a boat safari in Periyar National Park, spend a night on an Alleppey houseboat, then travel south to the beach at Kovalam. A full-day Trivandrum tour takes in Sree Padmanabhaswamy Temple, the Napier Museum, Sree Chitra Art Gallery and the zoo, before you depart from Trivandrum or Cochin.",
+    overviewAr:
+      "تبدؤون من كوتشي وتصعدون إلى مونار لزيارة منتزه إيرافيكولام الوطني وجولة بالقارب في سد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي. ثم تتابعون إلى ثيكادي لجولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني، وتبيتون ليلة على قارب سكني في ألابوزا، ثم تسافرون جنوبًا إلى شاطئ كوفالام. وتشمل جولة ترفاندروم ليوم كامل معبد سري بادمانابهاسوامي ومتحف نابير ومعرض سري تشيترا للفنون وحديقة الحيوان، قبل المغادرة من ترفاندروم أو كوتشي.",
+    heroImages: [
+      "/images/packages/kovalam-beach.36e4cc27.webp",
+      "/images/packages/munnar-tea-estate.30b7e082.webp",
+      "/images/packages/eravikulam-tahr-closeup.f58cb0d1.webp",
+      "/images/packages/mattupetty-dam.02b7b3fe.webp",
+      "/images/packages/kerala-black-pepper.43635a5e.webp",
+      "/images/packages/periyar-lake.068d63f0.webp",
+      "/images/packages/alleppey-houseboat.968d7769.webp",
+      "/images/packages/kovalam-lighthouse.ad2b83e4.webp",
+      "/images/packages/padmanabhaswamy-temple.3efe52bb.webp",
+    ],
+    highlights: [
+      "A full day in Munnar: Eravikulam National Park, a boat ride at Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum",
+      "A spice plantation tour and a boat safari in Periyar National Park, Thekkady",
+      "A night on a traditional houseboat in the Alleppey backwaters",
+      "A free afternoon on the beach at Kovalam",
+      "A full-day Trivandrum tour: Sree Padmanabhaswamy Temple, Napier Museum, Sree Chitra Art Gallery and the zoo",
+      "A/c Innova Crysta with an Arabic-speaking driver and arrival assistance",
+    ],
+    highlightsAr: [
+      "يوم كامل في مونار: منتزه إيرافيكولام الوطني وجولة بالقارب في سد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي",
+      "جولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني في ثيكادي",
+      "ليلة على قارب سكني تقليدي في مسطحات ألابوزا المائية",
+      "فترة بعد ظهر حرة على شاطئ كوفالام",
+      "جولة ليوم كامل في ترفاندروم: معبد سري بادمانابهاسوامي ومتحف نابير ومعرض سري تشيترا للفنون وحديقة الحيوان",
+      "سيارة إنوفا كريستا مكيَّفة مع سائق يتحدث العربية ومساعدة عند الوصول",
+    ],
+    itinerary: KOV7_ITINERARY,
+    seoTitle: "Kerala Tour Package with Kovalam — 6 Nights 7 Days | Safari Masti",
+    seoDescription:
+      "A 7-day Kerala package: Munnar, Thekkady, an Alleppey houseboat, Kovalam beach and a Trivandrum day tour, with an A/c Innova Crysta and an Arabic-speaking driver — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["kerala-hills-backwaters-4-nights-5-days", "kerala-kanyakumari-kovalam-7-nights-8-days", "luxury-kerala-8-days"],
+  },
+  {
+    slug: "kerala-kanyakumari-kovalam-7-nights-8-days",
+    collectionSlug: "packages",
+    title: "Kerala, Kanyakumari & Kovalam — 7 Nights / 8 Days",
+    titleAr: "كيرالا وكانيياكوماري وكوفالام — ٧ ليالٍ / ٨ أيام",
+    destination: "Kerala & Tamil Nadu",
+    destinationAr: "كيرالا وتاميل نادو",
+    region: ["South"],
+    category: ["South India", "Nature"],
+    travelStyle: ["Comfort", "Premium"],
+    inclusions: KH_INCLUSIONS,
+    inclusionsAr: KH_INCLUSIONS_AR,
+    exclusions: LUX_EXCLUSIONS,
+    exclusionsAr: LUX_EXCLUSIONS_AR,
+    goodToKnow: LUX_NOTES,
+    duration: "8 Days · 7 Nights",
+    durationAr: "٨ أيام · ٧ ليالٍ",
+    bestFor: ["Hills, backwaters, Kanyakumari's sunset and a beach finish, with an Arabic-speaking driver"],
+    bestForAr: ["التلال والمسطحات المائية وغروب كانيياكوماري ونهاية على الشاطئ، مع سائق يتحدث العربية"],
+    shortDescription:
+      "Munnar, Thekkady, an Alleppey houseboat, the sunset at Kanyakumari, Kovalam beach and Trivandrum — 8 days with an Arabic-speaking driver and an A/c Innova Crysta.",
+    shortDescriptionAr:
+      "مونار وثيكادي وقارب سكني في ألابوزا وغروب كانيياكوماري وشاطئ كوفالام وترفاندروم — ٨ أيام مع سائق يتحدث العربية وسيارة إنوفا كريستا مكيَّفة.",
+    overview:
+      "Start in Cochin and drive up to Munnar for Eravikulam National Park, a boat ride at Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum. Continue to Thekkady for a spice plantation tour and a boat safari in Periyar National Park, then spend a night on an Alleppey houseboat. Head south to Kanyakumari for the Vivekananda Rock Memorial, the Thiruvalluvar Statue, Bhagavathy Amman Temple and the sunset where three oceans meet, relax on the beach at Kovalam, and take a full-day Trivandrum tour before departing from Trivandrum or Cochin.",
+    overviewAr:
+      "تبدؤون من كوتشي وتصعدون إلى مونار لزيارة منتزه إيرافيكولام الوطني وجولة بالقارب في سد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي. ثم تتابعون إلى ثيكادي لجولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني، وتبيتون ليلة على قارب سكني في ألابوزا. وتتجهون جنوبًا إلى كانيياكوماري لزيارة نصب فيفيكاناندا التذكاري وتمثال ثيروفالوفار ومعبد باغافاتي أمّان ومشاهدة الغروب حيث تلتقي ثلاثة محيطات، ثم تسترخون على شاطئ كوفالام وتقومون بجولة ليوم كامل في ترفاندروم قبل المغادرة من ترفاندروم أو كوتشي.",
+    heroImages: [
+      "/images/packages/kanyakumari-rock-memorial.472e4d1a.webp",
+      "/images/packages/munnar-tea-estate.30b7e082.webp",
+      "/images/packages/eravikulam-tahr-closeup.f58cb0d1.webp",
+      "/images/packages/mattupetty-dam.02b7b3fe.webp",
+      "/images/packages/kerala-black-pepper.43635a5e.webp",
+      "/images/packages/periyar-lake.068d63f0.webp",
+      "/images/packages/alleppey-houseboat.968d7769.webp",
+      "/images/packages/thiruvalluvar-statue.f47b69a3.webp",
+      "/images/packages/kanyakumari-sunset.19b43358.webp",
+      "/images/packages/kanyakumari-sunset-crowd.37aeb6fd.webp",
+      "/images/packages/kovalam-beach.36e4cc27.webp",
+      "/images/packages/kovalam-lighthouse.ad2b83e4.webp",
+      "/images/packages/padmanabhaswamy-temple.3efe52bb.webp",
+    ],
+    highlights: [
+      "A full day in Munnar: Eravikulam National Park, a boat ride at Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum",
+      "A spice plantation tour and a boat safari in Periyar National Park, Thekkady",
+      "A night on a traditional houseboat in the Alleppey backwaters",
+      "Kanyakumari: Vivekananda Rock Memorial, the Thiruvalluvar Statue, Bhagavathy Amman Temple and the sunset where three oceans meet",
+      "A free afternoon on the beach at Kovalam, and a full-day Trivandrum tour with Sree Padmanabhaswamy Temple",
+      "A/c Innova Crysta with an Arabic-speaking driver and arrival assistance",
+    ],
+    highlightsAr: [
+      "يوم كامل في مونار: منتزه إيرافيكولام الوطني وجولة بالقارب في سد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي",
+      "جولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني في ثيكادي",
+      "ليلة على قارب سكني تقليدي في مسطحات ألابوزا المائية",
+      "كانيياكوماري: نصب فيفيكاناندا التذكاري وتمثال ثيروفالوفار ومعبد باغافاتي أمّان وغروب الشمس حيث تلتقي ثلاثة محيطات",
+      "فترة بعد ظهر حرة على شاطئ كوفالام وجولة ليوم كامل في ترفاندروم مع معبد سري بادمانابهاسوامي",
+      "سيارة إنوفا كريستا مكيَّفة مع سائق يتحدث العربية ومساعدة عند الوصول",
+    ],
+    itinerary: KKK8_ITINERARY,
+    seoTitle: "Kerala, Kanyakumari & Kovalam Tour Package — 7 Nights 8 Days | Safari Masti",
+    seoDescription:
+      "An 8-day package: Munnar, Thekkady, an Alleppey houseboat, Kanyakumari's sunset, Kovalam beach and Trivandrum, with an A/c Innova Crysta and an Arabic-speaking driver — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["kerala-hills-backwaters-kovalam-6-nights-7-days", "kerala-hills-backwaters-4-nights-5-days", "luxury-kerala-8-days"],
   },
 ];
 

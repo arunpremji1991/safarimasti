@@ -6,7 +6,7 @@ import { packages } from "@/data/packages";
 export const metadata: Metadata = {
   title: "Tour Packages — Kerala & Himachal",
   description:
-    "Ready-made journeys by Safari Masti — Kerala (two 5-day Munnar, Thekkady & Alleppey packages and an 8-day Luxury Kerala package) and a 9-day Shimla & Manali package, with full day-by-day itineraries.",
+    "Ready-made journeys by Safari Masti — Kerala (Munnar, Thekkady & Alleppey packages from 5 to 8 days, with Kovalam and Kanyakumari options, and an 8-day Luxury Kerala package) and a 9-day Shimla & Manali package, with full day-by-day itineraries.",
   alternates: { canonical: "/packages" },
 };
 
