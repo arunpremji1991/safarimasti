@@ -12,7 +12,7 @@ import { GoodToKnow } from "@/components/tour/GoodToKnow";
 import { SectionNav, NavSection } from "@/components/tour/SectionNav";
 import { ReadMore } from "@/components/tour/ReadMore";
 import { ItineraryAccordion } from "@/components/tour/ItineraryAccordion";
-import { ChecklistWithMore } from "@/components/tour/ChecklistWithMore";
+import { InclusionsTabs } from "@/components/tour/InclusionsTabs";
 import { TourCard } from "@/components/ui/TourCard";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { formatInr } from "@/lib/format";
@@ -228,19 +228,11 @@ export function TourPageContent({
 
             {/* Inclusions / Exclusions */}
             {hasInclusions && (
-              <section id="included" className="mt-14 scroll-mt-40 grid gap-5 sm:grid-cols-2">
-                {tour.inclusions.length > 0 && (
-                  <div className="rounded-2xl border border-charcoal-950/10 bg-white p-6">
-                    <h3 className="font-display mb-4 text-xl text-charcoal-950">{t("tour.whatsIncluded")}</h3>
-                    <ChecklistWithMore tone="yes" items={pick(tour.inclusions, tour.inclusionsAr) ?? tour.inclusions} />
-                  </div>
-                )}
-                {tour.exclusions.length > 0 && (
-                  <div className="rounded-2xl border border-charcoal-950/10 bg-white p-6">
-                    <h3 className="font-display mb-4 text-xl text-charcoal-950">{t("tour.whatsNotIncluded")}</h3>
-                    <ChecklistWithMore tone="no" items={pick(tour.exclusions, tour.exclusionsAr) ?? tour.exclusions} />
-                  </div>
-                )}
+              <section id="included" className="mt-14 scroll-mt-40">
+                <InclusionsTabs
+                  inclusions={pick(tour.inclusions, tour.inclusionsAr) ?? tour.inclusions}
+                  exclusions={pick(tour.exclusions, tour.exclusionsAr) ?? tour.exclusions}
+                />
               </section>
             )}
 
