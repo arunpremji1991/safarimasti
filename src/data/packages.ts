@@ -470,6 +470,87 @@ const SM_NOTES = [
 ];
 
 // ======================================================================================================
+// Package 4 — Kerala hills & backwaters, 4 nights / 5 days (Arabic-speaking driver, A/c Innova Crysta)
+// Source: "4 Nights/5 Days" package details (itinerary, inclusions, exclusions, general terms and houseboat
+// notes) supplied by Safari Masti. No price was supplied, so the page shows "Request a Quote".
+// ======================================================================================================
+const KH_ITINERARY: ItineraryStop[] = [
+  {
+    label: "Day 01",
+    labelAr: "اليوم ٠١",
+    title: "Cochin to Munnar",
+    titleAr: "من كوتشي إلى مونار",
+    description:
+      "On your arrival at Cochin Airport or Railway Station, our representative will greet you and assist with your transfer to Munnar, a breathtaking hill station 1,800 metres above sea level, famously known as a paradise for nature lovers. Along the scenic route, take a break to see the spectacular Cheyyappara Waterfalls. Arrive in Munnar, check into your chosen hotel or resort and enjoy a restful overnight stay.",
+    descriptionAr:
+      "عند وصولكم إلى مطار كوتشي أو محطة القطار يستقبلكم ممثلنا ويساعدكم في الانتقال إلى مونار، المحطة الجبلية الخلابة على ارتفاع ١٬٨٠٠ متر فوق سطح البحر والمعروفة بأنها جنة لعشاق الطبيعة. وفي الطريق الخلاب خذوا استراحة لمشاهدة شلالات تشيّابارا الرائعة. الوصول إلى مونار وتسجيل الوصول في الفندق أو المنتجع الذي اخترتموه والاستمتاع بمبيت هادئ.",
+  },
+  {
+    label: "Day 02",
+    labelAr: "اليوم ٠٢",
+    title: "Munnar sightseeing",
+    titleAr: "جولة في مونار",
+    description:
+      "Explore the best tourist places in Munnar. Start your day with breakfast before a full day of sightseeing. The morning is dedicated to Eravikulam National Park, home to rare wildlife and panoramic mountain views. In the afternoon, enjoy a scenic boat ride at Mattupetty Dam or Kundala Dam, take photos at the popular Echo Point and discover local history at the Tata Tea Museum. Spend a relaxing evening at leisure. Overnight in Munnar.",
+    descriptionAr:
+      "اكتشفوا أجمل الأماكن السياحية في مونار. ابدؤوا يومكم بالإفطار قبل جولة تستغرق اليوم كاملًا. الصباح مخصص لمنتزه إيرافيكولام الوطني، موطن الحياة البرية النادرة والمناظر الجبلية البانورامية. وبعد الظهر استمتعوا بجولة بالقارب الخلابة في سد ماتوبيتي أو سد كوندالا، والتقطوا الصور عند نقطة الصدى الشهيرة، وتعرّفوا على التاريخ المحلي في متحف تاتا للشاي. أمسية مريحة في أوقات الفراغ. المبيت في مونار.",
+  },
+  {
+    label: "Day 03",
+    labelAr: "اليوم ٠٣",
+    title: "Munnar to Thekkady",
+    titleAr: "من مونار إلى ثيكادي",
+    description:
+      "Travel from Munnar to the spice plantations of Thekkady. After breakfast, check out from your resort and head towards the lush forests of Thekkady. On arrival, check into your hotel. The afternoon features an educational spice plantation tour to see how local spices are grown. In the evening, experience a peaceful boat safari inside Periyar National Park, followed by free time for local shopping. Overnight in Thekkady.",
+    descriptionAr:
+      "الانتقال من مونار إلى مزارع التوابل في ثيكادي. بعد الإفطار تسجّلون المغادرة من المنتجع وتتجهون نحو غابات ثيكادي الخضراء. عند الوصول تسجّلون الوصول في الفندق. وبعد الظهر جولة تعليمية في مزرعة توابل لمعرفة كيف تُزرع التوابل المحلية. وفي المساء تعيشون سفاري هادئة بالقارب داخل منتزه بيريار الوطني، ثم وقت حر للتسوق المحلي. المبيت في ثيكادي.",
+  },
+  {
+    label: "Day 04",
+    labelAr: "اليوم ٠٤",
+    title: "Thekkady to Alleppey — houseboat",
+    titleAr: "من ثيكادي إلى ألابوزا — قارب سكني",
+    description:
+      "After breakfast, check out from your hotel in Thekkady and proceed to Alleppey — a captivating destination often called the “Venice of the East” for its network of canals. Renowned for its iconic houseboats, serene backwaters and pristine beaches, it is also famous for traditional coir crafts and fresh marine produce. Check in to the houseboat and start a peaceful backwater cruise on a traditional houseboat. Overnight on the Alleppey houseboat.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة من فندق ثيكادي وتتجهون إلى ألابوزا — الوجهة الساحرة التي يُطلق عليها غالبًا «بندقية الشرق» لشبكة قنواتها. وتشتهر بقواربها السكنية الأيقونية ومسطحاتها المائية الهادئة وشواطئها النقية، كما تشتهر بحرف ألياف جوز الهند التقليدية والمنتجات البحرية الطازجة. تصعدون إلى القارب السكني وتبدؤون رحلة هادئة في المسطحات المائية على قارب سكني تقليدي. المبيت على القارب السكني في ألابوزا.",
+  },
+  {
+    label: "Day 05",
+    labelAr: "اليوم ٠٥",
+    title: "Departure from Cochin",
+    titleAr: "المغادرة من كوتشي",
+    description:
+      "After breakfast, check out from your stay and proceed to Cochin Airport or Railway Station for your departure. Your tour ends with beautiful memories.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة وتتجهون إلى مطار كوتشي أو محطة القطار لمغادرتكم. وتنتهي رحلتكم بذكريات جميلة.",
+  },
+];
+
+const KH_INCLUSIONS = [
+  "Accommodation in the mentioned hotels on a twin-sharing basis",
+  "Breakfast at all hotels",
+  "All three meals and evening tea with snacks on the houseboat (if the option is selected)",
+  "Wildlife boating in Thekkady",
+  "Elephant ride in Thekkady",
+  "All meals on a premium houseboat",
+  "Transportation by A/c Innova Crysta car as per the itinerary",
+  "Arrival assistance and an Arabic-speaking driver",
+  "Driver's expenses, parking, tolls and all taxes",
+];
+const KH_INCLUSIONS_AR = [
+  "الإقامة في الفنادق المذكورة على أساس الإقامة المزدوجة",
+  "الإفطار في جميع الفنادق",
+  "الوجبات الثلاث وشاي المساء مع وجبات خفيفة على القارب السكني (في حال اختيار هذا الخيار)",
+  "جولة قارب لمشاهدة الحياة البرية في ثيكادي",
+  "ركوب الفيل في ثيكادي",
+  "جميع الوجبات على قارب سكني فاخر",
+  "التنقل بسيارة إنوفا كريستا مكيَّفة وفق البرنامج",
+  "المساعدة عند الوصول وسائق يتحدث العربية",
+  "نفقات السائق والمواقف ورسوم العبور وجميع الضرائب",
+];
+
+// ======================================================================================================
 export const packages: Tour[] = [
   {
     slug: "kerala-munnar-thekkady-alleppey-5-days",
@@ -544,7 +625,7 @@ export const packages: Tour[] = [
     seoTitle: "Kerala Tour Package: Munnar, Thekkady & Alleppey — 5 Days | Safari Masti",
     seoDescription:
       "A 5-day Kerala package through Munnar, Thekkady and an Alleppey houseboat, with 3★ or 4★ options from INR 37,300 including government taxes — by Safari Masti, Cochin.",
-    relatedTourSlugs: ["luxury-kerala-8-days", "shimla-manali-8-nights-9-days"],
+    relatedTourSlugs: ["kerala-hills-backwaters-4-nights-5-days", "luxury-kerala-8-days", "shimla-manali-8-nights-9-days"],
   },
   {
     slug: "luxury-kerala-8-days",
@@ -620,7 +701,7 @@ export const packages: Tour[] = [
     seoTitle: "Luxury Kerala Tour Package — 8 Days | Safari Masti",
     seoDescription:
       "An 8-day luxury Kerala package: Athirappilly Falls, Munnar, Thekkady, a private premium Alleppey houseboat and Cochin, INR 130,500 including government taxes — by Safari Masti.",
-    relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days"],
+    relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days", "kerala-hills-backwaters-4-nights-5-days"],
   },
   {
     slug: "shimla-manali-8-nights-9-days",
@@ -713,6 +794,63 @@ export const packages: Tour[] = [
     seoDescription:
       "A 9-day Delhi–Shimla–Manali–Chandigarh–Delhi family package with Kufri, Hadimba Temple, Solang Valley and the Atal Tunnel, from INR 14,500 per person plus GST — by Safari Masti.",
     relatedTourSlugs: ["luxury-kerala-8-days", "kerala-munnar-thekkady-alleppey-5-days"],
+  },
+  {
+    slug: "kerala-hills-backwaters-4-nights-5-days",
+    collectionSlug: "packages",
+    title: "Kerala Hills & Backwaters — 4 Nights / 5 Days",
+    titleAr: "تلال كيرالا ومسطحاتها المائية — ٤ ليالٍ / ٥ أيام",
+    destination: "Kerala",
+    destinationAr: "كيرالا",
+    region: ["South"],
+    category: ["South India", "Nature"],
+    duration: "5 Days · 4 Nights",
+    durationAr: "٥ أيام · ٤ ليالٍ",
+    travelStyle: ["Comfort", "Premium"],
+    bestFor: ["Hills, wildlife and backwaters with an Arabic-speaking driver"],
+    bestForAr: ["التلال والحياة البرية والمسطحات المائية مع سائق يتحدث العربية"],
+    shortDescription:
+      "Munnar, Thekkady and an Alleppey houseboat in 5 days — with an Arabic-speaking driver, an A/c Innova Crysta, a boat safari in Periyar and a night on the backwaters.",
+    shortDescriptionAr:
+      "مونار وثيكادي وقارب سكني في ألابوزا في ٥ أيام — مع سائق يتحدث العربية وسيارة إنوفا كريستا مكيَّفة وسفاري بالقارب في بيريار وليلة على المسطحات المائية.",
+    overview:
+      "Be greeted at Cochin and drive up to Munnar, 1,800 metres above sea level, for a full day among Eravikulam National Park, Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum. Continue to Thekkady for a spice plantation tour and a boat safari in Periyar National Park, then cruise the Alleppey backwaters and spend the night on a traditional houseboat before departing from Cochin. Your A/c Innova Crysta comes with an Arabic-speaking driver and arrival assistance.",
+    overviewAr:
+      "يستقبلكم فريقنا في كوتشي ثم تصعدون إلى مونار على ارتفاع ١٬٨٠٠ متر فوق سطح البحر ليوم كامل بين منتزه إيرافيكولام الوطني وسد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي. ثم تتابعون إلى ثيكادي لجولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني، فتجوبون مسطحات ألابوزا المائية وتبيتون على قارب سكني تقليدي قبل المغادرة من كوتشي. وتأتي سيارة إنوفا كريستا المكيَّفة مع سائق يتحدث العربية ومساعدة عند الوصول.",
+    heroImages: [
+      "/images/packages/munnar-tea-estate.30b7e082.webp",
+      "/images/packages/munnar-tea-road.ddf3bd6d.webp",
+      "/images/packages/eravikulam-tahr-closeup.f58cb0d1.webp",
+      "/images/packages/mattupetty-dam.02b7b3fe.webp",
+      "/images/packages/kerala-black-pepper.43635a5e.webp",
+      "/images/packages/periyar-lake.068d63f0.webp",
+      "/images/packages/alleppey-houseboat-canoe.8e5bd544.webp",
+      "/images/packages/alleppey-houseboat.968d7769.webp",
+    ],
+    highlights: [
+      "Cheyyappara Waterfalls on the drive up to Munnar, 1,800 metres above sea level",
+      "A full day in Munnar: Eravikulam National Park, a boat ride at Mattupetty or Kundala Dam, Echo Point and the Tata Tea Museum",
+      "A spice plantation tour and a boat safari in Periyar National Park, Thekkady",
+      "A night on a traditional houseboat in the Alleppey backwaters",
+      "A/c Innova Crysta with an Arabic-speaking driver and arrival assistance",
+    ],
+    highlightsAr: [
+      "شلالات تشيّابارا في الطريق إلى مونار على ارتفاع ١٬٨٠٠ متر فوق سطح البحر",
+      "يوم كامل في مونار: منتزه إيرافيكولام الوطني وجولة بالقارب في سد ماتوبيتي أو كوندالا ونقطة الصدى ومتحف تاتا للشاي",
+      "جولة في مزرعة توابل وسفاري بالقارب في منتزه بيريار الوطني في ثيكادي",
+      "ليلة على قارب سكني تقليدي في مسطحات ألابوزا المائية",
+      "سيارة إنوفا كريستا مكيَّفة مع سائق يتحدث العربية ومساعدة عند الوصول",
+    ],
+    itinerary: KH_ITINERARY,
+    inclusions: KH_INCLUSIONS,
+    inclusionsAr: KH_INCLUSIONS_AR,
+    exclusions: LUX_EXCLUSIONS,
+    exclusionsAr: LUX_EXCLUSIONS_AR,
+    goodToKnow: LUX_NOTES,
+    seoTitle: "Kerala Tour Package: Munnar, Thekkady & Alleppey — 4 Nights 5 Days | Safari Masti",
+    seoDescription:
+      "A 5-day Kerala package through Munnar, Thekkady and an Alleppey houseboat, with an A/c Innova Crysta and an Arabic-speaking driver — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["kerala-munnar-thekkady-alleppey-5-days", "luxury-kerala-8-days"],
   },
 ];
 

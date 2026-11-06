@@ -6,7 +6,7 @@ import { packages } from "@/data/packages";
 export const metadata: Metadata = {
   title: "Tour Packages — Kerala & Himachal",
   description:
-    "Ready-made journeys by Safari Masti — Kerala (a 5-day Munnar, Thekkady & Alleppey package and an 8-day Luxury Kerala package) and a 9-day Shimla & Manali package, with full itineraries and published prices.",
+    "Ready-made journeys by Safari Masti — Kerala (two 5-day Munnar, Thekkady & Alleppey packages and an 8-day Luxury Kerala package) and a 9-day Shimla & Manali package, with full day-by-day itineraries.",
   alternates: { canonical: "/packages" },
 };
 
@@ -33,8 +33,8 @@ export default function PackagesPage() {
         eyebrowAr="جديد"
         title="Packages"
         titleAr="الباقات"
-        description="Ready-made journeys across Kerala and Himachal with full day-by-day itineraries and published prices."
-        descriptionAr="رحلات جاهزة في كيرالا وهيماشال مع برامج يومية كاملة وأسعار معلنة."
+        description="Ready-made journeys across Kerala and Himachal with full day-by-day itineraries."
+        descriptionAr="رحلات جاهزة في كيرالا وهيماشال مع برامج يومية كاملة."
         image="/images/packages/alleppey-houseboat.968d7769.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
