@@ -48,7 +48,7 @@ description (for example Pariyaram/Athirappilly, Munnar, Mattupetty, Eravikulam,
 |---|---|
 | `hero/` | Homepage hero (Ladakh lake with travellers and prayer flags) |
 | `about/` | About section (Chinese fishing nets, Fort Kochi, Kerala) |
-| `sections/` | Full-bleed homepage sections: Kerala backwaters (brand statement), Himalayan road (Build Your Journey), Thar Desert caravan (image band) |
+| `sections/` | Full-bleed homepage sections: Kerala backwaters (brand statement), Himalayan road (Build Your Journey), Thar Desert caravan (image band); `contact-travel-map` is an [Unsplash](https://unsplash.com/photos/travel-planning-with-map-and-passport-AX6s7zREtZE) photograph (travel planning with a world map and passport) used as the Contact page hero |
 | `collections/` | One 16:9 hero and one card image for each of the 8 collections |
 | `destinations/` | One image for each of the 6 regions |
 | `services/` | One image for each of the 5 services (the honeymoon service shows a couple; the senior citizen service shows a group of seniors, with a second tea-table image for the Senior Citizen experience tile) |
