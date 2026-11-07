@@ -18,11 +18,14 @@ export function BookingPanel({
   tour,
   related,
   basePath,
+  quoteOnly,
   onOpen,
 }: {
   tour: Tour;
   related: Tour[];
   basePath: "/tours" | "/packages";
+  /** No published rate: the main button reads "Request a Quote". */
+  quoteOnly?: boolean;
   onOpen: (prefill: BookingPrefill) => void;
 }) {
   const { t, pick, locale } = useLanguage();
@@ -39,7 +42,9 @@ export function BookingPanel({
     lowest === undefined
       ? t("tour.requestQuote")
       : `${amounts.length > 1 ? `${t("package.from")} ` : ""}${formatInr(lowest, locale)}`;
-  const priceNote = lowest === undefined ? t("tour.pricedAround") : tour.pricing ? priceCaption(tour.pricing, t, locale) : "";
+  const priceNote =
+    lowest === undefined ? t(quoteOnly ? "tour.quoteNote" : "tour.pricedAround") : tour.pricing ? priceCaption(tour.pricing, t, locale) : "";
+  const cta = quoteOnly ? t("tour.requestQuote") : t("tour.planThisJourney");
 
   const open = () => onOpen({ travelDate: date, adults, children: kids, departureCity: from.trim() });
 
@@ -92,7 +97,7 @@ export function BookingPanel({
             type="submit"
             className="inline-flex w-full items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
           >
-            {t("tour.planThisJourney")}
+            {cta}
           </button>
         </form>
 
@@ -151,7 +156,7 @@ export function BookingPanel({
           onClick={open}
           className="w-full rounded-full bg-amber-500 py-3 text-center text-xs font-semibold uppercase tracking-wide text-maroon-950"
         >
-          {t("tour.planThisJourney")}
+          {cta}
         </button>
       </div>
     </>

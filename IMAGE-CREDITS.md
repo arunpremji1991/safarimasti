@@ -48,6 +48,29 @@ description (for example Pariyaram/Athirappilly, Munnar, Mattupetty, Eravikulam,
 | thiruvalluvar-statue | https://unsplash.com/photos/fS9LbYKRk5o |
 | kanyakumari-sunset | https://unsplash.com/photos/Zk8EAcaJp7c |
 | kanyakumari-sunset-crowd | https://unsplash.com/photos/People-watch-the-sunset-over-the-ocean-near-a-monument-LgNHQ |
+| taj-mahal-sunrise | https://unsplash.com/photos/DDiLYt_F88w |
+| taj-mahal-sunset | https://unsplash.com/photos/sAB4BWrQ4Y4 |
+| agra-fort | https://unsplash.com/photos/8goGYCLzrLs |
+| fatehpur-sikri-buland-darwaza | https://unsplash.com/photos/nuKBtf-MbK4 |
+| amber-fort | https://unsplash.com/photos/ZgbzOZW9U3o |
+| hawa-mahal | https://unsplash.com/photos/W3qWtMNwRf0 |
+| jantar-mantar | https://unsplash.com/photos/ZCa9LzaG_9M |
+| india-gate | https://unsplash.com/photos/XjKaPInYVCM |
+| qutub-minar | https://unsplash.com/photos/z4GzALvJ8xs |
+| humayuns-tomb | https://unsplash.com/photos/9WP-NVh2d6U |
+| goa-beach | https://unsplash.com/photos/INa5mgDXEUk |
+| fort-aguada | https://unsplash.com/photos/9QOoyvCr19w |
+| fort-aguada-cannon | https://unsplash.com/photos/1RWcFQuZ340 |
+| calangute-beach | https://unsplash.com/photos/UIOUdMsFHio |
+| anjuna-beach | https://unsplash.com/photos/ZflQJIsjkFQ |
+| basilica-bom-jesus | https://unsplash.com/photos/2hVc12jxwgg |
+| dal-lake-houseboats | https://unsplash.com/photos/72GwiojCwoI |
+| dal-lake-shikara | https://unsplash.com/photos/VV0fF4EoZaI |
+| gulmarg-gondola | https://unsplash.com/photos/Vkkg9XoUcZI |
+| pahalgam-valley | https://unsplash.com/photos/ELB1sDPY4Zo |
+| shalimar-bagh-srinagar | https://unsplash.com/photos/XH0aXEzRiPU |
+| sonamarg-thajiwas | https://unsplash.com/photos/iMnIu-GoEeE |
+| betaab-valley | https://unsplash.com/photos/mW9mGEeW1hY |
 
 ## Where they are used
 

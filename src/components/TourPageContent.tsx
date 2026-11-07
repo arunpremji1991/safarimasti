@@ -47,6 +47,8 @@ export function TourPageContent({
   const hasItinerary = tour.itinerary.length > 0;
   const hasInclusions = tour.inclusions.length > 0 || tour.exclusions.length > 0;
   const isPackage = kind === "package";
+  // Packages with no published rate (rates change week to week) are enquired about as a quote request.
+  const quoteOnly = isPackage && !tour.pricing;
   const amounts = tour.pricing?.options.map((o) => o.amountInr) ?? [];
   const lowest = amounts.length ? Math.min(...amounts) : undefined;
   const priceLabel =
@@ -250,6 +252,7 @@ export function TourPageContent({
               tour={tour}
               related={related}
               basePath={isPackage ? "/packages" : "/tours"}
+              quoteOnly={quoteOnly}
               onOpen={(p) => {
                 setPrefill(p);
                 setBookingOpen(true);
@@ -270,7 +273,7 @@ export function TourPageContent({
               onClick={() => setBookingOpen(true)}
               className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-maroon-950 hover:bg-amber-400"
             >
-              {t("tour.planThisJourney")}
+              {quoteOnly ? t("tour.requestQuote") : t("tour.planThisJourney")}
             </button>
             <Link
               href="/build-your-journey"
@@ -291,6 +294,7 @@ export function TourPageContent({
             key="booking"
             tour={tour}
             initial={prefill}
+            quoteOnly={quoteOnly}
             onClose={() => setBookingOpen(false)}
             onSent={(name) => {
               setBookingOpen(false);
@@ -303,8 +307,8 @@ export function TourPageContent({
         open={thanksName !== null}
         onClose={() => setThanksName(null)}
         name={thanksName ?? ""}
-        eyebrow={t("booking.bookEyebrow")}
-        body={t("booking.thanksBody")}
+        eyebrow={quoteOnly ? t("booking.quoteEyebrow") : t("booking.bookEyebrow")}
+        body={quoteOnly ? t("booking.quoteThanksBody") : t("booking.thanksBody")}
       />
     </>
   );

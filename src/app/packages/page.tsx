@@ -4,9 +4,9 @@ import { PackagesPageBody } from "@/components/PackagesPageBody";
 import { packages } from "@/data/packages";
 
 export const metadata: Metadata = {
-  title: "Tour Packages — Kerala & Himachal",
+  title: "Tour Packages — Kerala, Kashmir, Himachal, Goa & Golden Triangle",
   description:
-    "Ready-made journeys by Safari Masti — Kerala (Munnar, Thekkady & Alleppey packages from 5 to 8 days, with Kovalam and Kanyakumari options, and an 8-day Luxury Kerala package) and a 9-day Shimla & Manali package, with full day-by-day itineraries.",
+    "Ready-made journeys by Safari Masti — Kerala (Munnar, Thekkady & Alleppey packages from 5 to 8 days, with Kovalam and Kanyakumari options, and an 8-day Luxury Kerala package) a 9-day Shimla & Manali package, a 6-day Kashmir tour, a 6-day Golden Triangle (Delhi, Agra, Jaipur) and a 4-day Goa break, with full day-by-day itineraries.",
   alternates: { canonical: "/packages" },
 };
 
@@ -33,8 +33,8 @@ export default function PackagesPage() {
         eyebrowAr="جديد"
         title="Packages"
         titleAr="الباقات"
-        description="Ready-made journeys across Kerala and Himachal with full day-by-day itineraries."
-        descriptionAr="رحلات جاهزة في كيرالا وهيماشال مع برامج يومية كاملة."
+        description="Ready-made journeys across Kerala, Kashmir, Himachal, Goa and the Golden Triangle with full day-by-day itineraries."
+        descriptionAr="رحلات جاهزة في كيرالا وكشمير وهيماشال وغوا والمثلث الذهبي مع برامج يومية كاملة."
         image="/images/packages/alleppey-houseboat.968d7769.webp"
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },

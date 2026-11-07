@@ -34,11 +34,14 @@ function Field({ id, label, children }: { id: string; label: string; children: R
 export function BookingModal({
   tour,
   initial,
+  quoteOnly,
   onClose,
   onSent,
 }: {
   tour: Tour;
   initial?: BookingPrefill;
+  /** The package has no published rate, so the form is worded as a quote request. */
+  quoteOnly?: boolean;
   onClose: () => void;
   onSent: (name: string) => void;
 }) {
@@ -82,6 +85,7 @@ export function BookingModal({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          mode: quoteOnly ? "quote" : undefined,
           tourTitle: tour.title,
           pageUrl: window.location.href,
           packageOption: chosen ? `${chosen.label} — ${formatInr(chosen.amountInr, "en")}${tour.pricing?.perPerson ? " per person" : ""}` : "",
@@ -144,10 +148,10 @@ export function BookingModal({
             </svg>
           </button>
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-amber-300">
-            {t("booking.bookEyebrow")}
+            {quoteOnly ? t("booking.quoteEyebrow") : t("booking.bookEyebrow")}
           </p>
           <h2 id="booking-title" className="font-display mt-2 pe-10 text-2xl leading-tight sm:text-3xl">
-            {t("booking.bookTitle")}
+            {quoteOnly ? t("booking.quoteTitle") : t("booking.bookTitle")}
           </h2>
           <p className="mt-2 text-sm text-cream-100/85">
             <span className="text-amber-300">{title}</span>
@@ -227,9 +231,11 @@ export function BookingModal({
               disabled={status === "submitting"}
               className="w-full rounded-full bg-amber-500 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-maroon-950 shadow-[0_10px_30px_-10px_rgba(238,170,76,0.9)] transition hover:bg-amber-400 disabled:opacity-60"
             >
-              {status === "submitting" ? t("contactForm.sending") : t("booking.sendBook")}
+              {status === "submitting" ? t("contactForm.sending") : quoteOnly ? t("booking.sendQuote") : t("booking.sendBook")}
             </button>
-            <p className="mt-3 text-center text-xs text-charcoal-800/65">{t("booking.noPayment")}</p>
+            <p className="mt-3 text-center text-xs text-charcoal-800/65">
+              {quoteOnly ? t("booking.quoteNoPayment") : t("booking.noPayment")}
+            </p>
           </div>
         </form>
       </motion.div>

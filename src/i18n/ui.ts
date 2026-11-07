@@ -305,6 +305,23 @@ export const ui = {
     en: "We've received your request for this journey. Our team will confirm availability and get back to you shortly.",
     ar: "استلمنا طلبكم لهذه الرحلة. سيؤكد فريقنا التوفر ويتواصل معكم في أقرب وقت.",
   },
+  // Packages without a published rate: the same form, worded as a quote request
+  "booking.quoteEyebrow": { en: "Quote Request", ar: "طلب عرض سعر" },
+  "booking.quoteTitle": { en: "Request a Quote for This Journey", ar: "اطلبوا عرض سعر لهذه الرحلة" },
+  "booking.sendQuote": { en: "Send Quote Request", ar: "إرسال طلب عرض السعر" },
+  "booking.quoteNoPayment": {
+    en: "No payment is taken online. Our team will send you a current quote for your dates and group size.",
+    ar: "لا يتم أي دفع عبر الموقع. سيرسل لكم فريقنا عرض سعر حاليًا يناسب تواريخكم وحجم مجموعتكم.",
+  },
+  "booking.quoteThanksBody": {
+    en: "We've received your quote request. Our team will check current rates and availability and get back to you shortly.",
+    ar: "استلمنا طلب عرض السعر. سيتحقق فريقنا من الأسعار والتوفر الحاليين ويتواصل معكم في أقرب وقت.",
+  },
+  "tour.quoteNote": {
+    en: "Rates change week to week. Tell us your dates and we'll send a current quote.",
+    ar: "تتغير الأسعار من أسبوع إلى آخر. أخبرونا بتواريخكم وسنرسل لكم عرض سعر حاليًا.",
+  },
+  "package.quoteCaption": { en: "Rates vary by travel date", ar: "الأسعار تختلف حسب تاريخ السفر" },
   "booking.genericError": {
     en: "We couldn't send your request right now. Please call or WhatsApp us instead.",
     ar: "تعذّر إرسال طلبكم حاليًا. يُرجى الاتصال بنا أو مراسلتنا عبر واتساب.",

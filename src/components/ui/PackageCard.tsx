@@ -75,7 +75,10 @@ export function PackageCard({ pkg }: { pkg: Tour }) {
                 <p className="text-xs text-charcoal-800/60">{pkg.pricing ? priceCaption(pkg.pricing, t, locale) : ""}</p>
               </>
             ) : (
-              <p className="font-display text-xl text-maroon-800">{t("tour.requestQuote")}</p>
+              <>
+                <p className="font-display text-xl text-maroon-800">{t("tour.requestQuote")}</p>
+                <p className="text-xs text-charcoal-800/60">{t("package.quoteCaption")}</p>
+              </>
             )}
           </div>
           <span className="inline-flex items-center gap-2 rounded-full bg-maroon-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-cream-50 transition-colors group-hover:bg-maroon-800">

@@ -612,6 +612,268 @@ const KKK8_ITINERARY: ItineraryStop[] = [
 ];
 
 // ======================================================================================================
+// Packages 7–9 — Golden Triangle (5 nights / 6 days), Goa (3 nights / 4 days) and Kashmir (5 nights / 6 days)
+// Source: the "6 Days Golden Triangle Tour", "Goa 3 Nights" and "Kashmir PKG" documents supplied by Safari
+// Masti. No prices were supplied (rates change from week to week), so these pages show "Request a Quote".
+// The Golden Triangle and Goa documents list "Driver Allowance" and "Fuel Cost" under Inclusions with no
+// detail, so they appear here as plain included items.
+// ======================================================================================================
+const QUOTE_NOTE = {
+  label: "Rates and availability",
+  labelAr: "الأسعار والتوافر",
+  content:
+    "Rates and availability change from week to week, so we quote each trip individually. Request a quote with your travel dates and group size and we will confirm a current rate.",
+  contentAr:
+    "تتغير الأسعار والتوافر من أسبوع إلى آخر، لذا نقدّم عرض سعر خاصًا لكل رحلة. أرسلوا لنا طلب عرض سعر مع تواريخ سفركم وعدد المسافرين وسنؤكد لكم السعر الحالي.",
+};
+
+const GT_ITINERARY: ItineraryStop[] = [
+  {
+    ...dayLabel(1),
+    title: "Delhi — arrival",
+    titleAr: "الوصول إلى دلهي",
+    description:
+      "Your holiday begins the moment you land in Delhi. Our representative will meet you at the airport or railway station and drive you straight to your hotel for a smooth check-in. The rest of the day is entirely yours to unwind, adjust to the vibrant local energy, or take a gentle stroll around the neighbourhood before a peaceful night's rest.",
+    descriptionAr:
+      "تبدأ إجازتكم لحظة وصولكم إلى دلهي. يستقبلكم ممثلنا في المطار أو محطة القطار ويوصلكم مباشرة إلى الفندق لتسجيل وصول سلس. وبقية اليوم لكم بالكامل للاسترخاء والتأقلم مع أجواء المدينة النابضة بالحياة، أو للتنزه بهدوء في الحي المحيط قبل ليلة هادئة.",
+  },
+  {
+    ...dayLabel(2),
+    title: "Delhi to Agra — Mughal grandeur",
+    titleAr: "من دلهي إلى أغرا — عظمة المغول",
+    description:
+      "After breakfast, check out from the hotel and take a smooth drive down the expressway to Agra. After settling into your new hotel, head out to explore the massive Agra Fort, a red-stone fortress packed with fascinating history. As evening approaches, visit Mehtab Bagh across the river to watch the sunset paint the Taj Mahal in beautiful twilight colours. Overnight stay at your hotel in Agra.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة من الفندق وتنطلقون في رحلة سلسة عبر الطريق السريع إلى أغرا. وبعد الاستقرار في فندقكم الجديد تنطلقون لاستكشاف قلعة أغرا الضخمة، وهي حصن من الحجر الأحمر يزخر بتاريخ مشوّق. ومع اقتراب المساء تزورون ميهتاب باغ على الضفة المقابلة من النهر لمشاهدة الغروب وهو يلوّن تاج محل بألوان الشفق الجميلة. المبيت في فندقكم في أغرا.",
+  },
+  {
+    ...dayLabel(3),
+    title: "The Taj at sunrise and drive to Jaipur",
+    titleAr: "تاج محل عند الشروق والتوجه إلى جايبور",
+    description:
+      "Rise early for a magical moment: watching the Taj Mahal glow at sunrise as the morning light hits the white marble. Return to the hotel for breakfast, check out, and head towards Jaipur. Along the way, stop to explore the red-sandstone ruins of Fatehpur Sikri. Arrive in the royal Pink City by evening, check in and relax.",
+    descriptionAr:
+      "انهضوا مبكرًا للحظة ساحرة: مشاهدة تاج محل وهو يتوهج عند الشروق حين يلامس ضوء الصباح الرخام الأبيض. تعودون إلى الفندق لتناول الإفطار وتسجيل المغادرة ثم تتجهون نحو جايبور. وفي الطريق تتوقفون لاستكشاف أطلال فاتح بور سيكري من الحجر الرملي الأحمر. تصلون إلى المدينة الوردية الملكية مساءً وتسجّلون الوصول وتسترخون.",
+  },
+  {
+    ...dayLabel(4),
+    title: "Jaipur — palaces and hilltop forts",
+    titleAr: "جايبور — القصور والحصون على التلال",
+    description:
+      "After breakfast, spend a full day diving into Jaipur's royal heritage. Start with the majestic Amber Fort, nestled on a hilltop, to explore its stunning decorated halls. Later, take iconic photos outside the pink-hued Hawa Mahal (Palace of Winds), wander through the grand City Palace museum and see the giant historic sundials at Jantar Mantar. Overnight stay in Jaipur.",
+    descriptionAr:
+      "بعد الإفطار تقضون يومًا كاملًا في الغوص في تراث جايبور الملكي. تبدؤون بقلعة آمبر المهيبة المتربعة على التل لاستكشاف قاعاتها المزخرفة الرائعة. ثم تلتقطون صورًا أيقونية خارج هوا محل (قصر الرياح) الوردي، وتتجولون في متحف قصر المدينة الكبير، وتشاهدون المزاول الشمسية التاريخية العملاقة في جانتار مانتار. المبيت في جايبور.",
+  },
+  {
+    ...dayLabel(5),
+    title: "Jaipur to Delhi — back to the capital",
+    titleAr: "من جايبور إلى دلهي — العودة إلى العاصمة",
+    description:
+      "After breakfast, check out from your hotel and proceed to Delhi, where you check in to your hotel. In the afternoon, visit the soaring Qutub Minar, the peaceful Humayun's Tomb and the grand India Gate, followed by a drive past the impressive Parliament House. Overnight stay at the hotel in Delhi.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة من فندقكم وتتجهون إلى دلهي حيث تسجّلون الوصول في الفندق. وبعد الظهر تزورون قطب منار الشاهق وقبر همايون الهادئ وبوابة الهند المهيبة، ثم تمرون بمبنى البرلمان المميز. المبيت في فندق بدلهي.",
+  },
+  {
+    ...dayLabel(6),
+    title: "Delhi sightseeing and departure",
+    titleAr: "جولة في دلهي والمغادرة",
+    description:
+      "Before heading home, do some shopping in Delhi (if time permits). Finally, we will transfer you directly to the airport or railway station for your onward journey home.",
+    descriptionAr:
+      "قبل العودة إلى الديار يمكنكم التسوق في دلهي (إن سمح الوقت). وفي النهاية ننقلكم مباشرة إلى المطار أو محطة القطار لمتابعة رحلة العودة.",
+  },
+];
+
+const GOA_ITINERARY: ItineraryStop[] = [
+  {
+    ...dayLabel(1),
+    title: "Arrival and sunsets at leisure",
+    titleAr: "الوصول وغروب الشمس في أجواء الاسترخاء",
+    description:
+      "Pick-up from Goa Airport or Railway Station and check in to your hotel or resort in Goa. The afternoon is entirely yours to unwind by the pool, sink your toes into the nearby sand and sample fresh seafood at a local beach shack.",
+    descriptionAr:
+      "الاستقبال من مطار غوا أو محطة القطار وتسجيل الوصول في الفندق أو المنتجع في غوا. وبعد الظهر لكم بالكامل للاسترخاء بجانب المسبح وغمس أقدامكم في رمال الشاطئ القريب وتذوّق المأكولات البحرية الطازجة في أحد أكواخ الشاطئ المحلية.",
+  },
+  {
+    ...dayLabel(2),
+    title: "The energy of North Goa",
+    titleAr: "حيوية شمال غوا",
+    description:
+      "Dedicate your first full day to the high-spirited coastline. Your dedicated private transport takes you on a panoramic route exploring the historic battlements of Fort Aguada. Spend your afternoon beach-hopping between the buzzing shorelines of Calangute and Baga, catching an unforgettable golden-hour sunset at the rocky cliffs of Vagator or Anjuna. Overnight stay at your hotel in Goa.",
+    descriptionAr:
+      "خصصوا أول يوم كامل للساحل النابض بالحياة. تنقلكم سيارتكم الخاصة المخصصة في طريق بانورامي لاستكشاف أسوار حصن أغوادا التاريخية. وبعد الظهر تتنقلون بين شواطئ كالانغوت وباغا الصاخبة، وتشاهدون غروبًا ذهبيًا لا يُنسى عند المنحدرات الصخرية في فاغاتور أو أنجونا. المبيت في فندقكم في غوا.",
+  },
+  {
+    ...dayLabel(3),
+    title: "Heritage and solitude in South Goa",
+    titleAr: "التراث والسكينة في جنوب غوا",
+    description:
+      "Transition into a completely different vibe. Immerse yourself in the timeless architectural beauty of Old Goa by visiting the iconic UNESCO World Heritage sites, including the Se Cathedral and the Basilica of Bom Jesus. Conclude your day with a scenic drive past the viewpoint of Dona Paula and the serene riverfront of Miramar Beach. After the sightseeing tour of South Goa, overnight stay at your hotel in Goa.",
+    descriptionAr:
+      "انتقلوا إلى أجواء مختلفة تمامًا. انغمسوا في جمال العمارة الخالد لغوا القديمة بزيارة مواقع التراث العالمي لليونسكو الشهيرة، ومنها كاتدرائية سي وبازيليكا بوم جيسوس. وتختمون يومكم بجولة خلابة تمر بمنظر دونا باولا والواجهة النهرية الهادئة لشاطئ ميرامار. وبعد جولة جنوب غوا، المبيت في فندقكم في غوا.",
+  },
+  {
+    ...dayLabel(4),
+    title: "Spice markets and departure",
+    titleAr: "أسواق التوابل والمغادرة",
+    description:
+      "Savour a final tropical breakfast at your resort. Depending on your departure timing, enjoy a relaxed morning hunting for unique local spices, cashews and handicrafts at a traditional market before your private cab transfers you seamlessly back to the airport or railway station.",
+    descriptionAr:
+      "تناولوا إفطارًا استوائيًا أخيرًا في منتجعكم. وبحسب موعد مغادرتكم، استمتعوا بصباح هادئ للبحث عن التوابل المحلية الفريدة والكاجو والحرف اليدوية في سوق تقليدي قبل أن تنقلكم سيارتكم الخاصة بسلاسة إلى المطار أو محطة القطار.",
+  },
+];
+
+const KASHMIR_ITINERARY: ItineraryStop[] = [
+  {
+    ...dayLabel(1),
+    title: "Arrival in Srinagar",
+    titleAr: "الوصول إلى سريناغار",
+    description:
+      "Our service begins with your arrival at Srinagar Airport, where our representative will meet you and transfer you to a traditional houseboat on Dal Lake. After relaxing for an hour, experience a peaceful evening Shikara ride exploring the interiors of Dal Lake against the backdrop of the stunning Zabarwan mountain range. Overnight stay at the Srinagar houseboat.",
+    descriptionAr:
+      "تبدأ خدمتنا بوصولكم إلى مطار سريناغار حيث يستقبلكم ممثلنا وينقلكم إلى قارب سكني تقليدي على بحيرة دال. وبعد ساعة من الاسترخاء تستمتعون بجولة مسائية هادئة بقارب الشيكارا لاستكشاف أرجاء بحيرة دال على خلفية سلسلة جبال زابارفان الخلابة. المبيت على القارب السكني في سريناغار.",
+  },
+  {
+    ...dayLabel(2),
+    title: "Srinagar to Gulmarg",
+    titleAr: "من سريناغار إلى غولمارغ",
+    description:
+      "After breakfast, drive to Gulmarg, a premier hill station celebrated for its lush slopes and vibrant wildflowers. In winter, it transforms into India's top skiing destination. You can ride the famous Gondola Cable Car to the Kongdori meadows and up to the Apharwat peak (14,000 ft) for sweeping Himalayan views. Drive back to Srinagar for an overnight stay.",
+    descriptionAr:
+      "بعد الإفطار تتجهون إلى غولمارغ، المحطة الجبلية الشهيرة بمنحدراتها الخضراء وأزهارها البرية المتفتحة. وفي الشتاء تتحول إلى أفضل وجهة للتزلج في الهند. يمكنكم ركوب التلفريك الشهير (الغندولا) إلى مروج كونغدوري وصولًا إلى قمة أفاروات (١٤٬٠٠٠ قدم) لمشاهدة الهيمالايا بإطلالات واسعة. العودة إلى سريناغار للمبيت.",
+  },
+  {
+    ...dayLabel(3),
+    title: "Srinagar to Pahalgam",
+    titleAr: "من سريناغار إلى باهالغام",
+    description:
+      "Enjoy an early breakfast, check out, and head to Pahalgam, the beautiful “Valley of Shepherds” and a favourite spot for Bollywood films. En route, stop by the historic Awantipura ruins and fragrant saffron fields. Once there, enjoy breathtaking views or opt for a local cab to visit the scenic Betaab Valley and Chandanwari (on direct payment). Overnight stay in Pahalgam.",
+    descriptionAr:
+      "بعد إفطار مبكر وتسجيل المغادرة تتجهون إلى باهالغام، «وادي الرعاة» الجميل ومن المواقع المفضلة لأفلام بوليوود. وفي الطريق تتوقفون عند أطلال أوانتيبورا التاريخية وحقول الزعفران العطرة. وعند الوصول تستمتعون بالمناظر الخلابة أو تختارون سيارة أجرة محلية لزيارة وادي بيتاب وتشانداناواري (بالدفع المباشر). المبيت في باهالغام.",
+  },
+  {
+    ...dayLabel(4),
+    title: "Pahalgam to Srinagar — local sightseeing",
+    titleAr: "من باهالغام إلى سريناغار — جولة محلية",
+    description:
+      "After breakfast, check out and drive back to Srinagar for a local sightseeing tour. Explore the iconic Mughal Gardens: Nishat Bagh (Garden of Pleasure) and Shalimar Bagh (Garden of Love), both featuring terraced flower beds and fountains overlooking Dal Lake. Conclude your tour at the Chashme Shahi (Royal Spring). Overnight stay at a hotel in Srinagar.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة وتعودون إلى سريناغار لجولة سياحية محلية. تستكشفون حدائق المغول الأيقونية: نيشات باغ (حديقة المتعة) وشاليمار باغ (حديقة الحب)، وكلتاهما تضمان مدرجات من أحواض الزهور والنوافير المطلة على بحيرة دال. وتختمون جولتكم عند تشاشما شاهي (النبع الملكي). المبيت في فندق في سريناغار.",
+  },
+  {
+    ...dayLabel(5),
+    title: "Full-day excursion to Sonamarg",
+    titleAr: "رحلة ليوم كامل إلى سونامارغ",
+    description:
+      "After breakfast, embark on a full-day trip to Sonamarg, known as “The Meadow of Gold.” Surrounded by snow-capped peaks and dense pine forests, it serves as a spectacular gateway to Ladakh. Here, you can trek or take a pony ride to the stunning Thajiwas Glacier and admire the alpine meadows. Return to Srinagar for an overnight stay.",
+    descriptionAr:
+      "بعد الإفطار تنطلقون في رحلة ليوم كامل إلى سونامارغ، المعروفة بـ«مرج الذهب». تحيط بها قمم مكسوة بالثلوج وغابات صنوبر كثيفة، وهي بوابة رائعة نحو لداخ. وهنا يمكنكم المشي أو ركوب الخيل (البوني) إلى نهر ثاجيواس الجليدي الخلاب والإعجاب بالمروج الألبية. العودة إلى سريناغار للمبيت.",
+  },
+  {
+    ...dayLabel(6),
+    title: "Srinagar — departure",
+    titleAr: "سريناغار — المغادرة",
+    description:
+      "After breakfast, check out from the hotel and enjoy a comfortable transfer to Srinagar Airport for your onward journey. Your magical Kashmir tour concludes here, leaving you with beautiful memories to cherish forever.",
+    descriptionAr:
+      "بعد الإفطار تسجّلون المغادرة من الفندق وتستمتعون برحلة مريحة إلى مطار سريناغار لمتابعة رحلتكم. وتنتهي رحلتكم الساحرة في كشمير هنا، تاركةً لكم ذكريات جميلة تعتزون بها إلى الأبد.",
+  },
+];
+
+// Golden Triangle and Goa share the same inclusions list.
+const ROAD_INCLUSIONS = [
+  "Private vehicle for all your transfers and sightseeing",
+  "Comfortable double-occupancy stay at a hotel or resort",
+  "Complimentary breakfast at your accommodation",
+  "Tolls and parking",
+  "Driver allowance",
+  "Fuel cost",
+];
+const ROAD_INCLUSIONS_AR = [
+  "سيارة خاصة لجميع التنقلات والجولات السياحية",
+  "إقامة مريحة بنظام الإقامة المزدوجة في فندق أو منتجع",
+  "إفطار مجاني في مكان الإقامة",
+  "رسوم العبور والمواقف",
+  "بدل السائق",
+  "تكلفة الوقود",
+];
+
+const GT_EXCLUSIONS = [
+  "Airfare or train tickets to and from Delhi",
+  "Entry tickets to monuments, camera fees and any optional activities",
+  "Personal expenses: laundry, tips, shopping and travel insurance",
+  "Any items not mentioned in the inclusions or the itinerary",
+];
+const GT_EXCLUSIONS_AR = [
+  "تذاكر الطيران أو القطار من دلهي وإليها",
+  "تذاكر دخول المعالم ورسوم التصوير وأي أنشطة اختيارية",
+  "المصروفات الشخصية: الغسيل والإكراميات والتسوق والتأمين على السفر",
+  "أي بنود غير مذكورة في البنود المشمولة أو البرنامج",
+];
+
+const GOA_EXCLUSIONS = [
+  "Airfare or train tickets to and from Goa",
+  "Entry tickets to monuments, water sports charges, casino passes, camera fees and optional river cruises",
+  "Personal expenses: laundry, tips, shopping and travel insurance",
+];
+const GOA_EXCLUSIONS_AR = [
+  "تذاكر الطيران أو القطار من غوا وإليها",
+  "تذاكر دخول المعالم ورسوم الرياضات المائية وتذاكر الكازينو ورسوم التصوير والرحلات النهرية الاختيارية",
+  "المصروفات الشخصية: الغسيل والإكراميات والتسوق والتأمين على السفر",
+];
+
+const KASHMIR_INCLUSIONS = [
+  "Accommodation in 3-star or 4-star hotels (as per the option you choose)",
+  "Daily breakfast and dinner",
+  "Transportation by private A/c vehicle",
+  "Sightseeing as per the itinerary",
+  "Traditional Shikara ride on Dal Lake",
+  "Gondola ride in Gulmarg",
+  "Horse riding in Pahalgam",
+  "Services of an English-speaking driver cum guide",
+];
+const KASHMIR_INCLUSIONS_AR = [
+  "الإقامة في فنادق ٣ نجوم أو ٤ نجوم (حسب الخيار الذي تختارونه)",
+  "الإفطار والعشاء يوميًا",
+  "التنقل بمركبة خاصة مكيَّفة",
+  "الجولات السياحية وفق البرنامج",
+  "رحلة شيكارا تقليدية على بحيرة دال",
+  "ركوب التلفريك (الغندولا) في غولمارغ",
+  "ركوب الخيل في باهالغام",
+  "سائق مرشد يتحدث الإنجليزية",
+];
+const KASHMIR_EXCLUSIONS = [
+  "Air tickets and train tickets",
+  "Entry fees: all garden and monument entry fees",
+  "Sonamarg activities: Thajiwas Glacier sightseeing (by pony ride) at ₹800 per person",
+  "Gulmarg Gondola ride: First Phase tickets at ₹800 per person; combined First and Second Phase tickets at ₹1,800 per person",
+  "Pahalgam activities: river rafting at ₹500 per person",
+  "Local cab services: Aru and Betaab Valley sightseeing by Union Cab at ₹1,800 per vehicle",
+  "Winter transfer: Tangmarg to Gulmarg round trip by Union Cab at ₹1,800 per vehicle",
+  "Any personal expenses or services not explicitly specified in the inclusions",
+];
+const KASHMIR_EXCLUSIONS_AR = [
+  "تذاكر الطيران والقطار",
+  "رسوم الدخول: جميع رسوم دخول الحدائق والمعالم",
+  "أنشطة سونامارغ: جولة نهر ثاجيواس الجليدي (بركوب البوني) بسعر ٨٠٠ روبية للشخص",
+  "تلفريك غولمارغ: تذاكر المرحلة الأولى بسعر ٨٠٠ روبية للشخص؛ وتذاكر المرحلتين الأولى والثانية معًا بسعر ١٬٨٠٠ روبية للشخص",
+  "أنشطة باهالغام: التجديف في النهر (رافتينغ) بسعر ٥٠٠ روبية للشخص",
+  "سيارات الأجرة المحلية: جولة آرو ووادي بيتاب بسيارة اتحاد السائقين (Union Cab) بسعر ١٬٨٠٠ روبية للمركبة",
+  "التنقل الشتوي: الذهاب والعودة من تانغمارغ إلى غولمارغ بسيارة اتحاد السائقين بسعر ١٬٨٠٠ روبية للمركبة",
+  "أي مصروفات شخصية أو خدمات غير مذكورة صراحةً في البنود المشمولة",
+];
+const KASHMIR_NOTES = [
+  QUOTE_NOTE,
+  {
+    label: "Start and end point",
+    labelAr: "نقطة البداية والنهاية",
+    content: "The tour starts and ends at Srinagar Airport / Railway Station.",
+    contentAr: "تبدأ الجولة وتنتهي في مطار سريناغار / محطة القطار.",
+  },
+  ID_NOTE,
+];
+
+// ======================================================================================================
 export const packages: Tour[] = [
   {
     slug: "kerala-munnar-thekkady-alleppey-5-days",
@@ -854,7 +1116,7 @@ export const packages: Tour[] = [
     seoTitle: "Shimla Manali Tour Package — 8 Nights 9 Days from Delhi | Safari Masti",
     seoDescription:
       "A 9-day Delhi–Shimla–Manali–Chandigarh–Delhi family package with Kufri, Hadimba Temple, Solang Valley and the Atal Tunnel, from INR 14,500 per person plus GST — by Safari Masti.",
-    relatedTourSlugs: ["luxury-kerala-8-days", "kerala-munnar-thekkady-alleppey-5-days"],
+    relatedTourSlugs: ["kashmir-5-nights-6-days", "golden-triangle-5-nights-6-days", "luxury-kerala-8-days"],
   },
   {
     slug: "kerala-hills-backwaters-4-nights-5-days",
@@ -1036,6 +1298,178 @@ export const packages: Tour[] = [
     seoDescription:
       "An 8-day package: Munnar, Thekkady, an Alleppey houseboat, Kanyakumari's sunset, Kovalam beach and Trivandrum, with an A/c Innova Crysta and an Arabic-speaking driver — request a quote from Safari Masti, Cochin.",
     relatedTourSlugs: ["kerala-hills-backwaters-kovalam-6-nights-7-days", "kerala-hills-backwaters-4-nights-5-days", "luxury-kerala-8-days"],
+  },
+  {
+    slug: "golden-triangle-5-nights-6-days",
+    collectionSlug: "packages",
+    title: "Golden Triangle: Delhi, Agra & Jaipur — 5 Nights / 6 Days",
+    titleAr: "المثلث الذهبي: دلهي وأغرا وجايبور — ٥ ليالٍ / ٦ أيام",
+    destination: "Delhi, Agra & Jaipur",
+    destinationAr: "دلهي وأغرا وجايبور",
+    region: ["North"],
+    category: ["North India", "Heritage"],
+    duration: "6 Days · 5 Nights",
+    durationAr: "٦ أيام · ٥ ليالٍ",
+    travelStyle: ["Comfort"],
+    bestFor: ["First-time visitors to India's iconic monuments"],
+    bestForAr: ["الزوار لأول مرة لمعالم الهند الأيقونية"],
+    shortDescription:
+      "Delhi, Agra and Jaipur in 6 days: the Taj Mahal at sunrise, Agra Fort, Fatehpur Sikri, Amber Fort, Hawa Mahal and Delhi's Qutub Minar, Humayun's Tomb and India Gate — by private vehicle.",
+    shortDescriptionAr:
+      "دلهي وأغرا وجايبور في ٦ أيام: تاج محل عند الشروق وقلعة أغرا وفاتح بور سيكري وقلعة آمبر وهوا محل، وقطب منار وقبر همايون وبوابة الهند في دلهي — بسيارة خاصة.",
+    overview:
+      "India's classic circuit, starting and ending in Delhi. Drive to Agra for the red-stone Agra Fort and a sunset view of the Taj Mahal from Mehtab Bagh, return to the Taj at sunrise, then continue to Jaipur via the ruins of Fatehpur Sikri. Spend a full day among Jaipur's palaces and hilltop forts, then head back to Delhi for the Qutub Minar, Humayun's Tomb and India Gate before your departure. Everything is covered by a private vehicle, with breakfast at your hotel each morning.",
+    overviewAr:
+      "المسار الكلاسيكي للهند، ينطلق من دلهي وينتهي فيها. تتجهون إلى أغرا لزيارة قلعة أغرا من الحجر الأحمر ومشاهدة غروب تاج محل من ميهتاب باغ، ثم تعودون إلى تاج محل عند الشروق، وتتابعون إلى جايبور عبر أطلال فاتح بور سيكري. وتقضون يومًا كاملًا بين قصور جايبور وحصونها على التلال، ثم تعودون إلى دلهي لزيارة قطب منار وقبر همايون وبوابة الهند قبل مغادرتكم. وتغطي سيارة خاصة جميع تنقلاتكم، مع الإفطار في فندقكم كل صباح.",
+    heroImages: [
+      "/images/packages/taj-mahal-sunrise.d8bc1d09.webp",
+      "/images/packages/taj-mahal-sunset.fbc9dfc6.webp",
+      "/images/packages/agra-fort.c40b223e.webp",
+      "/images/packages/fatehpur-sikri-buland-darwaza.3f0fc805.webp",
+      "/images/packages/amber-fort.6ab29a82.webp",
+      "/images/packages/hawa-mahal.2182ca42.webp",
+      "/images/packages/jantar-mantar.c61f3147.webp",
+      "/images/packages/india-gate.a4fa773b.webp",
+      "/images/packages/qutub-minar.775dde61.webp",
+      "/images/packages/humayuns-tomb.9ca692c5.webp",
+    ],
+    highlights: [
+      "Agra Fort and a sunset view of the Taj Mahal from Mehtab Bagh",
+      "The Taj Mahal at sunrise, then the red-sandstone ruins of Fatehpur Sikri on the way to Jaipur",
+      "A full day in Jaipur: Amber Fort, Hawa Mahal, the City Palace museum and Jantar Mantar",
+      "Delhi's Qutub Minar, Humayun's Tomb and India Gate",
+      "A private vehicle for all transfers and sightseeing, with breakfast included",
+    ],
+    highlightsAr: [
+      "قلعة أغرا ومشاهدة غروب تاج محل من ميهتاب باغ",
+      "تاج محل عند الشروق، ثم أطلال فاتح بور سيكري من الحجر الرملي الأحمر في الطريق إلى جايبور",
+      "يوم كامل في جايبور: قلعة آمبر وهوا محل ومتحف قصر المدينة وجانتار مانتار",
+      "قطب منار وقبر همايون وبوابة الهند في دلهي",
+      "سيارة خاصة لجميع التنقلات والجولات السياحية مع الإفطار",
+    ],
+    itinerary: GT_ITINERARY,
+    inclusions: ROAD_INCLUSIONS,
+    inclusionsAr: ROAD_INCLUSIONS_AR,
+    exclusions: GT_EXCLUSIONS,
+    exclusionsAr: GT_EXCLUSIONS_AR,
+    goodToKnow: [QUOTE_NOTE, ID_NOTE],
+    seoTitle: "Golden Triangle Tour Package — Delhi, Agra, Jaipur 5 Nights 6 Days | Safari Masti",
+    seoDescription:
+      "A 6-day Golden Triangle package: Delhi, Agra (Taj Mahal at sunrise, Agra Fort), Fatehpur Sikri and Jaipur (Amber Fort, Hawa Mahal) by private vehicle — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["kashmir-5-nights-6-days", "goa-3-nights-4-days", "shimla-manali-8-nights-9-days"],
+  },
+  {
+    slug: "goa-3-nights-4-days",
+    collectionSlug: "packages",
+    title: "Goa — 3 Nights / 4 Days",
+    titleAr: "غوا — ٣ ليالٍ / ٤ أيام",
+    destination: "Goa",
+    destinationAr: "غوا",
+    region: ["West"],
+    category: ["West India", "Beaches"],
+    duration: "4 Days · 3 Nights",
+    durationAr: "٤ أيام · ٣ ليالٍ",
+    travelStyle: ["Comfort"],
+    bestFor: ["Beach breaks with sightseeing and heritage"],
+    bestForAr: ["عطلات الشاطئ مع الجولات والتراث"],
+    shortDescription:
+      "Four relaxed days in Goa: Fort Aguada, the beaches of Calangute, Baga, Vagator and Anjuna, Old Goa's UNESCO churches and a spice market — with a private vehicle throughout.",
+    shortDescriptionAr:
+      "أربعة أيام هادئة في غوا: حصن أغوادا وشواطئ كالانغوت وباغا وفاغاتور وأنجونا وكنائس غوا القديمة المدرجة لدى اليونسكو وسوق للتوابل — مع سيارة خاصة طوال الرحلة.",
+    overview:
+      "A first afternoon by the pool and the nearest beach, then a day on North Goa's coast: Fort Aguada, the lively shores of Calangute and Baga and a golden-hour sunset at the cliffs of Vagator or Anjuna. The next day turns to heritage in Old Goa, with its UNESCO World Heritage sites, the Se Cathedral and the Basilica of Bom Jesus, followed by the viewpoint at Dona Paula and Miramar Beach. On your last morning, browse a traditional market for spices, cashews and handicrafts before your private transfer to the airport or railway station.",
+    overviewAr:
+      "فترة بعد ظهر أولى بجانب المسبح وأقرب شاطئ، ثم يوم على ساحل شمال غوا: حصن أغوادا وشواطئ كالانغوت وباغا النابضة بالحياة وغروب ذهبي عند منحدرات فاغاتور أو أنجونا. ويتجه اليوم التالي إلى التراث في غوا القديمة بمواقعها المدرجة في التراث العالمي لليونسكو وكاتدرائية سي وبازيليكا بوم جيسوس، يليها منظر دونا باولا وشاطئ ميرامار. وفي صباحكم الأخير تتجولون في سوق تقليدي بحثًا عن التوابل والكاجو والحرف اليدوية قبل نقلكم الخاص إلى المطار أو محطة القطار.",
+    heroImages: [
+      "/images/packages/goa-beach.c92751ee.webp",
+      "/images/packages/fort-aguada.6063fb0f.webp",
+      "/images/packages/fort-aguada-cannon.ed2a42c9.webp",
+      "/images/packages/calangute-beach.c734e701.webp",
+      "/images/packages/anjuna-beach.ed44ecc2.webp",
+      "/images/packages/basilica-bom-jesus.db53c17d.webp",
+    ],
+    highlights: [
+      "Fort Aguada's historic battlements and the beaches of Calangute and Baga",
+      "A golden-hour sunset at the rocky cliffs of Vagator or Anjuna",
+      "Old Goa's UNESCO World Heritage sites: the Se Cathedral and the Basilica of Bom Jesus",
+      "A drive past the Dona Paula viewpoint and Miramar Beach",
+      "A private vehicle for all transfers and sightseeing, with breakfast included",
+    ],
+    highlightsAr: [
+      "أسوار حصن أغوادا التاريخية وشواطئ كالانغوت وباغا",
+      "غروب ذهبي عند المنحدرات الصخرية في فاغاتور أو أنجونا",
+      "مواقع التراث العالمي لليونسكو في غوا القديمة: كاتدرائية سي وبازيليكا بوم جيسوس",
+      "جولة بسيارة تمر بمنظر دونا باولا وشاطئ ميرامار",
+      "سيارة خاصة لجميع التنقلات والجولات السياحية مع الإفطار",
+    ],
+    itinerary: GOA_ITINERARY,
+    inclusions: ROAD_INCLUSIONS,
+    inclusionsAr: ROAD_INCLUSIONS_AR,
+    exclusions: GOA_EXCLUSIONS,
+    exclusionsAr: GOA_EXCLUSIONS_AR,
+    goodToKnow: [QUOTE_NOTE, ID_NOTE],
+    seoTitle: "Goa Tour Package — 3 Nights 4 Days | Safari Masti",
+    seoDescription:
+      "A 4-day Goa package: Fort Aguada, Calangute, Baga, Vagator and Anjuna beaches and Old Goa's UNESCO churches, with a private vehicle — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["golden-triangle-5-nights-6-days", "kerala-hills-backwaters-kovalam-6-nights-7-days", "kashmir-5-nights-6-days"],
+  },
+  {
+    slug: "kashmir-5-nights-6-days",
+    collectionSlug: "packages",
+    title: "Kashmir: Srinagar, Gulmarg, Pahalgam & Sonamarg — 5 Nights / 6 Days",
+    titleAr: "كشمير: سريناغار وغولمارغ وباهالغام وسونامارغ — ٥ ليالٍ / ٦ أيام",
+    destination: "Kashmir",
+    destinationAr: "كشمير",
+    region: ["North"],
+    category: ["North India", "Hill Stations", "Nature"],
+    duration: "6 Days · 5 Nights",
+    durationAr: "٦ أيام · ٥ ليالٍ",
+    travelStyle: ["Comfort", "Premium"],
+    bestFor: ["Mountain scenery, lakes and Mughal gardens"],
+    bestForAr: ["المناظر الجبلية والبحيرات وحدائق المغول"],
+    shortDescription:
+      "Srinagar, Gulmarg, Pahalgam and Sonamarg in 6 days: a night on a Dal Lake houseboat, a Shikara ride, the Gulmarg Gondola and the Mughal Gardens — with breakfast and dinner included.",
+    shortDescriptionAr:
+      "سريناغار وغولمارغ وباهالغام وسونامارغ في ٦ أيام: ليلة على قارب سكني في بحيرة دال ورحلة شيكارا وتلفريك غولمارغ وحدائق المغول — مع الإفطار والعشاء.",
+    overview:
+      "Land in Srinagar and settle onto a traditional Dal Lake houseboat, with an evening Shikara ride against the Zabarwan range. Day trips take you to Gulmarg's meadows and the Gondola Cable Car, and on to Pahalgam, the “Valley of Shepherds”, by way of the Awantipura ruins and saffron fields. Back in Srinagar you visit the Mughal Gardens of Nishat Bagh and Shalimar Bagh and the Chashme Shahi spring, then spend a full day in Sonamarg, the “Meadow of Gold”. You travel by private A/c vehicle with an English-speaking driver cum guide, in 3-star or 4-star hotels as you choose.",
+    overviewAr:
+      "تصلون إلى سريناغار وتستقرون في قارب سكني تقليدي على بحيرة دال، مع رحلة شيكارا مسائية على خلفية سلسلة زابارفان. وتأخذكم الرحلات النهارية إلى مروج غولمارغ والتلفريك، ثم إلى باهالغام «وادي الرعاة» مرورًا بأطلال أوانتيبورا وحقول الزعفران. وعند العودة إلى سريناغار تزورون حدائق المغول في نيشات باغ وشاليمار باغ ونبع تشاشما شاهي، ثم تقضون يومًا كاملًا في سونامارغ «مرج الذهب». وتتنقلون بمركبة خاصة مكيَّفة مع سائق مرشد يتحدث الإنجليزية، في فنادق ٣ نجوم أو ٤ نجوم بحسب اختياركم.",
+    heroImages: [
+      "/images/packages/dal-lake-houseboats.0b8238a7.webp",
+      "/images/packages/dal-lake-shikara.0103f123.webp",
+      "/images/packages/gulmarg-gondola.f91ca9e9.webp",
+      "/images/packages/pahalgam-valley.c313b2eb.webp",
+      "/images/packages/betaab-valley.f265c2e7.webp",
+      "/images/packages/shalimar-bagh-srinagar.bfcbaa6a.webp",
+      "/images/packages/sonamarg-thajiwas.98101e7c.webp",
+    ],
+    highlights: [
+      "A night on a traditional houseboat on Dal Lake and an evening Shikara ride",
+      "Gulmarg and the Gondola Cable Car to the Kongdori meadows and Apharwat peak",
+      "Pahalgam, the “Valley of Shepherds”, with the Awantipura ruins and saffron fields on the way",
+      "The Mughal Gardens of Nishat Bagh and Shalimar Bagh, and the Chashme Shahi spring",
+      "A full-day excursion to Sonamarg, the “Meadow of Gold”",
+      "Daily breakfast and dinner, with an English-speaking driver cum guide",
+    ],
+    highlightsAr: [
+      "ليلة على قارب سكني تقليدي في بحيرة دال ورحلة شيكارا مسائية",
+      "غولمارغ والتلفريك إلى مروج كونغدوري وقمة أفاروات",
+      "باهالغام «وادي الرعاة» مع أطلال أوانتيبورا وحقول الزعفران في الطريق",
+      "حدائق المغول في نيشات باغ وشاليمار باغ ونبع تشاشما شاهي",
+      "رحلة ليوم كامل إلى سونامارغ «مرج الذهب»",
+      "الإفطار والعشاء يوميًا مع سائق مرشد يتحدث الإنجليزية",
+    ],
+    itinerary: KASHMIR_ITINERARY,
+    inclusions: KASHMIR_INCLUSIONS,
+    inclusionsAr: KASHMIR_INCLUSIONS_AR,
+    exclusions: KASHMIR_EXCLUSIONS,
+    exclusionsAr: KASHMIR_EXCLUSIONS_AR,
+    goodToKnow: KASHMIR_NOTES,
+    seoTitle: "Kashmir Tour Package — Srinagar, Gulmarg, Pahalgam 5 Nights 6 Days | Safari Masti",
+    seoDescription:
+      "A 6-day Kashmir package: a Dal Lake houseboat, Shikara ride, Gulmarg Gondola, Pahalgam, the Mughal Gardens and Sonamarg, with breakfast and dinner — request a quote from Safari Masti, Cochin.",
+    relatedTourSlugs: ["shimla-manali-8-nights-9-days", "golden-triangle-5-nights-6-days", "goa-3-nights-4-days"],
   },
 ];
 

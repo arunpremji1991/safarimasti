@@ -12,7 +12,8 @@ if ($name === '' || $phone === '' || !filter_var($email, FILTER_VALIDATE_EMAIL))
     respond(422, ['error' => 'Please check the form and try again.']);
 }
 
-$mode = ($d['mode'] ?? '') === 'customize' ? 'Customization request' : 'Booking request';
+$modeKey = $d['mode'] ?? '';
+$mode = $modeKey === 'customize' ? 'Customization request' : ($modeKey === 'quote' ? 'Quote request' : 'Booking request');
 $tourTitle = clean_line($d['tourTitle'] ?? '', 200);
 $pageUrl = clean_line($d['pageUrl'] ?? '', 500);
 $packageOption = clean_line($d['packageOption'] ?? '', 300);
