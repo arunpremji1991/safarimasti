@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PackagesPageBody } from "@/components/PackagesPageBody";
+import { PackagesHeroStats } from "@/components/PackagesHeroStats";
 import { packages } from "@/data/packages";
 
 export const metadata: Metadata = {
@@ -36,11 +37,14 @@ export default function PackagesPage() {
         description="Ready-made journeys across Kerala, Kashmir, Himachal, Goa and the Golden Triangle with full day-by-day itineraries."
         descriptionAr="رحلات جاهزة في كيرالا وكشمير وهيماشال وغوا والمثلث الذهبي مع برامج يومية كاملة."
         image="/images/packages/alleppey-houseboat.968d7769.webp"
+        compact
         crumbs={[
           { label: "Home", labelAr: "الرئيسية", href: "/" },
           { label: "Packages", labelAr: "الباقات" },
         ]}
-      />
+      >
+        <PackagesHeroStats packages={packages} />
+      </PageHero>
       <PackagesPageBody packages={packages} />
     </>
   );

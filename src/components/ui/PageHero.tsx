@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Crumb {
@@ -21,6 +22,8 @@ interface PageHeroProps {
   imagePosition?: string;
   crumbs?: Crumb[];
   compact?: boolean;
+  /** Extra content under the description, e.g. stat chips. */
+  children?: ReactNode;
 }
 
 export function PageHero({
@@ -34,6 +37,7 @@ export function PageHero({
   imagePosition,
   crumbs,
   compact,
+  children,
 }: PageHeroProps) {
   const { pick } = useLanguage();
 
@@ -84,6 +88,7 @@ export function PageHero({
         {description && (
           <p className="mt-5 max-w-2xl text-lg text-cream-100/85">{pick(description, descriptionAr)}</p>
         )}
+        {children}
       </div>
     </section>
   );

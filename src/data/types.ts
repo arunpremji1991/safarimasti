@@ -84,6 +84,12 @@ export interface Tour {
   titleAr?: string;
   destination: string;
   destinationAr?: string;
+  /** Packages: the single place name used by the listing's Destination filter and card label, e.g. "Kerala". */
+  destinationGroup?: string;
+  destinationGroupAr?: string;
+  /** Packages: the city a journey starts in, shown on the card as "Starts in Cochin". */
+  startsIn?: string;
+  startsInAr?: string;
   region: Region[];
   category: string[];
   duration: string;
