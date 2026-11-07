@@ -1,0 +1,4 @@
+# Never serve config or helper files directly.
+<FilesMatch "^(config\.php|config\.sample\.php|_lib\.php|safarimasti-.*\.log)$">
+  Require all denied
+</FilesMatch>
