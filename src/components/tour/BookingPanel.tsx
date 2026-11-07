@@ -45,8 +45,8 @@ export function BookingPanel({
 
   return (
     <>
-      {/* Desktop plan card: pinned while scrolling; the related trips below scroll away beneath it */}
-      <div className="hidden rounded-2xl border border-charcoal-950/10 bg-cream-50 p-6 shadow-sm lg:sticky lg:top-28 lg:z-10 lg:block">
+      {/* Desktop plan card (in flow, so the related trips below never sit underneath it) */}
+      <div className="hidden rounded-2xl border border-charcoal-950/10 bg-cream-50 p-6 shadow-sm lg:block">
         <p className="text-xs font-semibold uppercase tracking-widest text-maroon-700">{t("tour.price")}</p>
         <p className="font-display mt-1 text-2xl text-charcoal-950">{priceText}</p>
         <p className="mt-1 text-sm text-charcoal-800/60">{priceNote}</p>
