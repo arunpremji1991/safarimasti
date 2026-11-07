@@ -360,6 +360,7 @@ export const ui = {
   "tour.whatsNotIncluded": { en: "What's Not Included", ar: "ما لا يشمله البرنامج" },
   "tour.goodToKnow": { en: "Good to Know", ar: "معلومات مفيدة" },
   "tour.youMayAlsoLike": { en: "You May Also Like", ar: "قد يعجبك أيضًا" },
+  "tour.exploreExperiences": { en: "Explore More Experiences", ar: "اكتشفوا المزيد من التجارب" },
   "tour.finalCtaTitle": { en: "Your Next Journey Starts Here.", ar: "رحلتكم القادمة تبدأ من هنا." },
   "tour.planThisJourney": { en: "Plan This Journey", ar: "خطط لهذه الرحلة" },
   "tour.buildYourOwnJourney": { en: "Build Your Own Journey", ar: "صمم رحلتك الخاصة" },

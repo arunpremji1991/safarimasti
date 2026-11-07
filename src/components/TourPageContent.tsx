@@ -5,7 +5,8 @@ import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import { TourGallery } from "@/components/tour/TourGallery";
 import { BookingPanel } from "@/components/tour/BookingPanel";
-import { BookingModal } from "@/components/tour/BookingModal";
+import { BookingModal, type BookingPrefill } from "@/components/tour/BookingModal";
+import { ExperienceTiles } from "@/components/tour/ExperienceTiles";
 import { ThankYouModal } from "@/components/ui/ThankYouModal";
 import { DesignedAroundYou } from "@/components/tour/DesignedAroundYou";
 import { GoodToKnow } from "@/components/tour/GoodToKnow";
@@ -13,8 +14,6 @@ import { SectionNav, NavSection } from "@/components/tour/SectionNav";
 import { ReadMore } from "@/components/tour/ReadMore";
 import { ItineraryAccordion } from "@/components/tour/ItineraryAccordion";
 import { InclusionsTabs } from "@/components/tour/InclusionsTabs";
-import { TourCard } from "@/components/ui/TourCard";
-import { PackageCard } from "@/components/ui/PackageCard";
 import { formatInr } from "@/lib/format";
 import { priceCaption } from "@/lib/pricing";
 import { Collection, Tour } from "@/data/types";
@@ -43,6 +42,7 @@ export function TourPageContent({
 }) {
   const { t, pick, locale } = useLanguage();
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [prefill, setPrefill] = useState<BookingPrefill>({});
   const [thanksName, setThanksName] = useState<string | null>(null);
   const hasItinerary = tour.itinerary.length > 0;
   const hasInclusions = tour.inclusions.length > 0 || tour.exclusions.length > 0;
@@ -246,23 +246,20 @@ export function TourPageContent({
           </div>
 
           <aside>
-            <BookingPanel tour={tour} onOpen={() => setBookingOpen(true)} />
+            <BookingPanel
+              tour={tour}
+              related={related}
+              basePath={isPackage ? "/packages" : "/tours"}
+              onOpen={(p) => {
+                setPrefill(p);
+                setBookingOpen(true);
+              }}
+            />
           </aside>
         </div>
 
-        {/* Related */}
-        {related.length > 0 && (
-          <section className="mt-24">
-            <h2 className="font-display text-2xl text-charcoal-950 sm:text-3xl">
-              {t("tour.youMayAlsoLike")}
-            </h2>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) =>
-                isPackage ? <PackageCard key={r.slug} pkg={r} /> : <TourCard key={r.slug} tour={r} />
-              )}
-            </div>
-          </section>
-        )}
+        {/* More experiences */}
+        <ExperienceTiles />
 
         {/* Final CTA */}
         <section className="mt-24 rounded-3xl bg-maroon-950 p-10 text-center text-cream-50 md:p-16">
@@ -293,6 +290,7 @@ export function TourPageContent({
           <BookingModal
             key="booking"
             tour={tour}
+            initial={prefill}
             onClose={() => setBookingOpen(false)}
             onSent={(name) => {
               setBookingOpen(false);

@@ -1043,10 +1043,13 @@ export function getPackageBySlug(slug: string) {
   return packages.find((p) => p.slug === slug);
 }
 
-export function getRelatedPackages(pkg: Tour) {
-  return (pkg.relatedTourSlugs ?? [])
+/** Up to `count` other packages: the hand-picked related ones first, then any others to fill the list. */
+export function getRelatedPackages(pkg: Tour, count = 3) {
+  const picked = (pkg.relatedTourSlugs ?? [])
     .map((slug) => getPackageBySlug(slug))
     .filter((p): p is Tour => Boolean(p));
+  const rest = packages.filter((p) => p.slug !== pkg.slug && !picked.some((r) => r.slug === p.slug));
+  return [...picked, ...rest].slice(0, count);
 }
 
 /** The lowest published price for a package, in INR. */

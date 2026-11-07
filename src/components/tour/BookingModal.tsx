@@ -7,6 +7,15 @@ import { Tour } from "@/data/types";
 import { formatInr } from "@/lib/format";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { PhoneFields } from "@/components/ui/PhoneField";
+import { Stepper } from "@/components/tour/Stepper";
+
+/** Trip details already entered in the price card, carried into the form. */
+export interface BookingPrefill {
+  travelDate?: string;
+  adults?: number;
+  children?: number;
+  departureCity?: string;
+}
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-charcoal-950/15 bg-white px-4 py-2.5 text-charcoal-950 transition focus:border-maroon-700 focus:outline-none focus:ring-2 focus:ring-amber-400/40";
@@ -22,45 +31,14 @@ function Field({ id, label, children }: { id: string; label: string; children: R
   );
 }
 
-function Stepper({
-  label,
-  value,
-  min,
-  max,
-  onChange,
-}: {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  onChange: (n: number) => void;
-}) {
-  const btn =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-charcoal-950/15 text-lg leading-none text-charcoal-900 transition hover:bg-amber-100 disabled:opacity-30";
-  return (
-    <div>
-      <span className="block text-sm font-semibold text-charcoal-900">{label}</span>
-      <div className="mt-1.5 flex items-center justify-between rounded-xl border border-charcoal-950/15 bg-white px-3 py-1.5">
-        <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label="−">
-          −
-        </button>
-        <span className="min-w-8 text-center font-semibold tabular-nums" aria-live="polite">
-          {value}
-        </span>
-        <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label="+">
-          +
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export function BookingModal({
   tour,
+  initial,
   onClose,
   onSent,
 }: {
   tour: Tour;
+  initial?: BookingPrefill;
   onClose: () => void;
   onSent: (name: string) => void;
 }) {
@@ -70,8 +48,8 @@ export function BookingModal({
   const [mounted, setMounted] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [error, setError] = useState("");
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(0);
+  const [adults, setAdults] = useState(initial?.adults ?? 2);
+  const [children, setChildren] = useState(initial?.children ?? 0);
   const options = tour.pricing?.options ?? [];
   const [optionIdx, setOptionIdx] = useState(0);
   const title = pick(tour.title, tour.titleAr);
@@ -225,10 +203,10 @@ export function BookingModal({
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Field id="bk-date" label={t("booking.travelDate")}>
-              <input id="bk-date" name="travelDate" type="date" min={today} className={inputClass} />
+              <input id="bk-date" name="travelDate" type="date" min={today} defaultValue={initial?.travelDate} className={inputClass} />
             </Field>
             <Field id="bk-from" label={t("booking.departure")}>
-              <input id="bk-from" name="departureCity" type="text" autoComplete="address-level2" className={inputClass} />
+              <input id="bk-from" name="departureCity" type="text" autoComplete="address-level2" defaultValue={initial?.departureCity} className={inputClass} />
             </Field>
           </div>
 
